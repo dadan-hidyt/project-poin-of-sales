@@ -1,0 +1,22 @@
++tb_pelanggan
+    -kode_pelanggan -> uuid:primary
+    -nama  -> varchar(50)
+    -email -> varchar(40)->isNull
+    -no_hp -> char(12)
+    -alamat -> text(100)
+    -poin -> integer
+    -tanggal_lahir -> date
+    -jenis_kelamin -> enum['L','P']
+    -kota -> varchar(50)
+    -avatar -> varchar(50)
++tb_product
+    -kode_produk->uuid:primary
+    -nama_produk->string(120)
+    -id_kategori_produk->unsignedBigInteger
+    -sku->string(12)
+    -tampil_di_menu -> enum(['Y','N'])
+    -harga_modal -> char(100)
+    -harga_beli -> char(100)
+    -harga_jual -> char(100)
+    -pajak -> char(50)
+    -stok -> string(100)
