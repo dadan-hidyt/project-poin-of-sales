@@ -12,9 +12,7 @@
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
-    <!--begin::Page Vendors Styles(used by this page)-->
-    <link href="{{ asset('assets') }}/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet"
-        type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}">
     <!--end::Page Vendors Styles-->
     <!--begin::Global Theme Styles(used by all pages)-->
     <link href="{{ asset('assets') }}/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
@@ -26,13 +24,14 @@
     <link href="{{ asset('assets') }}/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets') }}/css/themes/layout/brand/light.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets') }}/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css" />
-    @method('style')
+    @stack('style')
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{ asset('assets') }}/media/logos/favicon.ico" />
 </head>
 <!--end::Head-->
 
 <!--begin::Body-->
+
 <body id="kt_body"
     class="page-loading-enabled page-loading header-fixed header-mobile-fixed  subheader-fixed aside-enabled aside-fixed page-loading">
     {{-- page loader --}}
@@ -120,6 +119,9 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="{{ asset('assets') }}/js/pages/widgets.js"></script>
     <!--end::Page Scripts-->
+    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+    @stack('script')
 </body>
 <!--end::Body-->
+
 </html>

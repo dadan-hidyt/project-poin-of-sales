@@ -14,4 +14,7 @@ class Product extends Model
     public function kategori(){
         return $this->belongsTo(KategoriProduk::class,'id_kategori_produk','id');
     }
+    public function varian(){
+        return $this->hasOne(VarianProduk::class,'id','id_varian');
+    }
 }

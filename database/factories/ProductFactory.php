@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\KategoriProduk;
+use App\Models\VarianProduk;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,7 +25,9 @@ class ProductFactory extends Factory
             'harga_jual' =>  fake()->randomNumber(6),
             'harga_modal' =>  fake()->randomNumber(6),
             'id_kategori_produk' => KategoriProduk::all()->random()->id,
+            'id_varian' => VarianProduk::all()->random()->id,
             'satuan' => 'Item',
+            'stok' => rand(),
         ];
     }
 }

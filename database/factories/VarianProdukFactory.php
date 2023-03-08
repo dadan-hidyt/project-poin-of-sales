@@ -17,7 +17,8 @@ class VarianProdukFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama_varian' => 'EnAK',
+            'jenis_pilihan' => 'satu',
         ];
     }
 }

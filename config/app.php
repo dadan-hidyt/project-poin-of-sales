@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use Yajra\DataTables\DataTables;
+use Yajra\DataTables\DataTablesServiceProvider;
 
 return [
 
@@ -181,7 +183,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        DataTablesServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -209,6 +211,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'DataTables' => DataTables::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
