@@ -1,19 +1,36 @@
 <form wire:submit.prevent="tambah" class="form">
     <div class="form-group">
         <label for="nama_produk">Nama Produk</label>
-        <input wire:model.defer='produk.nama_produk' type="text" class="form-control">
+        <input wire:model.defer='produk.nama_produk' type="text"
+            class="form-control @error('produk.nama_produk') is-invalid @enderror">
+        @error('produk.nama_produk')
+            <span class="invalid-feedback">{{ $message }}</span>
+        @enderror
     </div>
     <div class="form-group" wire:ignore>
         <label for="pilih-kategori-produk">Pilih Kategori</label>
-        <select style='width:100%;' name="" id="pilih-kategori-produk"></select>
+        <select required style='width:100%;' class="@error('produk.id_kategori_produk') is-invalid @enderror"
+            name="" id="pilih-kategori-produk"></select>
+        @error('produk.id_kategori_produk')
+            <span class="invalid-feedback">{{ $message }}</span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="deskripsi-produk">Deskripsi Produk</label>
-        <textarea wire:model.defer='produk.deskripsi' class="form-control" id="deskripsi-produk" cols="30" rows="3"></textarea>
+        <textarea wire:model.defer='produk.deskripsi' class="form-control @error('produk.deskripsi')
+            is-invalid
+        @enderror" id="deskripsi-produk" cols="30" rows="3"></textarea>
+        @error('produk.deskripsi')
+            <span class="invalid-feedback">{{ $message }}</span>
+        @endif
     </div>
     <div class="form-group">
         <label for="stok">Stok</label>
-        <input wire:model.defer='produk.stok' type="number" class="form-control">
+        <input wire:model.defer='produk.stok' type="number"
+            class="form-control @error('produk.stok') is-invalid @enderror">
+        @error('produk.stok')
+            <span class="invalid-feedback">{{ $message }}</span>
+        @enderror
     </div>
 
     <div class="form-group">
@@ -32,20 +49,29 @@
     <div class="form-group row">
         <div class="col-lg-4">
             <label>Harga Jual:</label>
-            <input wire:model.defer='produk.harga_jual' type="text" class="form-control" id="harga-jual"
+            <input wire:model.defer='produk.harga_jual' type="text"
+                class="form-control @error('produk.harga_jual') is-invalid @enderror" id="harga-jual"
                 placeholder="Enter contact text" />
-            <span class="form-text text-muted">Please enter your contact</span>
+            @error('produk.harga_jual')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
         </div>
         <div class="col-lg-4">
             <label>Pajak Produk:</label>
-            <input type="text" wire:model.defer='produk.pajak' class="form-control" id="pajak"
+            <input type="text" wire:model.defer='produk.pajak'
+                class="form-control @error('produk.pajak') is-invalid @enderror" id="pajak"
                 placeholder="Fax number" />
-            <span class="form-text text-muted">Please enter fax</span>
+            @error('produk.pajak')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
         </div>
         <div class="col-lg-4">
             <label>Harga Harga Beli:</label>
-            <input wire:model.defer='produk.harga_beli' id="harga-beli" type="text" class="form-control"
-                placeholder="Enter your address" />
+            <input wire:model.defer='produk.harga_beli' type="number"
+                class="form-control @error('produk.harga_beli') is-invalid @enderror">
+            @error('produk.harga_beli')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
         </div>
     </div>
     <div class="form-group">
