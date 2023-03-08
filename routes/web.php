@@ -10,6 +10,7 @@ Route::get('/', function () {
  * rouer untuk autenticate
  */
 Route::prefix('auth')->name('auth')->group(base_path('routes/auth.php'));
-Route::get('/',function(){
-    return view('backend.dashboard.index');
-});
+/**
+ * ini adalah bagian dari 
+ */
+Route::prefix('dashboard')->name('dashboard')->group(base_path('routes/backend.php'));

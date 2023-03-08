@@ -38,7 +38,6 @@
 
 		<!--begin::Menu Container-->
 		<div id="kt_aside_menu" class="aside-menu my-4 " data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
-
 			<!--begin::Menu Nav-->
 			<ul class="menu-nav ">
 				<li class="menu-item  menu-item-active" aria-haspopup="true"><a href="index.html" class="menu-link "><i class="menu-icon flaticon2-poll-symbol"></i><span class="menu-text">Dashboard</span></a></li>
@@ -87,7 +86,7 @@
 						<ul class="menu-subnav">
 							<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Produk</span></span></li>
 							<li class="menu-item " aria-haspopup="true"><a href="layout/themes/aside-light.html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Kategori</span></a></li>
-							<li class="menu-item " aria-haspopup="true"><a href="layout/themes/header-dark.html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Produk</span></a></li>
+							<li class="menu-item " aria-haspopup="true"><a href="{{ route('dashboard.product.item') }}" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Produk</span></a></li>
 							<li class="menu-item " aria-haspopup="true"><a href="layout/themes/header-dark.html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Varian</span></a></li>
 						</ul>
 					</div>
