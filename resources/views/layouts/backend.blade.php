@@ -24,6 +24,7 @@
     <link href="{{ asset('assets') }}/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets') }}/css/themes/layout/brand/light.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets') }}/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css" />
+    @livewireStyles
     @stack('style')
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{ asset('assets') }}/media/logos/favicon.ico" />
@@ -120,6 +121,7 @@
     <script src="{{ asset('assets') }}/js/pages/widgets.js"></script>
     <!--end::Page Scripts-->
     <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+    @livewireScripts
     @stack('script')
 </body>
 <!--end::Body-->

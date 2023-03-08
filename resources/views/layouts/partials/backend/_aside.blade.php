@@ -7,8 +7,7 @@
 
 		<!--begin::Logo-->
 		<a href="index.html" class="brand-logo">
-			{{-- <img alt="Logo" src="assets/media/logos/logo-dark.png" /> --}}
-            <h3>SAUNG TEKO</h3>
+			<img alt="Logo" src="{{ asset('logo.png') }}" />
         </a>
 
 		<!--end::Logo-->
@@ -42,7 +41,7 @@
 			<ul class="menu-nav ">
 				<li class="menu-item  menu-item-active" aria-haspopup="true"><a href="index.html" class="menu-link "><i class="menu-icon flaticon2-poll-symbol"></i><span class="menu-text">Dashboard</span></a></li>
 				<li class="menu-section ">
-					<h4 class="menu-text">MENU UTAMA</h4>
+					<h4 class="menu-text">MAIN MENU</h4>
 					<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 				</li>
 				<li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"><a href="javascript:;" class="menu-link menu-toggle"><i class="menu-icon flaticon2-checking"></i><span class="menu-text">Laporan</span><i class="menu-arrow"></i></a>

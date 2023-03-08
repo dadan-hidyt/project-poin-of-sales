@@ -15,8 +15,10 @@ return new class extends Migration
             $table->uuid('id_transaksi')->primary();
             $table->dateTime('tanggal_order');
             $table->uuid('id_pelanggan');
+            $table->string('type_order')->default('lainya');
             $table->unsignedBigInteger('id_metode_pembayaran');
             $table->text('catatan');
+            $table->uuid('id_kasir');
             $table->integer('jumlah');
             $table->string('status_pembayaran');
             $table->string('kode_diskon')->nullable();
@@ -24,6 +26,8 @@ return new class extends Migration
             $table->string('kode_promo')->nullable();
             $table->integer('total_promo')->nullable();
             $table->integer('total_biaya');
+            $table->uuid('id_transaksi_parent')->nullable();
+            $table->enum('refund',['1','0']);
             $table->timestamps();
         });
     }
