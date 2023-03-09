@@ -8,9 +8,14 @@
         @enderror
     </div>
     <div class="form-group" wire:ignore>
-        <label for="pilih-kategori-produk">Pilih Kategori</label>
-        <select required style='width:100%;' class="@error('produk.id_kategori_produk') is-invalid @enderror"
-            name="" id="pilih-kategori-produk"></select>
+        <label>Kategori:</label>
+        <div class="input-group">
+            <select required style='width:90%;' class="@error('produk.id_kategori_produk') is-invalid @enderror"
+                name="" id="pilih-kategori-produk"></select>
+            <div class="input-group-append">
+                <button id="btn-add-new-kategori" class="btn btn-primary" type="button">Go!</button>
+            </div>
+        </div>
         @error('produk.id_kategori_produk')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
@@ -78,9 +83,9 @@
                 <label>Satuan:</label>
                 <input wire:model.defer='produk.satuan' type="text"
                     class="form-control @error('produk.satuan') is-invalid @enderror">
-                    @error('produk.satuan')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                    @enderror
+                @error('produk.satuan')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <div class="form-group" wire:ignore>
@@ -96,12 +101,9 @@
             <span wire:loading wire:target='tambah'>Menyimpan...</span>
         </div>
     </form>
-
+    <!--end::Modal-->
     @push('script')
         <script>
-
-          
-
             /**================UNTUK SELECT VARIAN PRODUk======================*/
             $('#select-varian-produk').select2({
                 placeholder: "Ketikan Varian Produk Kalau ada!",
@@ -137,6 +139,6 @@
             $('#harga-beli').mask('0.000.000.000', {
                 reverse: true
             });
-            /**================MORE....===================*/
+            
         </script>
     @endpush

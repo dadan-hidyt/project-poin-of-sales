@@ -3,12 +3,15 @@ namespace App\Repository;
 
 use App\Models\Product;
 use DataTables;
+use Nette\Utils\Html;
 
 class ItemProdukRepository
 {
     public function getDataTables()
     {
+        //datatable
         $data = Product::with(['kategori', 'varian'])->select(
+            'kode_produk',
             'nama_produk',
             'stok',
             'sku',
@@ -37,8 +40,11 @@ class ItemProdukRepository
             })
             ->addColumn('kategori', function ($row) {
                 return $row->kategori->nama_kategori;
-            })->addColumn('action', function () {
-            return 'dadan';
+            })->addColumn('action', function ($row) {
+                $html = "<button class='btn btn-delete btn-sm btn-danger' data-href='".$row->kode_produk."'> <i class='fa fa-trash'></i></button>";
+                $html .= "&nbsp;";
+                $html .= "<button class='btn btn-sm btn-info' data-href='".$row->kode_produk."'> <i class='fa fa-edit'></i></button>";
+            return $html;
         })->rawColumns(['action'])->make();
     }
 }

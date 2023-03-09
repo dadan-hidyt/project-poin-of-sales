@@ -34,18 +34,21 @@
                         </tr>
                     </thead>
                 </table>
+                <button class="button_delete">DELETE</button>
                 <!--end: Datatable-->
             </div>
         </div>
     </div>
     @include('backend.produk.partials.modal_tambah')
+    @include('backend.produk.partials.modal_tambah_kategori_inline')
 @endsection
 @push('script')
     <script>
         /**================MODAL TAMBAH PRODUk======================*/
-        const modal = $('#modal-tambah-produk');
+        const modalTambahData = $('#modal-tambah-produk');
+        const modalTambahKatagori = $('#modal_tambah_kategori_inline');
         $('#btn-tambah-produk').on('click', function() {
-            modal.modal('show');
+            modalTambahData.modal('show');
         });
 
         /**================
@@ -135,20 +138,43 @@
         window.addEventListener('productAdded', function(res) {
             if (res.detail.success == true) {
                 tabel.ajax.reload();
-                modal.modal('hide');
+                modalTambahData.modal('hide');
                 Swal.fire({
-                    title : 'Berhasil',
-                    icon : 'success',
-                    text : "Produk Berhasil Ditambahkan😁"
+                    title: 'Berhasil',
+                    icon: 'success',
+                    text: "Produk Berhasil Ditambahkan😁"
                 })
             } else {
                 Swal.fire({
-                    title : 'Gagal',
-                    icon : 'error',
-                    text : "Produk Gagal Ditambahkan😣"
+                    title: 'Gagal',
+                    icon: 'error',
+                    text: "Produk Gagal Ditambahkan😣"
                 })
             }
 
+        })
+
+        /**=================UNTUK TOMBOL HAPUS DAN UPDATE================**/
+        tabel.on('draw', function(params) {
+            //delete
+        })
+        /**================ MENAMBAH KATEGORI BARU.===================*/
+        $('#btn-add-new-kategori').on('click', function() {
+            modalTambahData.modal('hide');
+            modalTambahKatagori.modal('show');
+        });
+        /***==
+         * JIKA KATEGORI DI TAMBAHKAN MAKA TAMPILKAN ULANG MODAL TAMBAH PRODUK
+         * DAN TUTUP MODAL TAMBAH KATAEGORI
+         * **/
+        window.addEventListener('kategoriDitambahkan', function(e) {
+            if (e.detail == true) {
+                modalTambahData.modal('show');
+                modalTambahKatagori.modal('hide');
+            } else {
+                modalTambahData.modal('hide');
+                modalTambahKatagori.modal('show');
+            }
         })
     </script>
 @endpush
