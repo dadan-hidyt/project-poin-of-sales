@@ -32,7 +32,6 @@
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
-
     <div class="form-group">
         <label>Poduk Favorit: ?</label>
         <div class="col-3">
