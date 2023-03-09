@@ -7,7 +7,7 @@
 
 		<!--begin::Logo-->
 		<a href="index.html" class="brand-logo">
-			<img alt="Logo" src="{{ asset('logo.png') }}" />
+			<img width="80px" alt="Logo" src="{{ asset('logo.png') }}" />
         </a>
 
 		<!--end::Logo-->

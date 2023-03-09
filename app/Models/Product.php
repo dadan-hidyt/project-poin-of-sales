@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
     protected $primarykey = 'kode_produk';
     protected $table = 'tb_produk';
-
+    protected $guarded = false;
     public function kategori(){
         return $this->belongsTo(KategoriProduk::class,'id_kategori_produk','id');
     }

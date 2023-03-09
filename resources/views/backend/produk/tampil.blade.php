@@ -27,7 +27,7 @@
                             <th>Stok</th>
                             <th>Sku</th>
                             <th>Kategori</th>
-                            <th>Harga Modal</th>
+                            <th>Satuan</th>
                             <th>Harga Jual</th>
                             <th>Harga Beli</th>
                             <th>Actions</th>
@@ -50,10 +50,10 @@
 
         /**================
          * DATATABLES UNTUK PRODUK
-         * Serverside Rendering
+         * -Data Dari tabel di render di sisi server
+         * -Sumber Data: `{{ route('dashboard.product.item.datatable') }}`
          * ======================*/
-        const tabel = $('#tabel_produk');
-        tabel.DataTable({
+        const tabel = $('#tabel_produk').DataTable({
             responsive: true,
             serverSide: true,
             processing: true,
@@ -109,8 +109,8 @@
                     name: 'katagori',
                 },
                 {
-                    data: 'harga_modal',
-                    data: 'harga_modal'
+                    data: 'satuan',
+                    data: 'satuan'
                 },
 
                 {
@@ -126,6 +126,29 @@
                     name: 'action',
                 }
             ],
+        });
+        /**===============================================
+         * RESPON YANG TERJADI KETIKA PRODUK DI TAMBAHKAN
+         * -Respon didapatkan dari server
+         * ==============================================
+         * **/
+        window.addEventListener('productAdded', function(res) {
+            if (res.detail.success == true) {
+                tabel.ajax.reload();
+                modal.modal('hide');
+                Swal.fire({
+                    title : 'Berhasil',
+                    icon : 'success',
+                    text : "Produk Berhasil Ditambahkan😁"
+                })
+            } else {
+                Swal.fire({
+                    title : 'Gagal',
+                    icon : 'error',
+                    text : "Produk Gagal Ditambahkan😣"
+                })
+            }
+
         })
     </script>
 @endpush

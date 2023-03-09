@@ -14,6 +14,9 @@ class ItemProdukRepository
             'sku',
             'id_varian',
             'harga_jual',
+            'harga_beli',
+            'satuan',
+            'pajak',
             'id_kategori_produk',
         )->latest()->get();
         /**
@@ -23,8 +26,8 @@ class ItemProdukRepository
             ->addColumn('harga_jual', function ($row) {
                 return "Rp. " . number_format($row->harga_jual, 2, '.', ',');
             })
-            ->addColumn('harga_modal', function ($row) {
-                return "Rp. " . number_format($row->harga_modal, 2, '.', ',');
+            ->addColumn('satuan', function ($row) {
+                return $row->satuan;
             })
             ->addColumn('nama_produk', function ($row) {
                 return $row->nama_produk;

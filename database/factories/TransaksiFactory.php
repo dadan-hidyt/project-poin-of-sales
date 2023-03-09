@@ -23,6 +23,7 @@ class TransaksiFactory extends Factory
             'id_metode_pembayaran' => 1,
             'catatan' => 'lorem',
             'jumlah' => 2,
+            'id_kasir' => 'UUD',
             'status_pembayaran' => "DIBAYAR",
             'total_biaya' => 2000000,
         ];
