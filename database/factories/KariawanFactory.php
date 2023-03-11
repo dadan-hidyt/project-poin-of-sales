@@ -17,7 +17,11 @@ class KariawanFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nik' => fake()->nik,
+            'nama' => fake()->name(),
+            'no_telp' => fake()->phoneNumber(),
+            'email' => fake()->email(),
+            'avatar' => fake()->imageUrl(),
         ];
     }
 }

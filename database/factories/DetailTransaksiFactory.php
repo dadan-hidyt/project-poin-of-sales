@@ -19,8 +19,7 @@ class DetailTransaksiFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_detail_transaksi' => fake()->uuid(),
-            'id_transaksi' => Transaksi::all()->random()->id_transaksi,
+            'kode_transaksi' => Transaksi::all()->random()->kode_transaksi,
             'kode_produk' => Product::all()->random()->kode_produk,
             'jumlah' => 4,
             'harga' => 20000,

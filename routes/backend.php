@@ -8,10 +8,13 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/',[DashboardController::class,'index'])->name('.index');
 #product
-Route::prefix('produk')->name('.product')->group(function(){
-   Route::get('item',[ItemController::class,'index'])->name('.item');
-   Route::post('item/get',[ItemController::class,'getDatatables'])->name('.item.datatable');
-   Route::get('item/get/kategori',[KategoriController::class,'getAjax'])->name('.item.ajax.kategori');
-   Route::get('item/get/varian',[VarianController::class,'getAjax'])->name('.item.ajax.varian');
+Route::prefix('/produk')->name('.product')->group(function(){
+   Route::prefix('/item')->group(function(){
+      Route::get('',[ItemController::class,'index'])->name('.item');
+      Route::post('/get',[ItemController::class,'getDatatables'])->name('.item.datatable');
+      Route::get('/get/kategori',[KategoriController::class,'getAjax'])->name('.item.ajax.kategori');
+      Route::get('/get/varian',[VarianController::class,'getAjax'])->name('.item.ajax.varian');
+      Route::get('/{kode_produk?}/delete',[ItemController::class,'delete'])->name('.item.delete');
+   });
 
 });

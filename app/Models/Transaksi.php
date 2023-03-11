@@ -7,10 +7,9 @@ class Transaksi extends Model
 {
     use HasFactory;
     protected $with = ['detailTransaksi'];
-    protected $primarykey = 'id_transaksi';
     protected $table = 'tb_transaksi';
     public function detailTransaksi(){
-        return $this->hasMany(DetailTransaksi::class,'id_transaksi','id_transaksi');
+        return $this->hasMany(DetailTransaksi::class,'kode_transaksi','kode_transaksi');
     }
 }
 ?>

@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_kupon',5);
             $table->enum('jenis_kupon',['SP','PP'])->default('SP');
-            $table->uuid('id_produk')->nullable();
+            $table->string('kode_produk',8)->nullable();
             $table->integer('jumlah_kupon')->default(0);
             $table->integer('jumlah_terpakai')->default(0);
             $table->integer('jumlah_sisa')->default(0);

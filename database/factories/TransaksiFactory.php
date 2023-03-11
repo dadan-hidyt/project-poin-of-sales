@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Kariawan;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Order>
  */
@@ -17,13 +18,13 @@ class TransaksiFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_transaksi' => fake()->uuid(),
+            'kode_transaksi' => Str::upper(uniqid('TR')),
             'tanggal_order' => now(),
             'id_pelanggan' => 1,
             'id_metode_pembayaran' => 1,
             'catatan' => 'lorem',
             'jumlah' => 2,
-            'id_kasir' => 'UUD',
+            'id_kasir' => Kariawan::all()->random()->id,
             'status_pembayaran' => "DIBAYAR",
             'total_biaya' => 2000000,
         ];

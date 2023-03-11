@@ -10,4 +10,5 @@ use Illuminate\Database\Eloquent\Model;
 class Kariawan extends Model
 {
     use HasFactory;
+    protected $table = 'tb_karyawan';
 }

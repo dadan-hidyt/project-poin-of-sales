@@ -2,6 +2,16 @@
 
 @section('main')
     <div class="col-12">
+        @error('gagal_hapus_produk')
+            <p class="alert alert-warning">
+                {{ $message }}
+            </p>
+        @enderror
+        @error('berasil_hapus_produk')
+            <p class="alert alert-success">
+                {{ $message }}
+            </p>
+        @enderror
         <div class="card card-custom">
             <div class="card-header">
                 <div class="card-title">

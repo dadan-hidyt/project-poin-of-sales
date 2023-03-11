@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_karyawan', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->char('nik',50);
             $table->string('nama',50);
-            $table->char('no_telp',16);
+            $table->char('no_telp',50);
             $table->string('email',60);
-            $table->string('avatar',120);
+            $table->string('avatar',120)->nullable();
             $table->timestamps();
         });
     }

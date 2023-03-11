@@ -11,7 +11,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_produk', function (Blueprint $table) {
-            $table->uuid('kode_produk')->primary();
+            $table->id();
+            $table->string('kode_produk')->unique();
             $table->string('nama_produk',120);
             $table->unsignedBigInteger('id_kategori_produk');
             $table->string('sku',12)->nullable();

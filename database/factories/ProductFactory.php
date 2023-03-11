@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\KategoriProduk;
 use App\Models\VarianProduk;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
  */
@@ -19,8 +19,8 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'kode_produk' => fake()->uuid(),
-            'nama_produk' => "Sabun bolonng ".rand(),
+            'kode_produk' => Str::snake(uniqid('P-')),
+            'nama_produk' => fake()->userName(),
             'harga_beli' => fake()->randomNumber(6),
             'harga_jual' =>  fake()->randomNumber(6),
             'harga_modal' =>  fake()->randomNumber(6),
