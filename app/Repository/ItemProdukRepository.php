@@ -42,9 +42,9 @@ class ItemProdukRepository
             ->addColumn('kategori', function ($row) {
                 return $row->kategori->nama_kategori;
             })->addColumn('action', function ($row) {
-                $html = "<a class='btn-delete' href='".route('dashboard.product.item.delete',$row->id)."'> <i class='fa fa-trash'></i></a>";
+                $html = "<a class='btn-delete' onclick='return confirm('Apakah anda yakin?')' href='".route('dashboard.product.item.delete',$row->id)."'> <i class='fa fa-trash'></i></a>";
                 $html .= "&nbsp;";
-                $html .= "<a class='btn-edit' href='".route('dashboard.product.item.delete',$row->id)."'> <i class='fa fa-edit'></i></a>";
+                $html .= "<a class='btn-edit' href='".route('dashboard.product.item.update',$row->id)."'> <i class='fa fa-edit'></i></a>";
             return $html;
         })->rawColumns(['action'])->make();
     }

@@ -18,6 +18,14 @@ class ItemController extends Controller
     {
         $this->itemRepository = new ItemProdukRepository();
     }
+    public function update(Request $request,$id = null) {
+        abort_if($id === null,404);
+        $item = Product::findOrFail($id)->first();
+        return view('backend.produk.edit',[
+            'item' => $item,
+            'title' => 'Edit Item',
+        ]);
+    }
     public function delete(Request $request, Product $product, $kodeProduk = null)
     {
         if (is_null($kodeProduk)) {
@@ -25,7 +33,6 @@ class ItemController extends Controller
         }
         //proses
         $rowOfProduct = $product->with(['kategori', 'varian'])->findOrFail($kodeProduk);
-        $existsData = [];
         $error = [];
         //relasi detail transaksi dengan produk ini
         //kita check dulu apakah ada data atau tidak
@@ -50,7 +57,7 @@ class ItemController extends Controller
     }
     public function index()
     {
-        $this->deleteAction('index', 'home', 'data');
+        $this->setTitle('Item Produk');
         return view('backend.produk.tampil');
     }
     public function getDatatables(Request $request)

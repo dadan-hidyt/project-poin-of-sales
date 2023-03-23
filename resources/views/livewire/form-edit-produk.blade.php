@@ -1,4 +1,4 @@
-<form wire:submit.prevent="tambah" class="form">
+<form wire:submit.prevent="update" class="form">
     <div class="form-group">
         <label for="nama_produk">Nama Produk</label>
         <input wire:model.defer='produk.nama_produk' type="text"
@@ -15,6 +15,8 @@
             <div class="input-group-append">
                 <button id="btn-add-new-kategori" class="btn btn-primary" type="button">Go!</button>
             </div>
+            <span class="form-text text-info text-sm">Jika kataegori tidak di isi, Maka kategori nya masih kategori yang
+                sebelumnya</span>
         </div>
         @error('produk.id_kategori_produk')
             <span class="invalid-feedback">{{ $message }}</span>
@@ -26,7 +28,7 @@
             class="form-control @error('produk.deskripsi')
             is-invalid
         @enderror" id="deskripsi-produk"
-            cols="30" rows="3"></textarea>
+            cols="30" rows="3">"{{ $this->produk['deskripsi'] }}</textarea>
         @error('produk.deskripsi')
             <span class="invalid-feedback">{{ $message }}</span>
             @endif
@@ -111,7 +113,7 @@
                 ajax: {
                     url: "{{ route('dashboard.product.item.ajax.varian') }}",
                 }
-            });
+            })
             $('#select-varian-produk').on('change', () => {
                 @this.set('produk.id_varian', $('#select-varian-produk').select2('val'));
             });
@@ -133,6 +135,8 @@
             $('#harga-jual').mask('0.000.000.000', {
                 reverse: true
             });
+            //default value
+            $('#harga-jual').trigger('input')
             $('#pajak').mask('0.000.000.000', {
                 reverse: true
             });
