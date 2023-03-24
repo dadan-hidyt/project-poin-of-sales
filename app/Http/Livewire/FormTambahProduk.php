@@ -27,6 +27,7 @@ class FormTambahProduk extends Component
     }
     public function tambah(Product $product)
     {
+
         $this->validate();
         /**
          * harga jual nya bresihkan titik2 ke integer

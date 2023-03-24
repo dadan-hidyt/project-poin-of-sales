@@ -10,7 +10,7 @@
     <div class="form-group" wire:ignore>
         <label>Kategori:</label>
         <div class="input-group">
-            <select required style='width:90%;' class="@error('produk.id_kategori_produk') is-invalid @enderror"
+            <select style='width:90%;' class="@error('produk.id_kategori_produk') is-invalid @enderror"
                 name="" id="pilih-kategori-produk"></select>
             <div class="input-group-append">
                 <button id="btn-add-new-kategori" class="btn btn-primary" type="button">Go!</button>
@@ -145,3 +145,14 @@
             });
         </script>
     @endpush
+@push('script')
+    <script>
+        window.addEventListener('update-success',function(){
+            swal.fire({
+                title : 'Sukses',
+                text : "Produk item berhasil di update",
+                icon : 'success',
+            })
+        });
+    </script>
+@endpush

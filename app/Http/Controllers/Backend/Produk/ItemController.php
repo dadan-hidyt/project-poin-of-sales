@@ -20,7 +20,7 @@ class ItemController extends Controller
     }
     public function update(Request $request,$id = null) {
         abort_if($id === null,404);
-        $item = Product::findOrFail($id)->first();
+        $item = Product::findOrFail($id);
         return view('backend.produk.edit',[
             'item' => $item,
             'title' => 'Edit Item',

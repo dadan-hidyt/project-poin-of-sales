@@ -26,4 +26,8 @@ class KategoriController extends Controller
             'results' => $data,
         ]);
     }
+    public function index(){
+        $this->setTitle('Kategori Produk');
+        return view('backend.produk.kategori.tampil');
+    }
 }
