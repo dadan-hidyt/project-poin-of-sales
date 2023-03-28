@@ -2,8 +2,8 @@
 namespace App\Repository;
 
 use App\Models\Product;
-use DataTables;
 use Nette\Utils\Html;
+use Yajra\DataTables\DataTables;
 
 class ItemProdukRepository
 {

@@ -84,7 +84,7 @@
 					<div class="menu-submenu "><i class="menu-arrow"></i>
 						<ul class="menu-subnav">
 							<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Produk</span></span></li>
-							<li class="menu-item " aria-haspopup="true"><a href="layout/themes/aside-light.html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Kategori</span></a></li>
+							<li class="menu-item " aria-haspopup="true"><a href="{{ route("dashboard.product.kategori") }}" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Kategori</span></a></li>
 							<li class="menu-item " aria-haspopup="true"><a href="{{ route('dashboard.product.item') }}" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Produk</span></a></li>
 							<li class="menu-item " aria-haspopup="true"><a href="layout/themes/header-dark.html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Varian</span></a></li>
 						</ul>
