@@ -1,4 +1,4 @@
-@props(['id', 'title','size','scrollable']);
+@props(['id', 'title','size','scrollable'])
 <!-- Modal-->
 <div class="modal fade" id="{{ $id }}" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="staticBackdrop" aria-hidden="true">

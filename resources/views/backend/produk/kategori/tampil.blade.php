@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="row">
-        <div class="container-fluid">
+        <div class="col-12">
             <h3>Kategori Produk</h3>
             <div class="card card-custom">
                 <div class="card-header">

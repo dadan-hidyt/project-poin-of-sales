@@ -44,7 +44,6 @@
                         </tr>
                     </thead>
                 </table>
-                <button class="button_delete">DELETE</button>
                 <!--end: Datatable-->
             </div>
         </div>
