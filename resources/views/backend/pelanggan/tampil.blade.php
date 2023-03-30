@@ -55,7 +55,7 @@
             ajax: {
                 url: "{{ route('dashboard.pelanggan.datatable') }}",
                 method: "POST",
-                data:  (d) => {
+                data: (d) => {
                     d._token = "{{ csrf_token() }}"
                 },
                 error: async (x, y) => {
@@ -71,13 +71,14 @@
                     name: 'DT_RowIndex'
                 },
                 {
-                    data: 'nama',
-                    name: 'Kode Pelanggan'
-                },
-                {
                     data: 'kode_pelanggan',
                     name: 'Kode Pelanggan'
                 },
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+
                 {
                     data: 'email',
                     name: 'Email'
@@ -103,15 +104,35 @@
                     name: 'Jenis Kelamin'
                 },
                 {
-                    data: 'jenis_kelamin',
-                    name: 'Jenis Kelamin'
+                    data: 'tanggal_lahir',
+                    name: 'Tanggal Lahir'
                 },
                 {
-                    data : 'action',
-                    name : 'Action'
+                    data: 'action',
+                    name: 'Action'
                 }
             ]
 
         });
+
+        /**===AKSI KETIKA DATA BERHASIL DI TAMAHKAN===**/
+
+        window.addEventListener('added', function(e) {
+            if (e.detail.status == true) {
+                tabel.ajax.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: e.detail.msg,
+                });
+                modal_tambah_pelanggan.modal('hide');
+            } else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'gagal',
+                    text: e.detail.msg,
+                });
+            }
+        })
     </script>
 @endpush

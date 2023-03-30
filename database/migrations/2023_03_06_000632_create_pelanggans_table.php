@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_pelanggan', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_pelanggan',50);
+            $table->string('kode_pelanggan',120);
             $table->string('nama',50);
             $table->string('email',89);
             $table->string('no_hp',50);

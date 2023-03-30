@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pelanggan extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'kode_pelanggan';
+    protected $primaryKey = 'id';
     protected $table = 'tb_pelanggan';
+    protected $guarded = [];
 }
