@@ -17,4 +17,5 @@ class DetailTransaksi extends Model
     public function product(){
         return $this->hasMany(Product::class,'kode_produk','kode_produk');
     }
+   
 }

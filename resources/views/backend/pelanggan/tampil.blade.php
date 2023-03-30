@@ -16,6 +16,15 @@
                 </div>
             </div>
             <div class="card-body">
+            @error('warning')
+               <p class="alert alert-warning">{{ $message }}</p>
+            @enderror
+            @error('error')
+               <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
+            @error('success')
+               <p class="alert alert-success">{{ $message }}</p>
+            @enderror
                 <table id="tabel_pelanggan" class="table table-bordered">
                     <thead>
                         <tr>
