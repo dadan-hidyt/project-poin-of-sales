@@ -40,6 +40,7 @@
                             <th>jmlh Kupon</th>
                             <th>Jmlh Terpakai</th>
                             <th>Jmlh Potogan</th>
+                            <th>Sisa Kupon</th>
                             <th>Deskripsi</th>
                             <th>Actions</th>
                         </tr>
@@ -129,6 +130,12 @@
                 {
                     data: 'jumlah_terpakai',
                     data: 'jumlah_terpakai'
+                }, {
+                    name: 'jumlah_potongan',
+                    data: 'jumlah_potongan',
+                }, {
+                    name: 'jumlah_sisa',
+                    data: 'jumlah_sisa',
                 },
                 {
                     data: 'deskripsi_kupon',

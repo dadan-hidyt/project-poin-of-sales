@@ -10,7 +10,7 @@ class Kupon extends Model
     use HasFactory;
     protected $table = 'tb_kupon';
     
-    public function product(){
-        return $this->hasMany(Product::class,'id_produk','id');
+    public function produk(){
+        return $this->hasOne(Product::class,'id','id_produk');
     }
 }

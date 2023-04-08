@@ -8,6 +8,7 @@ class ItemProdukService{
     public function __construct(){
         $this->product = new Product();
     }
+    //fungsi delete produk
     public function delete($kodeProduk){
         $existsData = [];
         $rowOfProduct =    $this->product->with(['kategori','varian'])->find($kodeProduk);

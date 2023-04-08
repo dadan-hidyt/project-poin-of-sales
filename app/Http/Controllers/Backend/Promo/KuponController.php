@@ -13,6 +13,6 @@ class KuponController extends Controller
         return view("backend.kupon.tampil");
     }
     public function datatable(KuponRepository $kuponRepository){
-        $kuponRepository->getDatatables();
+       return $kuponRepository->getDatatables();
     }
 }
