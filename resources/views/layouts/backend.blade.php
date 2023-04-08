@@ -25,6 +25,20 @@
     <link href="{{ asset('assets') }}/css/themes/layout/brand/light.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets') }}/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css" />
     @livewireStyles
+    <style>
+        .card-custom,
+        .card.card-custom,
+        .card-custom .card-header,
+        .card-custom .card-body{
+            border: none;
+            background: white;
+            box-shadow: none;
+            border-radius: 3px;
+        }
+        .modal .modal-content{
+            border-radius: 3px;
+        }
+    </style>
     @stack('style')
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{ asset('assets') }}/media/logos/favicon.ico" />
