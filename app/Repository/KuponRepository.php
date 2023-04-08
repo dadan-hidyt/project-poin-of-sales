@@ -11,6 +11,7 @@ class KuponRepository
     public function getDatatables()
     {
         $dataKupon = Kupon::with('produk')->get();
+        //ini adalah bagian dari datatable pengguna
         return DataTables::of($dataKupon)->addIndexColumn()->addColumn('action', function ($row) {
             $html = "<a class='btn-delete' onclick='return confirm('Apakah anda yakin?')' href='" . route('dashboard.product.kategori.delete', $row->id) . "'> <i class='fa fa-trash'></i></a>";
             $html .= "&nbsp;";

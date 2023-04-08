@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <button id='btn-tambah-produk' class='btn btn-primary'><i class="fa fa-plus"></i>Tambah</button>
+                    <button id='btn-tambah-kupon' class='btn btn-primary'><i class="fa fa-plus"></i>Tambah</button>
                     <!--end::Button-->
                 </div>
             </div>
@@ -50,16 +50,16 @@
             </div>
         </div>
     </div>
-    @include('backend.produk.partials.modal_tambah')
+    @include('backend.kupon.partials.modal_tambah_kupon')
     @include('backend.produk.partials.modal_tambah_kategori_inline')
 @endsection
 @push('script')
     <script>
         /**================MODAL TAMBAH PRODUk======================*/
-        const modalTambahData = $('#modal-tambah-produk');
+        const modalTambbahKupon = $('#modal_tambah_kupon');
         const modalTambahKatagori = $('#modal_tambah_kategori_inline');
-        $('#btn-tambah-produk').on('click', function() {
-            modalTambahData.modal('show');
+        $('#btn-tambah-kupon').on('click', function() {
+            modalTambbahKupon.modal('show');
         });
 
         /**================
@@ -78,7 +78,6 @@
             buttons: [
                 'print',
                 'copyHtml5',
-                'excelHtml5',
                 'csvHtml5',
                 'pdfHtml5',
             ],
@@ -155,7 +154,7 @@
         window.addEventListener('productAdded', function(res) {
             if (res.detail.success == true) {
                 tabel.ajax.reload();
-                modalTambahData.modal('hide');
+                modalTambbahKupon.modal('hide');
                 Swal.fire({
                     title: 'Berhasil',
                     icon: 'success',
@@ -177,7 +176,7 @@
         })
         /**================ MENAMBAH KATEGORI BARU.===================*/
         $('#btn-add-new-kategori').on('click', function() {
-            modalTambahData.modal('hide');
+            modalTambbahKupon.modal('hide');
             modalTambahKatagori.modal('show');
         });
         /***==
@@ -186,10 +185,10 @@
          * **/
         window.addEventListener('kategoriDitambahkan', function(e) {
             if (e.detail == true) {
-                modalTambahData.modal('show');
+                modalTambbahKupon.modal('show');
                 modalTambahKatagori.modal('hide');
             } else {
-                modalTambahData.modal('hide');
+                modalTambbahKupon.modal('hide');
                 modalTambahKatagori.modal('show');
             }
         })
