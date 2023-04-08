@@ -51,21 +51,19 @@
         </div>
     </div>
     @include('backend.kupon.partials.modal_tambah_kupon')
-    @include('backend.produk.partials.modal_tambah_kategori_inline')
 @endsection
 @push('script')
     <script>
         /**================MODAL TAMBAH PRODUk======================*/
         const modalTambbahKupon = $('#modal_tambah_kupon');
-        const modalTambahKatagori = $('#modal_tambah_kategori_inline');
         $('#btn-tambah-kupon').on('click', function() {
             modalTambbahKupon.modal('show');
         });
 
         /**================
-         * DATATABLES UNTUK PRODUK
+         * DATATABLES UNTUK KUPOn
          * -Data Dari tabel di render di sisi server
-         * -Sumber Data: `{{ route('dashboard.product.item.datatable') }}`
+         * -Sumber Data: `{{ route('dashboard.promo.kupon.datatable') }}`
          * ======================*/
         const tabel = $('#tabel_produk').DataTable({
             responsive: true,
@@ -151,7 +149,7 @@
          * -Respon didapatkan dari server
          * ==============================================
          * **/
-        window.addEventListener('productAdded', function(res) {
+        window.addEventListener('kupon_added', function(res) {
             if (res.detail.success == true) {
                 tabel.ajax.reload();
                 modalTambbahKupon.modal('hide');
@@ -174,23 +172,6 @@
         tabel.on('draw', function(params) {
             //delete
         })
-        /**================ MENAMBAH KATEGORI BARU.===================*/
-        $('#btn-add-new-kategori').on('click', function() {
-            modalTambbahKupon.modal('hide');
-            modalTambahKatagori.modal('show');
-        });
-        /***==
-         * JIKA KATEGORI DI TAMBAHKAN MAKA TAMPILKAN ULANG MODAL TAMBAH PRODUK
-         * DAN TUTUP MODAL TAMBAH KATAEGORI
-         * **/
-        window.addEventListener('kategoriDitambahkan', function(e) {
-            if (e.detail == true) {
-                modalTambbahKupon.modal('show');
-                modalTambahKatagori.modal('hide');
-            } else {
-                modalTambbahKupon.modal('hide');
-                modalTambahKatagori.modal('show');
-            }
-        })
+       
     </script>
 @endpush

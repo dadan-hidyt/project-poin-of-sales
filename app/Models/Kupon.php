@@ -9,7 +9,7 @@ class Kupon extends Model
 {
     use HasFactory;
     protected $table = 'tb_kupon';
-    
+    protected $guarded = [];
     public function produk(){
         return $this->hasOne(Product::class,'id','id_produk');
     }
