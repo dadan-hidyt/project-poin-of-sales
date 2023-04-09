@@ -11,4 +11,9 @@ class Kariawan extends Model
 {
     use HasFactory;
     protected $table = 'tb_karyawan';
+    protected $guarded = [];
+
+    public function user(){
+        return $this->hasOne(User::class,'id_kariawan','id');
+    }
 }

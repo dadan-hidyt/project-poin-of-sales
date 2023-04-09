@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\Backend\KariawanController;
+use App\Models\Kariawan;
 use Illuminate\Support\Facades\Route;
 /**
  * halaman dashboard
@@ -9,3 +12,4 @@ Route::prefix('/produk/kategori')->name('.product.kategori')->group(base_path('r
 Route::prefix('/pelanggan')->name('.pelanggan')->group(base_path('routes/backend/pelanggan.php'));
 Route::prefix('/produk/varian')->name('.varian')->group(base_path('routes/backend/product_variant.php'));
 Route::prefix('/promo')->name('.promo')->group(base_path('routes/backend/promo.php'));
+Route::resource('kariawan',KariawanController::class);

@@ -113,7 +113,7 @@
 					<h4 class="menu-text">Pengaturan & Akun</h4>
 					<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 				</li>
-                <li class="menu-item" aria-haspopup="true"><a href="index.html" class="menu-link "><i class="menu-icon flaticon-users-1"></i><span class="menu-text">Daftar Karyawan</span></a></li>
+                <li class="menu-item" aria-haspopup="true"><a href="{{ route('dashboardkariawan.index') }}" class="menu-link "><i class="menu-icon flaticon-users-1"></i><span class="menu-text">Daftar Karyawan</span></a></li>
 
                 <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"><a href="javascript:;" class="menu-link menu-toggle"><i class="menu-icon flaticon2-settings"></i><span class="menu-text">Pengaturan</span><i class="menu-arrow"></i></a>
 					<div class="menu-submenu "><i class="menu-arrow"></i>

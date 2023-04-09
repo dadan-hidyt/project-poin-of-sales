@@ -1,6 +1,6 @@
 <?php
 return [
-    'loader' => true,
+    'loader' => false,
     'app_title' => env('APP_NAME'),
     'kab_kota' =>  [
         [

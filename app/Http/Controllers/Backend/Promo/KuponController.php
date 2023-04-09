@@ -37,3 +37,4 @@ class KuponController extends Controller
         }
     }
 }
+?>

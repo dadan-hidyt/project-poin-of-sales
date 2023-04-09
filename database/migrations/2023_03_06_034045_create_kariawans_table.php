@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('tb_karyawan', function (Blueprint $table) {
             $table->id();
             $table->char('nik',50);
+            $table->text('alamat');
+            $table->enum("jk",['L','P']);
             $table->string('nama',50);
             $table->char('no_telp',50);
-            $table->string('email',60);
             $table->string('avatar',120)->nullable();
             $table->timestamps();
         });

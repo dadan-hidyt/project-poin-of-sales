@@ -26,6 +26,9 @@
     <link href="{{ asset('assets') }}/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css" />
     @livewireStyles
     <style>
+        body{
+            background: rgb(241, 241, 241);
+        }
         .card-custom,
         .card.card-custom,
         .card-custom .card-header,
