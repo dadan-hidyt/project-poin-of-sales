@@ -19,4 +19,7 @@ class Product extends Model
     public function transaksi(){
         return [];
     }
+    public function kupon(){
+        return $this->belongsTo(Kupon::class,'id','id_produk');
+    }
 }

@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('tb_kupon', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_kupon',5)->uniqid();
+            $table->string('kode_kupon',120)->uniqid();
             $table->string('nama_kupon')->nullable();
             $table->text("deskripsi_kupon");
             $table->integer('id_produk')->nullable();
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('jumlah_terpakai')->default(0);
             $table->string('jumlah_potongan')->default(0);
             $table->integer('jumlah_sisa')->default(0);
-            $table->dateTime('masa_berlaku');
+            $table->string('masa_berlaku',120)->nullable();
             $table->timestamps();
         });
     }

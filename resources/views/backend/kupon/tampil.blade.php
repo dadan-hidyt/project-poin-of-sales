@@ -2,13 +2,13 @@
 
 @section('main')
     <div class="col-12">
-        @error('gagal_hapus_produk')
-            <p class="alert alert-warning">
+        @error('sukses')
+            <p class="alert alert-success">
                 {{ $message }}
             </p>
         @enderror
-        @error('berasil_hapus_produk')
-            <p class="alert alert-success">
+        @error('gagal')
+            <p class="alert alert-danger">
                 {{ $message }}
             </p>
         @enderror

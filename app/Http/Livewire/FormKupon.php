@@ -8,7 +8,9 @@ use Livewire\Component;
 
 class FormKupon extends Component
 {
-    public $kupon = [];
+    public $kupon = [
+        'masa_berlaku' => null,
+    ];
     public $rules = [
         'kupon.nama_kupon' => 'required',
         'kupon.deskripsi_kupon' => 'required',
@@ -20,6 +22,7 @@ class FormKupon extends Component
     public ?Kupon $kupon_model = null;
     public function simpanEdit()
     {
+        $this->clearChecked();
         if ($this->kupon['kode_kupon'] !== $this->kupon_model?->kode_kupon) {
             $this->rules['kupon.kode_kupon'] =  'required|max:5|unique:tb_kupon,kode_kupon';
         } else {
@@ -37,20 +40,26 @@ class FormKupon extends Component
         $this->type = $type;
         $this->product = Product::all(['nama_produk', 'id']);
         $this->kupon_model = $kupon_model;
-        if ($this->kupon) {
+        if ($this->kupon_model) {
             $this->kupon = $kupon_model->toArray();
         }
     }
-    public function simpan()
+    public function clearChecked()
     {
-        $this->rules['kupon.kode_kupon'] = 'required|max:5|unique:tb_kupon,kode_kupon';
-        $this->validate();
         $masa_berlaku = $this->kupon['masa_berlaku_checked'] ?? false;
         unset($this->kupon['masa_berlaku_checked']);
 
         if ($masa_berlaku === true) {
             $this->kupon['masa_berlaku'] = null;
         }
+    }
+    public function simpan()
+    {
+        $this->rules['kupon.kode_kupon'] = 'required|max:5|unique:tb_kupon,kode_kupon';
+        $this->validate();
+
+        $this->clearChecked();
+
         if (Kupon::create($this->kupon)) {
             $this->resetExcept('kupon');
             $this->reset('kupon');

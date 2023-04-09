@@ -34,7 +34,7 @@
 <div class="form-group">
     <label for="produk">Produk</label>
     <select class="form-control" wire:model.defer='kupon.id_produk' name="" id="select-produk">
-        <option style="width:100%" value="null">Semua</option>
+        <option style="width:100%" value="">Semua</option>
         @forelse ($product as $item)
             <option value="{{ $item->id }}">{{ $item->nama_produk }}</option>
         @empty
@@ -78,20 +78,15 @@
                 <i class="ki ki-calendar"></i>
             </span>
         </div>
+
     </div>
 
-    <div class="form-group row">
-        <label class="col-3 form-label">Tidak Ada Batas Waktu</label>
-        <div class="col-3">
-            <span class="switch">
-                <label>
-                    <input wire:model.defer='kupon.masa_berlaku_checked' type="checkbox" id="switch"
-                        name="select" />
-                    <span></span>
-                </label>
-            </span>
-        </div>
-
+    <div class="form-group mt-3">
+        <label>
+            <input wire:model.defer='kupon.masa_berlaku_checked' wire:ignore type="checkbox" @checked($this->kupon['masa_berlaku'] == null)
+                id="switch" name="select" />
+        </label>
+        <label for="switch" class="col-3 form-label">Tidak Ada Batas Waktu</label>
     </div>
     <div class="form-group">
         <label for="" class="form-label">Deskripsi</label>

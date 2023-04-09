@@ -98,7 +98,7 @@
         </div>
         <div class="form-group">
             <button class="btn btn-primary">Tambah</button>
-            <span wire:loading wire:target='tambah'>Menyimpan...</span>
+            <span wire:loading wire:target='tambah'>MenyimpanT...</span>
         </div>
     </form>
     <!--end::Modal-->
