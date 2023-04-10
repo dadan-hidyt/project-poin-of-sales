@@ -13,6 +13,6 @@ class KariawanSeeder extends Seeder
      */
     public function run(): void
     {
-        Kariawan::factory(10)->create();
+        Kariawan::factory(599)->create();
     }
 }

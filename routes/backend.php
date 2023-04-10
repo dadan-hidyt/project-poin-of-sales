@@ -23,3 +23,5 @@ Route::resource('akun',AkunController::class,[
         'destroy' => '.akun.delete'
     ]
 ]);
+
+Route::prefix('akun_saya')->group(base_path('routes/backend/akun_saya.php'))->name('.akun_saya');

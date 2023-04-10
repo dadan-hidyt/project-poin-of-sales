@@ -22,7 +22,8 @@
                 @enderror
                 <div class="table-responsive">
 
-                    <table id="tabel-kariawan" class="table table-head-custom table-head-bg table-borderless table-vertical-center">
+                    <table id="tabel-kariawan"
+                        class="table table-head-custom table-head-bg table-borderless table-vertical-center">
                         <thead>
                             <tr class="text-left text-uppercase">
                                 <th>NIK</th>
@@ -81,14 +82,17 @@
                                 </td>
 
                                 <td class="pr-0 text-right">
-                                    <a href="{{ route('dashboardkariawan.edit',$item->id) }}" class="btn btn-light-success font-weight-bolder font-size-sm">
+                                    <a href="{{ route('dashboardkariawan.edit', $item->id) }}"
+                                        class="btn btn-light-success font-weight-bolder font-size-sm">
                                         Edit
                                     </a>
-                                   
-                                    <form method="POST" action="{{ route('dashboardkariawan.destroy',$item->id) }}" class="d-inline">
+
+                                    <form method="POST" action="{{ route('dashboardkariawan.destroy', $item->id) }}"
+                                        class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button class="btn btn-light-success font-weight-bolder font-size-sm">Delete</button>
+                                        <button
+                                            class="btn btn-light-success font-weight-bolder font-size-sm">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -103,14 +107,13 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 @endsection
 
-
 @push('script')
-    <script>
-        window.onload = () =>{
-            $('#tabel-kariawan').DataTable({})
-        }
-    </script>
+<script>
+    window.onload = () => {
+        $('#tabel-kariawan').DataTable({})
+    }
+</script>
 @endpush
