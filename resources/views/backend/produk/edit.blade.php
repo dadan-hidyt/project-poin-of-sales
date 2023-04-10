@@ -2,9 +2,16 @@
 @section('main')
     <div class="row">
         <div class="container-fluid">
-            <h1 class="mb-3">Edit Produk: {{ $item->nama_produk }}</h1>
-            <div class="bg-white rounded p-4">
-                <div class="container mt-4">
+            <div class="card card-custom">
+                <div class="card-header bg-primary">
+                    <div class="card-title text-white">
+                        <i class="fa fa-edit text-white"></i> &nbsp;Edit Produk
+                    </div>
+                    <div class="card-toolbar">
+                        <a class="btn btn-link btn-success" href="{{route('dashboard.product.item')}}"> <i class="flaticon2-supermarket tex-white"></i> List Produk </a>
+                    </div>
+                </div>
+                <div class="card-body">
                     @livewire('form-edit-produk', ['item' => $item])
                 </div>
             </div>

@@ -14,7 +14,6 @@ class FormTambahPelanggan extends Component
     public $rules = [
         'pelanggans.nama' => 'required|max:80',
         'pelanggans.email' => 'required|max:50',
-        'pelanggans.no_hp' => "required|digits_between:12,13|exists:tb_pelanggan,no_hp",
         'pelanggans.alamat' => "required",
         'pelanggans.jenis_kelamin' => "required"
     ];

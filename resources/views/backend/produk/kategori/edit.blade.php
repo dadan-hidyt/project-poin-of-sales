@@ -3,16 +3,16 @@
 @section('main')
     <div class="col-12">
         <div class="card card-custom">
-            <div class="card-header">
-                <div class="card-title">
+            <div class="card-header bg-primary">
+                <div class="card-title text-white">
                     <span class="card-icon">
                         <i class="flaticon2-supermarket text-primary"></i>
                     </span>
-                    <h3 class="card-label">Edit Kategori Produk</h3>
+                    <h3 class="card-label text-white">Edit Kategori Produk</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a href="{{route('dashboard.product.kategori')}}" class="btn btn-primary">Daftar Kategori</a>
+                    <a href="{{route('dashboard.product.kategori')}}" class="btn btn-warning">Daftar Kategori</a>
                     <!--end::Button-->
                 </div>
             </div>

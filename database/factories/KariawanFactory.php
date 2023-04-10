@@ -20,7 +20,7 @@ class KariawanFactory extends Factory
             'nik' => fake()->nik,
             'nama' => fake()->name(),
             'no_telp' => fake()->phoneNumber(),
-            'email' => fake()->email(),
+            'alamat' => fake()->streetAddress(),
             'avatar' => fake()->imageUrl(),
         ];
     }

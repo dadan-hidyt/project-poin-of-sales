@@ -2,42 +2,43 @@
 @section('main')
     <div class="col-12">
         <div class="card card-custom">
-            <div class="card-header">
+            <div class="card-header bg-primary">
                 <div class="card-title">
                     <span class="card-icon">
                         <i class="flaticon2-user text-primary"></i>
                     </span>
-                    <h3 class="card-label">Daftar Pelanggan</h3>
+                    <h3 class="card-label text-white">Daftar Pelanggan</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <button id="button_tambah_pelanggan" class="btn btn-primary">tambah</button>
+                    <button id="button_tambah_pelanggan" class="btn btn-success"><i class="fa fa-plus"></i>Tambah</button>
                     <!--end::Button-->
                 </div>
             </div>
             <div class="card-body">
-            @error('warning')
-               <p class="alert alert-warning">{{ $message }}</p>
-            @enderror
-            @error('error')
-               <p class="alert alert-danger">{{ $message }}</p>
-            @enderror
-            @error('success')
-               <p class="alert alert-success">{{ $message }}</p>
-            @enderror
-                <table id="tabel_pelanggan" class="table table-bordered">
+                @error('warning')
+                    <p class="alert alert-warning">{{ $message }}</p>
+                @enderror
+                @error('error')
+                    <p class="alert alert-danger">{{ $message }}</p>
+                @enderror
+                @error('success')
+                    <p class="alert alert-success">{{ $message }}</p>
+                @enderror
+                <table id="tabel_pelanggan"
+                    class="table table-head-custom table-head-bg table-vertical-center table-bordered">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Kode Pelanggan</th>
+                            <th>Kode</th>
                             <th>Nama</th>
                             <th>Email</th>
-                            <th>No Hp</th>
+                            <th>Telp</th>
                             <th>Alamat</th>
-                            <th>POINT</th>
+                            <th>Poin</th>
                             <th>KOTA</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Tanggal Lahir</th>
+                            <th>JK</th>
+                            <th>Tl</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -135,7 +136,7 @@
                     text: e.detail.msg,
                 });
                 modal_tambah_pelanggan.modal('hide');
-            } else{
+            } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'gagal',

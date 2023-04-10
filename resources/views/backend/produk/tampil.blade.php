@@ -13,22 +13,22 @@
             </p>
         @enderror
         <div class="card card-custom">
-            <div class="card-header">
-                <div class="card-title">
+            <div class="card-header bg-primary">
+                <div class="card-title text-white">
                     <span class="card-icon">
-                        <i class="flaticon2-supermarket text-primary"></i>
+                        <i class="flaticon2-supermarket text-white"></i>
                     </span>
-                    <h3 class="card-label">Daftar Produk</h3>
+                    <h3 class="card-label text-white">Daftar Produk</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <button id='btn-tambah-produk' class='btn btn-primary'><i class="fa fa-plus"></i>Tambah</button>
+                    <button id='btn-tambah-produk' class='btn btn-warning'><i class="fa fa-plus"></i>Tambah</button>
                     <!--end::Button-->
                 </div>
             </div>
             <div class="card-body">
                 <!--begin: Datatable-->
-                <table class="table table-bordered table-hover table-checkable" id="tabel_produk"
+                <table class="table table-head-custom table-head-bg table-bordered table-vertical-center" id="tabel_produk"
                     style="margin-top: 13px !important">
                     <thead>
                         <tr>

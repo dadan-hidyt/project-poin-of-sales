@@ -3,18 +3,17 @@
 @section('main')
     <div class="row">
         <div class="col-12">
-            <h3>Kategori Produk</h3>
             <div class="card card-custom">
-                <div class="card-header">
-                    <div class="card-title">
+                <div class="card-header bg-primary">
+                    <div class="card-title text-white">
                         <span class="card-icon">
                             <i class="flaticon2-supermarket text-primary"></i>
                         </span>
-                        <h3 class="card-label">Daftar Produk</h3>
+                        <span class="text-white">Daftar Kategori</span>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->
-                        <button id='btn-tambah-kategori' class='btn btn-primary'><i class="fa fa-plus"></i>Tambah</button>
+                        <button id='btn-tambah-kategori' class='btn btn-success'><i class="fa fa-plus"></i>Tambah</button>
                         <!--end::Button-->
                     </div>
                 </div>
@@ -26,7 +25,7 @@
                         <p class="alert alert-success">{!! $message !!}</p>
                     @enderror
                     <!--begin: Datatable-->
-                    <table class="table table-bordered table-hover table-checkable" id="tabel_kategori"
+                    <table class="table table-head-custom table-head-bg table-vertical-center table-bordered" id="tabel_kategori"
                         style="margin-top: 13px !important">
                         <thead>
                             <tr>

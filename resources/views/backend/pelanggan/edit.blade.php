@@ -3,10 +3,15 @@
 
 @section('main')
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">
-                <h5>Edit Pelanggan</h5>
-                <a class="btn btn-warning btn-sm" href="{{ route('dashboard.pelanggan.show') }}"><i class="fa fa-arrow-left"></i>Back</a>
+        <div class="card card-custom">
+            <div class="card-header bg-primary">
+                <div class="card-title text-white">
+                    <span>Edit Pelanggan</span>
+                </div>
+                <div class="card-toolbar">
+                    <a class="btn btn-warning btn-sm" href="{{ route('dashboard.pelanggan.show') }}"><i
+                            class="fa fa-arrow-left"></i>Back</a>
+                </div>
             </div>
             <div class="card-body">
                 @livewire('form-edit-pelanggan', ['pelanggan' => $pelanggan], key($pelanggan->id))
