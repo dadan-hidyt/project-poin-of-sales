@@ -132,7 +132,7 @@
                         </ul>
 					</div>
 				</li>
-                <li class="menu-item " aria-haspopup="true"><a target="_blank" href="https://preview.keenthemes.com/metronic/demo1/builder.html" class="menu-link "><i class="menu-icon flaticon-profile-1"></i><span class="menu-text">Akun Saya</span></a></li>
+                <li class="menu-item " aria-haspopup="true"><a target="_blank" href="{{route('dashboard.akun_saya')}}" class="menu-link "><i class="menu-icon flaticon-profile-1"></i><span class="menu-text">Akun Saya</span></a></li>
                 <li class="menu-item " aria-haspopup="true"><a target="_blank" href="https://preview.keenthemes.com/metronic/demo1/builder.html" class="menu-link "><i class="menu-icon flaticon-logout"></i><span class="menu-text">Keluar</span></a></li>
 			</ul>
 

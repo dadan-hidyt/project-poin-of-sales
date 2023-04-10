@@ -24,4 +24,4 @@ Route::resource('akun',AkunController::class,[
     ]
 ]);
 
-Route::prefix('akun_saya')->group(base_path('routes/backend/akun_saya.php'))->name('.akun_saya');
+Route::prefix('akun_saya')->name('.akun_saya')->group(base_path('routes/backend/akun_saya.php'));
