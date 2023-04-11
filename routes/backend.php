@@ -26,3 +26,4 @@ Route::resource('akun',AkunController::class,[
 ]);
 
 Route::prefix('akun_saya')->name('.akun_saya')->group(base_path('routes/backend/akun_saya.php'));
+Route::prefix('pengaturan')->name('.pengaturan')->group(base_path('routes/backend/pengaturan.php'));
