@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function __invoke(){
-
+        $this->setTitle("Wellcome Di dashboard");
+        return view('backend.welcome');
     }
 }
