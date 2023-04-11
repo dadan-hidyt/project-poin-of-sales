@@ -11,4 +11,8 @@ class PengaturanController extends Controller
         $this->setTitle("Pengaturan Struk");
         return view('backend.pengaturan.struk');
     }
+    public function satuanBarang(){
+        $this->setTitle('Satuan Barang');
+        return view('backend.pengaturan.satuan_barang');
+    }
 }
