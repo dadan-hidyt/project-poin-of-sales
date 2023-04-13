@@ -13,7 +13,34 @@
             </div>
         </div>
         <div class="card-body">
-           @livewire('pengaturan.form-struk')
+            @error('delete_gagal')
+                <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
+            @error('delete_sukses')
+                <p class="alert alert-success">{{ $message }}</p>
+            @enderror
+            <a href="{{route('dashboard.pengaturan.satuan_barang.tambah')}}" class="btn btn-primary">Tambah</a>
+            <table class="table table-head-custom table-head-bg table-bordered table-vertical-center" id="tabel_produk"
+                    style="margin-top: 13px !important">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>Satuan</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($satuan as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->nama_satuan }}</td>
+                                <td>
+                                    <a href="{{ route('dashboard.pengaturan.satuan_barang.delete',$item->id) }}">Hapus</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+            </table>
         </div>
     </div>
 </div>
