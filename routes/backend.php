@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AkunController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\KariawanController;
+use App\Http\Controllers\Backend\Produk\ProdukVarian;
 use App\Models\Kariawan;
 use Illuminate\Support\Facades\Route;
 /**
@@ -12,7 +13,14 @@ Route::get('/',DashboardController::class)->name('.index');
 Route::prefix('/produk')->name('.product')->group(base_path('routes/backend/product.php'));
 Route::prefix('/produk/kategori')->name('.product.kategori')->group(base_path('routes/backend/product_kategori.php'));
 Route::prefix('/pelanggan')->name('.pelanggan')->group(base_path('routes/backend/pelanggan.php'));
-Route::prefix('/produk/varian')->name('.varian')->group(base_path('routes/backend/product_variant.php'));
+Route::resource('produk/varian', ProdukVarian::class,[
+    'names' => [
+        'index' => '.produk.varian',
+        'store' => '.produk.varian.store',
+        'edit' => '.akun.varian.edit',
+        'destroy' => '.akun.varian.delete'
+    ]
+]);
 Route::prefix('/promo')->name('.promo')->group(base_path('routes/backend/promo.php'));
 //kariawan
 Route::resource('kariawan',KariawanController::class);

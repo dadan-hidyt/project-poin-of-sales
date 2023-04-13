@@ -9,7 +9,8 @@ class SatuanBarang extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $timestamps = false;
+    protected $table = 'satuan_barang';
+    public $timestamps = false;
 
 
 }

@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_pengaturan_web', function (Blueprint $table) {
-            $table->string('nama_web');
-            $table->string('logo');
-            $table->string('nama_usaha');
-            $table->string('alamat_usaha');
-            $table->string('email_usaha');
-            $table->string('no_telpon_usaha');
-            $table->string('akun_instagram');
-            $table->string('chanel_yt');
-            $table->string('akun_fb');
-            $table->string('website');
+            $table->id();
+            $table->string('nama_web')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('nama_usaha')->nullable();
+            $table->string('alamat_usaha')->nullable();
+            $table->string('email_usaha')->nullable();
+            $table->string('no_telpon_usaha')->nullable();
+            $table->string('akun_instagram')->nullable();
+            $table->string('chanel_yt')->nullable();
+            $table->string('akun_fb')->nullable();
+            $table->string('website')->nullable();
             $table->timestamps();
         });
     }

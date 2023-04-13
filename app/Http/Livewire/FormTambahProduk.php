@@ -50,6 +50,7 @@ class FormTambahProduk extends Component
                 'success' => true,
             ]);
         } else {
+            dd($this->produk);
             $this->dispatchBrowserEvent('productAdded', [
                 'success' => false,
             ]);

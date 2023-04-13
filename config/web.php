@@ -2,6 +2,16 @@
 return [
     'loader' => false,
     'app_title' => env('APP_NAME'),
+    'nama_web' => 'App Pos',
+    'logo' => 'default.png',
+    'nama_usaha' => 'POS',
+    'alamat_usaha' => 'Internet',
+    'email_usaha' => 'example@gmail.com',
+    'no_telpon_usaha' => '081572879295',
+    'akun_instagram' => '@example',
+    'chanel_yt' => 'example',
+    'akun_fb' => 'example',
+    'website' => 'example',
     'kab_kota' =>  [
         [
             'id' => '3201',

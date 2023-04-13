@@ -3,11 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Models\Pelanggan;
+use App\Traits\HasProduk;
 use Livewire\Component;
 
 class FormEditPelanggan extends Component
 {
     public $pelanggans = [];
+    use HasProduk;
     public $rules = [
         'pelanggans.nama' => 'required|max:80',
         'pelanggans.email' => 'required|max:50',
