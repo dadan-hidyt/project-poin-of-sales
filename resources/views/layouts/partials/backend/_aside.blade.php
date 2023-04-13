@@ -118,6 +118,7 @@
                 <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"><a href="javascript:;" class="menu-link menu-toggle"><i class="menu-icon flaticon2-settings"></i><span class="menu-text">Pengaturan</span><i class="menu-arrow"></i></a>
 					<div class="menu-submenu "><i class="menu-arrow"></i>
                         <ul class="menu-subnav">
+                            <li class="menu-item " aria-haspopup="true"><a href="{{ route('dashboard.pengaturan.web') }}" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pengaturan Web</span></a></li>
                             <li class="menu-item " aria-haspopup="true"><a href="{{ route('dashboard.pengaturan.struk') }}" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Struk</span></a></li>
                             <li class="menu-item " aria-haspopup="true"><a href="{{ route('dashboard.pengaturan.satuan_barang') }}" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Satuan Barang</span></a></li>
                             <li class="menu-item " aria-haspopup="true"><a href="custom/apps/inbox.html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pembayaran Non Tunai</span></a></li>

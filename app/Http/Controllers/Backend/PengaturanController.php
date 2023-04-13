@@ -15,4 +15,8 @@ class PengaturanController extends Controller
         $this->setTitle('Satuan Barang');
         return view('backend.pengaturan.satuan_barang');
     }
+    public function web(){
+        $this->setTitle('Pengaturan Website');
+        return view('backend.pengaturan.infowebsite');
+    }
 }

@@ -21,7 +21,12 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <!-- rafly antum ngerjaken -->
+                        <div class="col-md-3">
+                            <div class="h5">Total Penjualan:
+                                <div class="h2 mt-5">Rp. 29.000.00</div>
+                            </div>
+                        </div>
+                      
                     </div>
                 </div>
             </div>
