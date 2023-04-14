@@ -1,3 +1,24 @@
+@push('style')
+    <style>
+        .preview {
+            cursor: pointer;
+        }
+
+        #logo-coose-file {
+            display: none;
+        }
+
+        .label-upload {
+            cursor: pointer;
+            margin: 10px 0px;
+            display: block;
+        }
+
+        .label-upload:hover {
+            color: red;
+        }
+    </style>
+@endpush
 <form action="" wire:submit.prevent='simpan'>
     <div class="form-group">
         <label for="namaWeb">Nama Web</label>
@@ -5,7 +26,17 @@
     </div>
     <div class="form-group">
         <label for="logo">Logo</label>
-        <input type="text" class="form-control" wire:model='pengaturan.logo'>
+        <div class="logo-preview">
+            @empty($this->pengaturan['logo'])
+                <img class="img preview img-thumbnail" width="80px" src="" alt="logo">
+            @else
+                <img class="img preview  img-thumbnail" width="80px" src="{{ asset($this->pengaturan['logo']) }}"
+                    alt="">
+            @endempty
+        </div>
+        <input id="logo-coose-file" type="file" wire:model='logo' class="form-control">
+        <label class="label-upload" for="logo-coose-file"> <i class="fa fa-upload"></i> Pilih File</label>
+        <span wire:loading wire:target='logo'>Mengupload...</span>
     </div>
     <div class="form-group">
         <label for="NamaUsaha">Nama Usaha</label>
@@ -13,7 +44,8 @@
     </div>
     <div class="form-group">
         <label for="alamat_usaha">Alamat Usaha</label>
-        <textarea name="" class="form-control" id="" cols="30" rows="4" wire:model='pengaturan.alamat_usaha'></textarea>
+        <textarea name="" class="form-control" id="" cols="30" rows="4"
+            wire:model='pengaturan.alamat_usaha'></textarea>
     </div>
     <div class="row">
         <div class="col-4">
@@ -55,23 +87,33 @@
             </div>
         </div>
     </div>
+    <div class="m-2">
+        <span wire:loading wire:target='simpan'>Menyimpan perubahan...</span>
+    </div>
     <div class="mt-4">
         <button class="btn btn-primary">Simpan</button>
     </div>
 </form>
-<script>
-     window.addEventListener('sukses', function(){
+@push('script')
+    <script>
+        window.addEventListener('sukses', function() {
             Swal.fire({
-                title : "Sukses",
-                icon : 'success',
-                text : 'Pengaturan Berhasil di ubah!'
+                title: "Sukses",
+                icon: 'success',
+                text: 'Pengaturan Berhasil di ubah!'
             });
         })
-        window.addEventListener('gagal', function(){
+        window.addEventListener('gagal', function() {
             Swal.fire({
-                icon : 'error',
-                title : "gagal",
-                text : 'Pengaturan Berhasil di ubah!'
+                icon: 'error',
+                title: "gagal",
+                text: 'Pengaturan Berhasil di ubah!'
             });
-        }) 
-</script>
+        })
+        $(document).ready(function() {
+            $('.preview').on('click', function() {
+                $('#logo-coose-file').click();
+            });
+        })
+    </script>
+@endpush

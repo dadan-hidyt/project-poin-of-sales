@@ -26,6 +26,7 @@ class ItemController extends Controller
             'title' => 'Edit Item',
         ]);
     }
+    //fungsi untuk mendelete item produk
     public function delete(Request $request, Product $product, $kodeProduk = null)
     {
         if (is_null($kodeProduk)) {

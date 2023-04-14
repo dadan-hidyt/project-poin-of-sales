@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
         $this->call(KariawanSeeder::class);
         $this->call(PelangganSeeder::class);
         $this->call(KategoriProdukSeeder::class);
@@ -24,9 +23,5 @@ class DatabaseSeeder extends Seeder
         $this->call(DetailTransaksiSeeder::class);
         $this->call(PengaturanSeeder::class);
         $this->call(SatuanBarang::class);
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

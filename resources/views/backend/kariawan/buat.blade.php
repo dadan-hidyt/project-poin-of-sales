@@ -45,6 +45,7 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- jenis kelamin -->
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="jk" class="form-label">Jenis Kelamin</label>
