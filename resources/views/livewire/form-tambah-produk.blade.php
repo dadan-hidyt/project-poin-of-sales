@@ -83,10 +83,10 @@
                 @enderror
             </div>
             <div class="col-lg-3">
-                <label>Harga Harga Beli:</label>
-                <input id="harga-beli" wire:model.defer='produk.harga_beli' type="text"
-                    class="form-control @error('produk.harga_beli') is-invalid @enderror">
-                @error('produk.harga_beli')
+                <label>Harga Modal:</label>
+                <input id="harga-modal" wire:model.defer='produk.harga_modal' type="text"
+                    class="form-control @error('produk.harga_modal') is-invalid @enderror">
+                @error('produk.harga_modal')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
@@ -112,6 +112,14 @@
             @enderror
         </div>
         <div class="form-group">
+            <label for="pilih_gambar">Pilih Gambar</label>
+            <div class="gambar">
+                <img width="40%" id="img_preview" class="border rounded img-thumbnail" src="{{ asset(config('web.logo')) }}" alt="app">
+            </div>
+            <div wire:loading wire:target='foto'>Mengupload...</div>
+            <input class="d-block" wire:model='foto' type="file" id="coose_file" class="mt-4">
+        </div>
+        <div class="form-group">
             <button class="btn btn-primary">Tambah</button>
             <span wire:loading wire:target='tambah'>MenyimpanT...</span>
         </div>
@@ -120,9 +128,15 @@
     @push('script')
         <script>
 
-            function getKategori(){
+           function pilihGambarProduk(params) {
+                const inputFile = $('#coose_file');
+
+                inputFile.on('change',(e)=>{
+                   document.getElementById('img_preview').src = URL.createObjectURL(e.target.files[0]);
+                });
                 
-            }
+           }
+           pilihGambarProduk();
 
             $(document).ready(function() {
                 /**================UNTUK SELECT VARIAN PRODUk======================*/
@@ -155,7 +169,7 @@
                 $('#pajak').mask('0.000.000.000', {
                     reverse: true
                 });
-                $('#harga-beli').mask('0.000.000.000', {
+                $('#harga-modal').mask('0.000.000.000', {
                     reverse: true
                 });
             })

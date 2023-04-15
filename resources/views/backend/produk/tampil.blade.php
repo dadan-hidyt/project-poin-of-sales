@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <button id='btn-tambah-produk' class='btn btn-warning'><i class="fa fa-plus"></i>Tambah</button>
+                    <a  href="{{ route('dashboard.product.item.tambah') }}" class='btn btn-warning'><i class="fa fa-plus"></i>Tambah</a>
                     <!--end::Button-->
                 </div>
             </div>
@@ -39,7 +39,7 @@
                             <th>Kategori</th>
                             <th>Satuan</th>
                             <th>Harga Jual</th>
-                            <th>Harga Beli</th>
+                            <th>Harga Modal</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -117,8 +117,8 @@
                     data: 'harga_jual'
                 },
                 {
-                    data: 'harga_beli',
-                    data: 'harga_beli'
+                    data: 'harga_modal',
+                    data: 'harga_modal'
                 },
                 {
                     data: 'action',

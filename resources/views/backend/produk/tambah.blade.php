@@ -3,8 +3,10 @@
     <div class="container-fluid">
         <div class="card card-custom">
             <div class="card-header bg-primary">
-                <div class="card-title">Tambah Produk</div>
-                <div class="card-toolbar">a</div>
+                <div class="card-title text-white">Tambah Produk</div>
+                <div class="card-toolbar">
+                    <a href="{{ route('dashboard.product.item') }}">Back</a>
+                </div>
             </div>
             <div class="card-body">
                 @livewire('form-tambah-produk')

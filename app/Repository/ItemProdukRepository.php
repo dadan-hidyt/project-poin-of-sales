@@ -18,7 +18,7 @@ class ItemProdukRepository
             'sku',
             'id_varian',
             'harga_jual',
-            'harga_beli',
+            'harga_modal',
             'satuan',
             'pajak',
             'id_kategori_produk',
@@ -36,8 +36,8 @@ class ItemProdukRepository
             ->addColumn('nama_produk', function ($row) {
                 return $row->nama_produk;
             })
-            ->addColumn('harga_beli', function ($row) {
-                return "Rp. " .formatRupiah($row->harga_beli);
+            ->addColumn('harga_modal', function ($row) {
+                return "Rp. " .formatRupiah($row->harga_modal);
             })
             ->addColumn('kategori', function ($row) {
                 return $row->kategori->nama_kategori;

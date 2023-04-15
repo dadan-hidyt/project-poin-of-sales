@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/item')->group(function () {
     Route::get('', [ProductController::class, 'index'])->name('.item');
-    Route::get('/tambah', [ProductController::class,'tambah']);
+    Route::get('/tambah', [ProductController::class,'tambah'])->name('.item.tambah');
     Route::post('/get', [ProductController::class, 'getDatatables'])->name('.item.datatable');
     Route::get('/get/kategori', [KategoriController::class, 'getAjax'])->name('.item.ajax.kategori');
     Route::get('/get/varian', [VarianController::class, 'getAjax'])->name('.item.ajax.varian');
