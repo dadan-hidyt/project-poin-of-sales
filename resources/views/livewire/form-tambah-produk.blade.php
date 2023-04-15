@@ -7,19 +7,30 @@
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
+
+
     <div class="form-group" wire:ignore>
         <label>Kategori:</label>
         <div class="input-group">
-            <select required style='width:90%;' class="@error('produk.id_kategori_produk') is-invalid @enderror"
-                name="" id="pilih-kategori-produk"></select>
+            <select wire:model.defer='produk.id_kategori_produk' style='width:90%;'  class="form-control @error('produk.id_kategori_produk') is-invalid @enderror"
+                name="" id="pilih-kategori-produk">
+                <option value="">---Tidak Ada---</option>
+                @forelse ($kategori as $item)
+                    <option value="{{ $item->id }}"> {{$item->nama_kategori}} </option>
+                @empty
+                   
+                @endforelse
+            </select>
             <div class="input-group-append">
-                <button id="btn-add-new-kategori" class="btn btn-primary" type="button">Go!</button>
+                <button id="btn-add-new-kategori" class="btn btn-primary" type="button">Add New!</button>
             </div>
         </div>
         @error('produk.id_kategori_produk')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
+
+
     <div class="form-group">
         <label for="deskripsi-produk">Deskripsi Produk</label>
         <textarea wire:model.defer='produk.deskripsi'
@@ -81,8 +92,12 @@
             </div>
             <div class="col-lg-3">
                 <label>Satuan:</label>
-                <input wire:model.defer='produk.satuan' type="text"
-                    class="form-control @error('produk.satuan') is-invalid @enderror">
+                <select wire:model.defer='produk.satuan'  class="form-control @error('produk.satuan') is-invalid @enderror">
+                    <option value="">--Pilih Satuan--</option>
+                    @foreach ($satuan as $item)
+                        <option value="{{ $item->nama_satuan }}">{{ $item->nama_satuan }}</option>
+                    @endforeach
+                </select>
                 @error('produk.satuan')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -104,30 +119,35 @@
     <!--end::Modal-->
     @push('script')
         <script>
+
+            function getKategori(){
+                
+            }
+
             $(document).ready(function() {
                 /**================UNTUK SELECT VARIAN PRODUk======================*/
-                $('#select-varian-produk').select2({
-                    placeholder: "Ketikan Varian Produk Kalau ada!",
-                    width: 'resolve',
-                    ajax: {
-                        url: "{{ route('dashboard.product.item.ajax.varian') }}",
-                    }
-                });
-                $('#select-varian-produk').on('change', () => {
-                    @this.set('produk.id_varian', $('#select-varian-produk').select2('val'));
-                });
+                // $('#select-varian-produk').select2({
+                //     placeholder: "Ketikan Varian Produk Kalau ada!",
+                //     width: 'resolve',
+                //     ajax: {
+                //         url: "{{ route('dashboard.product.item.ajax.varian') }}",
+                //     }
+                // });
+                // $('#select-varian-produk').on('change', () => {
+                //         @this.set('produk.id_varian', $('#select-varian-produk').select2('val'));
+                //     });
+                //     $('#pilih-kategori-produk').on('change', function() {
+                //         @this.set('produk.id_kategori_produk', $('#pilih-kategori-produk').select2('val'));
+                //     })
                 /**================UNTUK SELECT KATEGORI PRODUk======================*/
-                $('#pilih-kategori-produk').select2({
-                    placeholder: 'Pilih Kategori Produk',
-                    width: 'resolve',
-                    ajax: {
-                        url: "{{ route('dashboard.product.item.ajax.kategori') }}",
-                    }
-                });
-                /**================AU AH===================*/
-                $('#pilih-kategori-produk').on('change', function() {
-                    @this.set('produk.id_kategori_produk', $('#pilih-kategori-produk').select2('val'));
-                })
+                // $('#pilih-kategori-produk').select2({
+                //     placeholder: 'Pilih Kategori Produk',
+                //     width: 'resolve',
+                //     ajax: {
+                //         url: "{{ route('dashboard.product.item.ajax.kategori') }}",
+                //     }
+                // });
+               
                 /**================FORMAT DUIT======================*/
                 $('#harga-jual').mask('0.000.000.000', {
                     reverse: true

@@ -14,13 +14,11 @@ class PengaturanSeeder extends Seeder
     public function run(): void
     {
         PengaturanStruk::create([
-            'alamat' => 'nama_usaha',
+            'group_name' => "GROUP1",
+            'alamat' => 1,
             'no_telp' => 1,
             'email' => 1,
-            'catatan' => 1,
-            'logo_gambar' => 0,
+            'catatan' => "Terimakasih telah belanaja di toko kami!",
         ]);
-
-       
     }
 }

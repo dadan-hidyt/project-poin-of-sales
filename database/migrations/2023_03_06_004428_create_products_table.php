@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('harga_beli')->default(0);
             $table->char('pajak',120)->nullable();
             $table->integer('stok')->default(0);
+            $table->string('gambar_produk', 120)->nullable();
             $table->text('deskripsi')->nullable();
             $table->enum('tampil_dimenu',['Y','N'])->default('Y');
             $table->unsignedBigInteger('id_varian')->nullable();
