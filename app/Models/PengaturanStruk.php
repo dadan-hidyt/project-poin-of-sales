@@ -9,6 +9,6 @@ class PengaturanStruk extends Model
 {
     use HasFactory;
     protected $table = 'struk_setting';
-    protected $primaryKey ='key';
+    protected $primaryKey ='id';
     protected $guarded = [];
 }

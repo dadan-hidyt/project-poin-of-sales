@@ -12,9 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('struk_setting', function (Blueprint $table) {
-            $table->string("key")->primary();
-            $table->string('nama');
-            $table->text('value');
+            $table->id();
+            $table->string('group_name')->unique();
+            $table->enum('alamat',[1,0]);
+            $table->enum('no_telp', [1,0]);
+            $table->enum('email', [1,0]);
+            $table->text('catatan');
             $table->enum('active',['Y','N']);
             $table->timestamps();
         });

@@ -1,49 +1,21 @@
-
-
-<div class="row">
-    <div class="col-md-4">
-        
-<div class="for">
-    <div class="form-check form-switch">
-        <input class="form-check-input" role="switch" id="no_telpon_cek" @checked($this->strukModel->no_telp == '1') type="checkbox" wire:change='setNoTelp($event.target.value)' value="{{$this->strukModel->no_telp}}" >
-        <label class="form-check-label" for="no_telpon_cek">Tampilkan Nomor Telepon</label>
-      </div>
-    <div class="form-check form-switch">
-        <input class="form-check-input" role="switch" id="email_cek" @checked($this->strukModel->email == '1') type="checkbox" wire:change='setEmail($event.target.value)' value="{{$this->strukModel->email}}" >
-        <label class="form-check-label" for="email_cek">Tampilkan Alamat Email</label>
-      </div>
-    <div class="form-check form-switch">
-        <input class="form-check-input" role="switch" id="alamat" @checked($this->strukModel->alamat == '1') type="checkbox" wire:change='setAlamat($event.target.value)' value="{{$this->strukModel->alamat}}" >
-        <label class="form-check-label" for="alamat">Tampilkan Alamat</label>
-      </div>
-      <div class="form-group">
-        <label for="catatan">Catatan</label>
-        <textarea wire:keyup='setCatatan($event.target.value)' id="catatan" cols="30" rows="4" class="form-control">{{ $this->strukModel->catatan }}</textarea>
-      </div>
-</div>
-
-    </div>
-    <div class="col-md-8 border rounded">
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Example</title>
+        <title>Document</title>
         <style>
-            
+            * {
+                font-family: monospace;
+            }
             .center{
                 text-align: center;
             }
             .struk {
+                position: relative;
                 width: 500px;
                 margin: auto;
-            }
-            @media(max-width:720px){
-                .struk{
-                    width: 100%;
-                }
             }
             .kontak {
                 text-align: center;
@@ -71,9 +43,7 @@
             .clearfix:after {
                 clear: both;
             }
-            .catatan{
-                margin: 14px 0px;
-            }
+
             .clearfix {
                 *zoom: 1;
             }
@@ -87,19 +57,13 @@
         <div class="struk clearfix">
             <div class="logo">SAUNG TEKO SUMEDANG</div>
             <div class="kontak">
-                @if ($this->strukModel->alamat == 1)
                 <div>Jl. Medan merdeka no2</div>
-                @endif
-                @if ($this->strukModel->no_telp == 1)
                 <div>
                     Telp:088223837165
                 </div>
-                @endif
-                @if ($this->strukModel->email == 1)
                 <div>
-                    Telp:dadanhidyt@gmail.com
+                    Email:dadan@dadan.com
                 </div>
-                @endif
             </div>
             <span>---------------------------------------------------------------------</span>
             <div class="nota">
@@ -111,8 +75,7 @@
                     Budiana Irmawansyah</div>
                 <div>
                     <b>Time:</b>
-                    {{ now() }}    
-                </div>
+                    1 Oktober 2023 18:2:43 Am</div>
                 <div>
                     <b>Meja:</b>
                     A01</div>
@@ -152,25 +115,16 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-            <span>---------------------------------------------------------------------</span>
+            <span>=====================================================================</span>
                 <div class="subtotal">Subtotal: Rp. 230.0000</div>
-            <span>---------------------------------------------------------------------</span>
+            <span>=====================================================================</span>
 
-           @if (!empty($this->strukModel->catatan))
-           <p class="center">
-           {{$this->strukModel->catatan}}
-        </p>
-           @endif
+            <p class="center">
+                Terimakasih telah mengunjungi toko kami!
+                <br>
+                Wifi Password: Saungteko1
+            </p>
 
         </div>
     </body>
 </html>
-
-    </div>
-</div>
-
-<script>
-    window.onload = function(){
-
-    }
-</script>
