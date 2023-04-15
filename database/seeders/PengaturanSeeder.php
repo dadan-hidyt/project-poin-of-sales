@@ -14,31 +14,13 @@ class PengaturanSeeder extends Seeder
     public function run(): void
     {
         PengaturanStruk::create([
-            'key' => 'nama_usaha',
-            'nama' => "Nama Usaha",
-            'value' => "Saung Teko Sumedang",
-            'active' => 'Y',
+            'alamat' => 'nama_usaha',
+            'no_telp' => 1,
+            'email' => 1,
+            'catatan' => 1,
+            'logo_gambar' => 0,
         ]);
 
-        PengaturanStruk::create([
-            'key' => 'logo',
-            'nama' => "Logo",
-            'value' => "dada.jpg",
-            'active' => 'Y',
-        ]);
-
-        PengaturanStruk::create([
-            'key' => 'alamat',
-            'nama' => "Alamat",
-            'value' => "Jl. Medan Merdeka",
-            'active' => 'Y',
-        ]);
-
-        PengaturanStruk::create([
-            'key' => 'no_telpon',
-            'nama' => "No Telpon",
-            'value' => "088223837164",
-            'active' => 'Y',
-        ]);
+       
     }
 }

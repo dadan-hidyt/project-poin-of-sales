@@ -23,12 +23,15 @@ class FormPengaturanWeb extends Component
         //yang baru di upload
         if($this->logo){
             $this->pengaturan['logo'] = "storage/web/".$this->logo->hashName();
-            if(file_exists($file = public_path($this->pengaturan_model['logo']))){
+            if(file_exists($file = public_path($this->pengaturan_model['logo'] ?? ''))){
                 @unlink($file);
             }
         }
         //ini adalah proses update
-        if($this->pengaturan_model->update($this->pengaturan)) {
+        $process = $this->pengaturan_model 
+        ? $this->pengaturan_model->update($this->pengaturan) 
+        : PengaturanWeb::create($this->pengaturan);
+        if($process) {
             if($this->logo){
                 $this->logo->storePublicly('public/web');
             }

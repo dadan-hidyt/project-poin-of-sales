@@ -10,7 +10,7 @@ use App\Services\ItemProdukService;
 use App\Traits\DataTablesTrait;
 use Illuminate\Http\Request;
 
-class ItemController extends Controller
+class ProductController extends Controller
 {
     use DataTablesTrait;
     private $itemRepository;
@@ -25,6 +25,10 @@ class ItemController extends Controller
             'item' => $item,
             'title' => 'Edit Item',
         ]);
+    }
+    public function tambah(){
+        $this->setTitle("Tambah Produk");
+        return view('backend.produk.tambah');
     }
     //fungsi untuk mendelete item produk
     public function delete(Request $request, Product $product, $kodeProduk = null)

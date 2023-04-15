@@ -104,40 +104,40 @@
     <!--end::Modal-->
     @push('script')
         <script>
-            /**================UNTUK SELECT VARIAN PRODUk======================*/
-            $('#select-varian-produk').select2({
-                placeholder: "Ketikan Varian Produk Kalau ada!",
-                width: 'resolve',
-                ajax: {
-                    url: "{{ route('dashboard.product.item.ajax.varian') }}",
-                }
-            });
-            $('#select-varian-produk').on('change', () => {
-                @this.set('produk.id_varian', $('#select-varian-produk').select2('val'));
-            });
-            /**================UNTUK SELECT KATEGORI PRODUk======================*/
-            $('#pilih-kategori-produk').select2({
-                placeholder: 'Pilih Kategori Produk',
-                width: 'resolve',
-                minimumResultsForSearch: -1,
-                allowClear: true,
-                ajax: {
-                    url: "{{ route('dashboard.product.item.ajax.kategori') }}",
-                }
-            });
-            /**================AU AH===================*/
-            $('#pilih-kategori-produk').on('change', function() {
-                @this.set('produk.id_kategori_produk', $('#pilih-kategori-produk').select2('val'));
+            $(document).ready(function() {
+                /**================UNTUK SELECT VARIAN PRODUk======================*/
+                $('#select-varian-produk').select2({
+                    placeholder: "Ketikan Varian Produk Kalau ada!",
+                    width: 'resolve',
+                    ajax: {
+                        url: "{{ route('dashboard.product.item.ajax.varian') }}",
+                    }
+                });
+                $('#select-varian-produk').on('change', () => {
+                    @this.set('produk.id_varian', $('#select-varian-produk').select2('val'));
+                });
+                /**================UNTUK SELECT KATEGORI PRODUk======================*/
+                $('#pilih-kategori-produk').select2({
+                    placeholder: 'Pilih Kategori Produk',
+                    width: 'resolve',
+                    ajax: {
+                        url: "{{ route('dashboard.product.item.ajax.kategori') }}",
+                    }
+                });
+                /**================AU AH===================*/
+                $('#pilih-kategori-produk').on('change', function() {
+                    @this.set('produk.id_kategori_produk', $('#pilih-kategori-produk').select2('val'));
+                })
+                /**================FORMAT DUIT======================*/
+                $('#harga-jual').mask('0.000.000.000', {
+                    reverse: true
+                });
+                $('#pajak').mask('0.000.000.000', {
+                    reverse: true
+                });
+                $('#harga-beli').mask('0.000.000.000', {
+                    reverse: true
+                });
             })
-            /**================FORMAT DUIT======================*/
-            $('#harga-jual').mask('0.000.000.000', {
-                reverse: true
-            });
-            $('#pajak').mask('0.000.000.000', {
-                reverse: true
-            });
-            $('#harga-beli').mask('0.000.000.000', {
-                reverse: true
-            });
         </script>
     @endpush
