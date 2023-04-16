@@ -22,6 +22,7 @@ class FormEditPelanggan extends Component
         $this->pelanggans = $pelanggan->toArray();
         $this->pelanggan_model = $pelanggan;
     }
+    //edit pelanggan
     public function edit(){
         $this->validate();
         if($this->pelanggan_model->update($this->pelanggans)) {
