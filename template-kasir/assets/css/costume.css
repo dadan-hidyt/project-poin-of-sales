@@ -1,0 +1,510 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/poppins/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Bold.ttf") format("truetype");
+  font-weight: 800;
+}
+.form-select {
+  outline: none !important;
+}
+
+.fs-7 {
+  font-size: 12px;
+}
+
+.fs-8 {
+  font-size: 10px;
+}
+
+.opacity-4 {
+  opacity: 0.4;
+}
+
+.opacity-5 {
+  opacity: 0.5;
+}
+
+.opacity-6 {
+  opacity: 0.6;
+}
+
+.opacity-7 {
+  opacity: 0.7;
+}
+
+.transaksi-info {
+  color: #444;
+}
+.transaksi-info h6 {
+  font-size: 14px;
+}
+.transaksi-info .kode-pesan {
+  font-size: 12px;
+}
+
+.modal-tambahPesanan,
+.modal-tambahPelanggan {
+  width: 320px;
+}
+
+.header-home {
+  height: 120px;
+}
+.header-home .title h4 {
+  font-size: 32px;
+  opacity: 0.2;
+}
+
+.layout-meja {
+  font-family: "Poppins", sans-serif;
+}
+.layout-meja .col-md-3 {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.layout-meja .col-md-3 .card {
+  width: 94%;
+  height: 94%;
+}
+.layout-meja .col-md-3 .card .card-body .status .timer-stat {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.wrapper-login {
+  width: 100%;
+  height: 100vh;
+}
+.wrapper-login .login-form .form-login_head img {
+  width: 80%;
+}
+
+.data-laporan ._title ._detail h6 {
+  font-size: 12px;
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  input[type=checkbox],
+input[type=radio] {
+    --active: #f5a133;
+    --active-inner: #fff;
+    --focus: 2px rgba(255, 255, 255, 0.554);
+    --border: #c5c8d5;
+    --border-hover: #f5a133;
+    --background: #fff;
+    --disabled: #F6F8FF;
+    --disabled-inner: #E1E6F9;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid var(--bc, var(--border));
+    background: var(--b, var(--background));
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+  }
+  input[type=checkbox]:after,
+input[type=radio]:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+  }
+  input[type=checkbox]:checked,
+input[type=radio]:checked {
+    --b: var(--active);
+    --bc: var(--active);
+    --d-o: .3s;
+    --d-t: .6s;
+    --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+  }
+  input[type=checkbox]:disabled,
+input[type=radio]:disabled {
+    --b: var(--disabled);
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+  input[type=checkbox]:disabled:checked,
+input[type=radio]:disabled:checked {
+    --b: var(--disabled-inner);
+    --bc: var(--border);
+  }
+  input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+    cursor: not-allowed;
+  }
+  input[type=checkbox]:hover:not(:checked):not(:disabled),
+input[type=radio]:hover:not(:checked):not(:disabled) {
+    --bc: var(--border-hover);
+  }
+  input[type=checkbox]:focus,
+input[type=radio]:focus {
+    box-shadow: 0 0 0 var(--focus);
+  }
+  input[type=checkbox]:not(.switch),
+input[type=radio]:not(.switch) {
+    width: 21px;
+  }
+  input[type=checkbox]:not(.switch):after,
+input[type=radio]:not(.switch):after {
+    opacity: var(--o, 0);
+  }
+  input[type=checkbox]:not(.switch):checked,
+input[type=radio]:not(.switch):checked {
+    --o: 1;
+  }
+  input[type=checkbox] + label,
+input[type=radio] + label {
+    font-size: 14px;
+    line-height: 21px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  input[type=checkbox]:not(.switch) {
+    border-radius: 7px;
+  }
+  input[type=checkbox]:not(.switch):after {
+    width: 5px;
+    height: 9px;
+    border: 2px solid var(--active-inner);
+    border-top: 0;
+    border-left: 0;
+    left: 7px;
+    top: 4px;
+    transform: rotate(var(--r, 20deg));
+  }
+  input[type=checkbox]:not(.switch):checked {
+    --r: 43deg;
+  }
+  input[type=checkbox].switch {
+    width: 38px;
+    border-radius: 11px;
+  }
+  input[type=checkbox].switch:after {
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: var(--ab, var(--border));
+    transform: translateX(var(--x, 0));
+  }
+  input[type=checkbox].switch:checked {
+    --ab: var(--active-inner);
+    --x: 17px;
+  }
+  input[type=checkbox].switch:disabled:not(:checked):after {
+    opacity: 0.6;
+  }
+  input[type=radio] {
+    border-radius: 50%;
+  }
+  input[type=radio]:after {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--active-inner);
+    opacity: 0;
+    transform: scale(var(--s, 0.7));
+  }
+  input[type=radio]:checked {
+    --s: .5;
+  }
+}
+.order_modal {
+  border-radius: 12px !important;
+  width: 350px;
+}
+.order_modal .modal-header h1 {
+  font-size: 18px;
+  color: #444;
+  font-weight: 600;
+}
+.order_modal .modal-body {
+  padding: 0 30px;
+}
+
+.search-box {
+  position: relative;
+  flex-grow: 1;
+}
+.search-box .form-control {
+  font-size: 14px;
+  padding: 15px 18px;
+  border: 1px solid #ddd !important;
+}
+.search-box .search-control {
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  right: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.search-box i {
+  position: absolute;
+  right: 18px;
+  font-size: 18px;
+  color: #444;
+}
+
+.voucher_form .form-control {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+.voucher_form .btn {
+  background-color: #f5a133;
+  color: #fff;
+  font-size: 14px;
+}
+
+.point_form {
+  padding: 16px 0px;
+}
+.point_form .point p {
+  font-weight: 600;
+  color: #444;
+}
+.point_form .point i {
+  font-size: 16px;
+  color: #444;
+}
+.point_form .point span {
+  font-weight: 600;
+  color: #f5a133;
+}
+
+.setvaluecash ul li a input:checked .paymentmethod {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn_category button {
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ddd !important;
+}
+
+.btn_closedetail {
+  font-size: 14px !important;
+  padding: 14px 14px;
+  border-radius: 6px;
+}
+
+.form_selectproduct .form-group .form-control {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.form_selectproduct .form-group .btn_addorder {
+  width: 100%;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 12px 15px;
+  background-color: #f5a133;
+  color: #fff;
+}
+
+.detail_img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.detail_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.pick_detail_img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.pick_detail_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.productprice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.productprice h5 {
+  color: #f5a133;
+  font-weight: 500;
+}
+
+.selectmethod a {
+  transition: all 400ms;
+}
+.selectmethod a:hover {
+  background-color: rgba(221, 221, 221, 0.2352941176) !important;
+  color: #f5a133 !important;
+}
+
+footer {
+  padding: 30px 0 !important;
+  border-top: 1px solid #dddddd;
+  position: fixed !important;
+  background-color: #fff;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-bottom: 0 !important;
+}
+footer .container .copy {
+  font-size: 14px;
+  color: #444;
+}
+
+/* Small devices such as large phones (640px and up) */
+@media only screen and (min-width: 640px) {
+  .table_list_wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 25px;
+  }
+}
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 768px) {
+  .table_list_wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 25px;
+  }
+}
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+  .table_list_wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 25px;
+  }
+  .product_list_wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+/* Largest devices such as desktops (1300px and up) */
+@media only screen and (min-width: 1200px) {
+  .table_list_wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 25px;
+  }
+  .product_list_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1100px) {
+  .product-lists {
+    flex-direction: column !important;
+    align-items: flex-start;
+  }
+  .product-lists li:last-child {
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header-home {
+    height: 120px;
+    justify-content: flex-end !important;
+  }
+  .header-home .title {
+    display: none;
+  }
+  .header-home .title h4 {
+    font-size: 32px;
+    opacity: 0.2;
+  }
+  .layout-meja {
+    font-family: "Poppins", sans-serif;
+  }
+  .layout-meja .col-md-3 {
+    margin-bottom: 20px;
+  }
+  .layout-meja .col-md-3 .card {
+    width: 100%;
+    height: 100%;
+  }
+  .layout-meja .col-md-3 .card .meja-info .nama-meja {
+    font-size: 12px !important;
+  }
+  .modal .modal-tambahPesanan,
+.modal .modal-tambahPelanggan {
+    width: 80% !important;
+    margin: 0 auto;
+  }
+  .modal .modal-detailMeja .detail-meja {
+    flex-direction: column !important;
+  }
+}/*# sourceMappingURL=costume.css.map */
