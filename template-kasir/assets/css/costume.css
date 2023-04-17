@@ -402,6 +402,13 @@ input[type=radio] + label {
   color: #f5a133 !important;
 }
 
+#jumlahUang {
+  transition: all ease 0.4ms;
+}
+#jumlahUang.active {
+  border: 1px solid #f5a133;
+}
+
 footer {
   padding: 30px 0 !important;
   border-top: 1px solid #dddddd;

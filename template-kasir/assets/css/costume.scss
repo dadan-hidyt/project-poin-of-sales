@@ -472,6 +472,13 @@ $second_font: 'Nunito', sans-serif;
   }
 }
 
+#jumlahUang{
+  transition: all ease .40ms;
+  &.active{
+    border: 1px solid $primary_color;
+  }
+}
+
 
 
 footer {
@@ -580,6 +587,5 @@ footer {
     }
   }
 }
-
 
 }
