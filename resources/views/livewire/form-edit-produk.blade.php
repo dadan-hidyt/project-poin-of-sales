@@ -7,28 +7,37 @@
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
+
+
     <div class="form-group" wire:ignore>
         <label>Kategori:</label>
         <div class="input-group">
-            <select style='width:90%;' class="@error('produk.id_kategori_produk') is-invalid @enderror"
-                name="" id="pilih-kategori-produk"></select>
+            <select wire:model.defer='produk.id_kategori_produk' style='width:90%;'  class="form-control @error('produk.id_kategori_produk') is-invalid @enderror"
+                name="" id="pilih-kategori-produk">
+                <option value="">---Tidak Ada---</option>
+                @forelse ($kategori as $item)
+                    <option value="{{ $item->id }}"> {{$item->nama_kategori}} </option>
+                @empty
+                   
+                @endforelse
+            </select>
             <div class="input-group-append">
-                <button id="btn-add-new-kategori" class="btn btn-primary" type="button">Go!</button>
+                <button id="btn-add-new-kategori" class="btn btn-primary" type="button">Add New!</button>
             </div>
-            <span class="form-text text-info text-sm">Jika kataegori tidak di isi, Maka kategori nya masih kategori yang
-                sebelumnya</span>
         </div>
         @error('produk.id_kategori_produk')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
+
+
     <div class="form-group">
         <label for="deskripsi-produk">Deskripsi Produk</label>
         <textarea wire:model.defer='produk.deskripsi'
             class="form-control @error('produk.deskripsi')
             is-invalid
         @enderror" id="deskripsi-produk"
-            cols="30" rows="3">"{{ $this->produk['deskripsi'] }}</textarea>
+            cols="30" rows="3"></textarea>
         @error('produk.deskripsi')
             <span class="invalid-feedback">{{ $message }}</span>
             @endif
@@ -74,17 +83,21 @@
                 @enderror
             </div>
             <div class="col-lg-3">
-                <label>Harga Harga Beli:</label>
-                <input id="harga-beli" wire:model.defer='produk.harga_beli' type="text"
-                    class="form-control @error('produk.harga_beli') is-invalid @enderror">
-                @error('produk.harga_beli')
+                <label>Harga Modal:</label>
+                <input id="harga-modal" wire:model.defer='produk.harga_modal' type="text"
+                    class="form-control @error('produk.harga_modal') is-invalid @enderror">
+                @error('produk.harga_modal')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-lg-3">
                 <label>Satuan:</label>
-                <input wire:model.defer='produk.satuan' type="text"
-                    class="form-control @error('produk.satuan') is-invalid @enderror">
+                <select wire:model.defer='produk.satuan'  class="form-control @error('produk.satuan') is-invalid @enderror">
+                    <option value="">--Pilih Satuan--</option>
+                    @foreach ($satuan as $item)
+                        <option value="{{ $item->nama_satuan }}">{{ $item->nama_satuan }}</option>
+                    @endforeach
+                </select>
                 @error('produk.satuan')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -99,60 +112,75 @@
             @enderror
         </div>
         <div class="form-group">
+            <label for="pilih_gambar">Pilih Gambar</label>
+            <div class="gambar">
+                @if ($this->produk['gambar_produk']) 
+                <img width="20%" id="img_preview" class="border mb-4 rounded img-thumbnail" src="{{ asset("storage/".$this->produk['gambar_produk']) }}" alt="app">
+                    @else
+                    <img width="20%" id="img_preview" class="border mb-4 rounded img-thumbnail" src="{{ asset(config('web.logo')) }}" alt="app">
+                @endif
+            </div>
+            <div wire:loading wire:target='foto'>Mengupload...</div>
+            <input class="d-block" @class(['form-control', $errors->has('foto') ? 'is-invalid' : '']) wire:model='foto' type="file" id="coose_file" class="mt-4">
+            @error('foto')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group">
             <button class="btn btn-primary">Tambah</button>
-            <span wire:loading wire:target='tambah'>Menyimpan...</span>
+            <span wire:loading wire:target='tambah'>MenyimpanT...</span>
         </div>
     </form>
     <!--end::Modal-->
     @push('script')
         <script>
-            /**================UNTUK SELECT VARIAN PRODUk======================*/
-            $('#select-varian-produk').select2({
-                placeholder: "Ketikan Varian Produk Kalau ada!",
-                width: 'resolve',
-                ajax: {
-                    url: "{{ route('dashboard.product.item.ajax.varian') }}",
-                }
+
+          
+
+           function pilihGambarProduk(params) {
+                const inputFile = $('#coose_file');
+
+                inputFile.on('change',(e)=>{
+                   document.getElementById('img_preview').src = URL.createObjectURL(e.target.files[0]);
+                });
+                
+           }
+           pilihGambarProduk();
+
+            $(document).ready(function() {
+                /**================UNTUK SELECT VARIAN PRODUk======================*/
+                // $('#select-varian-produk').select2({
+                //     placeholder: "Ketikan Varian Produk Kalau ada!",
+                //     width: 'resolve',
+                //     ajax: {
+                //         url: "{{ route('dashboard.product.item.ajax.varian') }}",
+                //     }
+                // });
+                // $('#select-varian-produk').on('change', () => {
+                //         @this.set('produk.id_varian', $('#select-varian-produk').select2('val'));
+                //     });
+                //     $('#pilih-kategori-produk').on('change', function() {
+                //         @this.set('produk.id_kategori_produk', $('#pilih-kategori-produk').select2('val'));
+                //     })
+                /**================UNTUK SELECT KATEGORI PRODUk======================*/
+                // $('#pilih-kategori-produk').select2({
+                //     placeholder: 'Pilih Kategori Produk',
+                //     width: 'resolve',
+                //     ajax: {
+                //         url: "{{ route('dashboard.product.item.ajax.kategori') }}",
+                //     }
+                // });
+               
+                /**================FORMAT DUIT======================*/
+                $('#harga-jual').mask('0.000.000.000', {
+                    reverse: true
+                });
+                $('#pajak').mask('0.000.000.000', {
+                    reverse: true
+                });
+                $('#harga-modal').mask('0.000.000.000', {
+                    reverse: true
+                });
             })
-            $('#select-varian-produk').on('change', () => {
-                @this.set('produk.id_varian', $('#select-varian-produk').select2('val'));
-            });
-            /**================UNTUK SELECT KATEGORI PRODUk======================*/
-            $('#pilih-kategori-produk').select2({
-                placeholder: 'Pilih Kategori Produk',
-                width: 'resolve',
-                minimumResultsForSearch: -1,
-                allowClear: true,
-                ajax: {
-                    url: "{{ route('dashboard.product.item.ajax.kategori') }}",
-                }
-            });
-            /**================AU AH===================*/
-            $('#pilih-kategori-produk').on('change', function() {
-                @this.set('produk.id_kategori_produk', $('#pilih-kategori-produk').select2('val'));
-            })
-            /**================FORMAT DUIT======================*/
-            $('#harga-jual').mask('0.000.000.000', {
-                reverse: true
-            });
-            //default value
-            $('#harga-jual').trigger('input')
-            $('#pajak').mask('0.000.000.000', {
-                reverse: true
-            });
-            $('#harga-beli').mask('0.000.000.000', {
-                reverse: true
-            });
         </script>
     @endpush
-@push('script')
-    <script>
-        window.addEventListener('update-success',function(){
-            swal.fire({
-                title : 'Sukses',
-                text : "Produk item berhasil di update",
-                icon : 'success',
-            })
-        });
-    </script>
-@endpush

@@ -114,10 +114,13 @@
         <div class="form-group">
             <label for="pilih_gambar">Pilih Gambar</label>
             <div class="gambar">
-                <img width="40%" id="img_preview" class="border rounded img-thumbnail" src="{{ asset(config('web.logo')) }}" alt="app">
+                <img width="20%" id="img_preview" class="border mb-4 rounded img-thumbnail" src="{{ asset(config('web.logo')) }}" alt="app">
             </div>
             <div wire:loading wire:target='foto'>Mengupload...</div>
-            <input class="d-block" wire:model='foto' type="file" id="coose_file" class="mt-4">
+            <input class="d-block" @class(['form-control', $errors->has('foto') ? 'is-invalid' : '']) wire:model='foto' type="file" id="coose_file" class="mt-4">
+            @error('foto')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
         </div>
         <div class="form-group">
             <button class="btn btn-primary">Tambah</button>

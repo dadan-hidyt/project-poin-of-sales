@@ -25,6 +25,7 @@ class FormTambahProduk extends Component
         'produk.harga_jual' => 'required',
         'produk.harga_modal' => 'required',
         'produk.pajak' => 'required',
+        'foto' => 'required',
         'produk.stok' => 'required|integer',
         'produk.deskripsi' => 'max:120',
         'produk.satuan' => 'required'
@@ -52,9 +53,8 @@ class FormTambahProduk extends Component
          */
         
         if ($this->foto) {
-            $this->produk['gambar_produk'] = $this->foto->hashName();
+            $this->produk['gambar_produk'] = "product_image/".$this->foto->hashName();
         }
-        dd($this->produk);
 
         $this->produk['id_kategori_produk'] = 1;
         $this->produk['harga_jual'] = $this->clearNominal($this->produk['harga_jual']);
@@ -69,7 +69,11 @@ class FormTambahProduk extends Component
                 )
             )
         ) {
-
+            if ( $this->foto ) {
+                $this->foto->storePublicly('public/product_image');
+            } else {
+                dd(234);
+            }
             $this->resetExcept('produk');
             $this->dispatchBrowserEvent('productAdded', [
                 'success' => true,

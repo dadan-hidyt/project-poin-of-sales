@@ -133,6 +133,7 @@
                         </ul>
                     </div>
                 </li>
+               
                 <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"><a
                         href="javascript:;" class="menu-link menu-toggle"><i
                             class="menu-icon flaticon2-line-chart"></i><span class="menu-text">Analisa
@@ -179,7 +180,7 @@
                 </li>
                 <li class="menu-item " aria-haspopup="true"><a target="_blank"
                         href="{{ route('dashboard.promo.kupon.show') }}" class="menu-link "><i
-                            class="menu-icon flaticon1-percentage"></i><span class="menu-text">Kupon</span></a></li>
+                            class="menu-icon flaticon-interface-9"></i><span class="menu-text">Kupon</span></a></li>
 
                 <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"><a
                         href="javascript:;" class="menu-link menu-toggle"><i

@@ -18,15 +18,17 @@ class ProductController extends Controller
     {
         $this->itemRepository = new ItemProdukRepository();
     }
-    public function update(Request $request,$id = null) {
-        abort_if($id === null,404);
+    public function update(Request $request, $id = null)
+    {
+        abort_if($id === null, 404);
         $item = Product::findOrFail($id);
-        return view('backend.produk.edit',[
+        return view('backend.produk.edit', [
             'item' => $item,
             'title' => 'Edit Item',
         ]);
     }
-    public function tambah(){
+    public function tambah()
+    {
         $this->setTitle("Tambah Produk");
         return view('backend.produk.tambah');
     }
@@ -38,6 +40,7 @@ class ProductController extends Controller
         }
         //proses
         $rowOfProduct = $product->with(['kategori', 'varian'])->findOrFail($kodeProduk);
+        $gambar_produk = $rowOfProduct->gambar_produk ?? null;
         $error = [];
         //relasi detail transaksi dengan produk ini
         //kita check dulu apakah ada data atau tidak
@@ -48,7 +51,12 @@ class ProductController extends Controller
         if ($relasiDetailTransaksi) {
             $error['gagal_hapus_produk'] = 'Data gagal dihapus! Kerena produk ini telah di gunakan oleh transaksi, Produk ini hanya dapat di edit untuk saat ini!';
         } else {
+
             if ($rowOfProduct->delete()) {
+                $fullPath = base_path("storage/app/public/{$gambar_produk}");
+                if (file_exists($fullPath)) {
+                    @unlink($fullPath);
+                }
                 $error['berasil_hapus_produk'] = 'Produk berhasil di hapus';
             } else {
                 $error['gagal_hapus_produk'] = 'Kesalahan saat mengapus data';
