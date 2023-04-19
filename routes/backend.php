@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AkunController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\KariawanController;
+use App\Http\Controllers\Backend\MejaController;
 use App\Http\Controllers\Backend\Produk\ProdukVarian;
 use App\Models\Kariawan;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,15 @@ Route::resource('akun',AkunController::class,[
         'destroy' => '.akun.delete'
     ]
 ]);
-
+Route::resource('meja', MejaController::class,[
+   'names' => [
+    'index' => '.meja.index',
+    'store' => '.meja.store',
+    'create' => '.meja.create',
+    'edit' => '.meja.edit',
+    'destroy' => '.meja.destroy'
+   ]
+]);
+Route::get('meja/data/get', [MejaController::class, 'datatable'])->name('.meja.datatable');
 Route::prefix('akun_saya')->name('.akun_saya')->group(base_path('routes/backend/akun_saya.php'));
 Route::prefix('pengaturan')->name('.pengaturan')->group(base_path('routes/backend/pengaturan.php'));
