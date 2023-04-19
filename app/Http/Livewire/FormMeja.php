@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class FormMeja extends Component
 {
+    public $type;
+    public $meja_model;
     public $prefix_meja = "MJ-";
     public $meja = [];
     protected $rules = [
@@ -31,8 +33,17 @@ class FormMeja extends Component
         }
         $this->dispatchBrowserEvent('gagal');
     }
+    public function edit(){
+        $this->validate();
+        if ($this->meja_model->update($this->meja) ) {
+            return redirect(route('dashboard.meja.index'));
+        }
+        $this->dispatchBrowserEvent('gagal');
+    }
     public function mount(){
-    
+        if ( $this->type === 'edit' ) {
+            $this->meja = $this->meja_model->toArray();
+        }
     }
     public function render()
     {

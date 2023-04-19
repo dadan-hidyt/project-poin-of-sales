@@ -49,7 +49,7 @@
             <div class="form-group">
                 <label for="jmlh_kupon" class="form-label">Jumlah Kupon</label>
                 <input type="number" wire:model.defer='kupon.jumlah_kupon' class="form-control">
-                <small class="text-primary"><i>Kosongkan jika jumlah kupon tidak terbatas!</i></small>
+                <span class="form-text text-muted">Kosongkan field ini jika jumlah kupon tidak terbatas</span>
             </div>
         </div>
         <div class="col-6">
@@ -99,9 +99,7 @@
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
-    <div class="form-group">
-        <button class="btn btn-primary"><i class="fa fa-plus"></i> Simpan</button>
-    </div>
+    <button class="btn btn-primary"><i class="fa fa-plus"></i> Simpan</button>
     </form>
 </div>
 @push('script')

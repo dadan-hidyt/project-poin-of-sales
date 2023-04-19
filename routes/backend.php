@@ -22,8 +22,9 @@ Route::resource('produk/varian', ProdukVarian::class,[
         'destroy' => '.akun.varian.delete'
     ]
 ]);
+/** PROMO */
 Route::prefix('/promo')->name('.promo')->group(base_path('routes/backend/promo.php'));
-//kariawan
+/** KARIAWAN */
 Route::resource('kariawan',KariawanController::class);
 Route::resource('akun',AkunController::class,[
     'names' => [
@@ -33,15 +34,17 @@ Route::resource('akun',AkunController::class,[
         'destroy' => '.akun.delete'
     ]
 ]);
+/** MEJA */
 Route::resource('meja', MejaController::class,[
    'names' => [
     'index' => '.meja.index',
     'store' => '.meja.store',
     'create' => '.meja.create',
     'edit' => '.meja.edit',
-    'destroy' => '.meja.destroy'
    ]
-]);
+])->only(['index','store','edit','create']);
 Route::get('meja/data/get', [MejaController::class, 'datatable'])->name('.meja.datatable');
+Route::get('meja/{id}/delete', [MejaController::class, 'destroy'])->name('.meja.delete');
+//akun saya
 Route::prefix('akun_saya')->name('.akun_saya')->group(base_path('routes/backend/akun_saya.php'));
 Route::prefix('pengaturan')->name('.pengaturan')->group(base_path('routes/backend/pengaturan.php'));

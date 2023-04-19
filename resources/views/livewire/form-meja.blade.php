@@ -1,5 +1,14 @@
-<form wire:submit.prevent="tambah" action="">
-    <div class="form-group">
+@isset($type)
+    @if ($type === 'edit')
+    <form wire:submit.prevent="edit" action="">
+        @else
+        <form wire:submit.prevent="tambah" action="">
+    @endif 
+    @else
+    <form wire:submit.prevent="tambah" action="">
+@endisset
+
+<div class="form-group">
         <label for="nomor_meja">NOMOR MEJA</label>
         <div class="input-group">
             <div class="input-group-prepend"><span class="input-group-text">M-</i></span></div>

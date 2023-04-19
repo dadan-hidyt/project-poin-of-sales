@@ -136,21 +136,16 @@
                
                 <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"><a
                         href="javascript:;" class="menu-link menu-toggle"><i
-                            class="menu-icon flaticon2-line-chart"></i><span class="menu-text">Analisa
-                            Laporan</span><i class="menu-arrow"></i></a>
+                            class="menu-icon flaticon2-line-chart"></i><span class="menu-text">Kasir</span><i class="menu-arrow"></i></a>
                     <div class="menu-submenu "><i class="menu-arrow"></i>
                         <ul class="menu-subnav">
                             <li class="menu-item " aria-haspopup="true"><a href="custom/apps/inbox.html"
                                     class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span
-                                        class="menu-text">Kinerja kasir</span><span class="menu-label"><span
-                                            class="label label-danger label-inline">new</span></span></a></li>
+                                        class="menu-text">Buka Kasir</span><span class="menu-label"><span
+                                            class="label label-danger label-inline">1</span></span></a></li>
                             <li class="menu-item " aria-haspopup="true"><a href="custom/apps/inbox.html"
                                     class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span
-                                        class="menu-text">Kinerja kasir</span><span class="menu-label"><span
-                                            class="label label-danger label-inline">new</span></span></a></li>
-                            <li class="menu-item " aria-haspopup="true"><a href="custom/apps/inbox.html"
-                                    class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span
-                                        class="menu-text">Kinerja kasir</span><span class="menu-label"><span
+                                        class="menu-text">Tutup Kasir</span><span class="menu-label"><span
                                             class="label label-danger label-inline">new</span></span></a></li>
                         </ul>
                     </div>
@@ -242,7 +237,7 @@
                             <li class="menu-item " aria-haspopup="true"><a href="custom/apps/inbox.html"
                                     class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span
                                         class="menu-text">Daftar Jenis Order</span></a></li>
-                            <li class="menu-item " aria-haspopup="true"><a href="custom/apps/inbox.html"
+                            <li class="menu-item " aria-haspopup="true"><a href="{{ route('dashboard.meja.index') }}"
                                     class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span
                                         class="menu-text">Daftar Meja</span></a></li>
                         </ul>

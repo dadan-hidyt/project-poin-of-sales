@@ -45,7 +45,8 @@ class MejaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        echo 23234;
+
     }
 
     /**
@@ -53,7 +54,9 @@ class MejaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $meja = Meja::findOrFail($id);
+        $this->setTitle("Edit Meja - {$meja->nama}");
+        return view('backend.meja.edit', compact('meja'));
     }
 
     /**
@@ -61,7 +64,8 @@ class MejaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        echo 234;
+
     }
 
     /**
@@ -69,6 +73,9 @@ class MejaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if(Meja::findOrFail($id)->delete()) {
+            return redirect(route('dashboard.meja.index'));
+        }
+        return redirect(route('dashboard.meja.index'));
     }
 }
