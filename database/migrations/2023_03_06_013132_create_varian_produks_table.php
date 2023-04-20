@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('tb_varian_produk', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_produk');
             $table->string('nama_varian');
-            $table->enum('jenis_pilihan',['banyak','satu']);
-            $table->softDeletes();
+            $table->bigInteger("harga")->default(0);
+            $table->integer('stok')->default(0);
             $table->timestamps();
         });
     }

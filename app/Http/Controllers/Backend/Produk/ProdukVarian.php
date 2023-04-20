@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Backend\Produk;
 
 use App\Http\Controllers\Controller;
+use App\Repository\ItemProdukRepository;
 use Illuminate\Http\Request;
 
 class ProdukVarian extends Controller
 {
+    public function datatable(ItemProdukRepository $itemProdukRepository){
+       return $itemProdukRepository->getDataTablesVariant();
+    }
     /**
      * Display a listing of the resource.
      */

@@ -22,6 +22,7 @@ Route::resource('produk/varian', ProdukVarian::class,[
         'destroy' => '.akun.varian.delete'
     ]
 ]);
+Route::get('produk/data/get', [ProdukVarian::class, 'datatable'])->name('.produk.varian.datatable');
 /** PROMO */
 Route::prefix('/promo')->name('.promo')->group(base_path('routes/backend/promo.php'));
 /** KARIAWAN */

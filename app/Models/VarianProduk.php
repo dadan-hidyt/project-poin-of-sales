@@ -14,6 +14,6 @@ class VarianProduk extends Model
         'jenis_varian',
     ];
     public function item(){
-        return $this->hasMany(DetailVarianProduk::class,'id_varian','id');
+        return $this->hasOne(Product::class,'id','id_produk');
     }
 }
