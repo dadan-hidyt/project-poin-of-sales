@@ -9,10 +9,7 @@ class VarianProduk extends Model
 {
     use HasFactory;
     protected $table = 'tb_varian_produk';
-    protected $fillable = [
-        'nama_varian',
-        'jenis_varian',
-    ];
+    protected $guarded = [];
     public function item(){
         return $this->hasOne(Product::class,'id','id_produk');
     }

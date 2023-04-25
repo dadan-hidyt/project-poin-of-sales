@@ -59,9 +59,9 @@ class ItemProdukRepository
         })
         ->addColumn('terjual', fn()=>10)
         ->addColumn('action', function ($row) {
-                $html = "<a class='btn-delete' onclick='return confirm(\"Apakah anda yakin?\")' href='" . route('dashboard.akun.varian.delete', $row->id) . "'> <i class='fa fa-trash'></i></a>";
+                $html = "<a class='btn-delete' onclick='return confirm(\"Apakah anda yakin?\")' href='" . route('dashboard.produk.varian.delete', $row->id) . "'> <i class='fa fa-trash'></i></a>";
                 $html .= "&nbsp;";
-                $html .= "<a class='btn-edit' href='" . route('dashboard.akun.varian.edit', $row->id) . "'> <i class='fa fa-edit'></i></a>";
+                $html .= "<a class='btn-edit' href='" . route('dashboard.produk.varian.edit', $row->id) . "'> <i class='fa fa-edit'></i></a>";
                 return $html;
             })->rawColumns(['action'])->make();
     }

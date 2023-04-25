@@ -17,11 +17,11 @@ Route::prefix('/pelanggan')->name('.pelanggan')->group(base_path('routes/backend
 Route::resource('produk/varian', ProdukVarian::class,[
     'names' => [
         'index' => '.produk.varian',
-        'store' => '.produk.varian.store',
-        'edit' => '.akun.varian.edit',
-        'destroy' => '.akun.varian.delete'
+        'edit' => '.produk.varian.edit',
+        'create' => '.produk.varian.tambah',
     ]
-]);
+])->only(['index','create','edit']);
+Route::get('produk/varian/{id}/delete', [ProdukVarian::class,'destroy'])->name('.produk.varian.delete');
 Route::get('produk/data/get', [ProdukVarian::class, 'datatable'])->name('.produk.varian.datatable');
 /** PROMO */
 Route::prefix('/promo')->name('.promo')->group(base_path('routes/backend/promo.php'));

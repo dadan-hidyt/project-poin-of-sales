@@ -5,10 +5,13 @@
     <div class="card-header bg-primary">
         <div class="card-title text-white">Daftar Varian</div>
         <div class="card-toolbar">
-            <a href="" class="btn  btn-warning">Back</a>
+            <a href="{{ route('dashboard.produk.varian.tambah') }}" class="btn  btn-warning">Back</a>
         </div>
     </div>
     <div class="card-body">
+        @error('feedback')
+          <p class="alert alert-{{ $errors->get('feedback')['type'] }}">{{ $errors->get('feedback')['message']  }}</p>
+        @enderror
         <table class="table table-head-custom table-head-bg table-bordered table-vertical-center" id="tabel_varian">
             <thead>
                 <tr>
