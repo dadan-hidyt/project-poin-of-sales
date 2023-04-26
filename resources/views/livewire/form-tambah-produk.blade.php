@@ -114,7 +114,7 @@
         <div class="form-group">
             <label for="pilih_gambar">Pilih Gambar</label>
             <div class="gambar">
-                <img width="20%" id="img_preview" class="border mb-4 rounded img-thumbnail" src="{{ asset(config('web.logo')) }}" alt="app">
+                <img class="img mb-3 preview img-thumbnail" width="80px" src="{{ asset('assets/img/no.png') }}" alt="logo">
             </div>
             <div wire:loading wire:target='foto'>Mengupload...</div>
             <input class="d-block" @class(['form-control', $errors->has('foto') ? 'is-invalid' : '']) wire:model='foto' type="file" id="coose_file" class="mt-4">

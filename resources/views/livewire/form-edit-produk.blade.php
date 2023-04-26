@@ -12,13 +12,13 @@
     <div class="form-group" wire:ignore>
         <label>Kategori:</label>
         <div class="input-group">
-            <select wire:model.defer='produk.id_kategori_produk' style='width:90%;'  class="form-control @error('produk.id_kategori_produk') is-invalid @enderror"
-                name="" id="pilih-kategori-produk">
+            <select wire:model.defer='produk.id_kategori_produk' style='width:90%;'
+                class="form-control @error('produk.id_kategori_produk') is-invalid @enderror" name=""
+                id="pilih-kategori-produk">
                 <option value="">---Tidak Ada---</option>
                 @forelse ($kategori as $item)
-                    <option value="{{ $item->id }}"> {{$item->nama_kategori}} </option>
+                    <option value="{{ $item->id }}"> {{ $item->nama_kategori }} </option>
                 @empty
-                   
                 @endforelse
             </select>
             <div class="input-group-append">
@@ -92,7 +92,7 @@
             </div>
             <div class="col-lg-3">
                 <label>Satuan:</label>
-                <select wire:model.defer='produk.satuan'  class="form-control @error('produk.satuan') is-invalid @enderror">
+                <select wire:model.defer='produk.satuan' class="form-control @error('produk.satuan') is-invalid @enderror">
                     <option value="">--Pilih Satuan--</option>
                     @foreach ($satuan as $item)
                         <option value="{{ $item->nama_satuan }}">{{ $item->nama_satuan }}</option>
@@ -114,14 +114,17 @@
         <div class="form-group">
             <label for="pilih_gambar">Pilih Gambar</label>
             <div class="gambar">
-                @if ($this->produk['gambar_produk']) 
-                <img width="20%" id="img_preview" class="border mb-4 rounded img-thumbnail" src="{{ asset("storage/".$this->produk['gambar_produk']) }}" alt="app">
-                    @else
-                    <img width="20%" id="img_preview" class="border mb-4 rounded img-thumbnail" src="{{ asset(config('web.logo')) }}" alt="app">
+                @if ($this->produk['gambar_produk'])
+                    <img width="20%" id="img_preview" class="border mb-4 rounded img-thumbnail"
+                        src="{{ asset('storage/' . $this->produk['gambar_produk']) }}" alt="app">
+                @else
+                    <img class="img preview img-thumbnail" width="80px" src="{{ asset('assets/img/no.png') }}"
+                        alt="logo">
                 @endif
             </div>
             <div wire:loading wire:target='foto'>Mengupload...</div>
-            <input class="d-block" @class(['form-control', $errors->has('foto') ? 'is-invalid' : '']) wire:model='foto' type="file" id="coose_file" class="mt-4">
+            <input class="d-block" @class(['form-control', $errors->has('foto') ? 'is-invalid' : '']) wire:model='foto' type="file" id="coose_file"
+                class="mt-4">
             @error('foto')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
@@ -134,18 +137,15 @@
     <!--end::Modal-->
     @push('script')
         <script>
-
-          
-
-           function pilihGambarProduk(params) {
+            function pilihGambarProduk(params) {
                 const inputFile = $('#coose_file');
 
-                inputFile.on('change',(e)=>{
-                   document.getElementById('img_preview').src = URL.createObjectURL(e.target.files[0]);
+                inputFile.on('change', (e) => {
+                    document.getElementById('img_preview').src = URL.createObjectURL(e.target.files[0]);
                 });
-                
-           }
-           pilihGambarProduk();
+
+            }
+            pilihGambarProduk();
 
             $(document).ready(function() {
                 /**================UNTUK SELECT VARIAN PRODUk======================*/
@@ -170,7 +170,7 @@
                 //         url: "{{ route('dashboard.product.item.ajax.kategori') }}",
                 //     }
                 // });
-               
+
                 /**================FORMAT DUIT======================*/
                 $('#harga-jual').mask('0.000.000.000', {
                     reverse: true

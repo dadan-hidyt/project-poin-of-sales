@@ -15,11 +15,11 @@
                     <hr>
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
-                        <input type="text" class="form-control">
+                        <input type="text" value="{{ auth()->user()->nama_user }}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="email">Alamat Email</label>
-                        <input type="text" class="form-control">
+                        <input type="text" value="{{ auth()->user()->email }}" class="form-control">
                     </div>
                     <h4>Password</h4>
                     <hr>
