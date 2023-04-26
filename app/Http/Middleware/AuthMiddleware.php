@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthMiddleware
@@ -15,11 +16,11 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ( auth()->user()->role === 'manager' ) {
-            return route('dashboard.index');
-        } else if ( auth()->user()->role === 'kasir' ) {
-            return route('kasr');
+        $role = Auth::user()->role;
+        if ( $role === 'kasir' ) {
+            return redirect(route('kasir.index'));
+        } else {
+            return $next($request);
         }
-        return $next($request);
     }
 }

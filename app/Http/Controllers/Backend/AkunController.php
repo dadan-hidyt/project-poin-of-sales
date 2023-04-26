@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AkunController extends Controller
@@ -12,7 +13,10 @@ class AkunController extends Controller
      */
     public function index()
     {
-        //
+        $this->setTitle('Akun');
+        return view('backend.akun.index', [
+            'akun' =>  User::with(['kariawan'])->get(),
+        ]);
     }
 
     /**
