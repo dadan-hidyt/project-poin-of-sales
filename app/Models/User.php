@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id_kariawan',
         'name',
         'email',
         'login_token',
@@ -43,7 +44,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function kariawan(){
+    public function karyawan(){
         return $this->belongsTo(Kariawan::class,'id_kariawan');
     }
 }

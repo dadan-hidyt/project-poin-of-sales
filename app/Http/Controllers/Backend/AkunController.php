@@ -15,7 +15,7 @@ class AkunController extends Controller
     {
         $this->setTitle('Akun');
         return view('backend.akun.index', [
-            'akun' =>  User::with(['kariawan'])->get(),
+            'akun' =>  User::with(['karyawan'])->get(),
         ]);
     }
 
@@ -24,7 +24,7 @@ class AkunController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.akun.tambah');
     }
 
     /**
@@ -48,7 +48,7 @@ class AkunController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
     }
 
     /**
