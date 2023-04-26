@@ -25,7 +25,7 @@ class DetailTransaksiFactory extends Factory
             'harga' => 20000,
             'subtotal' => '2',
             'persentase_pajak' => '3%',
-            'total_pajak' => (0.03 * 20000),
+            'total_pajak' => (0.03 * 60000),
             'total' => 10000, 
         ];
     }
