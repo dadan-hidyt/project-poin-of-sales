@@ -24,46 +24,43 @@ class AkunController extends Controller
      */
     public function create()
     {
+        $this->setTitle("Buat Baru");
         return view('backend.akun.tambah');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
+        $this->setTitle("Edit");
         $user = User::findOrFail($id);
+        return view('backend.akun.edit',['akun' => $user]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
+   
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $akun = User::findOrFail($id);
+        
+        if ( $akun->delete() ) {
+            return redirect(route('dashboard.akun.index'))->withErrors([
+                'feedback' => [
+                    'type' => 'success',
+                    'message' => "Data berhasil di hapus!"
+                ]
+            ]);
+        } else {
+            return redirect(route('dashboard.akun.index'))->withErrors([
+                'feedback' => [
+                    'type' => 'danger',
+                    'message' => "Data gagal di hapus!"
+                ]
+            ]);
+        }
     }
 }

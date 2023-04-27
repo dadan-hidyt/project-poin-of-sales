@@ -9,6 +9,10 @@
         </div>
     </div>
     <div class="card-body">
+        @error('feedback')
+            <p class="alert alert-{{ $errors->get('feedback')['type'] }}">
+                {{ $errors->get('feedback')['message'] }}</p>
+        @enderror
         <table class="table table-head-custom table-head-bg table-vertical-center table-bordered" id="table">
           <thead>
             <tr>
@@ -40,8 +44,12 @@
                   @endempty
                 </td>
                 <td class="text-center">
-                    <a href=""><i class="fa fa-edit"></i></a>
-                    <a class="text-danger" href="{{ route('dashboard.akun.edit') }}"><i class="fa fa-trash"></i></a>
+                    <a href="{{ route('dashboard.akun.edit',$item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form class="d-inline" method="POST" action="{{ route('dashboard.akun.delete',$item->id) }}">
+                        @method("DELETE")
+                        @csrf
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

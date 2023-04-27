@@ -21,6 +21,7 @@ class User extends Authenticatable
         'id_kariawan',
         'name',
         'email',
+        'role',
         'login_token',
         'nama_user',
         'password',
