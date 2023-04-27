@@ -13,3 +13,6 @@ Route::middleware(['auth',AuthMiddleware::class])->group(function(){
     Route::prefix('dashboard')->middleware(['auth',AuthMiddleware::class])->name('dashboard')->group(base_path('routes/backend.php'));
 });
 
+Route::prefix('kasir')->name('kasir')->middleware('auth')->group(base_path('routes/kasir.php'));
+
+
