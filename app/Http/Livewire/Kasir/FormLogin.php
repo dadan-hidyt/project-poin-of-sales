@@ -11,10 +11,15 @@ class FormLogin extends Component
     public $user;
     public $id_user;
     public $pin;
+    protected $rules = [
+        'id_user' => 'required',
+        'pin' => 'required|max:4|min:4'
+    ];
     public function mount(){
         $this->user = User::where('role','kasir')->get();
     }
     public function doLogin(){
+        $this->validate();
         $user = User::find($this->id_user);
         
         if ( $user->login_token === $this->pin ) {

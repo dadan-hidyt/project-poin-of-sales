@@ -8,7 +8,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="barayaDigital - Point Of Sale">
     <meta name="robots" content="noindex, nofollow">
-    <title>{{ $title }}</title>
+    <title>{{ $title ?? 'default title' }}</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('kasir-assets') }}/img/favicon.png">
 

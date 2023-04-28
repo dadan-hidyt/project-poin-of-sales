@@ -48,5 +48,8 @@ class User extends Authenticatable
     public function karyawan(){
         return $this->belongsTo(Kariawan::class,'id_kariawan');
     }
+    public function kasir(){
+        return $this->belongsTo(Kasir::class,'id_user');
+    }
     
 }
