@@ -14,13 +14,19 @@ class FormBukaKasir extends Component
 
     public function mount(){
         $kasir = Kasir::where(['id_user'=> auth()->user()->id, 'waktu_keluar'=>null])->first();
-        if ( $kasir ) {
+        if ( !$kasir ) {
             $this->status = true;
         }
         
     }
     public function submit(){
-        dd(intval($this->kas_awal));
+        if ( Kasir::create([
+            'id_user' => auth()->user()->id,
+            'waktu_masuk' => now(),
+            'kas_awal' => $this->kas_awal
+        ]) ) {
+            dd("SUKSES");
+        }
     }
     public function render()
     {
