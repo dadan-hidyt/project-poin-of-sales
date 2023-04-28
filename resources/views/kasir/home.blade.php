@@ -20,6 +20,11 @@
 
         <!-- Main Content -->
         <div class="container">
+            @error('message')
+            <p class="alert alert-info">
+                {{ $message }}    
+            </p>
+            @enderror
             <main class="row layout-meja">
                 <button type="button" class="col-md-3 p-0 " data-bs-toggle="modal" data-bs-target="#detailMeja">
                     <div class="card">

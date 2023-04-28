@@ -13,6 +13,6 @@ class Kasir extends Model
     protected $fillable= ['id_user','kas_awal','waktu_masuk'];
 
     public function user(){
-        return $this->hasMany(User::class,'id_user');
+        return $this->belongsTo(User::class,'id');
     }
 }

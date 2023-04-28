@@ -11,7 +11,9 @@ class FormBukaKasir extends Component
 
     public $tanggal_masuk;
     public $kas_awal;
-
+    protected $rules = [
+        'kas_awal' => 'required'
+    ];
     public function mount(){
         $kasir = Kasir::where(['id_user'=> auth()->user()->id, 'waktu_keluar'=>null])->first();
         if ( !$kasir ) {
@@ -20,12 +22,15 @@ class FormBukaKasir extends Component
         
     }
     public function submit(){
+        $this->validate();
         if ( Kasir::create([
             'id_user' => auth()->user()->id,
             'waktu_masuk' => now(),
             'kas_awal' => $this->kas_awal
         ]) ) {
-            dd("SUKSES");
+          return redirect()->route('kasir.index');
+        } else {
+            return redirect()->route('kasir.index');
         }
     }
     public function render()

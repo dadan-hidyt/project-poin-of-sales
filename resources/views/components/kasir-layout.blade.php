@@ -375,52 +375,7 @@
 
     <!-- Modal Tambah Pesanan -->
 
-    <div class="modal fade" id="tambahPesanan" tabindex="-1" aria-labelledby="tambahPesananLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-tambahPesanan">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tambahPesananLabel">Tambah Pesanan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                            class="bx bx-x"></i></button>
-                </div>
-                <div class="modal-body">
-                    <form action="POS.html">
-                        <select class="form-select outline-none mb-3" aria-label="Default select example">
-                            <option selected>Pilih Metode Pesan</option>
-                            <option value="1">Free Table</option>
-                            <option value="2">Meja</option>
-                        </select>
-                        <select class="form-select outline-none my-3" aria-label="Default select example">
-                            <option selected>Pilih Meja</option>
-                            <option value="1">Nama Meja</option>
-                            <option value="1">Nama Meja</option>
-                        </select>
-
-                        <!-- note -->
-                        <!-- <span class="note my-3" style="font-size:11px ;">Pilih meja muncul ketika select pesan Meja*</span> -->
-                        <!-- tutup note -->
-
-                        <select class="form-select outline-none my-3" aria-label="Default select example">
-                            <option selected>Pilih Pelanggan</option>
-                            <option value="1">Jhone Bae</option>
-                            <option value="1">Jhone Bae</option>
-                        </select>
-
-                        <div class="my-3">
-                            <input type="number" placeholder="Jumlah Pelanggan" min="0" class="form-control"
-                                id="exampleInputPassword1">
-                        </div>
-
-                        <div class="mt-3">
-                            <input type="submit" class="btn btn-warning text-white w-100" value="Tambah Pesanan">
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('kasir.include.modal-tambah-pesanan')
 
     <!-- Tutup Modal Tambah Pesanan -->
 

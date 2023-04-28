@@ -49,7 +49,14 @@ class User extends Authenticatable
         return $this->belongsTo(Kariawan::class,'id_kariawan');
     }
     public function kasir(){
-        return $this->belongsTo(Kasir::class,'id_user');
+        return $this->hasMany(Kasir::class,'id_user');
+    }
+
+    public function getKasir(){
+        $kasir = Kasir::whereHas('user', function($q){
+            return $q->where('waktu_keluar',NULL);
+        })->first();
+        return $kasir;
     }
     
 }

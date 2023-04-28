@@ -1,6 +1,6 @@
   <!-- Modal Detail Meja -->
 
-  <div wire:ignore.self class="modal fade" id="bukaKasir" tabindex="-1" aria-labelledby="bukaKasirLabel"
+  <div wire:ignore class="modal fade" id="bukaKasir" tabindex="-1" aria-labelledby="bukaKasirLabel"
       data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-bukaKasir" style="width:360px;">
           <div class="modal-content">
@@ -20,14 +20,17 @@
               </div>
               <div class="modal-body py-4">
 
-                  <form wire:ignore wire:submit.prevent='submit' action="#" class="buka-kasir_form">
+                  <form wire:submit.prevent='submit' action="#" class="buka-kasir_form">
                       <div>
                           <label for="Kas awal" class="mb-2">
                               Kas Awal
                           </label>
-                          <input wire:model.defer='kas_awal' type="text" class="form-control inputNominal"
+                          <input wire:model.defer='kas_awal' type="text" @class(['form-control inputNominal', $errors->has('kas_awal') ? 'is-invalid' : ''])
                               id="inputNominal" aria-describedby="kasHelp">
                           <div id="kasHelp" class="form-text mt-2">Uang Kas awal yang dipegang oleh kasir</div>
+                        @error('kas_awal')
+                            <span class='text-danger'>{{$message}}</span>
+                        @enderror
                       </div>
 
 
@@ -60,6 +63,12 @@
                   $('#bukaKasir').modal('hide');
               @endif
           });
+          //hide modal jika sukses atau  brehasil
+
+          window.addEventListener('success',function(){
+            alert("Kasir berhasil di buka pada ");
+            $('#bukaKasir').modal('hide')
+          })
 
           // Change To Rupiah
           var rupiahInput = document.getElementById('inputNominal');
