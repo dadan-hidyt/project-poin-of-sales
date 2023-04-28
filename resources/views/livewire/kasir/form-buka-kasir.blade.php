@@ -25,8 +25,13 @@
                           <label for="Kas awal" class="mb-2">
                               Kas Awal
                           </label>
+<<<<<<< HEAD
                           <input wire:model.defer='kas_awal' type="text" @class(['form-control inputNominal', $errors->has('kas_awal') ? 'is-invalid' : ''])
                               id="inputNominal" aria-describedby="kasHelp">
+=======
+                          <input wire:model.defer='kas_awal' type="text" class="form-control inputNominal text-end"
+                              id="inputNominal" aria-describedby="kasHelp" placeholder="Rp.">
+>>>>>>> f8023c47a02da58b4de73eab8a141abe20ca9923
                           <div id="kasHelp" class="form-text mt-2">Uang Kas awal yang dipegang oleh kasir</div>
                         @error('kas_awal')
                             <span class='text-danger'>{{$message}}</span>
@@ -70,28 +75,9 @@
             $('#bukaKasir').modal('hide')
           })
 
-          // Change To Rupiah
-          var rupiahInput = document.getElementById('inputNominal');
-          rupiahInput.addEventListener('keyup', function(e) {
-              rupiahInput.value = rupiahFormat(this.value, 'Rp.');
-          });
+          $('.inputNominal').mask("#.##0", {reverse: true});
 
-          /* Fungsi */
-          function rupiahFormat(number, format) {
-              var number_string = number.replace(/[^,\d]/g, '').toString(),
-                  split = number_string.split(','),
-                  sisa = split[0].length % 3,
-                  rupiah = split[0].substr(0, sisa),
-                  ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-              if (ribuan) {
-                  separator = sisa ? '.' : '';
-                  rupiah += separator + ribuan.join('.');
-              }
-
-              rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-              return format == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-          }
       </script>
 
   </x-slot>

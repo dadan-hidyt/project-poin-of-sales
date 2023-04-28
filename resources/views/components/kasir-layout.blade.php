@@ -43,10 +43,10 @@
 
             <div class="header-left active">
                 <a href="index.html" class="logo">
-                    <img src="assets/img/logo.png" alt="">
+                    <img src="{{ asset('kasir-assets') }}/img/logo.png" alt="">
                 </a>
                 <a href="index.html" class="logo-small">
-                    <img src="assets/img/logo-small.png" alt="smallLogo" style="width:60% !important;">
+                    <img src="{{ asset('kasir-assets') }}/img/logo-small.png" alt="smallLogo" style="width:60% !important;">
                 </a>
                 <a id="toggle_btn" href="javascript:void(0);">
                 </a>
@@ -283,13 +283,13 @@
 
                 <li class="nav-item dropdown has-arrow main-drop">
                     <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                        <span class="user-img"><img src="assets/img/avatar1.jpg" alt="">
+                        <span class="user-img"><img src="{{ asset('kasir-assets') }}/img/avatar1.jpg" alt="">
                             <span class="status online"></span></span>
                     </a>
                     <div class="dropdown-menu menu-drop-user">
                         <div class="profilename">
                             <div class="profileset">
-                                <span class="user-img"><img src="assets/img/avatar1.jpg" alt="">
+                                <span class="user-img"><img src="{{ asset('kasir-assets') }}/img/avatar1.jpg" alt="">
                                     <span class="status online"></span></span>
                                 <div class="profilesets">
                                     <h6>John Doe</h6>
@@ -466,6 +466,9 @@
     <script src="{{ asset('kasir-assets') }}/plugins/sweetalert/sweetalerts.min.js"></script>
 
     <script src="{{ asset('kasir-assets') }}/js/script.js"></script>
+
+    <script src="{{ asset('kasir-assets') }}/js/jquery.mask.min.js"></script>
+
     {{ $footer_script ?? '' }}
 </body>
 

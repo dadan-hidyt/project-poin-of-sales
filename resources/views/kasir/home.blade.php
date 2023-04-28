@@ -30,7 +30,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -50,7 +50,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -70,7 +70,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -90,7 +90,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -110,7 +110,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -130,7 +130,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -150,7 +150,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -170,7 +170,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -190,7 +190,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -210,7 +210,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -230,7 +230,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
@@ -250,7 +250,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="status d-flex align-items-center">
-                                <img src="assets/img/dot_ready.png" class="me-2" alt="ready">
+                                <img src="{{ asset('kasir-assets') }}/img/dot_ready.png" class="me-2" alt="ready">
                                 <span class="timer-stat fw-normal">Ready</span>
                             </div>
 
