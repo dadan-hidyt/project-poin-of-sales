@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Kasir;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 
 class POSController extends Controller
 {
     public function pos($kode_pesanan = null){
+
+
+        $pesanan = Pesanan::with(['meja','pelanggan'])->where(['kode_pesanan'=>$kode_pesanan])->first();
+
         $this->setTitle("POS");
-        return view('kasir.pos');
+        return view('kasir.pos', compact('pesanan'));
     }
 }

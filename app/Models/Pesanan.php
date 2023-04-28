@@ -10,4 +10,10 @@ class Pesanan extends Model
     use HasFactory;
     protected $guarded = [];
     protected $table = 'tb_pesanan';
+    public function pelanggan(){
+        return $this->belongsTo(Pelanggan::class, "id_pelanggan");
+    }
+    public function meja(){
+        return $this->belongsTo(Meja::class, 'id_meja');
+    }
 }

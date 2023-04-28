@@ -14,7 +14,7 @@ class Product extends Model
         return $this->belongsTo(KategoriProduk::class,'id_kategori_produk','id');
     }
     public function varian(){
-        return $this->belongsTo(VarianProduk::class,'id_produk','id');
+        return $this->hasMany(VarianProduk::class,'id_produk','id');
     }
     public function transaksi(){
         return [];

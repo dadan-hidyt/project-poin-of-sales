@@ -25,13 +25,8 @@
                           <label for="Kas awal" class="mb-2">
                               Kas Awal
                           </label>
-<<<<<<< HEAD
-                          <input wire:model.defer='kas_awal' type="text" @class(['form-control inputNominal', $errors->has('kas_awal') ? 'is-invalid' : ''])
-                              id="inputNominal" aria-describedby="kasHelp">
-=======
-                          <input wire:model.defer='kas_awal' type="text" class="form-control inputNominal text-end"
+                          <input wire:model.defer='kas_awal' type="text"  @class(['form-control inputNominal  text-end', $errors->has('kas_awal') ? 'is-invalid' : ''])
                               id="inputNominal" aria-describedby="kasHelp" placeholder="Rp.">
->>>>>>> f8023c47a02da58b4de73eab8a141abe20ca9923
                           <div id="kasHelp" class="form-text mt-2">Uang Kas awal yang dipegang oleh kasir</div>
                         @error('kas_awal')
                             <span class='text-danger'>{{$message}}</span>
