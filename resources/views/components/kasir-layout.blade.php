@@ -316,7 +316,7 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="index.html" class="d-flex align-items-center fs-5 active">
+                            <a href="{{ route('kasir.index') }}" class="d-flex align-items-center fs-5 active">
                                 <i class="bx bx-store-alt"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -326,26 +326,26 @@
                                 <i class="bx bx-receipt"></i>
                                 <span>Riwayat Transaksi</span> <span class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="transaksi/semua.html">Semua</a></li>
-                                <li><a href="transaksi/refund.html">Refund</a></li>
-                                <li><a href="transaksi/void.html">Void</a></li>
-                                <li><a href="transaksi/belum-bayar.html">Belum Bayar</a></li>
+                                <li><a href="{{ route('kasir.all_transaktion') }}">Semua</a></li>
+                                <li><a href="{{ route('kasir.refund_transaktion') }}">Refund</a></li>
+                                <li><a href="{{ route('kasir.void_transaktion') }}">Void</a></li>
+                                <li><a href="{{ route('kasir.belum_bayar') }}">Belum Bayar</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="penjualan/laporan-penjualan.html" class="d-flex align-items-center fs-5">
+                            <a href="{{ route('kasir.laporan_penjualan') }}" class="d-flex align-items-center fs-5">
                                 <i class="bx bx-bar-chart"></i>
                                 <span>Laporan Penjualan</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pelanggan/index.html" class="d-flex align-items-center fs-5">
+                            <a href="{{ route('kasir.daftar_pelanggan') }}" class="d-flex align-items-center fs-5">
                                 <i class="bx bxs-user-detail"></i>
                                 <span>Daftar Pelanggan</span>
                             </a>
                         </li>
                         <li>
-                            <a href="transaksi/tutup-kasir.html" class="d-flex align-items-center fs-5">
+                            <a href="{{ route('kasir.tutup_kasir') }}" class="d-flex align-items-center fs-5">
                                 <i class="bx bx-dish"></i>
                                 <span>Tutup Kasir</span>
                             </a>
