@@ -16,12 +16,15 @@ class Pos extends Component
 
     public $search_term;
 
+    public $detail_produk;
     
     public $pesanan;
 
 
     public $item_pesanan;
+    public function getDetailProduk(){
 
+    }
     public function updated(){
         if ( $this->search_term != null ) {
             $product = Product::with(['kategori','varian'])->where('nama_produk',"like",'%'.$this->search_term.'%')->get();
@@ -51,10 +54,10 @@ class Pos extends Component
 
         $psanan = DetailPesanan::where(['id_produk'=>$id_produk,'id_pesanan'=>$this->pesanan->id]);
         if ($psanan->first()){
-            dd("ADA");
+            $this->dispatchBrowserEvent('produk_sudah_ada');
         } else {
            if ( DetailPesanan::create($this->item_pesanan) ) {
-            dd("SUDAH");
+                $this->dispatchBrowserEvent("produk_berhasil_di_tambahkan");
            }
         }
     }

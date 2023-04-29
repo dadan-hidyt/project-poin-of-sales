@@ -160,220 +160,71 @@
             </div>
             <div class="card-body p-2 " style="margin-top: -49px;">
                 <div class="totalitem py-2 border-bottom border-1">
-                    <h4>Total items : 4</h4>
+                    <h4>Total items :{{ $pesanan->detail_pesanan->count() }}</h4>
                     <a href="javascript:void(0);">Clear all</a>
                 </div>
                 <div class="product-table">
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
+                   
+                    @if ($pesanan->detail_pesanan)
+                        @foreach ($pesanan->detail_pesanan as $item)
+                        <ul class="product-lists">
+                            <li>
+                                <div class="productimg">
+                                    <div class="productimgs">
+                                        <img src="{{ asset("storage/".$item->produk->gambar_produk) }}"
+                                            alt="img">
                                     </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
+                                    <div class="productcontet">
+                                        <div class="qty d-flex gap-2 align-items-center">
+                                            <h4>{{ $item->produk->nama_produk }}</h4><span class="text-secondary">x {{ $item->qty }}</span>
+                                        </div>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#detail-{{ $item->id }}"
+                                            class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
+                                            <i class='bx bx-info-circle text-white me-1'></i>
+                                            <h5 class="fs-7">Detail</h5>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Rp. {{ number_format(($item->produk->harga_jual * $item->qty),2,',','.') }} </li>
+                        </ul>
+                        <div class="modal fade" id="detail-{{ $item->id }}" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content border-0 rounded-3">
+                                    <div class="modal-header py-4 px-4">
+                                        <h5 class="modal-title">Detail Pesanan</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x fs-4'></i></button>
+                                    </div>
+                                    <div class="modal-body px-4">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="detail_img">
+                                                    <img src="{{ asset("storage/".$item->produk->gambar_produk) }}" alt="{{ $item->produk->gambar_produk }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="mb-1">Nama Produk : {{ $item->produk->nama_produk }}</p>
+                                                <p class="mb-1">Harga/pcs : Rp. {{ number_format($item->produk->harga_jual,2,',','.') }}</p>
+                                                <p class="mb-1">Variasi : {{ $item->varian }}</p>
+                                                <p class="mb-1">Jumlah : {{ $item->qty }}</p>
+                                                <p class="mb-1">Total : Rp. {{ number_format(($item->produk->harga_jual * $item->qty),2,',','.') }}</p>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <p class="mb-1 ">Catatan :</p>
+                                                <p style="font-style: italic;">Cepat</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer px-4 border-top d-flex justify-content-end">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#ubahProduk" class="btn btn-primary btn_closedetail">Ubah</button>
+                                        <a href="" class="btn btn-danger btn_closedetail">Hapus</a>
+                                    </div>
                                 </div>
                             </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
-                    <ul class="product-lists">
-                        <li>
-                            <div class="productimg">
-                                <div class="productimgs">
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                        alt="img">
-                                </div>
-                                <div class="productcontet">
-                                    <div class="qty d-flex gap-2 align-items-center">
-                                        <h4>Pineapple</h4><span class="text-secondary">x 1</span>
-                                    </div>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailPesanan"
-                                        class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
-                                        <i class='bx bx-info-circle text-white me-1'></i>
-                                        <h5 class="fs-7">Detail</h5>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>Rp. 3000.00 </li>
-                    </ul>
+                        </div>
+                        @endforeach
+                    @endif
+                  
                 </div>
             </div>
             <div class="split-card">
@@ -427,3 +278,22 @@
         </div>
     </div>
 </div>
+
+<x-slot name="footer_script">
+    <script>
+       window.addEventListener('produk_berhasil_di_tambahkan',()=>{
+            Swal.fire({
+                title : "Suksess",
+                icon : 'success',
+                text : "Data berhasil di tambahkan!"
+            })
+       });
+       window.addEventListener('produk_sudah_ada',()=>{
+            Swal.fire({
+                title : "Opps",
+                icon : 'warning',
+                text : "Produk yang anda pilih sudah ada di pesanan!"
+            })
+       });
+    </script>
+</x-slot>

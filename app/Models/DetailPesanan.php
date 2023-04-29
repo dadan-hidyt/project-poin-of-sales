@@ -10,4 +10,12 @@ class DetailPesanan extends Model
     use HasFactory;
     protected $table = 'tb_detail_pesanan';
     protected $guarded = [];
+
+    public function pesanan(){
+        return $this->belongsTo(Pesanan::class,'id_pesanan');
+    }
+    public function produk(){
+        return $this->belongsTo(Product::class,'id_produk');
+    }
+    
 }

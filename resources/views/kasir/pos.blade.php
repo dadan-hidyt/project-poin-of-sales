@@ -85,40 +85,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="detailPesanan" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 rounded-3">
-            <div class="modal-header py-4 px-4">
-                <h5 class="modal-title">Detail Pesanan</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x fs-4'></i></button>
-            </div>
-            <div class="modal-body px-4">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="detail_img">
-                            <img src="assets/img/product/product31.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-8">
-                        <p class="mb-1">Nama Produk : Orange</p>
-                        <p class="mb-1">Harga/pcs : Rp. 100.000,00</p>
-                        <p class="mb-1">Variasi : Pedas</p>
-                        <p class="mb-1">Jumlah : 1</p>
-                        <p class="mb-1">Total : Rp. 100.000,00</p>
-                    </div>
-                    <div class="col-12 mt-3">
-                        <p class="mb-1 ">Catatan :</p>
-                        <p style="font-style: italic;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, ab! Explicabo aperiam similique deserunt eius!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer px-4 border-top d-flex justify-content-end">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#ubahProduk" class="btn btn-primary btn_closedetail">Ubah</button>
-                <a href="" class="btn btn-danger btn_closedetail">Hapus</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <div class="modal fade" id="ubahProduk" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
