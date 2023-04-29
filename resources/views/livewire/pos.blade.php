@@ -80,40 +80,26 @@
         window.addEventListener('delete_detail_pesanan_berhasil', (e)=>{
             Livewire.emit('refreshComponent')
             $(`#detail-${e.detail}`).modal('hide');
-            Swal.fire({
-                title: "Suksess",
-                icon: 'success',
-                text: "Item pesanan berhasil di hapus!"
-            })
+            notyf.success('Item berhasil di hapus dari daftar pesanan!');
         })
         window.addEventListener('produk_berhasil_di_tambahkan', (e) => {
             Livewire.emit('refreshComponent');
-            Swal.fire({
-                title: "Suksess",
-                icon: 'success',
-                text: "Data berhasil di tambahkan!"
-            })
+            notyf.success('Item berhasil di hapus dari daftar pesanan!');
             $(`#product-${e.detail}`).modal('hide');
         });
         window.addEventListener('produk_sudah_ada', () => {
-            Swal.fire({
-                title: "Opps",
-                icon: 'warning',
-                text: "Produk yang anda pilih sudah ada di pesanan!"
-            })
+            notyf.error('Produk ini sudah di tambahkan sebelumnya!');
         });
         window.addEventListener('detail_pesanan_di_bersihkan', () => {
-            Swal.fire({
-                title: "Opps",
-                icon: 'success',
-                text: "Semua Item pesanan berhasil di hapus!"
-            })
+            notyf.success('Semua item pesanan berhasil di bersihkan!');
         });
 
+ 
         function handlerClick(){
-            if(confirm('Apakah anda yakin ingin meghapus item pesanan?')) {
+            const notification = notyf.success('Apakah anda yakin ingin menghapus semua item dari pesanan. Click here to continue');
+            notification.on('click',(target,event)=>{
                 Livewire.emit('clearDetailPesanan');
-            }
+            })
         }
 
     </script>
