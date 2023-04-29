@@ -4,7 +4,7 @@
         @foreach ($product as $item)
             <div class="col-lg-3 col-sm-6 d-flex">
                 <button class="productset flex-fill" type="button" data-bs-toggle="modal"
-                    data-bs-target="#product-{{ $item->kode_produk }}">
+                    data-bs-target="#product-{{ $item->id }}">
                     <div class="productsetimg">
                         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                             alt="product" class="mt-1">
@@ -26,7 +26,7 @@
                     </div>
                 </button>
             </div>
-            <div wire:ignore.self class="modal fade" id="product-{{ $item->kode_produk }}" tabindex="-1">
+            <div wire:ignore.self class="modal fade" id="product-{{ $item->id }}" tabindex="-1">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content border-0 rounded-3">
                         <div class="modal-header py-4 px-4">

@@ -3,11 +3,11 @@
         <ul>
             <li>
                 <h5>Subtotal </h5>
-                <h6>Rp. {{ number_format($pesanan->hitungPesanan()['subtotal'],2,',','.'); }}</h6>
+                <h6>Rp. {{ number_format($pesanan->hitungPesanan()['subtotal'], 2, ',', '.') }}</h6>
             </li>
             <li>
                 <h5>Pajak </h5>
-                <h6>Rp. {{ number_format($pesanan->hitungPesanan()['pajak'],2,',','.'); }}</h6>
+                <h6>Rp. {{ number_format($pesanan->hitungPesanan()['pajak'], 2, ',', '.') }}</h6>
             </li>
             <li>
                 <h5>Diskon </h5>
@@ -15,14 +15,15 @@
             </li>
             <li class="total-value">
                 <h5>Total </h5>
-                <h6>Rp. {{ number_format($pesanan->hitungPesanan()['subtotal'] + $pesanan->hitungPesanan()['pajak'],2,',','.'); }}</h6>
+                <h6>Rp.
+                    {{ number_format($pesanan->hitungPesanan()['subtotal'] + $pesanan->hitungPesanan()['pajak'], 2, ',', '.') }}
+                </h6>
             </li>
         </ul>
     </div>
 
     <div class="voucher_form d-flex justify-content-between gap-2 mt-4">
-        <input type="text" class="form-control" placeholder="Masukan kode voucher"><button
-            class="btn">Pakai</button>
+        <input type="text" class="form-control" placeholder="Masukan kode voucher"><button class="btn">Pakai</button>
     </div>
     <div class="point_form d-flex align-items-center justify-content-between gap-2 mt-3">
         <div class="point d-flex align-items-center gap-1">
@@ -31,13 +32,15 @@
         <input id="s1" type="checkbox" class="switch">
     </div>
     <div class="btn_group d-flex gap-2 mt-3" style="height:42px ;">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran-simpan"
-            class="btn btn-warning text-white fs-6 fw-normal">
-            <h5>Simpan</h5>
-        </button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran"
-            class="btn btn-success text-white fs-6 fw-normal">
-            <h5>Bayar</h5>
-        </button>
+        @if ($pesanan->detail_pesanan->count() != 0)
+            <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran-simpan"
+                class="btn btn-warning text-white fs-6 fw-normal">
+                <h5>Simpan</h5>
+            </button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran"
+                class="btn btn-success text-white fs-6 fw-normal">
+                <h5>Bayar</h5>
+            </button>
+        @endif
     </div>
 </div>

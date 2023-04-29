@@ -61,7 +61,7 @@
             <div class="card-body p-2 " style="margin-top: -49px;">
                 <div class="totalitem py-2 border-bottom border-1">
                     <h4>Total items :{{ $pesanan->detail_pesanan->count() }}</h4>
-                    <a href="javascript:void(0);">Clear all</a>
+                    <a onclick="handlerClick()" href="javascript:void(0);">Clear all</a>
                 </div>
                 @include('kasir.include.pos.product-table')
             </div>
@@ -77,12 +77,23 @@
 
 <x-slot name="footer_script">
     <script>
-        window.addEventListener('produk_berhasil_di_tambahkan', () => {
+        window.addEventListener('delete_detail_pesanan_berhasil', (e)=>{
+            Livewire.emit('refreshComponent')
+            $(`#detail-${e.detail}`).modal('hide');
+            Swal.fire({
+                title: "Suksess",
+                icon: 'success',
+                text: "Item pesanan berhasil di hapus!"
+            })
+        })
+        window.addEventListener('produk_berhasil_di_tambahkan', (e) => {
+            Livewire.emit('refreshComponent');
             Swal.fire({
                 title: "Suksess",
                 icon: 'success',
                 text: "Data berhasil di tambahkan!"
             })
+            $(`#product-${e.detail}`).modal('hide');
         });
         window.addEventListener('produk_sudah_ada', () => {
             Swal.fire({
@@ -91,5 +102,19 @@
                 text: "Produk yang anda pilih sudah ada di pesanan!"
             })
         });
+        window.addEventListener('detail_pesanan_di_bersihkan', () => {
+            Swal.fire({
+                title: "Opps",
+                icon: 'success',
+                text: "Semua Item pesanan berhasil di hapus!"
+            })
+        });
+
+        function handlerClick(){
+            if(confirm('Apakah anda yakin ingin meghapus item pesanan?')) {
+                Livewire.emit('clearDetailPesanan');
+            }
+        }
+
     </script>
 </x-slot>
