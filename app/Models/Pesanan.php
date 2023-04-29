@@ -19,4 +19,20 @@ class Pesanan extends Model
     public function detail_pesanan(){
         return $this->hasMany(DetailPesanan::class,'id_pesanan');
     }
+
+    public function hitungPesanan(){
+        $data = $this->detail_pesanan;
+        $subtotal = 0;
+        $pajak = 0;
+        foreach ($data as $item){
+            $subtotal += $item->produk->harga_jual * $item->qty;
+            if($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
+                $pajak += ($item->produk->harga_jual * ($item->produk->pajak / 100));
+            }
+        }
+       return [
+            'subtotal' => $subtotal,
+            'pajak' => $pajak,
+       ];
+    }
 }

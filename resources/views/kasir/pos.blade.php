@@ -1,5 +1,4 @@
 <x-kasir-layout>
-
     <div class="content">
         <div class="container container-xl px-0">
            @livewire('pos', ['pesanan' => $pesanan]);
