@@ -1,0 +1,19 @@
+.header-kitchen{
+    width: 100%;
+    height: 88px;
+}
+
+.container-xxl{
+    width: 92% !important;
+}
+
+.detail-pesan_kitchen{
+    width: 100%;
+    height:240px;
+    overflow-y: scroll;
+}
+
+.border-bottom-grey{
+    border-bottom:1px solid #eaeaea;
+}
+
