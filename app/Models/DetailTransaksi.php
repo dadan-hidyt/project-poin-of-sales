@@ -11,6 +11,7 @@ class DetailTransaksi extends Model
     protected $with = ['product'];
     private $primarykey = 'id_detail_transaksi';
     protected $table = 'tb_detail_transaksi';
+    protected $guarded = [];
     /**
      * ini ngerelasi ke model produk
      */

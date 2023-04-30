@@ -20,3 +20,4 @@ Route::get('daftar-pelanggan', [HomeController::class, 'daftarPelanggan'])->name
 
 
 Route::get('pos/{kode_pesanan}', [POSController::class, 'pos'])->name('.pos');
+Route::get('pos/{kode_pesanan}/bayar', [POSController::class, 'prosesBayar'])->name('.pesanan.bayar');

@@ -22,6 +22,8 @@ class Pos extends Component
 
     protected $listeners = ['refreshComponent','clearDetailPesanan'];
 
+    public $transaksi = [];
+
     public $item_pesanan;
 
     public function refreshComponent()
@@ -43,6 +45,11 @@ class Pos extends Component
             $this->getAllProduct();
         }
     }
+
+    public function transaksiBayar(){
+        dd($this->pesanan);
+    }
+
     protected function getAllProduct()
     {
         $this->product = Product::with(['kategori', 'varian'])->get();

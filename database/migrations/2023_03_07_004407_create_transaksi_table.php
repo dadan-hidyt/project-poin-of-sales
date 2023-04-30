@@ -26,9 +26,7 @@ return new class extends Migration
             $table->integer('total_diskon')->nullable();
             $table->string('kode_promo')->nullable();
             $table->integer('total_promo')->nullable();
-            $table->integer('total_biaya');
-            $table->unsignedBigInteger('id_transaksi_parent')->nullable();
-            $table->enum('refund',['1','0']);
+            $table->enum('refund',['1','0'])->default(NULL);
             $table->timestamps();
         });
     }

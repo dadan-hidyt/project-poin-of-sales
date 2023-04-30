@@ -16,4 +16,10 @@ class POSController extends Controller
         $this->setTitle("POS");
         return view('kasir.pos', compact('pesanan'));
     }
+
+    public function prosesBayar($kode_pesanan){
+        $metode = request()->metode;
+        $pesanan = Pesanan::with(['meja','pelanggan','detail_pesanan.produk'])->where(['kode_pesanan'=>$kode_pesanan])->first();
+        return view("kasir.bayar", compact('pesanan','metode'));
+    }
 }

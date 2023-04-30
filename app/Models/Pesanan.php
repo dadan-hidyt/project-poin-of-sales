@@ -10,29 +10,40 @@ class Pesanan extends Model
     use HasFactory;
     protected $guarded = [];
     protected $table = 'tb_pesanan';
-    public function pelanggan(){
+    public function pelanggan()
+    {
         return $this->belongsTo(Pelanggan::class, "id_pelanggan");
     }
-    public function meja(){
+    public function meja()
+    {
         return $this->belongsTo(Meja::class, 'id_meja');
     }
-    public function detail_pesanan(){
-        return $this->hasMany(DetailPesanan::class,'id_pesanan');
+    public function detail_pesanan()
+    {
+        return $this->hasMany(DetailPesanan::class, 'id_pesanan');
     }
 
-    public function hitungPesanan(){
+    public function hitungPesanan($q = null)
+    {
         $data = $this->detail_pesanan;
         $subtotal = 0;
         $pajak = 0;
-        foreach ($data as $item){
+        foreach ($data as $item) {
             $subtotal += $item->produk->harga_jual * $item->qty;
-            if($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
+            if ($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
                 $pajak += ($item->produk->harga_jual * ($item->produk->pajak / 100));
             }
         }
-       return [
+        $data = [
             'subtotal' => $subtotal,
             'pajak' => $pajak,
-       ];
+            'grand_total' => $subtotal + $pajak,
+            'grand_total_rupiah' => number_format($subtotal + $pajak, 2, '.', ',')
+        ];
+        if ($q) {
+            return $data[$q] ?? '';
+        } else {
+            return $data;
+        }
     }
 }
