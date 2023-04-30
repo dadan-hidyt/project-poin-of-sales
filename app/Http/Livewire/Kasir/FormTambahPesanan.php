@@ -35,7 +35,7 @@ class FormTambahPesanan extends Component
         $payload = [
             'id_meja' => $this->id_meja,
             'id_pelanggan' => $this->id_pelanggan,
-            'jumlah_pelanggan' => $this->jumlah_pelanggan,
+            'jumlah_pelanggan' => $this->jumlah_pelanggan ?? 1,
             'type' => $this->type,
             'total_tagihan' => 0,
             'kode_pesanan' => Str::upper(uniqid("P-")),

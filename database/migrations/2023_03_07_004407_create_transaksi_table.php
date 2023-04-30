@@ -15,13 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('kode_transaksi')->unique();
             $table->dateTime('tanggal_order');
-            $table->unsignedBigInteger('id_pelanggan');
+            $table->unsignedBigInteger('id_pelanggan')->nullable();
             $table->string('type_order')->default('lainya');
             $table->unsignedBigInteger('id_metode_pembayaran');
             $table->text('catatan');
             $table->unsignedBigInteger('id_kasir');
             $table->integer('jumlah');
+            $table->string('id_meja')->nullable();
             $table->string('status_pembayaran');
+            $table->string('jmlh_bayar')->default(0);
             $table->string('kode_diskon')->nullable();
             $table->integer('total_diskon')->nullable();
             $table->string('kode_promo')->nullable();

@@ -15,5 +15,11 @@ class Transaksi extends Model
     public function pelanggan(){
         return $this->hasOne(Pelanggan::class,'id','id_pelanggan');
     }
+    public function meja(){
+        return $this->belongsTo(Meja::class,'id_meja');
+    }
+    public function kasir(){
+        return $this->belongsTo(Kasir::class,'id_kasir');
+    }
 }
 ?>

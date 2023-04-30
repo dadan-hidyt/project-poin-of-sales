@@ -19,6 +19,9 @@ class Product extends Model
     public function transaksi(){
         return [];
     }
+    public function detailTransaksi(){
+        return $this->belongsTo(DetailTransaksi::class,'kode_produk');
+    }
     public function kupon(){
         return $this->belongsTo(Kupon::class,'id','id_produk');
     }

@@ -14,6 +14,7 @@ class AuthController extends Controller
         $this->setTitle('Login Backend');
         return view('auth.login_backend');
     }
+    //login backend with email and password
     public function loginBackendCheck(Request $request){
         $request->validate([
             'email' => 'email|required',
@@ -31,6 +32,6 @@ class AuthController extends Controller
                 ]
             ])->withInput();
         }
-        
+
     }
 }

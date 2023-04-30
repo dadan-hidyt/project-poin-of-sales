@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 form_selectproduct">
-                                    @if (!empty($item->varian))
+                                    @if ($item->varian->count() > 0)
                                         <div class="form-group">
                                             <label for="variasi">Pilih Variasi</label>
                                             

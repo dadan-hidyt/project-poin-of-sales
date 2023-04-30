@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class DetailTransaksi extends Model
 {
     use HasFactory;
-    protected $with = ['product'];
+    protected $with = ['produk'];
     private $primarykey = 'id_detail_transaksi';
     protected $table = 'tb_detail_transaksi';
     protected $guarded = [];
     /**
      * ini ngerelasi ke model produk
      */
-    public function product(){
-        return $this->hasMany(Product::class,'kode_produk','kode_produk');
+    public function produk(){
+        return $this->belongsTo(Product::class,'kode_produk','id');
     }
    
 }

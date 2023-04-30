@@ -39,7 +39,7 @@
             </div>
 
             <button wire:click='bayar' type="submit" class="btn btn-warning text-white w-100">Lanjut Pembayaran</button>
-
+            
         </div>
     </div>
 </div>

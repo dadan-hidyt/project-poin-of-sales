@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kasir extends Model
 {
+    protected $with = ['user'];
     use HasFactory;
     protected $table = 'kasir';
 
@@ -14,5 +15,8 @@ class Kasir extends Model
 
     public function user(){
         return $this->belongsTo(User::class,'id');
+    }
+    public function transaksi(){
+        return $this->hasMany(Transaksi::class,'id_kasir');
     }
 }
