@@ -22,7 +22,7 @@
                         <span><img src="../assets/img/icons/dash1.svg" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Rp.<span class="counters" data-count="12000000">12.000.000</span></h5>
+                        <h5>Rp.<span class="counters" id="{{ $kas }}">{{ formatRupiah($kas) }}</span></h5>
                         <h6>Dana Kas</h6>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
                         <span><img src="../assets/img/icons/dash2.svg" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Rp.<span class="counters" data-count="500000">$4,385.00</span></h5>
-                        <h6>Total Penjualan</h6>
+                        <h5><span class="counters" id="{{ $total_transaksi }}">{{ formatRupiah($total_transaksi) }}</span></h5>
+                        <h6>Total Transaksi</h6>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <span><img src="../assets/img/icons/dash3.svg" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Rp.<span class="counters" data-count="385656">385,656.50</span></h5>
+                        <h5>Rp.<span class="counters" id="{{ $penghasilan }}">{{ formatRupiah($penghasilan) }}</span></h5>
                         <h6>Uang Masuk</h6>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                         <span><img src="../assets/img/icons/dash4.svg" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Rp.<span class="counters" data-count="40000.00">400.00</span></h5>
+                        <h5>Rp.<span class="counters" id="40000.00">400.00</span></h5>
                         <h6>Uang Keluar</h6>
                     </div>
                 </div>

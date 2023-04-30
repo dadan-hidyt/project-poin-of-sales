@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kasir;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaksi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,8 @@ class HomeController extends Controller
     public function allTrans()
     {
         $this->setTitle('Semua Transaksi');
-        return view('kasir.transaksi.all');
+        $kasir_id = auth()->user()->getKasir()->id;
+        return view('kasir.transaksi.all', ['transaksi' => Transaksi::where('id_kasir', $kasir_id)->get()]);
     }
     public function refundTrans()
     {
@@ -42,13 +44,27 @@ class HomeController extends Controller
 
     public function laporanPenjualan()
     {
+        //laporan
+        $kasir_id = auth()->user()->getKasir()->id;
+        $trx = Transaksi::where('id_kasir', $kasir_id)->get();
+        $peng = 0;
+        foreach ($trx as $tr) {
+            $peng += $tr->jumlah;
+        }
+        $kas = auth()->user()->getkasir()->kas_awal ?? 0;
+
         $this->setTitle('Laporan Penjualan');
-        return view('kasir.laporan-penjualan');
+        return view('kasir.laporan-penjualan', [
+            'kas' => $kas,
+            'total_transaksi' => $trx->count(),
+            'penghasilan' => $peng,
+        ]);
     }
 
     public function daftarPelanggan()
     {
         $this->setTitle('Daftar Pelanggan');
+
         return view('kasir.daftar-pelanggan');
     }
 }

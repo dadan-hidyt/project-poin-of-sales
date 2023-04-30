@@ -22,49 +22,30 @@
                                 </thead>
                                 <tbody>
 
-                                    @for($i=0;$i<24;$i++)
-                                        <tr>
-                                            <td>1</td>
-                                            <td>#212123</td>
-                                            <td>Jhone Bae</td>
-                                            <td class="text-success">Rp.61.000</td>
-                                            <td class="text-danger">Rp.61.000</td>
-                                            <td class="d-flex align-items-center">
+                                    @foreach ($transaksi as $item)
+                                    <tr>
+                                        <td>1</td>
+                                        <td>#{{ $item->kode_transaksi }}</td>
+                                        <td>
+                                            {{ $item->pelanggan->nama ?? 'No Pelanggan' }}
+                                        </td>
+                                        <td class="text-success">Rp.{{ formatRupiah($item->jumlah ?? '') }}</td>
+                                        <td class="text-info">Rp.{{ formatRupiah($item->jmlh_bayar ?? '') }}</td>
+                                        <td class="d-flex align-items-center">
 
-                                                <button type="button" class="btn btn-warning text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
-                                                    edit
-                                                </button>
-                                                <button type="button" class="btn btn-info text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
-                                                    refund
-                                                </button>
-                                                <button type="button" class="btn btn-danger text-white btn-sm" id="confirm-color">delete
-                                                </button>
-                                            </td>
-                                        </tr>
+                                            <button type="button" class="btn btn-warning text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
+                                                edit
+                                            </button>
+                                            <button type="button" class="btn btn-info text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
+                                                refund
+                                            </button>
+                                            <button type="button" class="btn btn-danger text-white btn-sm" id="confirm-color">delete
+                                            </button>
+                                        </td>
+                                    </tr>
 
-                                        <div class="modal fade" id="editPelanggan" tabindex="-1" aria-labelledby="editPelangganLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-editPelanggan border-0">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="editPelangganLabel">Edit Pelanggan</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="mb-3">
-                                                                <input type="text" class="form-control" id="namaPelanggan" value="Jhoone Bae" placeholder="Nama Pelanggan">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <input type="text" class="form-control" id="no.phone" value="+62891283213682" placeholder="No.Phone">
-                                                            </div>
-                                        
-                                                            <button type="submit" class="btn btn-primary w-100">Simpan</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endfor
+                                    @endforeach
+                                    
                                 </tbody>
                             </table>
                         </div>
