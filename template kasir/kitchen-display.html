@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="barayaDigital - Point Of Sale">
+    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+    <meta name="author" content="barayaDigital - Point Of Sale">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Title - Page</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/costume.css">
+    <link rel="stylesheet" href="assets/css/kitchen.css">
+</head>
+
+<body>
+
+    <div id="global-loader">
+        <div class="whirly-loader"> </div>
+    </div>
+
+
+    <div class="main-wrapper">
+        <header class="header-kitchen position-fixed-top">
+           <div class="container-xxl w-100 h-100 d-flex align-items-center justify-content-between border-bottom-grey">
+                <div class="date_kitchen-display d-flex align-items-center text-secondary">
+                    <i class="bx bx-calendar fs-4"></i>
+                    <span class="ms-2">21 April, 2023</span>
+                </div>
+                <div class="filter_kitchen-display">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Status</option>
+                        <option value="1">Noted</option>
+                        <option value="2">Sedang dimasak</option>
+                        <option value="3">Selesai</option>
+                    </select>
+                </div>
+           </div>
+        </header>
+    </div>
+
+    <div class="page-wrappwer mt-4">
+        <div class="container-xxl w-100">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
+                                <div>
+                                    <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
+                                    <span style="opacity: .7;">Pelanggan</span>
+                                </div>
+                                <span class="badge rounded-pill bg-secondary text-white">Noted</span>
+                            </div>
+
+                            <ul class="detail-pesan_kitchen">
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+
+                            <div class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-primary w-100">
+                                    <i class="bx bx-loader"></i>
+                                    <span>diprosess</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
+                                <div>
+                                    <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
+                                    <span style="opacity: .7;">Pelanggan</span>
+                                </div>
+                                <span class="badge rounded-pill bg-warning text-white">Dimasak</span>
+                            </div>
+
+                            <ul class="detail-pesan_kitchen">
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+
+                            <div class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-success w-100">
+                                    <i class="bx bx-check"></i>
+                                    <span>Selesai</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
+                                <div>
+                                    <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
+                                    <span style="opacity: .7;">Pelanggan</span>
+                                </div>
+                                <span class="badge rounded-pill bg-secondary text-white">Noted</span>
+                            </div>
+
+                            <ul class="detail-pesan_kitchen">
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+
+                            <div class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-primary w-100">
+                                    <i class="bx bx-loader"></i>
+                                    <span>diprosess</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
+                                <div>
+                                    <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
+                                    <span style="opacity: .7;">Pelanggan</span>
+                                </div>
+                                <span class="badge rounded-pill bg-secondary text-white">Noted</span>
+                            </div>
+
+                            <ul class="detail-pesan_kitchen">
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+
+                            <div class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-primary w-100">
+                                    <i class="bx bx-loader"></i>
+                                    <span>diprosess</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
+                                <div>
+                                    <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
+                                    <span style="opacity: .7;">Pelanggan</span>
+                                </div>
+                                <span class="badge rounded-pill bg-secondary text-white">Noted</span>
+                            </div>
+
+                            <ul class="detail-pesan_kitchen">
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+
+                            <div class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-primary w-100">
+                                    <i class="bx bx-loader"></i>
+                                    <span>diprosess</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
+                                <div>
+                                    <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
+                                    <span style="opacity: .7;">Pelanggan</span>
+                                </div>
+                                <span class="badge rounded-pill bg-secondary text-white">Noted</span>
+                            </div>
+
+                            <ul class="detail-pesan_kitchen">
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                    <div>
+                                        <div class="count"><b class="fw-bold">12</b>x</div>
+                                        <span>Nasi Goreng Spesial</span>
+                                    </div>
+                                    <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1" data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
+                                        <i class="bx bx-info-circle fs-5"></i>
+                                    </button>
+                                    <div class="modal fade" id="detail-pesan_list" tabindex="-1" aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="detail-pesan_listLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul class="info-pelanggan pb-3 border-bottom-grey">
+                                                        <li>
+                                                            Kode Pesanan : <span>#124234</span>
+                                                        </li>
+                                                        <li class="mt-2">
+                                                            <span>Pelanggan : </span>
+                                                            <span>Saepul Abidin</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="info-produk-pesan py-3">
+                                                        <div class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
+                                                            <h6>Nasi Goreng Spesial</h6>
+                                                            <div class="count"><b class="fw-bold">12</b>x</div>
+                                                        </div>
+                                                        <ul class="variant py-3 border-bottom-grey">
+                                                            <li class="variant_head fw-bolder"> Variant :</li>
+                                                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Pedas Bingits
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Orek Tempe
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                                <li class="my-2 me-2"> 
+                                                                    <i class="bx bx-check me-1"></i>
+                                                                    Teh Manis
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+
+                                                        <ul class="mt-3">
+                                                            <li>
+                                                                <b class="fw-bolder">Note : </b>
+                                                                <p class="mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas officiis ut molestias, eius sit, eos velit, reiciendis totam iusto amet dolorum fuga tempore dolorem rerum vel. At dolorum doloribus ea, totam incidunt soluta repellat.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+
+                            <div class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-primary w-100">
+                                    <i class="bx bx-loader"></i>
+                                    <span>diprosess</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+
+<script src="assets/js/feather.min.js"></script>
+
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/plugins/select2/js/select2.min.js"></script>
+
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
+
+<script src="assets/js/script.js"></script>
+<script src="assets/js/jquery.mask.min.js"></script>
+
+</body>
+
+</html>
