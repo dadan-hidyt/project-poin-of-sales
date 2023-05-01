@@ -10,7 +10,7 @@
             <div class="total_bill card px-4">
                 <div class="card-body text-center">
                     <span class="opacity-7">Total Tagihan</span>
-                    <h3 class="fw-bolder">Rp.{{ $pesanan->hitungPesanan()['grand_total_rupiah'] }}0</h3>
+                    <h3 class="fw-bolder">Rp.{{ $pesanan->hitungPesanan()['grand_total_rupiah'] }}</h3>
                 </div>
             </div>
             <h6 class="pb-4 ms-3">Jumlah Uang: Rp. {{ formatRupiah($jumlah_bayar) ?? '0' }}</h6>
@@ -39,7 +39,7 @@
             </div>
 
             <button wire:click='bayar' type="submit" class="btn btn-warning text-white w-100">Lanjut Pembayaran</button>
-            
+
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <input wire:keyup='setUang($event.target.value)' type="number" class="form-control" placeholder="Jumlah Lain" name=""
+                    <input wire:model='jumlah_bayar' type="number" class="form-control" placeholder="Jumlah Lain" name=""
                         id="inputNominal">
                 </div>
                 <button type="submit" class="btn btn-warning w-100 text-white">Simpan</button>

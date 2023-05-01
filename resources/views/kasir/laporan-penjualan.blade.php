@@ -56,7 +56,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>Rp.<span class="counters" id="40000.00">400.00</span></h5>
-                        <h6>Uang Keluar</h6>
+                        <h6>Penjualan Bersih</h6>
                     </div>
                 </div>
             </div>

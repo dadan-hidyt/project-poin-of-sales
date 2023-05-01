@@ -13,7 +13,9 @@ class HomeController extends Controller
     public function TutupKasir()
     {
         $this->setTitle('Tutup Kasir');
-        return view('kasir.transaksi.tutup-kasir');
+        return view('kasir.transaksi.tutup-kasir', [
+            'kasir' => auth()->user()->getKasir(),
+        ]);
     }
     public function __invoke()
     {
@@ -51,6 +53,7 @@ class HomeController extends Controller
         foreach ($trx as $tr) {
             $peng += $tr->jumlah;
         }
+
         $kas = auth()->user()->getkasir()->kas_awal ?? 0;
 
         $this->setTitle('Laporan Penjualan');

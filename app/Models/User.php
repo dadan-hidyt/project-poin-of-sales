@@ -54,9 +54,7 @@ protected $with = ['kasir'];
     }
 
     public function getKasir(){
-        $kasir = Kasir::whereHas('user', function($q){
-            return $q->where('waktu_keluar',NULL);
-        })->first();
+        $kasir = $this->kasir->where('waktu_keluar',NULL)->first();
         return $kasir;
     }
     

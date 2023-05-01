@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use PDOException;
 
-use function PHPSTORM_META\map;
 
 class Pembayaran extends Component
 {
@@ -19,6 +18,10 @@ class Pembayaran extends Component
     public $bayar;
     public function refresh_jumlah_bayar()
     {
+        $this->jumlah_bayar = $this->jumlah_bayar;
+    }
+
+    public function updated(){
         $this->jumlah_bayar = $this->jumlah_bayar;
     }
 

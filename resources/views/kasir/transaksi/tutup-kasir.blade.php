@@ -12,11 +12,11 @@
                             <div class="_detail mb-2 me-3 d-flex align-items-center">
                                 <div class="waktu-buka me-5">
                                     <h6 class="fw-bold opacity-4 mb-2">BUKA KASIR</h6>
-                                    <span class="d-flex align-items-center"><i class="bx bx-calendar fs-5 me-2"></i> Tgl, Waktu</span>
+                                    <span class="d-flex align-items-center"><i class="bx bx-calendar fs-5 me-2"></i> {{ $kasir['waktu_masuk'] }}</span>
                                 </div>
                                 <div class="waktu-tutup">
                                     <h6 class="fw-bold opacity-4 mb-2">TUTUP KASIR</h6>
-                                    <span class="d-flex align-items-center"><i class="bx bx-calendar fs-5 me-2"></i> Tgl, Waktu</span>
+                                    <span class="d-flex align-items-center"><i class="bx bx-calendar fs-5 me-2"></i> -</span>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <div class="d-flex align-items-center py-3  border-1 border-bottom">
                                 <div class="waktu-buka me-5">
                                     <h6 class="fw-bold opacity-4 mb-2 fs-7">BUKA KASIR</h6>
-                                    <span class="d-flex align-items-center"><i class="bx bx-calendar fs-5 me-2"></i> Tgl, Waktu</span>
+                                    <span class="d-flex align-items-center"><i class="bx bx-calendar fs-5 me-2"></i> {{ $kasir['waktu_masuk'] }}</span>
                                 </div>
                                 <div class="waktu-tutup">
                                     <h6 class="fw-bold opacity-4 mb-2 fs-7 ">TUTUP KASIR</h6>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="py-3 d-flex fw-bolder align-items-center justify-content-between border-1 border-bottom">
                                 <h6 class="fs-6 fw-bolder ">Modal Awal :</h6>
-                                <span>Rp.1000.000</span>
+                                <span>Rp. {{ $kasir['kas_awal'] }}</span>
                             </div>
 
                             <div class="py-3 border-1 border-bottom">

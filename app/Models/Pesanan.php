@@ -29,7 +29,7 @@ class Pesanan extends Model
         $subtotal = 0;
         $pajak = 0;
         foreach ($data as $item) {
-            $subtotal += $item->produk->harga_jual * $item->qty;
+            $subtotal += ($item->produk->harga_jual * $item->qty);
             if ($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
                 $pajak += ($item->produk->harga_jual * ($item->produk->pajak / 100));
             }
@@ -38,7 +38,7 @@ class Pesanan extends Model
             'subtotal' => $subtotal,
             'pajak' => $pajak,
             'grand_total' => $subtotal + $pajak,
-            'grand_total_rupiah' => number_format($subtotal + $pajak, 2, '.', ',')
+            'grand_total_rupiah' => formatRupiah($subtotal+$pajak),
         ];
         if ($q) {
             return $data[$q] ?? '';
