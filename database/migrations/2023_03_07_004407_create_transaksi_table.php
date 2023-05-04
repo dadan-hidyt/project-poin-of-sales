@@ -22,13 +22,14 @@ return new class extends Migration
             $table->unsignedBigInteger('id_kasir');
             $table->integer('jumlah');
             $table->string('id_meja')->nullable();
-            $table->string('status_pembayaran');
+            $table->string('status_pembayaran')->default('dibayar');
             $table->string('jmlh_bayar')->default(0);
             $table->string('kode_diskon')->nullable();
             $table->integer('total_diskon')->nullable();
             $table->string('kode_promo')->nullable();
+            $table->string('total_pajak')->nullable();
             $table->integer('total_promo')->nullable();
-            $table->enum('refund',['1','0'])->default(NULL);
+            $table->enum('refund',['1','0'])->default(0);
             $table->timestamps();
         });
     }

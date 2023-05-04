@@ -15,6 +15,7 @@
                                         <th>#</th>
                                         <th>Kode Pesan</th>
                                         <th>Pelanggan</th>
+                                        <th>Subtotal</th>
                                         <th>Dana Masuk</th>
                                         <th>Kembalian</th>
                                         <th>Action</th>
@@ -29,8 +30,9 @@
                                         <td>
                                             {{ $item->pelanggan->nama ?? 'No Pelanggan' }}
                                         </td>
-                                        <td class="text-success">Rp.{{ formatRupiah($item->jumlah ?? '') }}</td>
-                                        <td class="text-info">Rp.{{ formatRupiah($item->jmlh_bayar ?? '') }}</td>
+                                        <td class="text-info">Rp.{{ formatRupiah($item->jumlah + $item->jumlah_pajak ?? 0) }}</td>
+                                        <td class="text-success">Rp.{{ formatRupiah($item->jmlh_bayar) }}</td>
+                                        <td class="text-info">Rp.{{ formatRupiah($item->jmlh_bayar - ($item->jumlah + $item->jumlah_pajak ?? 0) ?? '') }}</td>
                                         <td class="d-flex align-items-center">
 
                                             <button type="button" class="btn btn-warning text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">

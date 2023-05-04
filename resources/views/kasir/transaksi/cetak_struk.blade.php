@@ -124,12 +124,12 @@
 
                 </div>
                 <div>
-                    Pajak &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; 10% / 1300
+                    Pajak &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; {{ formatRupiah($transaksi->total_pajak) }}
                 </div>
             </div>
             <div class="clearfix"></div>
             <span>-----------------------------------------------------------------------------------</span>
-                <div class="subtotal">Subtotal: Rp. {{ formatRupiah($transaksi->jumlah) }}</div>
+                <div class="subtotal">Subtotal: Rp. {{ formatRupiah($transaksi->jumlah + ($transaksi->total_pajak ?? 0)) }}</div>
             <span>-----------------------------------------------------------------------------------</span>
 
            @if (!empty($pengaturan->catatan))

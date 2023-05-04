@@ -22,8 +22,13 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="h5">Total Penjualan:
-                                <div class="h2 mt-5">Rp. 29.000.00</div>
+                            <div class="h5">Total Semua Penghasilan:
+                                <div class="h2 mt-5">Rp. {{ formatRupiah($total_pendapatan_semua_transaksi) }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h5">Total Transaksi:
+                                <div class="h2 mt-5">{{ $total_semua_transaksi }}</div>
                             </div>
                         </div>
                       

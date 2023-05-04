@@ -416,37 +416,7 @@
 
     <!-- Modal Detail Meja -->
 
-    <div class="modal fade" id="detailMeja" tabindex="-1" aria-labelledby="detailMejaLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-detailMeja">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailMejaLabel">Tambah Pesanan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                            class="bx bx-x"></i></button>
-                </div>
-                <div class="modal-body py-4">
-                    <div class="container">
-                        <div class="detail-meja d-flex  justify-content-between fs-6">
-                            <ul>
-                                <li class="my-2">Kode Pesan : <span>#324234</span> </li>
-                                <li class="my-2">Pelanggan : <span>Jhone Bae</span> </li>
-                                <li class="my-2">Jumlah Tamu : <span>10</span> Orang</li>
-                            </ul>
-                            <ul>
-                                <li class="my-2">Status Bayar : <span> Belum Ada </span> </li>
-                                <li class="my-2">Status Meja: <span> Belum Ada </span> </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer border-top py-4">
-                    <div class="container">
-                        <a href="transaksi/form-pembayaran.html" class="btn btn-primary p-1 px-2">Bayar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
     @livewireScripts
     <!-- Tutup Modal Tambah Pesanan -->
     <script src="{{ asset('kasir-assets') }}/js/jquery-3.6.0.min.js"></script>

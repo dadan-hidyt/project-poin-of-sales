@@ -36,7 +36,7 @@
                             <!--begin::Body-->
                             <div class="card-body">
                                 <i class="icon flaticon2-user"></i>
-                                <span class="card-title font-weight-bolder text-white font-size-h2 mb-0 mt-6 d-block">2,044</span>
+                                <span class="card-title font-weight-bolder text-white font-size-h2 mb-0 mt-6 d-block">ss2,044</span>
                                 <span class="font-weight-bold text-white font-size-sm">Total Penjualan</span>
                             </div>
                             <!--end::Body-->
@@ -50,8 +50,8 @@
                             <!--begin::Body-->
                             <div class="card-body">
                                 <i class="icon flaticon2-user"></i>
-                                <span class="card-title font-weight-bolder text-white font-size-h2 mb-0 mt-6 d-block">2,044</span>
-                                <span class="font-weight-bold text-white font-size-sm">Total Penjualan</span>
+                                <span class="card-title font-weight-bolder text-white font-size-h2 mb-0 mt-6 d-block">{{ formatRupiah($total_semua_transaksi) }}</span>
+                                <span class="font-weight-bold text-white font-size-sm">Semua Penjualan</span>
                             </div>
                             <!--end::Body-->
                         </div>

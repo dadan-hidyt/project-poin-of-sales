@@ -25,6 +25,8 @@ class Pembayaran extends Component
         $this->jumlah_bayar = $this->jumlah_bayar;
     }
 
+    
+
     public function bayar()
     {
         $id_kasir = auth()->user()->getKasir()->id;
@@ -53,15 +55,16 @@ class Pembayaran extends Component
                 'type_order' => "FREE TABLE",
                 'id_pelanggan' => $this->pesanan->id_pelanggan == null ? NULL : $this->pesanan->id_pelanggan,
                 'id_metode_pembayaran' => 1,
+                'total_pajak' => $this->pesanan->hitungPesanan('pajak'),
                 'catatan' => 3,
                 'status_pembayaran' => "DIBAYAR",
                 'id_kasir' => $id_kasir,
-                'jumlah' => $this->pesanan->hitungPesanan('grand_total'),
+                'jumlah' => $this->pesanan->hitungPesanan('subtotal'),
                 'jmlh_bayar' => $this->jumlah_bayar,
             ]);
             DB::commit();
             $this->pesanan->detail_pesanan()->truncate();
-            $this->pesanan->truncate();
+            $this->pesanan->delete();
             return redirect()->route('kasir.cetak_struk', $kode_transaksi);
         } catch (PDOException $th) {
             DB::rollBack();
