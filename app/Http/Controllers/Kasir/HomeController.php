@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Kasir;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaksi;
+use App\Models\Refund;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,9 @@ class HomeController extends Controller
     public function refundTrans()
     {
         $this->setTitle('Transaksi Refund');
-        return view('kasir.transaksi.refund');
+        return view('kasir.transaksi.refund',[
+            'refund' => Refund::with('transaksi')->where('id_kasir',auth()->user()->getKasir()->id)->get(),
+        ]);
     }
     public function voidTrans()
     {

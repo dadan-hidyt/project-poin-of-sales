@@ -1,5 +1,5 @@
 <x-kasir-layout>
-  
+
     <div class="container">
         <div class="row mt-3">
             <div class="col-sm-12">
@@ -18,6 +18,7 @@
                                         <th>Subtotal</th>
                                         <th>Dana Masuk</th>
                                         <th>Kembalian</th>
+                                        <th>Refund</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -33,21 +34,33 @@
                                         <td class="text-info">Rp.{{ formatRupiah($item->jumlah + $item->jumlah_pajak ?? 0) }}</td>
                                         <td class="text-success">Rp.{{ formatRupiah($item->jmlh_bayar) }}</td>
                                         <td class="text-info">Rp.{{ formatRupiah($item->jmlh_bayar - ($item->jumlah + $item->jumlah_pajak ?? 0) ?? '') }}</td>
+                                        <td>
+                                            @if ($item->refund)
+                                            @if ($item->refund->status === 'Y')
+                                            <span class='text-success'>Di refund
+                                            @elseif($item->refund->status === 'N')
+                                            <span class='text-warning'>Sedang Di Prosess</span>
+                                            @endif
+                                            @endif
+                                        </td>
                                         <td class="d-flex align-items-center">
 
                                             <button type="button" class="btn btn-warning text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
                                                 edit
                                             </button>
-                                            <button type="button" class="btn btn-info text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
-                                                refund
-                                            </button>
+                                            @if (!$item->refund)
+                                            <a href="{{ route('kasir.refund',$item->kode_transaksi) }}" class="btn btn-info text-white btn-sm me-1">
+                                                Refund
+                                            </a>
+
+                                            @endif
                                             <button type="button" class="btn btn-danger text-white btn-sm" id="confirm-color">delete
                                             </button>
                                         </td>
                                     </tr>
 
                                     @endforeach
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -56,5 +69,5 @@
             </div>
         </div>
     </div>
-  
+
 </x-kasir-layout>

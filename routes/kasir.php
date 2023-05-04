@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Kasir\HomeController;
 use App\Http\Controllers\Kasir\POSController;
+use App\Http\Controllers\kasir\RefundController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Route::get('daftar-pelanggan', [HomeController::class, 'daftarPelanggan'])->name
 Route::get('pos/{kode_pesanan}', [POSController::class, 'pos'])->name('.pos');
 Route::get('pos/{kode_pesanan}/bayar', [POSController::class, 'prosesBayar'])->name('.pesanan.bayar');
 Route::get('pos/trans/{kode_transaksi}/cetakstruk', [POSController::class,'cetakStruk'])->name('.cetak_struk');
+
+Route::get('pos/{id_transaksi}/refund', [RefundController::class,'refund'])->name('.refund');

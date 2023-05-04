@@ -10,7 +10,10 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-
+    public function kasir(){
+        $kasir = auth()->user()->getKasir();
+        return $kasir;
+    }
     public function setTitle(string $title){
         /**
          * fungsi  ini untuk mengirim title ke blade
