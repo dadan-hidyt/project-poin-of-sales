@@ -10,7 +10,7 @@ use App\Models\Refund;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+//class home controller
 class HomeController extends Controller
 {
     public function TutupKasir()
@@ -85,6 +85,8 @@ class HomeController extends Controller
     {
         $this->setTitle('Daftar Pelanggan');
 
-        return view('kasir.daftar-pelanggan');
+        return view('kasir.daftar-pelanggan', [
+            'pelanggan' => Pelanggan::all(),
+        ]);
     }
 }

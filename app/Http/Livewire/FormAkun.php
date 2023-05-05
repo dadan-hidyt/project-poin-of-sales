@@ -14,7 +14,7 @@ class FormAkun extends Component
     protected $rules = [
         "akun.id_kariawan" => "required",
         "akun.nama_user" => "required|string",
-        "akun.login_token" => "required|max:6|min:6",
+        "akun.login_token" => "required|max:4|min:4",
         "akun.email" => "required",
         'akun.role' => 'required'
     ];

@@ -10,6 +10,7 @@
     <meta name="author" content="barayaDigital - Point Of Sale">
     <meta name="robots" content="noindex, nofollow">
     <title>Title - Page</title>
+    <link href="{{ asset('assets') }}/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('kasir-assets') }}/img/favicon.png">
 
@@ -394,20 +395,7 @@
                             class="bx bx-x"></i></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="namaPelanggan"
-                                placeholder="Nama Pelanggan">
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="Email" placeholder="Email">
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="no.phone" placeholder="No.Phone">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100">Tambah Pelanggan</button>
-                    </form>
+                    @livewire('form-tambah-pelanggan')
                 </div>
             </div>
         </div>
@@ -451,6 +439,14 @@
             ripple:true,
             dismissible : true,
         });
+        window.addEventListener('added', function(e){
+            if(e.detail.status == true){
+                notyf.success(e.detail.msg);
+                $("#tambahPelanggan").modal('hide')
+            } else{
+                notyf.error(e.detail.msg);
+            }
+        })
     </script>
     {{ $footer_script ?? '' }}
 </body>

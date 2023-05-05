@@ -63,8 +63,8 @@
     @enderror
 </div>
 <div class="form-group">
-    <label for="">Buat Token Login</label>
-    <input type="text" wire:model.defer='akun.login_token' minlength="6" maxlength="6"
+    <label for="">Pin</label>
+    <input type="text" wire:model.defer='akun.login_token' minlength="4" maxlength="4"
         @class([
             'form-control',
             $errors->has('akun.login_token') ? 'is-invalid' : '',
