@@ -9,9 +9,12 @@ class ListPesanan extends Component
 {
     public $pesanan = [];
     public function mount(){
-        $this->pesanan = Pesanan::where([
-            'id_kasir' => auth()->user()->getKasir()->id,
-        ])->get();
+        if ( auth()->user()->getKasir() ) {
+           $pesanan = Pesanan::where([
+                'id_kasir' => auth()->user()->getKasir()->id,
+            ])->get();
+        }
+        $this->pesanan = $pesanan ?? [];
     }
     public function render()
     {
