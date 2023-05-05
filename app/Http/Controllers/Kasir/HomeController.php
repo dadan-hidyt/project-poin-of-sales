@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Kasir;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pelanggan;
+use App\Models\Pesanan;
 use App\Models\Transaksi;
 use App\Models\Refund;
 use App\Models\User;
@@ -44,7 +46,9 @@ class HomeController extends Controller
     public function belumBayar()
     {
         $this->setTitle('Belum Bayar');
-        return view('kasir.transaksi.belum-bayar');
+        $kasir_id = auth()->user()->getKasir()->id;
+        $pesanan = Pesanan::where(['id_kasir'=>$kasir_id])->get();
+        return view('kasir.transaksi.belum-bayar', compact('pesanan'));
     }
 
     public function laporanPenjualan()
@@ -53,17 +57,27 @@ class HomeController extends Controller
         $kasir_id = auth()->user()->getKasir()->id;
         $trx = Transaksi::where('id_kasir', $kasir_id)->get();
         $peng = 0;
+        $peng_bersih = 0;
         foreach ($trx as $tr) {
             $peng += $tr->jumlah;
+            if ( $tr->detailTransaksi) {
+              foreach($tr->detailTransaksi as $trs){
+                $peng_bersih += $trs->produk->harga_modal;
+              }
+            }
         }
 
         $kas = auth()->user()->getkasir()->kas_awal ?? 0;
-
+        $belumBayar = Pesanan::where(['id_kasir'=>$kasir_id])->count();
         $this->setTitle('Laporan Penjualan');
         return view('kasir.laporan-penjualan', [
             'kas' => $kas,
+            'penghasilan_bersih' => $peng_bersih,
             'total_transaksi' => $trx->count(),
             'penghasilan' => $peng,
+            'belum_bayar' => $belumBayar,
+            'pelanggan' => Pelanggan::count(),
+            
         ]);
     }
 

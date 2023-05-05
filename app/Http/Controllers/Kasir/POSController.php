@@ -12,7 +12,7 @@ class POSController extends Controller
     //kode pesanan
     public function pos($kode_pesanan = null)
     {
-        $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan])->first();
+        $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan,'id_kasir'=> auth()->user()->getKasir()->id])->first();
         abort_if($pesanan === null, 404);
         $this->setTitle("POS");
         return view('kasir.pos', compact('pesanan'));
@@ -22,7 +22,7 @@ class POSController extends Controller
     {
         $this->setTitle("Proses Bayar");
         $metode = request()->metode;
-        $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan])->first();
+        $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan,'id_kasir'=>auth()->user()->getKasir()->id])->first();
         if (!$pesanan) {
             return redirect()->back();
         }

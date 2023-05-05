@@ -9,15 +9,15 @@
             <!-- sekilas toko -->
             <div class="card card-custom">
                 <div class="card-header bg-primary">
-                    <div class="card-title text-white">Penjualan</div>
-                    <div id="filter" class="card-toolbar">
+                    <div class="card-title text-white">Statistik Penjualan</div>
+                    {{-- <div id="filter" class="card-toolbar">
                         <form action="">
                             <select class="form-control" name="" id="">
                                 <option value="">Hari</option>
                                 <option value="">Bulan</option>
                             </select>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -29,6 +29,16 @@
                         <div class="col-md-3">
                             <div class="h5">Total Transaksi:
                                 <div class="h2 mt-5">{{ $total_semua_transaksi }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h5">Hari Ini:
+                                <div class="h2 mt-5">{{ $total_transaksi_hari_ini }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h5">Penghasilan Hari ini:
+                                <div class="h2 mt-5">Rp. {{ formatRupiah($penghasilan_transaksi_hari_ini) }}</div>
                             </div>
                         </div>
                       

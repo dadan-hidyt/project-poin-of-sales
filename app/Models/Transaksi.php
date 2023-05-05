@@ -24,6 +24,21 @@ class Transaksi extends Model
     public function refund(){
         return $this->hasOne(Refund::class, 'id_transaksi');
     }
+    public function transaksiHariIni(){
+        $time = date('Y-m-d', strtotime( now()));
+        $transaksi = Transaksi::whereDate('tanggal_order',$time)->get();
+        $data['total'] = 0;
+        $data['jumlah'] = 0;
+        foreach ($transaksi as $item){
+            $data['total']++;
+            if ( !$item->refund OR ($item->refund && $item->refund->status !== 'Y') ) {
+                $data['jumlah'] += ($item->jumlah + $item->jumlah_pajak);
+            } else {
+                continue;
+            }
+        }
+        return $data;
+    }
     public function hitungJumlahSemuaTransaksi(){
         $jmlh = 0;
         $datas = $this->all();

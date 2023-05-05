@@ -15,61 +15,32 @@
                                         <th>#</th>
                                         <th>Kode Pesan</th>
                                         <th>Pelanggan</th>
-                                        <th>Dana Masuk</th>
-                                        <th>Kembalian</th>
+                                        <th>Subtotal</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @for($i=0;$i<24;$i++)
+                                    @foreach ($pesanan as $item)
                                     <tr>
                                         <td>1</td>
-                                        <td>#212123</td>
-                                        <td>Jhone Bae</td>
-                                        <td class="text-success">Rp.61.000</td>
-                                        <td class="text-danger">Rp.61.000</td>
+                                        <td>{{ $item->kode_pesanan }}</td>
+                                        <td>{{ $item->pelanggan->nama }}</td>
+                                        <td class="text-success">Rp. {{ formatRupiah($item->hitungPesanan('subtotal')) }}</td>
                                         <td class="d-flex align-items-center">
 
-                                            <button type="button" class="btn btn-warning text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
+                                            <a href="{{ route('kasir.pesanan.bayar',$item->kode_pesanan) }}" class="btn btn-warning text-white btn-sm me-1">
                                                 Bayar Sekarang
-                                            </button>
-                                            <button type="button" class="btn btn-secondary text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#">
-                                                refund
-                                            </button>
+                                            </a>
+
+                                            <a href="{{ route('kasir.pos',$item->kode_pesanan) }}" class="btn btn-warning text-white btn-sm me-1">
+                                                Lihat
+                                            </a>
+                                           
                                         </td>
                                     </tr>
-
-                                    <div class="modal fade" id="editPelanggan" tabindex="-1" aria-labelledby="editPelangganLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-editPelanggan border-0">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="editPelangganLabel">Konfirmasi Pembayaran</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="detai-trans fs-6">
-                                                        <ul>
-                                                            <li class="my-2">Kode Pesan : <span>#324234</span> </li>
-                                                            <li class="my-2">Pelanggan : <span>Jhone Bae</span> </li>
-                                                            <li class="my-2">Jumlah Tamu : <span>10</span> Orang</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer border-1 border-top d-flex align-items-center justify-content-between">
-                                                    <div class="total d-flex">
-                                                        <h4 class="fw-bolder">Rp.145.000,00</h4>
-                                                        <div class="badge text-danger">-11% Discount</div>
-                                                    </div>
-                                                    <a href="form-pembayaran.html" type="submit" class="btn btn-warning text-white btn-sm me-1">
-                                                        Bayar Sekarang
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    @endfor
+                                    @endforeach
+                                 
                                 </tbody>
                             </table>
                         </div>

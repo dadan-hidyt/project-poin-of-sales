@@ -55,7 +55,7 @@
                         <span><img src="../assets/img/icons/dash4.svg" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Rp.<span class="counters" id="40000.00">400.00</span></h5>
+                        <h5>Rp.<span class="counters" >{{ formatRupiah($penghasilan_bersih) }}</span></h5>
                         <h6>Penjualan Bersih</h6>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
             <div class="col-lg-4 col-sm-6 col-12 d-flex">
                 <div class="dash-count">
                     <div class="dash-counts">
-                        <h4>100</h4>
+                        <h4>{{ $pelanggan }}</h4>
                         <h5>Pelanggan</h5>
                     </div>
                     <div class="dash-imgs">
@@ -74,7 +74,7 @@
             <div class="col-lg-4 col-sm-6 col-12 d-flex">
                 <div class="dash-count das2">
                     <div class="dash-counts">
-                        <h4>100</h4>
+                        <h4>{{ $belum_bayar }}</h4>
                         <h5>Pesanan Belum Bayar</h5>
                     </div>
                     <div class="dash-imgs">
@@ -82,17 +82,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-12 d-flex">
+            {{-- <div class="col-lg-4 col-sm-6 col-12 d-flex">
                 <div class="dash-count das3">
                     <div class="dash-counts">
-                        <h4>105</h4>
+                        <h4>z</h4>
                         <h5>Penjualan Harian</h5>
                     </div>
                     <div class="dash-imgs">
                         <i data-feather="file"></i>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </x-kasir-layout>

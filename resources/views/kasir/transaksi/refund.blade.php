@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header py-2 border-1 border-bottom">
-                        <h3 class="card-title mt-4">Semua Transaksi - Saung Teko</h2>
+                        <h3 class="card-title mt-4">Refunds - Saung Teko</h2>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive ">
@@ -20,7 +20,6 @@
                                         <th>Kembalian</th>
                                         <th>Refund</th>
                                         <th>Tanggal Refund</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,20 +46,7 @@
                                         <td>
                                             {{ $item->created_at }}
                                         </td>
-                                        <td class="d-flex align-item->transaksis-center">
-
-                                            <button type="button" class="btn btn-warning text-white btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editPelanggan">
-                                                edit
-                                            </button>
-                                            @if (!$item->transaksi->refund)
-                                            <a href="{{ route('kasir.refund',$item->transaksi->kode_transaksi) }}" class="btn btn-info text-white btn-sm me-1">
-                                                Refund
-                                            </a>
-
-                                            @endif
-                                            <button type="button" class="btn btn-danger text-white btn-sm" id="confirm-color">delete
-                                            </button>
-                                        </td>
+                                       
                                     </tr>
 
                                     @endforeach

@@ -9,7 +9,7 @@
 
             <div class="meja-info mt-5 text-end">
                 <span class="kode-meja opacity-5">
-                    #22423
+                    #{{ $item->kode_pesanan }}
                 </span>
                 <h5 class="nama-meja fw-bolder">
                     @if ($item->id_meja)

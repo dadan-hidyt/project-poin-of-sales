@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_meja')->nullable();
             $table->string('type')->default("FREE_TABLE");
             $table->string('total_tagihan');
+            $table->string('id_kasir')->nullable();
             $table->string('jumlah_pelanggan')->default(1);
             $table->timestamps();
         });
