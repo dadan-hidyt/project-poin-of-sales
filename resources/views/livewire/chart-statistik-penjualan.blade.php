@@ -1,85 +1,89 @@
 <div class="card card-custom">
     <div class="card-header bg-primary">
         <div class="card-title text-white">Statistik Per Jam</div>
-        <div id="filter" class="card-toolbar">
-            <form method='post' wire:key='form-app' action="" wire:submit.prevent='filter'>
-            <div class="row">
-                    <div class="col-4">
-                        <input wire:model.defer='date' type="date" class="form-control">
-                    </div>
-                   
-                    <div class="col-4">
-                        <button id="filter" class="btn btn-warning">FILTER</button>
-                    </div>
-                </div>
-                </form>
-                
-        </div>
+        
     </div>
-    <div wire:ignore  class="card-body">
-        <div style="width: 100%" wire:ignore.self id="chart_1" > </div>
+    <div class="card-body">
+        <div style="width: 100%" id="penjualan_perjam">
+            
+        </div>
     </div>
 </div>
 @push('script') 
 
 <script>
-$("#filter").on('click',()=>{
-    Livewire.emit('reload');
-})
-var demo2 = function () {
-    const apexChart = "#chart_1";
-    var options = {
-        series: [
-            {
-                name: 'Total Penjualan',
-                data: {!! json_encode(array_values($chartData)) !!}
-            }
-        ],
-        scales: {
-         yAxes: [{
-             ticks: {
-                 beginAtZero: true,
-                 userCallback: function(label, index, labels) {
-                     // when the floored value is the same as the value we have a whole number
-                     if (Math.floor(label) === label) {
-                         return label;
-                     }
+var chart = function () {
+    const apexChart = "#penjualan_perjam";
 
-                 },
-             }
-         }],
-     },
+    var options = {
+          series: [
+            {
+          name: 'Penjualan',
+          data: {!! json_encode(array_values($chartData)) !!}
+        }
+    ],
+         
         chart: {
-            height: 350,
-            type: 'area'
+          height: 350,
+          type: 'bar',
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 20,
+            columnWidth: '50%',
+          }
         },
         dataLabels: {
-            enabled: false
+          enabled: false
         },
-
+        stroke: {
+          width: 1
+        },
+        
+        grid: {
+          row: {
+            colors: ['#fff', '#f2f2f2']
+          }
+        },
         xaxis: {
-            type: 'time',
-            categories: {!! json_encode(array_keys($chartData)) !!}
+          labels: {
+            rotate: -45
+          },
+          categories: {!! json_encode(array_keys($chartData)) !!},
+          tickPlacement: 'on'
         },
         yaxis: {
-            title: {
-                text: "Total Penjualan Perjam"
-            },
-            min: 1
+          title: {
+            text: 'Total Penjualan',
+          },
+          min : 0,
         },
-
+        
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'light',
+            type: "horizontal",
+            shadeIntensity: 0.25,
+            gradientToColors: undefined,
+            inverseColors: true,
+            opacityFrom: 0.85,
+            opacityTo: 0.85,
+            stops: [50, 0, 100]
+          },
+        },
         tooltip: {
-            x: {
-                format: 'HH:mm'
+          y: {
+            formatter: function (val) {
+              return `${val} Transaksi`
             }
-        },
-        colors: ['green']
-    };
-
+          }
+        }
+        };
     var chart = new ApexCharts(document.querySelector(apexChart), options);
     chart.render();
 }
 
-demo2()
+chart()
  </script>
 @endpush

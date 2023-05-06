@@ -22,15 +22,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        try {
-            $PengaturanWeb = PengaturanWeb::all()?->first()?->toArray();
-            if ($PengaturanWeb) {
-                foreach ($PengaturanWeb as $key => $val) {
-                    Config::set('web.' . $key, $val);
-                }
-            }
-        } catch (QueryException $e) {
-            error_log($e->getMessage());
-        }
+        // try {
+        //     $PengaturanWeb = PengaturanWeb::all()?->first()?->toArray();
+        //     if ($PengaturanWeb) {
+        //         foreach ($PengaturanWeb as $key => $val) {
+        //             Config::set('web.' . $key, $val);
+        //         }
+        //     }
+        // } catch (QueryException $e) {
+        //     error_log($e->getMessage());
+        // }
     }
 }

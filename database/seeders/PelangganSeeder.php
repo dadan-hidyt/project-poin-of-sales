@@ -13,6 +13,6 @@ class PelangganSeeder extends Seeder
      */
     public function run(): void
     {
-        Pelanggan::factory(50)->create();
+        Pelanggan::factory(3)->create();
     }
 }

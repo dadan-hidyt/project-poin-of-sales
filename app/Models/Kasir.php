@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kasir extends Model
 {
-    protected $with = ['user'];
     use HasFactory;
     protected $table = 'kasir';
 

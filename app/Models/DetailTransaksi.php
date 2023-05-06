@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetailTransaksi extends Model
 {
     use HasFactory;
-    protected $with = ['produk'];
+    // protected $with = ['produk'];
     private $primarykey = 'id_detail_transaksi';
     protected $table = 'tb_detail_transaksi';
     protected $guarded = [];
