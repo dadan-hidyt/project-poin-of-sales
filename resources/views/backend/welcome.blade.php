@@ -43,9 +43,19 @@
                         </div>
                       
                     </div>
+
+                   
+
                 </div>
             </div>
             <!-- sek -->
+
+            <div class="mt-5">
+                @livewire('chart-statistik-penjualan')
+
+               
+            </div>
+
         </main>
     </div>
 @endsection
