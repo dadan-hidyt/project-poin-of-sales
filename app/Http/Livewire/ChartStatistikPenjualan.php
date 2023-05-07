@@ -40,7 +40,11 @@ class ChartStatistikPenjualan extends Component
         $data = [];
         foreach ($dataTime as $time) {
             $h = abs(explode(':',$time)[0]);
-            $data[$time] = Transaksi::whereDate('tanggal_order', $this->date ? date('Y-m-d',strtotime($this->date)) : date('Y-m-d'))->whereRaw("DATE_FORMAT(tanggal_order,'%H') = ?", [$h])->count();
+            $count = Transaksi::whereDate('tanggal_order', $this->date ? date('Y-m-d',strtotime($this->date)) : date('Y-m-d'))->whereRaw("DATE_FORMAT(tanggal_order,'%H') = ?", [$h])->count();
+            if ($count == 0) {
+                $count = null;
+            }
+            $data[$time] = $count;
         }
        return $data;
     }

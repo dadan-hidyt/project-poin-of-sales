@@ -16,14 +16,5 @@ class SatuanBarangSeeder extends Seeder
         SatuanBarang::create([
             'nama_satuan' => 'KG',
         ]);
-        SatuanBarang::create([
-            'nama_satuan' => 'Unit',
-        ]);
-        SatuanBarang::create([
-            'nama_satuan' => 'Gram',
-        ]);
-        SatuanBarang::create([
-            'nama_satuan' => 'Ons',
-        ]);
     }
 }

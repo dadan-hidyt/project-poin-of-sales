@@ -26,7 +26,7 @@ class ProductFactory extends Factory
             'harga_modal' =>  fake()->randomNumber(6),
             'id_kategori_produk' => KategoriProduk::all()->random()->id,
             'id_varian' => VarianProduk::all()->random()->id,
-            'satuan' => 'Item',
+            'satuan' => 'BRG',
             'stok' => rand(),
         ];
     }
