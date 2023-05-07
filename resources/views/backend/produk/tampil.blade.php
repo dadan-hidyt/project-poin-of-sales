@@ -3,26 +3,29 @@
 @section('main')
     <div class="col-12">
         @error('gagal_hapus_produk')
-            <p class="alert alert-warning">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ $message }}
-            </p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @enderror
         @error('berasil_hapus_produk')
-            <p class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ $message }}
-            </p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @enderror
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">
-                    <span class="card-icon">
-                        <i class="flaticon2-supermarket text-white"></i>
-                    </span>
-                    <h3 class="card-label text-white">Daftar Produk</h3>
+            <div class="card-header py-3 border-1 border-bottom">
+                <div class="card-title">
+                    <h3 class="card-label h3 fw-bolder mt-2">Daftar Produk</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a  href="{{ route('dashboard.product.item.tambah') }}" class='btn btn-warning'><i class="fa fa-plus"></i>Tambah</a>
+                    <a  href="{{ route('dashboard.product.item.tambah') }}" class='btn btn-success'><i class="fa fa-plus"></i>Tambah</a>
                     <!--end::Button-->
                 </div>
             </div>

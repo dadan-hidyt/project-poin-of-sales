@@ -4,12 +4,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card card-custom">
-                <div class="card-header bg-primary">
+                <div class="card-header align-items-center py-3 border-1 border-bottom">
                     <div class="card-title text-white">
-                        <span class="card-icon">
-                            <i class="flaticon2-supermarket text-primary"></i>
-                        </span>
-                        <span class="text-white">Daftar Kategori</span>
+                        <h3 class="text-dark fw-bolder h3 mt-4">Daftar Kategori</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->

@@ -17,7 +17,7 @@
                  <span class="invalid-feedback">{{ $message }}</span>
              @enderror
         </div>    
-        <span class="form-text text-muted">Nomor meja bisa pake Abjad ABC contoh: A1</span>
+        <span class="form-text text-muted">Nomor meja daoat menggunakan Abjad ABC contoh: A1</span>
 
     </div>
     <div class="form-group">
@@ -46,7 +46,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <button class="btn btn-primary"> <i class="fa fa-plus-circle"></i> tambah</button>
+        <button class="btn btn-primary">Tambah</button>
     </div>
 </form>
 

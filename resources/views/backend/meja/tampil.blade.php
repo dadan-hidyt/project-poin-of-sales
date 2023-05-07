@@ -3,10 +3,10 @@
 @section('main')
     <div class="container-fluid">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">Daftar Meja</div>
+            <div class="card-header py-3 border-1 border-bottom">
+                <div class="card-title">Daftar Meja</div>
                 <div class="card-toolbar">
-                    <a class="btn btn-warning" href="{{ route('dashboard.meja.create') }}"><i class="fa fa-plus-circle"></i>Tambah</a>
+                    <a class="btn btn-success" href="{{ route('dashboard.meja.create') }}"><i class="fa fa-plus"></i>Tambah</a>
                 </div>
             </div>
            <div class="card-body">

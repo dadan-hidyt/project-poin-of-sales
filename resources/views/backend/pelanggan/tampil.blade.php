@@ -2,12 +2,12 @@
 @section('main')
     <div class="col-12">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
+            <div class="card-header py-3 border-1 border-bottom">
                 <div class="card-title">
                     <span class="card-icon">
                         <i class="flaticon2-user text-primary"></i>
                     </span>
-                    <h3 class="card-label text-white">Daftar Pelanggan</h3>
+                    <h3 class="card-label">Daftar Pelanggan</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->

@@ -2,10 +2,12 @@
 
 @section('main')
 <div class="card card-custom">
-    <div class="card-header bg-primary">
-        <div class="card-title text-white">Daftar Varian</div>
+    <div class="card-header py-3 border-1 border-bottom">
+        <h3 class="card-title h3 fw-bolder mt-4">Daftar Varian</h3>
         <div class="card-toolbar">
-            <a href="{{ route('dashboard.produk.varian.tambah') }}" class="btn  btn-warning">Back</a>
+            <!--begin::Button-->
+            <a  href="{{ route('dashboard.produk.varian.tambah') }}" class='btn btn-success'><i class="fa fa-plus"></i>Tambah</a>
+            <!--end::Button-->
         </div>
     </div>
     <div class="card-body">

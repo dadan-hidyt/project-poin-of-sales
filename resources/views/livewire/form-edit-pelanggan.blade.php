@@ -111,7 +111,7 @@
                 @enderror
             </div>
             <div class="form-group mt-2">
-                <button class="btn btn-primary"><i class="la la-plus"></i>Kirim</button>
+                <button class="btn btn-primary">Kirim</button>
             </div>
         </div>
 

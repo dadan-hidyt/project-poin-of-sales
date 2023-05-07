@@ -74,10 +74,10 @@
                 @enderror
             </div>
             <div class="col-lg-3">
-                <label>Pajak Produk:</label>
+                <label>Pajak Produk % :</label>
                 <input type="text" wire:model.defer='produk.pajak'
                     class="form-control @error('produk.pajak') is-invalid @enderror" id="pasjak"
-                    placeholder="Fax number" />
+                    placeholder="Fax number %" />
                 @error('produk.pajak')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror

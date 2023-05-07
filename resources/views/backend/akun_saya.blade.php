@@ -3,10 +3,10 @@
 @section('main')
     <div class="container-fluid">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">Akun Saya</div>
+            <div class="card-header py-3 border-1 border-bottom">
+                <div class="card-title">Akun Saya</div>
                 <div class="card-toolbar">
-                    <a href="" class="btn btn-warning">Back</a>
+                    <a href="" class="btn btn-warning">Kembali</a>
                 </div>
             </div>
             <div class="card-body">
@@ -42,8 +42,8 @@
                         </div>
                     </div>
             </div>
-            <div class="card-footer bg-primary">
-                <button class="btn btn-light-success">Edit Akun</button>
+            <div class="card-footer border-1 border-top">
+                <button class="btn btn-success">Perbaharui Akun</button>
                 </form>
             </div>
         </div>

@@ -2,12 +2,22 @@
 @section('main')
     <div class="container-fluid">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">Tambah Produk</div>
+            {{-- <div class="card-header">
+                <div class="card-title">Tambah Produk</div>
+                <a href="{{ route('dashboard.product.item') }}">Back</a>
+            </div> --}}
+            
+            <div class="card-header py-3 border-1 border-bottom">
+                <div class="card-title">
+                    <h3 class="card-label h3 fw-bolder mt-2">Tambah Produk Produk</h3>
+                </div>
                 <div class="card-toolbar">
-                    <a href="{{ route('dashboard.product.item') }}">Back</a>
+                    <!--begin::Button-->
+                    <a  href="{{ route('dashboard.product.item') }}" class='btn btn-warning'><i class="fa fa-arrow-left"></i>Kembali</a>
+                    <!--end::Button-->
                 </div>
             </div>
+
             <div class="card-body">
                 @livewire('form-tambah-produk')
             </div>

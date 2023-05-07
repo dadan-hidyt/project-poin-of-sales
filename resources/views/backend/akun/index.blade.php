@@ -2,10 +2,10 @@
 
 @section('main')
 <div class="card card-custom">
-    <div class="card-header bg-primary">
-        <div class="card-title text-white">List User</div>
+    <div class="card-header py-3 border-1 border-bottom">
+        <div class="card-title">List User</div>
         <div class="card-toolbar">
-            <a class="btn btn-warning" href="{{ route('dashboardakun.create') }}">Tambah Baru</a>
+            <a class="btn btn-success" href="{{ route('dashboardakun.create') }}">Tambah Baru</a>
         </div>
     </div>
     <div class="card-body">
@@ -44,11 +44,11 @@
                   @endempty
                 </td>
                 <td class="text-center">
-                    <a href="{{ route('dashboard.akun.edit',$item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('dashboard.akun.edit',$item->id) }}" class="btn btn-light-warning btn-sm">Edit</a>
                     <form class="d-inline" method="POST" action="{{ route('dashboard.akun.delete',$item->id) }}">
                         @method("DELETE")
                         @csrf
-                        <button class="btn btn-sm btn-danger">Delete</button>
+                        <button class="btn btn-sm btn-light-danger">Delete</button>
                     </form>
                 </td>
             </tr>

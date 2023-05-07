@@ -3,10 +3,10 @@
 @section('main')
     <div class="container-fluid">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">Tambah Kariawan</div>
+            <div class="card-header py-3 border-1 border-bottom">
+                <div class="card-title ">Tambah Kariawan</div>
                 <div class="p-5">
-                    <a class="btn btn-warning btn-sm" href="{{ route('dashboardkariawan.index') }}"><i
+                    <a class="btn btn-warning " href="{{ route('dashboardkariawan.index') }}"><i
                             class="fa fa-users"></i>List Kariawan</a>
                 </div>
             </div>

@@ -3,12 +3,12 @@
 @section('main')
     <div class="container-fluid">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">Karyawan</div>
+            <div class="card-header py-3 border-1 border-bottom">
+                <div class="card-title">Karyawan</div>
                 <div class="p-5">
-                    <a class="btn btn-warning btn-sm" href="{{ route('dashboardkariawan.create') }}"><i
+                    <a class="btn btn-warning " href="{{ route('dashboardkariawan.create') }}"><i
                             class="fa fa-user-plus"></i>Tambah</a>
-                    <a class="btn btn-success btn-sm" href="{{ route('dashboard.akun.index') }}"><i
+                    <a class="btn btn-success " href="{{ route('dashboard.akun.index') }}"><i
                             class="fa fa-user"></i>List User</a>
                 </div>
             </div>

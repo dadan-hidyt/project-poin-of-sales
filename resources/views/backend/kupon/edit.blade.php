@@ -4,8 +4,8 @@
 @section('main')
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
-                <h5>Edit Pelanggan</h5>
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h3 class="mt-3">Edit Pelanggan</h3>
                 <a class="btn btn-warning btn-sm" href="{{ route('dashboard.promo.kupon.show') }}"><i class="fa fa-arrow-left"></i>Back</a>
             </div>
             <div class="card-body">

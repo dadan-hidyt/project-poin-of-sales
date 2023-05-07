@@ -3,28 +3,40 @@
 @section('main')
     <div class="col-12">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">
-                    <span class="card-icon">
-                        <i class="flaticon2-supermarket text-primary"></i>
-                    </span>
-                    <h3 class="card-label text-white">Edit Kategori Produk</h3>
+            <div class="card-header py-4 border-1 border-bottom">
+                <div class="card-title">
+                    <h3 class="card-label fw-bolder h3 mt-2">Edit Kategori Produk</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a href="{{route('dashboard.product.kategori')}}" class="btn btn-warning">Daftar Kategori</a>
+                    <a href="{{route('dashboard.product.kategori')}}" class="btn btn-warning">Kembali</a>
                     <!--end::Button-->
                 </div>
             </div>
             <div class="card-body">
                 @error('peringatan')
-                    <p class="alert alert-warning">{{ $message }}</p>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 @enderror
                 @error('suksess')
-                    <p class="alert alert-success">{{ $message }}</p>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 @enderror
                 @error('gagal')
-                    <p class="alert alert-danger">{{ $message }}</p>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 @enderror
                 <form method="POST" action="">
                     @csrf
@@ -33,7 +45,7 @@
                         <input name="nama_kategori" type="text" value="{{ $item['nama_kategori'] }}" class="form-control">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary" name="update">Update</button>
+                        <button class="btn btn-primary" name="update">Perbaharui Data</button>
                     </div>
                 </form>
             </div>

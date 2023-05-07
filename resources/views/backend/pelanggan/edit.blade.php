@@ -4,8 +4,8 @@
 @section('main')
     <div class="container-fluid">
         <div class="card card-custom">
-            <div class="card-header bg-primary">
-                <div class="card-title text-white">
+            <div class="card-header py-3 border-1 border-bottom">
+                <div class="card-title">
                     <span>Edit Pelanggan</span>
                 </div>
                 <div class="card-toolbar">

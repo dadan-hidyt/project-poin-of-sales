@@ -13,12 +13,12 @@
             </p>
         @enderror
         <div class="card card-custom">
-            <div class="card-header bg-primary">
+            <div class="card-header py-3 border-1 border-bottom">
                 <div class="card-title">
                     <span class="card-icon">
-                        <i class="icon-2x flaticon-price-tag text-primary"></i>
+                        <i class="icon-2x flaticon-price-tag text-primary mt-2"></i>
                     </span>
-                    <h3 class="card-label text-white">Manage Kupon</h3>
+                    <h3 class="card-label text-seccondary h2 fw-bolder mt-1">Manage Kupon</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
