@@ -5,12 +5,16 @@
     <div class="brand flex-column-auto " id="kt_brand">
 
         <!--begin::Logo-->
-        <a href="index.html" class="brand-logo">
+        {{-- <a href="index.html" class="brand-logo">
             @empty(config('web.logo'))
                 <img width="80px" alt="Logo" src="{{ asset('logo.png') }}" />
             @else
                 <img width="80px" alt="Logo" src="{{ asset(config('web.logo')) }}" />
             @endempty
+        </a> --}}
+
+        <a href="{{ route('dashboard.index') }}" class="brand-log mt-1">
+            <img width="154px" alt="Logo" src="{{ asset('logo.png') }}" />
         </a>
 
         <!--end::Logo-->
@@ -51,7 +55,7 @@
             data-menu-dropdown-timeout="500">
             <!--begin::Menu Nav-->
             <ul class="menu-nav ">
-                <li class="menu-item  menu-item-active" aria-haspopup="true"><a href="index.html" class="menu-link "><i
+                <li class="menu-item  menu-item-active" aria-haspopup="true"><a href="{{ route('dashboard.index') }}" class="menu-link "><i
                             class="menu-icon flaticon2-poll-symbol"></i><span class="menu-text">Dashboard</span></a>
                 </li>
                 <li class="menu-section ">

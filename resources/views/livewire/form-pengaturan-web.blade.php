@@ -1,3 +1,4 @@
+{{-- @dd($pengaturan) --}}
 @push('style')
     <style>
         .preview {
@@ -27,7 +28,7 @@
     <div class="form-group">
         <label for="logo">Logo</label>
         <div class="logo-preview">
-            @empty(!$this->pengaturan['logo'])
+            @empty($this->pengaturan['logo'])
                 <img class="img preview img-thumbnail" width="80px" src="{{ asset('assets/img/no.png') }}" alt="logo">
             @else
                 <img class="img preview  img-thumbnail" width="80px" src="{{ asset($this->pengaturan['logo']) }}"

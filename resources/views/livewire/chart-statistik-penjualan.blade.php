@@ -1,6 +1,6 @@
 <div class="card card-custom">
-    <div class="card-header bg-primary">
-        <div class="card-title text-white">Statistik Per Jam</div>
+    <div class="card-header py-4 border-1 border-bottom">
+        <div class="h3 card-title">Statistik Per Jam</div>
         
     </div>
     <div class="card-body">
