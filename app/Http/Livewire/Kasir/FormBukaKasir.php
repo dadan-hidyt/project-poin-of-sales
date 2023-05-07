@@ -26,7 +26,7 @@ class FormBukaKasir extends Component
         if ( Kasir::create([
             'id_user' => auth()->user()->id,
             'waktu_masuk' => now(),
-            'kas_awal' => $this->kas_awal
+            'kas_awal' => (int) str_replace('.','',$this->kas_awal),
         ]) ) {
           return redirect()->route('kasir.index');
         } else {
