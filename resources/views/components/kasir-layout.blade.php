@@ -296,15 +296,15 @@
                                         alt="">
                                     <span class="status online"></span></span>
                                 <div class="profilesets">
-                                    <h6>John Doe</h6>
-                                    <h5>Admin</h5>
+                                    <h6>{{ auth()->user()->nama_user ?? '' }}</h6>
+                                    <h5>{{ auth()->user()->role }}</h5>
                                 </div>
                             </div>
                             <hr class="m-0">
-                            <a class="dropdown-item py-2" href="profile.html">
+                            <a class="dropdown-item py-2" href="{{ route('kasir.tutup_kasir') }}">
                                 <i class="me-2 bx bx-dish fs-5"></i> Tutup Kasir</a>
                             <hr class="m-0">
-                            <a class="dropdown-item logout pb-0 py-2" href="signin.html">
+                            <a class="dropdown-item logout pb-0 py-2" href="{{ route('kasir.logout') }}">
                                 <i class="bx bx-log-out fs-5 me-2"></i>
                                 Logout</a>
                             <hr class="m-0">

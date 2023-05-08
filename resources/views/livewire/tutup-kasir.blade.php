@@ -142,9 +142,3 @@
     </div>
     @endif
 </div>
-
-<x-slot name='footer_script'>
-    <script>
-        alert("WELCOME")
-    </script>
-</x-slot>

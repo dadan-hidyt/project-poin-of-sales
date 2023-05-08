@@ -39,9 +39,15 @@ class TutupKasir extends Component
     }
     public function setSisaKas()
     {
+        $sisa_kas = (int)str_replace('.','',$this->sisa_kas);
         if ($this->pin != $this->kasir->user->login_token) {
             $this->sisa_kas = null;
-            $this->dispatchBrowserEvent('pin_salah');
+            $this->dispatchBrowserEvent('error',"Pin yang anda masukan salah");
+        }
+        
+        if($sisa_kas  > $this->kas_awal) {
+            $this->sisa_kas = null;
+            $this->dispatchBrowserEvent('error',"Sisa kas melebihi kas awal!");
         }
     }
     public function selesai()
@@ -60,7 +66,7 @@ class TutupKasir extends Component
                         'kas_awal' => $this->kas_awal,
                         'sisa_kas' => (int)str_replace('.', '', $this->sisa_kas),
                     ]);
-                    $this->dispatchBrowserEvent("SUKSESS");
+                    $this->dispatchBrowserEvent("suksess_tutup");
                     return response()->streamDownload(function () use ($pdf) {
                         return print($pdf->output());
                     }, uniqid().'.pdf');
@@ -74,7 +80,7 @@ class TutupKasir extends Component
                         'sisa_kas' => (int)str_replace('.', '', $this->sisa_kas),
                         'transaksi' => $this->kasir->transaksi,
                     ]);
-                    $this->dispatchBrowserEvent("SUKSESS");
+                    $this->dispatchBrowserEvent("suksess_tutup");
                     return response()->streamDownload(function () use ($pdf) {
                         return print($pdf->output());
                     }, uniqid().'.pdf');
