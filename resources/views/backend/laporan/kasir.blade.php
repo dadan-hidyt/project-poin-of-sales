@@ -15,6 +15,7 @@
                         <th>Kas Awal</th>
                         <th>Kas Akhir</th>
                         <th>Pendapatan</th>
+                        <th>Print</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,10 @@
                             <td>Rp. {{ formatRupiah($item->kas_awal) }}</td>
                             <td>Rp. {{ formatRupiah($item->sisa_kas) ?? 0 }}</td>
                             <td>Rp. {{ formatRupiah($item->total_keseluruhan) ?? 0 }}</td>
+                            <td>
+                                <a href='{{ route('dashboard.laporan.kasir.print',$item->id) }}?type=download' class='btn btn-secondary btn-sm btn-outline'><i class="fa fa-download"></i></a>
+                                <a href='{{ route('dashboard.laporan.kasir.print',$item->id) }}?type=print' class='btn btn-primary btn-sm btn-outline'><i class="fa fa-print"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

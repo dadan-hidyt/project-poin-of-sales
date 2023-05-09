@@ -71,11 +71,9 @@
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{ route('dashboard.laporan.kasir') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Kasir</span></a>
                                         </li>
+                                       
                                         <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/user/list-default.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Harian</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/user/list-datatable.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Bulanan</span></a>
+                                            <a href="{{ route('dashboard.laporan.bulanan') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Bulanan</span></a>
                                         </li>
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="custom/apps/user/list-columns-1.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Produk</span></a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\KariawanController;
 use App\Http\Controllers\Backend\LaporanController;
 use App\Http\Controllers\Backend\MejaController;
 use App\Http\Controllers\Backend\Produk\ProdukVarian;
+use App\Http\Controllers\LaporanBulananController;
 use App\Models\Kariawan;
 use Illuminate\Support\Facades\Route;
 /**
@@ -51,5 +52,12 @@ Route::get('meja/{id}/delete', [MejaController::class, 'destroy'])->name('.meja.
 Route::prefix('akun_saya')->name('.akun_saya')->group(base_path('routes/backend/akun_saya.php'));
 Route::prefix('pengaturan')->name('.pengaturan')->group(base_path('routes/backend/pengaturan.php'));
 Route::prefix('laporan')->name('.laporan')->group(function(){
-    Route::get("kasir", [LaporanController::class,'kasir'])->name('.kasir');
+    Route::get("kasir", [LaporanKasirController::class,'kasir'])->name('.kasir');
+    Route::get('kasir/{id}/print', [LaporanKasirController::class, 'print'])->name('.kasir.print');
+
+
+    //laporan bulanan
+    
+    Route::get('bulanan', LaporanBulananController::class)->name('.bulanan');
+    Route::get('bulanan/chart', [LaporanBulananController::class,'getAjaxChart'])->name('.bulanan.chart');
 });
