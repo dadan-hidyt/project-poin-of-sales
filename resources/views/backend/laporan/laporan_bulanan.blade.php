@@ -127,7 +127,7 @@
                         data : res.total_transaksi,
                        },
                        {
-                        name : "Adada",
+                        name : "Total Pendapatan",
                         data : res.pendapatan,
                        }
                     ])

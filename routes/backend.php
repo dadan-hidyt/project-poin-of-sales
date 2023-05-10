@@ -4,6 +4,8 @@ use App\Http\Controllers\Backend\AkunController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\KariawanController;
 use App\Http\Controllers\Backend\LaporanController;
+use App\Http\Controllers\Backend\LaporanKasirController;
+use App\Http\Controllers\Backend\LaporanProdukController;
 use App\Http\Controllers\Backend\MejaController;
 use App\Http\Controllers\Backend\Produk\ProdukVarian;
 use App\Http\Controllers\LaporanBulananController;
@@ -60,4 +62,8 @@ Route::prefix('laporan')->name('.laporan')->group(function(){
     
     Route::get('bulanan', LaporanBulananController::class)->name('.bulanan');
     Route::get('bulanan/chart', [LaporanBulananController::class,'getAjaxChart'])->name('.bulanan.chart');
+
+
+    //laporan Produk
+    Route::get('produk', LaporanProdukController::class)->name('.produk');
 });
