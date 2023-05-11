@@ -14,6 +14,7 @@ class POSController extends Controller
     {
         $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan,'id_kasir'=> auth()->user()->getKasir()->id])->first();
         abort_if($pesanan === null, 404);
+        abort_if(!$pesanan,404);
         $this->setTitle("POS");
         return view('kasir.pos', compact('pesanan'));
     }
@@ -23,6 +24,7 @@ class POSController extends Controller
         $this->setTitle("Proses Bayar");
         $metode = request()->metode;
         $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan,'id_kasir'=>auth()->user()->getKasir()->id])->first();
+        
         if (!$pesanan) {
             return redirect()->back();
         }
@@ -32,6 +34,7 @@ class POSController extends Controller
     {
         $transaksi = Transaksi::where('kode_transaksi', $kode_transaksi)->first();
         abort_if($transaksi === null, 404);
+        abort_if(!$transaksi,404);
         $Pdf = PDF::loadView('kasir.transaksi.cetak_struk', compact('transaksi'));
         return $Pdf->stream();
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('sku',12)->nullable();
             $table->integer('harga_modal')->default(0);
             $table->integer('harga_jual')->default(0);
+            $table->integer('sisa_stok')->default(0);
             $table->enum('produk_favorit',['Y','N']);
             $table->string('satuan',50);
             $table->integer('harga_beli')->default(0);

@@ -59,6 +59,7 @@ class FormTambahProduk extends Component
         $this->produk['id_kategori_produk'] = 1;
         $this->produk['harga_jual'] = $this->clearNominal($this->produk['harga_jual']);
         $this->produk['harga_modal'] = $this->clearNominal($this->produk['harga_modal']);
+        $this->produk['sisa_stok'] = $this->produk['stok'];
         //create
         if (
             $product->create(

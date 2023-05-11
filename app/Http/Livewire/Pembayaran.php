@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\DetailTransaksi;
+use App\Models\Product;
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -46,6 +47,10 @@ class Pembayaran extends Component
                 'total' => $total_pajak + $subtotal,
             ];
             DB::table('tb_detail_transaksi')->insert($detail);
+
+            $produk = Product::find($pesanan->id_produk);
+            $produk->sisa_stok = ($produk->sisa_stok - $pesanan->qty);
+            $produk->save();
         }
         
         try {

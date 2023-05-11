@@ -66,4 +66,5 @@ Route::prefix('laporan')->name('.laporan')->group(function(){
 
     //laporan Produk
     Route::get('produk', LaporanProdukController::class)->name('.produk');
+    Route::post('produk/get_record', [LaporanProdukController::class,'datatableAjax'])->name('.produk.datatable');
 });

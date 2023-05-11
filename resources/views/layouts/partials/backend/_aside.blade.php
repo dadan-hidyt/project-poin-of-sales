@@ -58,16 +58,16 @@
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
                             <li class="menu-item menu-item-parent" aria-haspopup="true">
-                                <span class="menu-link"><span class="menu-text">Applications</span></span>
+                                <span class="menu-link"><span class="menu-text">Fitur Aplikasi</span></span>
                             </li>
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle"><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Penjualan</span><span class="menu-label"><span class="label label-rounded label-primary">6</span></span><i class="menu-arrow"></i></a>
                                 <div class="menu-submenu">
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
-                                        <li class="menu-item" aria-haspopup="true">
+                                        {{-- <li class="menu-item" aria-haspopup="true">
                                             <a href="custom/apps/user/list-default.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Semua Laporan</span></a>
-                                        </li>
+                                        </li> --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{ route('dashboard.laporan.kasir') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Kasir</span></a>
                                         </li>
@@ -78,32 +78,9 @@
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('dashboard.laporan.produk')}}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Produk</span></a>
                                         </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/user/list-columns-2.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Varian</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/user/add-user.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Kategori</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Refund</span></a>
-                                        </li>
+                                       
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Void</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Poin</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Promo</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Pajak</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Jenis Bayar</span></a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Kas Kasir</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -112,20 +89,7 @@
                     </div>
                 </li>
 
-                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle"><i class="menu-icon flaticon2-line-chart"></i><span class="menu-text">Kasir</span><i class="menu-arrow"></i></a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-                            <li class="menu-item" aria-haspopup="true">
-                                <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Buka Kasir</span><span class="menu-label"><span class="label label-danger label-inline">1</span></span></a>
-                            </li>
-                            <li class="menu-item" aria-haspopup="true">
-                                <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Tutup Kasir</span><span class="menu-label"><span class="label label-danger label-inline">new</span></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+            
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle"><i class="menu-icon flaticon2-supermarket"></i><span class="menu-text">Produk</span><i class="menu-arrow"></i></a>
                     <div class="menu-submenu">
