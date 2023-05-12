@@ -7,7 +7,7 @@ use App\Models\KategoriProduk;
 use App\Models\Pesanan;
 use App\Models\Product;
 use Livewire\Component;
-
+use App\Models\Kupon;
 class Pos extends Component
 {
     public $kategori;
@@ -15,6 +15,8 @@ class Pos extends Component
     public $product;
 
     public $search_term;
+
+    public $kode_voucher = null;
 
     public $detail_produk;
 
@@ -33,6 +35,12 @@ class Pos extends Component
 
     public function getDetailProduk()
     {
+    }
+    public function setKodeVoucher(){
+        //get Kupon
+        $kupon = Kupon::where('kode_kupon',$this->kode_voucher)->where('jumlah_sisa','>',0)->first();
+        Pesanan::find($this->pesanan->id)->update(['kode_voucher'=>$this->kode_voucher,'jumlah_potongan_voucher'=>$kupon->jumlah_potongan]);
+        $this->emit('refreshComponent');
     }
     public function updated()
     {
@@ -56,6 +64,9 @@ class Pos extends Component
     }
     public function mount()
     {
+        if ($this->pesanan->kode_voucher) {
+            $this->kode_voucher = $this->pesanan->kode_voucher;
+        }
         $this->getAllProduct();
     }
     public function _getCategory()
