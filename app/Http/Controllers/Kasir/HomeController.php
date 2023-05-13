@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 //class home controller
 class HomeController extends Controller
 {
+    
     public function TutupKasir()
     {
         $this->setTitle('Tutup Kasir');

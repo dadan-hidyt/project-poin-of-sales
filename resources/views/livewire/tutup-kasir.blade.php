@@ -21,7 +21,7 @@
 
                     <form wire:key='form-set-sisa-kas' wire:submit.prevent='setSisaKas'>
                         <div class="mb-3">
-                            <input wire:model.defer='sisa_kas' type="text" class="form-control inputNominal" id="nominalKasSisa" aria-describedby="kasSisaHelp" placeholder="Masukan Nominal Kas">
+                            <input wire:model.defer='sisa_kas' value="{{ $sisa_kas }}" type="text" class="form-control inputNominal" id="nominalKasSisa" aria-describedby="kasSisaHelp" placeholder="Masukan Nominal Kas">
                             <div id="kasSisaHelp" class="form-text mt-2">Uang Kas Yang dipegang oleh kasir saat tutup</div>
                         </div>
                         <div class="mb-3">

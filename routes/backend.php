@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 /**
  * halaman dashboard
  */
+Route::get('logout', function(){
+    Auth::logout();
+    return redirect()->route('auth.login_backend');
+})->name('.logout');
 Route::get('/',DashboardController::class)->name('.index');
 Route::prefix('/produk')->name('.product')->group(base_path('routes/backend/product.php'));
 Route::prefix('/produk/kategori')->name('.product.kategori')->group(base_path('routes/backend/product_kategori.php'));

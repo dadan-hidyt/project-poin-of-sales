@@ -71,21 +71,23 @@
                     </a>
                     <div class="dropdown-menu notifications">
                         <div class="topnav-dropdown-header">
-                            <span class="notification-title">Keranjang</span>
+                            <span class="notification-title">Keranjang {{ $keranjang_pesanan->count() }}</span>
                         </div>
                         <div class="noti-content">
                             <ul class="notification-list">
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
+                                
+                                @foreach($keranjang_pesanan as $item)
+                                     <li class="notification-message">
+                                    <a href="{{route('kasir.pos',$item->kode_pesanan)}}">
                                         <div class="media d-flex">
                                             <div class="media-body flex-grow-1">
                                                 <div
                                                     class="transaksi-info d-flex align-items-center justify-content-between">
                                                     <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
+                                                        <span class="kode-pesan">Kode Pesan : <b>#{{$item->kode_pesanan}}</b></span>
+                                                        <h6 class="pelanggan">{{$item->pelanggan->nama_pelanggan ?? 'Guest'}}</h6>
                                                     </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
+                                                    <span class="pay-total fw-bold">Rp.{{$item->hitungPesanan('grand_total_rupiah')}}</span>
                                                 </div>
                                                 <p class="noti-time mt-2"><span class="notification-time">4 mins
                                                         ago</span>
@@ -95,186 +97,8 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="notification-message">
-                                    <a href="pembayaran.html">
-                                        <div class="media d-flex">
-                                            <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="transaksi-info d-flex align-items-center justify-content-between">
-                                                    <div class="trans-info_head">
-                                                        <span class="kode-pesan">Kode Pesan : <b>#232432</b></span>
-                                                        <h6 class="pelanggan">Jhon Bae</h6>
-                                                    </div>
-                                                    <span class="pay-total fw-bold">Rp.145.000,00</span>
-                                                </div>
-                                                <p class="noti-time mt-2"><span class="notification-time">4 mins
-                                                        ago</span>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                @endforeach
+                              
                             </ul>
                         </div>
                         <div class="topnav-dropdown-footer">
