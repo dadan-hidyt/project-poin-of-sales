@@ -3,9 +3,9 @@
     <div class="row">
         <div class="container-fluid">
             <div class="card card-custom">
-                <div class="card-header bg-primary">
-                    <div class="card-title text-white">
-                        <i class="fa fa-edit text-white"></i> &nbsp;Edit Produk
+                <div class="card-header py-2 border-1 border-bottom">
+                    <div class="card-title">
+                        <i class="fa fa-edit"></i> &nbsp;Edit Produk
                     </div>
                     <div class="card-toolbar">
                         <a class="btn btn-link btn-success" href="{{route('dashboard.product.item')}}"> <i class="flaticon2-supermarket tex-white"></i> List Produk </a>

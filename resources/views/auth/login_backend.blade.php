@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="container">
-        <div class="col-md-5 mt-5 mx-auto">
+        <div class="col-md-5" style="margin:100px auto;"> 
             <div class="card card-custom">
                 <div class="card-header">
                     <div class="card-title">Login Ke Backend</div>
