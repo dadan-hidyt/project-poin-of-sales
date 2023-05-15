@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tb_detail_pesanan', function (Blueprint $table) {
             $table->id();
             $table->string('id_pesanan');
+            $table->text('pesanan')->nullable();
             $table->string('id_produk');
             $table->string('varian')->nullable();
             $table->string('qty');
