@@ -79,7 +79,7 @@ class Pos extends Component
     {
         $this->item_pesanan['id_produk'] = $id_produk;
         $this->item_pesanan['id_pesanan'] = $this->pesanan->id;
-        unset($this->item_pesanan['catatan']);
+       
         if (!isset($this->item_pesanan['qty'])) {
             $this->item_pesanan['qty'] = 1;
         }
