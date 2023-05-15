@@ -25,30 +25,34 @@
                                 <tbody>
 
                                     @foreach ($refund as $item)
-                                    <tr>
-                                        <td>1</td>
-                                        <td>#{{ $item->transaksi->kode_transaksi }}</td>
-                                        <td>
-                                            {{ $item->transaksi->pelanggan->nama ?? 'No Pelanggan' }}
-                                        </td>
-                                        <td class="text-info">Rp.{{ formatRupiah($item->transaksi->jumlah + $item->transaksi->jumlah_pajak ?? 0) }}</td>
-                                        <td class="text-success">Rp.{{ formatRupiah($item->transaksi->jmlh_bayar) }}</td>
-                                        <td class="text-info">Rp.{{ formatRupiah($item->transaksi->jmlh_bayar - ($item->transaksi->jumlah + $item->transaksi->jumlah_pajak ?? 0) ?? '') }}</td>
-                                        <td>
-                                            @if ($item->transaksi->refund)
-                                            @if ($item->transaksi->refund->status === 'Y')
-                                            <span class='text-success'>Di refund
-                                            @elseif($item->transaksi->refund->status === 'N')
-                                            <span class='text-warning'>Sedang Di Prosess</span>
-                                            @endif
-                                            @endif
-                                        </td>
-                                        <td>
-                                            {{ $item->created_at }}
-                                        </td>
-                                       
-                                    </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>#{{ $item->transaksi->kode_transaksi }}</td>
+                                            <td>
+                                                {{ $item->transaksi->pelanggan->nama ?? 'No Pelanggan' }}
+                                            </td>
+                                            <td class="text-info">
+                                                Rp.{{ formatRupiah($item->transaksi->jumlah + $item->transaksi->jumlah_pajak ?? 0) }}
+                                            </td>
+                                            <td class="text-success">Rp.{{ formatRupiah($item->transaksi->jmlh_bayar) }}
+                                            </td>
+                                            <td class="text-info">
+                                                Rp.{{ formatRupiah($item->transaksi->jmlh_bayar - ($item->transaksi->jumlah + $item->transaksi->jumlah_pajak ?? 0) ?? '') }}
+                                            </td>
+                                            <td>
+                                                @if ($refund = $item->transaksi->refund()->first())
+                                                    @if ($item->status === 'Y')
+                                                        <span class='text-success'>Di Terima oleh {{ $item->user->nama_user ?? '-' }}
+                                                        @elseif($item->status === 'N')
+                                                            <span class='text-warning'>Sedang Di Prosess</span>
+                                                    @endif
+                                                @endif
+                                            </td>
+                                            <td>
+                                                {{ $item->created_at }}
+                                            </td>
 
+                                        </tr>
                                     @endforeach
 
                                 </tbody>

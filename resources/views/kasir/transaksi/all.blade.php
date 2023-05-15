@@ -36,11 +36,11 @@
                                         <td class="text-info">Rp.{{ formatRupiah($item->jmlh_bayar - ($item->jumlah + $item->jumlah_pajak ?? 0) ?? '') }}</td>
                                         <td>
                                             @if ($item->refund)
-                                            @if ($item->refund->status === 'Y')
-                                            <span class='text-success'>Di refund
-                                            @elseif($item->refund->status === 'N')
-                                            <span class='text-warning'>Sedang Di Prosess</span>
-                                            @endif
+                                                @if ($item->refund->status === 'Y')
+                                                <span class='text-success'>Di refund
+                                                @elseif($item->refund->status === 'N')
+                                                <span class='text-warning'>Sedang Di Prosess</span>
+                                                @endif
                                             @endif
                                         </td>
                                         <td class="d-flex align-items-center">

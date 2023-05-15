@@ -29,14 +29,16 @@ class HomeController extends Controller
     public function allTrans()
     {
         $this->setTitle('Semua Transaksi');
-        $kasir_id = auth()->user()->getKasir()->id;
+        $kasir_id = auth()->user()->getKasir()->id ?? null;
         return view('kasir.transaksi.all', ['transaksi' => Transaksi::where('id_kasir', $kasir_id)->get()]);
     }
     public function refundTrans()
     {
         $this->setTitle('Transaksi Refund');
+        $kasir_id = auth()->user()->getKasir()->id ?? null;
+        abort_if(is_null($kasir_id),403);
         return view('kasir.transaksi.refund',[
-            'refund' => Refund::with('transaksi')->where('id_kasir',auth()->user()->getKasir()->id)->get(),
+            'refund' => Refund::with('transaksi','user')->where('id_kasir',$kasir_id)->get(),
         ]);
     }
     public function voidTrans()

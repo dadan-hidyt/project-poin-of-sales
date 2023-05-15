@@ -115,6 +115,9 @@
                     </div>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
+                    <a target="_blank" href="{{ route('dashboard.refund') }}" class="menu-link"><i class="menu-icon flaticon-interface-9"></i><span class="menu-text">Refund</span></a>
+                </li>
+                <li class="menu-item" aria-haspopup="true">
                     <a target="_blank" href="{{ route('dashboard.promo.kupon.show') }}" class="menu-link"><i class="menu-icon flaticon-interface-9"></i><span class="menu-text">Kupon</span></a>
                 </li>
 

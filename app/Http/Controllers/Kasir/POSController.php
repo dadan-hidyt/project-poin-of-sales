@@ -13,8 +13,9 @@ class POSController extends Controller
     public function pos($kode_pesanan = null)
     {
         $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan,'id_kasir'=> auth()->user()->getKasir()->id])->first();
-        abort_if($pesanan === null, 404);
-        abort_if(!$pesanan,404);
+        if ( is_null($pesanan) ) {
+            return redirect()->route('kasir.index');
+        }
         $this->setTitle("POS");
         return view('kasir.pos', compact('pesanan'));
     }

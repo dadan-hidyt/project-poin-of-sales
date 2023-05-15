@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\MejaController;
 use App\Http\Controllers\Backend\Produk\ProdukVarian;
 use App\Http\Controllers\LaporanBulananController;
 use App\Models\Kariawan;
+use App\Http\Controllers\Backend\RefundController;
 use Illuminate\Support\Facades\Route;
 /**
  * halaman dashboard
@@ -29,6 +30,8 @@ Route::resource('produk/varian', ProdukVarian::class,[
         'create' => '.produk.varian.tambah',
     ]
 ])->only(['index','create','edit']);
+Route::get('refund', [RefundController::class, 'index'])->name('.refund');
+Route::get('refund/accept', [RefundController::class, 'accept'])->name('.refund.accept');
 Route::get('produk/varian/{id}/delete', [ProdukVarian::class,'destroy'])->name('.produk.varian.delete');
 Route::get('produk/data/get', [ProdukVarian::class, 'datatable'])->name('.produk.varian.datatable');
 /** PROMO */

@@ -67,11 +67,11 @@
                 <li class="nav-item dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                         <i class="bx bx-cart-alt fs-4"></i>
-                        <span class="badge rounded-pill mt-1">4</span>
+                        <span class="badge rounded-pill mt-1">{{ $keranjang_pesanan->count() }}</span>
                     </a>
                     <div class="dropdown-menu notifications">
                         <div class="topnav-dropdown-header">
-                            <span class="notification-title">Keranjang {{ $keranjang_pesanan->count() }}</span>
+                            <span class="notification-title">Keranjang ({{ $keranjang_pesanan->count() }})</span>
                         </div>
                         <div class="noti-content">
                             <ul class="notification-list">
@@ -180,7 +180,7 @@
                         </li>
 
                         <li>
-                            <a href="auth/login.html" class="d-flex align-items-center fs-5">
+                            <a href="{{ route('kasir.logout') }}" class="d-flex align-items-center fs-5">
                                 <i class="bx bx-log-out"></i>
                                 <span>Logout</span>
                             </a>

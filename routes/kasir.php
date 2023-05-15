@@ -3,12 +3,15 @@
 use App\Http\Controllers\Kasir\HomeController;
 use App\Http\Controllers\Kasir\POSController;
 use App\Http\Controllers\kasir\RefundController;
+use App\Http\Controllers\KichenController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('home', HomeController::class)->name('.index');
 Route::get('tutup-kasir', [HomeController::class, 'TutupKasir'])->name('.tutup_kasir');
+
+Route::get('kichen', KichenController::class)->name('.kichen');
 
 Route::get('transaksi/semua', [HomeController::class, 'allTrans'])->name('.all_transaktion');
 Route::get('transaksi/refund', [HomeController::class, 'refundTrans'])->name('.refund_transaktion');

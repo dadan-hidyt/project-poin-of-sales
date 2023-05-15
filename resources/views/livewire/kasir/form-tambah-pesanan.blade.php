@@ -28,7 +28,7 @@
         @foreach ($pelanggan as $item)
             <option value="{{ $item->id }}">{{ $item->nama }}
                 -
-                {{ $item->kode_pelanggan }}</option>
+                {{ $item->no_hp }}</option>
         @endforeach
 
     </select>
