@@ -44,7 +44,7 @@
             <div class="container-xxl w-100 h-100 d-flex align-items-center justify-content-between border-bottom-grey">
                 <div class="date_kitchen-display d-flex align-items-center text-secondary">
                     <i class="bx bx-calendar fs-4"></i>
-                    <span class="ms-2">21 April, 2023</span>
+                    <span class="ms-2">{{ now() }}</span>
                 </div>
                 <div class="filter_kitchen-display">
                     <select class="form-select" aria-label="Default select example">
@@ -70,9 +70,10 @@
                                     class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
                                     <div>
                                         <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
-                                        <span style="opacity: .7;">{{ $item->pelanggan->nama }}</span>
+                                        <span style="opacity: .7;">{{ $item->pelanggan->nama ?? 'Tamu' }}</span>
                                     </div>
-                                    <span class="badge rounded-pill bg-secondary text-white">{{$item->status_pesanan ?? 'prosess'}}</span>
+                                    <span
+                                        class="badge rounded-pill bg-secondary text-white">{{ $item->status_pesanan ?? 'prosess' }}</span>
                                 </div>
 
                                 <ul class="detail-pesan_kitchen">
@@ -80,7 +81,7 @@
                                         <li
                                             class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
                                             <div>
-                                                <div class="count"><b class="fw-bold">{{$item2->qty}}</b>x</div>
+                                                <div class="count"><b class="fw-bold">{{ $item2->qty }}</b>x</div>
                                                 <span>{{ $item2->produk->nama_produk ?? '' }}</span>
                                             </div>
                                             <button type="button"
@@ -102,56 +103,57 @@
                                                         <div class="modal-body">
                                                             <ul class="info-pelanggan pb-3 border-bottom-grey">
                                                                 <li>
-                                                                    Kode Pesanan : <span>#124234</span>
+                                                                    Kode Pesanan :
+                                                                    <span>#{{ $item->kode_pesanan }}</span>
                                                                 </li>
                                                                 <li class="mt-2">
                                                                     <span>Pelanggan : </span>
-                                                                    <span>Saepul Abidin</span>
+                                                                    <span>{{ $item->pelanggan->nama ?? 'tamu' }}</span>
                                                                 </li>
                                                             </ul>
-                                                            <div class="info-produk-pesan py-3">
-                                                                <div
+                                                                <div class="info-produk-pesan py-3">
+                                                                    <div
                                                                     class="d-flex align-items-center justify-content-between border-bottom-grey pb-3">
-                                                                    <h6>Nasi Goreng Spesial</h6>
-                                                                    <div class="count"><b class="fw-bold">12</b>x</div>
+                                                                    <h6>{{$item2->produk->nama_produk}}</h6>
+                                                                    <div class="count"><b class="fw-bold">{{$item2->qty}}</b>x</div>
                                                                 </div>
                                                                 <ul class="variant py-3 border-bottom-grey">
                                                                     <li class="variant_head fw-bolder"> Variant :</li>
-                                                                    <div
-                                                                        class="d-flex align-items-center justify-content-between flex-wrap">
-                                                                        <li class="my-2 me-2">
-                                                                            <i class="bx bx-check me-1"></i>
-                                                                            Pedas Bingits
-                                                                        </li>
-                                                                        <li class="my-2 me-2">
-                                                                            <i class="bx bx-check me-1"></i>
-                                                                            Orek Tempe
-                                                                        </li>
-                                                                        <li class="my-2 me-2">
-                                                                            <i class="bx bx-check me-1"></i>
-                                                                            Teh Manis
-                                                                        </li>
-                                                                        <li class="my-2 me-2">
-                                                                            <i class="bx bx-check me-1"></i>
-                                                                            Teh Manis
-                                                                        </li>
-                                                                        <li class="my-2 me-2">
-                                                                            <i class="bx bx-check me-1"></i>
-                                                                            Teh Manis
-                                                                        </li>
-                                                                    </div>
+                                                                    @if ($item->varian)
+                                                                        <div
+                                                                            class="d-flex align-items-center justify-content-between flex-wrap">
+                                                                            <li class="my-2 me-2">
+                                                                                <i class="bx bx-check me-1"></i>
+                                                                                Pedas Bingits
+                                                                            </li>
+                                                                            <li class="my-2 me-2">
+                                                                                <i class="bx bx-check me-1"></i>
+                                                                                Orek Tempe
+                                                                            </li>
+                                                                            <li class="my-2 me-2">
+                                                                                <i class="bx bx-check me-1"></i>
+                                                                                Teh Manis
+                                                                            </li>
+                                                                            <li class="my-2 me-2">
+                                                                                <i class="bx bx-check me-1"></i>
+                                                                                Teh Manis
+                                                                            </li>
+                                                                            <li class="my-2 me-2">
+                                                                                <i class="bx bx-check me-1"></i>
+                                                                                Teh Manis
+                                                                            </li>
+                                                                        </div>
+                                                                        @else
+                                                                        -
+                                                                    @endif
                                                                 </ul>
 
                                                                 <ul class="mt-3">
                                                                     <li>
                                                                         <b class="fw-bolder">Note : </b>
-                                                                        <p class="mt-1">Lorem ipsum dolor sit amet
-                                                                            consectetur adipisicing elit. Minus quas
-                                                                            officiis ut molestias, eius sit, eos velit,
-                                                                            reiciendis totam iusto amet dolorum fuga
-                                                                            tempore dolorem rerum vel. At dolorum
-                                                                            doloribus ea, totam incidunt soluta
-                                                                            repellat.</p>
+                                                                        <p class="mt-1">
+                                                                            {{$item2->catatan}}
+                                                                        </p>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -160,16 +162,18 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        
                                     @endforeach
 
                                 </ul>
 
                                 <div
                                     class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
-                                    <a class="btn btn-primary" href="?pesanan={{ $item->id }}&status=dimasak">MASAK</a>
-                                    <a class="btn btn-primary" href="?pesanan={{ $item->id }}&status=noted">NOTED</a>
-                                    <a class="btn btn-success" href="?pesanan={{ $item->id }}&status=selesai">SELESAI</a>
+                                    <a class="btn btn-primary"
+                                        href="?pesanan={{ $item->id }}&status=dimasak">MASAK</a>
+                                    <a class="btn btn-primary"
+                                        href="?pesanan={{ $item->id }}&status=noted">NOTED</a>
+                                    <a class="btn btn-success"
+                                        href="?pesanan={{ $item->id }}&status=selesai">SELESAI</a>
                                 </div>
                             </div>
                         </div>
