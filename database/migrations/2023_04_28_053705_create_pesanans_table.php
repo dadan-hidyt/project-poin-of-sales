@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('type')->default("FREE_TABLE");
             $table->string('total_tagihan');
             $table->string('kode_voucher')->nullable();
+            $table->string('status_pesanan')->default('DIPROSESS');
             $table->string('jumlah_potongan_voucher')->default(0);
             $table->string('id_kasir')->nullable();
             $table->string('jumlah_pelanggan')->default(1);
