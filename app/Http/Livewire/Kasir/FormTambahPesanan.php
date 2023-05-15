@@ -63,6 +63,7 @@ class FormTambahPesanan extends Component
             'type' => $this->type,
             'id_kasir' => auth()->user()->getKasir()->id,
             'total_tagihan' => 0,
+            'status_pesanan' => "DIPROSESS",
             'kode_pesanan' => Str::upper(uniqid("P-")),
         ];
 
