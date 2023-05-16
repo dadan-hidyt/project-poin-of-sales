@@ -68,7 +68,7 @@
                 <label>Harga Jual:</label>
                 <input wire:model.defer='produk.harga_jual' type="text"
                     class="form-control @error('produk.harga_jual') is-invalid @enderror" id="harga-jual"
-                    placeholder="Enter contact text" />
+                    placeholder="Ketikan harga produk" />
                 @error('produk.harga_jual')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -82,14 +82,14 @@
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="col-lg-3">
+            {{-- <div class="col-lg-3">
                 <label>Harga Modal:</label>
                 <input id="harga-modal" wire:model.defer='produk.harga_modal' type="text"
                     class="form-control @error('produk.harga_modal') is-invalid @enderror">
                 @error('produk.harga_modal')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
-            </div>
+            </div> --}}
             <div class="col-lg-3">
                 <label>Satuan:</label>
                 <select wire:model.defer='produk.satuan'  class="form-control @error('produk.satuan') is-invalid @enderror">

@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\Produk\ProdukVarian;
 use App\Http\Controllers\LaporanBulananController;
 use App\Models\Kariawan;
 use App\Http\Controllers\Backend\RefundController;
+use App\Http\Controllers\Backend\LaporanPajakController;
+
 use Illuminate\Support\Facades\Route;
 /**
  * halaman dashboard
@@ -74,4 +76,8 @@ Route::prefix('laporan')->name('.laporan')->group(function(){
     //laporan Produk
     Route::get('produk', LaporanProdukController::class)->name('.produk');
     Route::post('produk/get_record', [LaporanProdukController::class,'datatableAjax'])->name('.produk.datatable');
+
+    Route::get('pajak', LaporanPajakController::class)->name('.pajak');
+    Route::get('pajak/report/{id_trans}', [LaporanPajakController::class,'report'])->name('.pajak.report');
+    Route::get('pajak/reports', [LaporanPajakController::class,'reportAll'])->name('.pajak.report.all');
 });

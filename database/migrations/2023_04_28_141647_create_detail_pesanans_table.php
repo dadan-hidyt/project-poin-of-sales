@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('pesanan')->nullable();
             $table->string('id_produk');
             $table->string('varian')->nullable();
+            $table->text('catatan')->nullable();
             $table->string('qty');
             $table->timestamps();
         });

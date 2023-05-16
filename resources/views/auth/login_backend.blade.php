@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <div class="card-title">Login Ke Backend</div>
                     <div class="card-toolbar">
-                        <a class="btn btn-primary">LOGIN KASIR</a>
+                        <a href="{{ route('auth.login_kasir') }}" class="btn btn-primary">LOGIN KASIR</a>
                     </div>
                 </div>
                 <div class="card-body">

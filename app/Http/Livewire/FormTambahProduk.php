@@ -23,9 +23,7 @@ class FormTambahProduk extends Component
         'produk.nama_produk' => 'required|max:70',
         'produk.id_kategori_produk' => 'required',
         'produk.harga_jual' => 'required',
-        'produk.harga_modal' => 'required',
         'produk.pajak' => 'required',
-        'foto' => 'required',
         'produk.stok' => 'required|integer',
         'produk.deskripsi' => 'max:120',
         'produk.satuan' => 'required'
@@ -51,17 +49,16 @@ class FormTambahProduk extends Component
         /**
          * harga jual nya bresihkan titik2 ke integer
          */
-        
+
         if ($this->foto) {
-            $this->produk['gambar_produk'] = "product_image/".$this->foto->hashName();
+            $this->produk['gambar_produk'] = "product_image/" . $this->foto->hashName();
+        } else {
+            $this->produk['gambar_produk'] = 'product_image/no_picture.jpg';
         }
 
-        $this->produk['id_kategori_produk'] = 1;
         $this->produk['harga_jual'] = $this->clearNominal($this->produk['harga_jual']);
-        $this->produk['harga_modal'] = $this->clearNominal($this->produk['harga_modal']);
         $this->produk['sisa_stok'] = $this->produk['stok'];
-
-        if ( $this->produk['produk_favorit'] === "Y" ) {
+        if ($this->produk['produk_favorit'] === "Y") {
             $favorit = "Y";
         } else {
             $favorit = "N";
@@ -78,10 +75,8 @@ class FormTambahProduk extends Component
                 )
             )
         ) {
-            if ( $this->foto ) {
+            if ($this->foto) {
                 $this->foto->storePublicly('public/product_image');
-            } else {
-                dd(234);
             }
             $this->resetExcept('produk');
             $this->dispatchBrowserEvent('productAdded', [

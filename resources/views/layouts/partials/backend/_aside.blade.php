@@ -78,7 +78,9 @@
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('dashboard.laporan.produk')}}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Produk</span></a>
                                         </li>
-                                       
+                                       <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{route('dashboard.laporan.pajak')}}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Produk</span></a>
+                                        </li>
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Void</span></a>
                                         </li>
