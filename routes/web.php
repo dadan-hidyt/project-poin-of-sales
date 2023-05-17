@@ -8,11 +8,9 @@ Route::prefix('auth')->name('auth')->group(base_path('routes/auth.php'));
 /**
  * Group router for dashboard backend
  */
-Route::middleware(['auth',AuthMiddleware::class])->group(function(){
+Route::middleware(['auth', AuthMiddleware::class])->group(function () {
     Route::get('/', DashboardController::class);
-    Route::prefix('dashboard')->middleware(['auth',AuthMiddleware::class])->name('dashboard')->group(base_path('routes/backend.php'));
+    Route::prefix('dashboard')->middleware(['auth', AuthMiddleware::class])->name('dashboard')->group(base_path('routes/backend.php'));
 });
 
 Route::prefix('kasir')->name('kasir')->middleware('auth')->group(base_path('routes/kasir.php'));
-
-

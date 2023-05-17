@@ -39,7 +39,7 @@
     </div> --}}
 
 
-    <div class="main-wrapper">
+    <div class="main-wrapper mt-5">
         <header class="header-kitchen position-fixed-top">
             <div class="container-xxl w-100 h-100 d-flex align-items-center justify-content-between border-bottom-grey">
                 <div class="date_kitchen-display d-flex align-items-center text-secondary">
@@ -58,7 +58,7 @@
         </header>
     </div>
 
-    <div class="page-wrappwer mt-4">
+    <div class="page-wrappwer mt-5">
         <div class="container-xxl w-100">
             <div class="row">
 

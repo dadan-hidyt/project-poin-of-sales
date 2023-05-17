@@ -69,21 +69,21 @@
                                             <a href="custom/apps/user/list-default.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Semua Laporan</span></a>
                                         </li> --}}
                                         <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ route('dashboard.laporan.kasir') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Kasir</span></a>
-                                        </li>
-                                       
-                                        <li class="menu-item" aria-haspopup="true">
                                             <a href="{{ route('dashboard.laporan.bulanan') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Bulanan</span></a>
                                         </li>
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('dashboard.laporan.produk')}}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Produk</span></a>
                                         </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ route('dashboard.laporan.kasir') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Kasir</span></a>
+                                        </li>
                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{route('dashboard.laporan.pajak')}}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Penjualan Produk</span></a>
+                                            <a href="{{route('dashboard.laporan.pajak')}}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Pajak</span></a>
                                         </li>
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Laporan Void</span></a>
                                         </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
@@ -122,23 +122,27 @@
                 <li class="menu-item" aria-haspopup="true">
                     <a target="_blank" href="{{ route('dashboard.promo.kupon.show') }}" class="menu-link"><i class="menu-icon flaticon-interface-9"></i><span class="menu-text">Kupon</span></a>
                 </li>
+                <li class="menu-item" aria-haspopup="true">
+                    <a target="_blank" href="{{ route('dashboard.pelanggan.show') }}" class="menu-link"><i class="menu-icon flaticon2-user"></i><span class="menu-text">Pelanggan</span></a>
+                </li>
 
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle"><i class="menu-icon flaticon2-user"></i><span class="menu-text">Pelanggan</span><i class="menu-arrow"></i></a>
+                    <a href="javascript:;" class="menu-link menu-toggle"><i class="menu-icon 
+                        flaticon-coins"></i><span class="menu-text">Poin Reward</span><i class="menu-arrow"></i></a>
+                    
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
-                            <li class="menu-item menu-item-parent" aria-haspopup="true">
-                                <span class="menu-link"><span class="menu-text">Pelanggan</span></span>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="{{ route('dashboard.poin_reward.tampil') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Poin</span></a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="{{
-                                        route('dashboard.pelanggan.show')
-                                    }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Pelanggan</span></a>
+                                <a href="{{ route('dashboard.poin_reward.pembelian') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Per Total Pembelian</span></a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="layout/themes/header-dark.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Poin Pelanggan</span></a>
+                                <a href="{{ route('dashboard.poin_reward.produk') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Per Produk</span></a>
                             </li>
+                            
                         </ul>
                     </div>
                 </li>
