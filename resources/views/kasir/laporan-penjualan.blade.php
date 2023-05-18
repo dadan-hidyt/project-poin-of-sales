@@ -34,6 +34,19 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <div class="dash-widget dash-3">
+                                    <div class="dash-widgetimg">
+                                        <span><img src="../assets/img/icons/dash4.svg" alt="img"></span>
+                                    </div>
+                                    <div class="dash-widgetcontent">
+                                        <h5 id="sisa_kas">Rp.<span
+                                                class="counters">{{ formatRupiah($sisa_kas) }}</span>
+                                        </h5>
+                                        <h6>Sisa Kas</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="dash-widget dash1">
                                     <div class="dash-widgetimg">
                                         <span><img src="../assets/img/icons/dash2.svg" alt="img"></span>
@@ -98,16 +111,16 @@
                             <div class="col-md-3">
                                 <div class="dash-widget">
                                     <div class="dash-widgetimg">
-                                        <span><i class="bx bxs-wallet-alt fs-5 text-warning"></i></span>
+                                        <span><i class="bx bxs-wallet-alt fs-4 text-warning"></i></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5 id="sisa_kas">Rp.<span
-                                                class="counters">{{ formatRupiah($sisa_kas) }}</span>
+                                        <h5>Rp.<span class="counters">{{ formatRupiah($penghasilan_bersih) }}</span>
                                         </h5>
-                                        <h6>Sisa Kas</h6>
+                                        <h6>Pembayaran E-Wallet</h6>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
 
 

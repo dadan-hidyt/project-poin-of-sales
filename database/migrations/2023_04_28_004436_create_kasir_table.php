@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('sisa_kas')->default(0);
             $table->string('waktu_masuk');
             $table->string('waktu_keluar')->nullable();
-            $table->string('sisa_kas')->nullable();
+            // $table->string('sisa_kas')->nullable();
             $table->string('total_keseluruhan')->nullable();
             $table->timestamps();
         });

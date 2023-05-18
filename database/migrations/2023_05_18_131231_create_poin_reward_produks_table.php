@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_poin_reward_produk', function (Blueprint $table) {
             $table->id();
             $table->enum('status', ['Y', 'N'])->default('N');
-            $table->unsignedBigInteger('id_produk');
+            // $table->unsignedBigInteger('id_produk');
             $table->string('nama_point_reward', 225)->nullable();
             $table->text('deskripsi')->nullable();
             $table->integer('jumlah_poin')->default(0);
