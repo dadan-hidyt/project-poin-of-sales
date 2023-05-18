@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\PoinRewardPembelian;
 use Illuminate\Http\Request;
 
 class PoinRewardController extends Controller
@@ -25,6 +25,8 @@ class PoinRewardController extends Controller
     public function view()
     {
         $this->setTitle("Daftar Poin");
-        return view('backend.poin.daftar_poin');
+        return view('backend.poin.daftar_poin', [
+            'poin' => PoinRewardPembelian::all(),
+        ]);
     }
 }
