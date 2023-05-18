@@ -186,6 +186,13 @@
                 })
             }
         });
+        window.addEventListener('tanggal_berakhir_kurang_dari_tanggal_mulai', () => {
+            Swal.fire({
+                title: 'Gagal',
+                icon: 'warning',
+                text: "Tanggal Berakhir Kurang Dari tanggal mulai!"
+            })
+        })
         window.addEventListener('success', () => {
             Swal.fire({
                 title: 'Berhasil',

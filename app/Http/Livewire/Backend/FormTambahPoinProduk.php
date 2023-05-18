@@ -30,28 +30,31 @@ class FormTambahPoinProduk extends Component
             'data.nama_point_reward' => ['required'],
 
         ]);
-
-        if (($data['semua_hari'] ?? false) == 1) {
-            $this->data['hari'] = [];
-        }
-        if ($this->data['hari'] ?? false) {
-            $this->data['semua_hari'] = 1;
-            $this->data['hari'] = json_encode($this->data['hari']);
+        if ($this->cekTanggal($this->data['tanggal_mulai'], $this->data['tanggal_berakhir'])) {
+            $this->dispatchBrowserEvent('tanggal_berakhir_kurang_dari_tanggal_mulai');
         } else {
-            $this->data['hari'] = json_encode([]);
-        }
+            if (($data['semua_hari'] ?? false) == 1) {
+                $this->data['hari'] = [];
+            }
+            if ($this->data['hari'] ?? false) {
+                $this->data['semua_hari'] = 1;
+                $this->data['hari'] = json_encode($this->data['hari']);
+            } else {
+                $this->data['hari'] = json_encode([]);
+            }
 
-        if ( $this->data['id_produk'] ) {
-            $this->data['id_produk'] = json_encode($this->data['id_produk']);
-        } else {
-            $this->data['id_produk'] = json_encode([]);
-        }
+            if ($this->data['id_produk']) {
+                $this->data['id_produk'] = json_encode($this->data['id_produk']);
+            } else {
+                $this->data['id_produk'] = json_encode([]);
+            }
 
-        if (PoinRewardProduk::create($this->data)) {
-            $this->reset('data');
-            $this->dispatchBrowserEvent('success');
-        } else {
-            $this->dispatchBrowserEvent('gagal');
+            if (PoinRewardProduk::create($this->data)) {
+                $this->reset('data');
+                $this->dispatchBrowserEvent('success');
+            } else {
+                $this->dispatchBrowserEvent('gagal');
+            }
         }
     }
     public function render()

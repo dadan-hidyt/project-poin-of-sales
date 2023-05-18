@@ -34,11 +34,11 @@
                                 @foreach ($poin as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->status }}</td>
+                                        <td>{{ $item->status == 'Y' ? 'Aktif' : "Tidak Aktif" }}</td>
                                         <td>{{ $item->jumlah_poin }}</td>
                                         <td>{{ $item->nama_point_reward }}</td>
                                         <td>{{ $item->deskripsi }}</td>
-                                        <td>{{ $item->min_pembelian }}</td>
+                                        <td>Rp. {{ formatRupiah($item->min_pembelian) }}</td>
                                         <td>{{ $item->tanggal_mulai }}</td>
                                         <td>{{ $item->tanggal_berakhir }}</td>
                                         <td>

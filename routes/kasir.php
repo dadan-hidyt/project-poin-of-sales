@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Kasir\HomeController;
+use App\Http\Controllers\Kasir\LaporanPenjualan;
 use App\Http\Controllers\Kasir\POSController;
 use App\Http\Controllers\kasir\RefundController;
 use App\Http\Controllers\KichenController;
@@ -29,6 +30,9 @@ Route::get('pos/{kode_pesanan}/bayar', [POSController::class, 'prosesBayar'])->n
 Route::get('pos/trans/{kode_transaksi}/cetakstruk', [POSController::class,'cetakStruk'])->name('.cetak_struk');
 
 Route::get('pos/{id_transaksi}/refund', [RefundController::class,'refund'])->name('.refund');
+
+Route::get('fetch/laporan/uang_keluar', [LaporanPenjualan::class,'pengeluaran'])->name('.laporan.pengeluaran');
+Route::get('fetch/laporan/data_kas', [LaporanPenjualan::class,'dana_kas'])->name('.laporan.dana_kas');
 
 Route::get('logout_kasir',function(){
     Auth::logout();

@@ -8,7 +8,14 @@ use Livewire\Component;
 class FormTambahPoinPerPembelian extends Component
 {
     public $data = [];
+    public function cekTanggal($start, $end)
+    {
+        if (strtotime($end) < strtotime($start)) {
 
+            return true;
+        }
+        return false;
+    }
     public function simpan()
     {
         if (!isset($this->data['status'])) {
@@ -25,23 +32,26 @@ class FormTambahPoinPerPembelian extends Component
             'data.nama_point_reward' => ['required'],
 
         ]);
-
-        if (($data['semua_hari'] ?? false) == 1) {
-            $this->data['hari'] = [];
-        }
-        if ($this->data['hari'] ?? false) {
-            $this->data['semua_hari'] = 1;
-            $this->data['hari'] = json_encode($this->data['hari']);
+        if ($this->cekTanggal($this->data['tanggal_mulai'], $this->data['tanggal_berakhir'])) {
+            $this->dispatchBrowserEvent('tanggal_berakhir_kurang_dari_tanggal_mulai');
         } else {
-            $this->data['hari'] = json_encode([]);
-        }
+            if (($data['semua_hari'] ?? false) == 1) {
+                $this->data['hari'] = [];
+            }
+            if ($this->data['hari'] ?? false) {
+                $this->data['semua_hari'] = 1;
+                $this->data['hari'] = json_encode($this->data['hari']);
+            } else {
+                $this->data['hari'] = json_encode([]);
+            }
 
 
-        if (PoinRewardPembelian::create($this->data)) {
-            $this->reset('data');
-            $this->dispatchBrowserEvent('success');
-        } else {
-            $this->dispatchBrowserEvent('gagal');
+            if (PoinRewardPembelian::create($this->data)) {
+                $this->reset('data');
+                $this->dispatchBrowserEvent('success');
+            } else {
+                $this->dispatchBrowserEvent('gagal');
+            }
         }
     }
 

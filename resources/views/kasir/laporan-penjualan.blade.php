@@ -5,16 +5,18 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-header d-flex align-items-center justify-content-between border-1 border-bottom pb-4 pt-2">
+                        <div
+                            class="card-header d-flex align-items-center justify-content-between border-1 border-bottom pb-4 pt-2">
                             <h3 class="fw-bolder">Laporan Penjualan</h3>
                             <div class="d-flex align-items-center">
                                 <button class="btn btn-primary d-flex align-items-center text-white pe-3 me-3">
                                     <i class="bx bx-cloud-download me-2"></i>
                                     <span>Download</span>
                                 </button>
-                                <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" class="btn btn-info text-white" data-bs-toggle="modal"
+                                    data-bs-target="#modal-tambah-pengeluaran">
                                     Tambah Pengeluaran
-                                  </button>
+                                </button>
                             </div>
                         </div>
 
@@ -25,7 +27,8 @@
                                         <span><img src="../assets/img/icons/dash1.svg" alt="img"></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters" id="{{ $kas }}">{{ formatRupiah($kas) }}</span></h5>
+                                        <h5 id="dana-kas">Rp.<span class="counters"
+                                                id="{{ $kas }}">{{ formatRupiah($kas) }}</span></h5>
                                         <h6>Dana Kas</h6>
                                     </div>
                                 </div>
@@ -36,7 +39,9 @@
                                         <span><img src="../assets/img/icons/dash2.svg" alt="img"></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters" id="{{ $total_transaksi }}">{{ formatRupiah($total_transaksi) }}</span></h5>
+                                        <h5>Rp.<span class="counters"
+                                                id="{{ $total_transaksi }}">{{ formatRupiah($total_transaksi) }}</span>
+                                        </h5>
                                         <h6>Total Transaksi</h6>
                                     </div>
                                 </div>
@@ -47,7 +52,8 @@
                                         <span><img src="../assets/img/icons/dash3.svg" alt="img"></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters" id="{{ $penghasilan }}">{{ formatRupiah($penghasilan) }}</span></h5>
+                                        <h5>Rp.<span class="counters"
+                                                id="{{ $penghasilan }}">{{ formatRupiah($penghasilan) }}</span></h5>
                                         <h6>Uang Masuk</h6>
                                     </div>
                                 </div>
@@ -58,7 +64,9 @@
                                         <span><img src="../assets/img/icons/dash4.svg" alt="img"></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters" >0</span></h5>
+                                        <h5 id="uang_keluar">Rp.<span class="counters">
+                                                <div class=""></div>
+                                            </span></h5>
                                         <h6>Uang Keluar</h6>
                                     </div>
                                 </div>
@@ -69,7 +77,8 @@
                                         <span><img src="../assets/img/icons/dash2.svg" alt="img"></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters" >{{ formatRupiah($penghasilan_bersih) }}</span></h5>
+                                        <h5>Rp.<span class="counters">{{ formatRupiah($penghasilan_bersih) }}</span>
+                                        </h5>
                                         <h6>Pembayaran Cash</h6>
                                     </div>
                                 </div>
@@ -80,7 +89,8 @@
                                         <span><i class="bx bxs-credit-card fs-4 text-info"></i></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters" >{{ formatRupiah($penghasilan_bersih) }}</span></h5>
+                                        <h5>Rp.<span class="counters">{{ formatRupiah($penghasilan_bersih) }}</span>
+                                        </h5>
                                         <h6>Pembayaran Debit</h6>
                                     </div>
                                 </div>
@@ -91,13 +101,15 @@
                                         <span><i class="bx bxs-wallet-alt fs-5 text-warning"></i></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters">{{ formatRupiah($penghasilan_bersih) }}</span></h5>
-                                        <h6>Dana Kas</h6>
+                                        <h5 id="sisa_kas">Rp.<span
+                                                class="counters">{{ formatRupiah($sisa_kas) }}</span>
+                                        </h5>
+                                        <h6>Sisa Kas</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
 
 
                     </div>
@@ -116,17 +128,20 @@
                                     <th>Nama Pengeluaran</th>
                                     <th>Jumlah</th>
                                     <th>Keterangan</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Marsudi Rajasa</td>
-                                    <td>0479 9554 033</td>
-                                    <td>323357259</td>
-                                </tr>
-                                
+
+                                @foreach ($history_penjualan as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nama_pengeluaran }}</td>
+                                        <td>Rp. {{ formatRupiah($item->jumlah_pengeluaran) }}</td>
+                                        <td>{{ $item->keterangan }}</td>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -134,39 +149,52 @@
             </div>
         </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div wire:ignore class="modal fade" id="modal-tambah-pengeluaran" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Pengeluaran</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="bx bx-x text-danger text-hover-white"></i>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form action="#">
-                    <div class="form-group">
-                        <div class="mb-3">
-                            <label for="namaPengeluaran" class="form-label">Nama Pengeluaran <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="namaPengeluaran" aria-describedby="textHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="jumlahPengeluaran" class="form-label">Jumlah Pengeluaran <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="jumlahPengeluaran" aria-describedby="textHelp">
-                        </div>
-                        <div class="mb-4">
-                            <label for="jumlahPengeluaran" class="form-label">Keterangan <span class="text-danger">*</span></label>
-                            <textarea class="form-control" placeholder="Tulis Keterangan" id="floatingTextarea"></textarea>
-                        </div>
-                        <div><button type="submit" class="btn btn-primary w-100">Simpan</button></div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Pengeluaran</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="bx bx-x text-danger text-hover-white"></i>
+                        </button>
                     </div>
-                  </form>
+                    <div class="modal-body">
+                        @livewire('kasir.form-tambah-pengeluran-kasir');
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          
+        </div>
+
 
     </div>
 
+    <x-slot name='footer_script'>
+        <script>
+            window.addEventListener('berhasil_ditambahkan', () => {
+                notyf.success('Data Pengeluaran Berhasil DI tambahkan!');
+                $('#modal-tambah-pengeluaran').modal('hide');
+                fetchUangKeluar();
+                fetchDanaKas()
+            });
+            window.addEventListener('pengeluaran_lebih_besar_dari_kas_awal', (e) => {
+                notyf.error('Jumlah Pengeluran Melebihi Kas Awal! Sisa kas anda ' + e.detail.sisa_kas ?? 0);
+
+            });
+
+            function fetchUangKeluar() {
+                $.get('{{ route('kasir.laporan.pengeluaran') }}', (e) => {
+                    $('#uang_keluar').html(e)
+                })
+            }
+
+            function fetchDanaKas() {
+                $.get('{{ route('kasir.laporan.dana_kas') }}', (e) => {
+                    $('#sisa_kas').html(e)
+                })
+            }
+
+            fetchUangKeluar()
+        </script>
+    </x-slot>
 </x-kasir-layout>

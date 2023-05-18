@@ -60,14 +60,15 @@
                             id="#" placeholder="Rp.10.000">
                         <label class="mt-4 d-flex align-items-center">
                             <input type="checkbox" name="check" id="check">
-                            <span class="mx-3">Berlaku Kelipatan</span>
+                            <div class="mx-3">Berlaku Kelipatan</div>
+                            @error('data.jumlah_poin')
+                                <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
+                            @enderror
                         </label>
                     </div>
 
                 </div>
-                @error('data.jumlah_poin')
-                    <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
-                @enderror
+
             </div>
         </section>
         <section id="durasi" style="margin: 50px 0px;">
@@ -79,18 +80,20 @@
                         <span>Tanggal Mulai</span>
                         <input wire:model.defer='data.tanggal_mulai' type="date" class="form-control mt-3 w-100"
                             id="#">
+                        @error('data.tanggal_mulai')
+                            <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
+                        @enderror
                     </label>
-                    @error('data.tanggal_akhir')
-                        <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
-                    @enderror
+
                     <label for="tanggal mulai" style="width:48%">
                         <span>Tanggal Berakhir</span>
                         <input wire:model.defer='data.tanggal_berakhir' type="date" class="form-control mt-3 w-100"
                             id="#">
+                        @error('data.tanggal_berakhir')
+                            <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
+                        @enderror
                     </label>
-                    @error('data.tanggal_berakhir')
-                        <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
-                    @enderror
+
                 </div>
             </div>
             <div class="my-5 d-flex">
@@ -146,11 +149,12 @@
     </div>
 
     <div class="w-100 d-flex align-items-center justify-content-between" style="margin-top:50px;">
-        <button class="btn btn-light-primary">Simpan Draf</button>
+        {{-- <button class="btn btn-light-primary">Simpan Draf</button> --}}
 
         <div class="d-flex">
-            <button class="btn btn-light-secondary text-dark-50">Batal</button>
-            <button class="btn btn-primary mx-3">Simpan</button>
+            <span wire:loading wire:target='simpan'>Loading...</span>
+            {{-- <button class="btn btn-light-secondary text-dark-50">Batal</button> --}}
+            <button class="btn btn-primary mx-3">Simpan </button>
         </div>
     </div>
 
@@ -181,6 +185,13 @@
                 title: 'gagal',
                 icon: 'warning',
                 text: "Poin Reward gagal Ditambahkan"
+            })
+        })
+        window.addEventListener('tanggal_berakhir_kurang_dari_tanggal_mulai', () => {
+            Swal.fire({
+                title: 'Gagal',
+                icon: 'warning',
+                text: "Tanggal Berakhir Kurang Dari tanggal mulai!"
             })
         })
     </script>

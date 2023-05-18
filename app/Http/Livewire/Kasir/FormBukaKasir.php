@@ -24,6 +24,7 @@ class FormBukaKasir extends Component
     public function submit(){
         $this->validate();
         if ( Kasir::create([
+            'sisa_kas' =>(int) str_replace('.','',$this->kas_awal),
             'id_user' => auth()->user()->id,
             'waktu_masuk' => now(),
             'kas_awal' => (int) str_replace('.','',$this->kas_awal),

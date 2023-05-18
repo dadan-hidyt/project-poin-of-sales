@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kasir;
 
 use App\Http\Controllers\Controller;
+use App\Models\HistoryPengeluaranKasir;
 use App\Models\Pelanggan;
 use App\Models\Pesanan;
 use App\Models\Transaksi;
@@ -71,15 +72,19 @@ class HomeController extends Controller
         }
 
         $kas = auth()->user()->getkasir()->kas_awal ?? 0;
+        $sisa_kas = auth()->user()->getkasir()->sisa_kas ?? 0;
+    
         $belumBayar = Pesanan::where(['id_kasir'=>$kasir_id])->count();
         $this->setTitle('Laporan Penjualan');
         return view('kasir.laporan-penjualan', [
             'kas' => $kas,
+            'sisa_kas' => $sisa_kas,
             'penghasilan_bersih' => $peng_bersih,
             'total_transaksi' => $trx->count(),
             'penghasilan' => $peng,
             'belum_bayar' => $belumBayar,
             'pelanggan' => Pelanggan::count(),
+            'history_penjualan' => HistoryPengeluaranKasir::where('id_kasir', $kasir_id)->get(),
             
         ]);
     }
