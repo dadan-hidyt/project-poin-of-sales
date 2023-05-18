@@ -7,6 +7,10 @@
 
 
     @if ($type !== 'FREE_TABLE')
+        <select name="pilihjenisorder" id="pilihjenisorder" class="form-select outline-none my-3">
+            <option value="singlemeja">Satu Meja</option>
+            <option value="gabungmeja">Gabung Meja</option>
+        </select>
         <select wire:click='cekMeja($event.target.value)'  wire:model='id_meja' @class(['form-control', session()->has('meja_tidak_ada') ? 'is-invalid' : '']) aria-label="Default select example">
             <option selected="selected">Pilih Meja</option>
             @foreach ($this->meja as $item)

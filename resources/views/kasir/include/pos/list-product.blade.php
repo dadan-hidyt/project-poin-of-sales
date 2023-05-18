@@ -26,6 +26,8 @@
                     </div>
                 </button>
             </div>
+
+
             <div wire:ignore.self class="modal fade" id="product-{{ $item->id }}" tabindex="-1">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content border-0 rounded-3">
@@ -36,41 +38,27 @@
                         </div>
                         <div class="modal-body pt-4 pb-5 px-4">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                                     <div class="pick_detail_img">
                                         <img src="{{ asset('storage/'.$item->gambar_produk) }}"
                                             alt="">
                                     </div>
-                                    <div class="productprice mt-3">
-                                        <h4 class="mb-1 fw-bold">{{ $item->nama_produk }}</h4>
-                                        <h5>Rp.{{ number_format($item->harga_jual, 2, ',', '.') }}</h5>
+                                    <div class="productprice mt-3 d-flex flex-column align-items-start pb-3 border-1 border-bottom">
+                                        <h6 class="mb-1 fw-bold">{{ $item->nama_produk }}</h6>
+                                        <h5 class="text-dark">Rp.{{ number_format($item->harga_jual, 2, ',', '.') }}</h5>
                                     </div>
-                                    <details>
-                                        <summary>Deskripsi: </summary>
-                                        <p>
-                                            {{ $item->deskripsi ?? '-' }}
-                                        </p>
-                                    </details>
-                                    <div class="increment-decrement">
-                                        <div class="input-groups">
-                                            {{-- <input type="button" value="-"
-                                                class="button-minus dec button">
-                                            <input wire:change='setQty($event.target.value)' type="text" name="child" value="0"
-                                                class="quantity-field">
-                                            <input type="button" value="+"
-                                                class="button-plus inc button"> --}}
-                                            <input type="number" wire:model.defer='item_pesanan.qty' maxlength="{{ $item->stok }}" minlength="1" value="1">
-
-                                        </div>
+                                    <div class="mt-3">
+                                        <h6 class="fw-bolder">Deskripsi</h6>
+                                        <p class="mt-2">{{ $item->deskripsi ?? '-' }}</p>
                                     </div>
                                 </div>
-                                <div class="col-6 form_selectproduct">
+                                <div class="col-8">
                                     @if ($item->varian->count() > 0)
                                         <div class="form-group">
-                                            <label for="variasi">Pilih Variasi</label>
+                                            <label for="exampleInputEmail1" class="form-label">Pilih Varian <span class="text-danger">*</span></label>
                                             
                                             <select wire:model='item_pesanan.varian' name="" id="variasi" class="form-control"
-                                                style="font-size: 14px !important;">
+                                            style="font-size: 14px !important;">
                                                 <option selected value="">--Pilih Varian--</option>
                                                 @foreach ($item->varian as $item1)
                                                     <option value="{{ $item1->nama_varian }}">
@@ -79,13 +67,15 @@
                                             </select>
                                         </div>
                                     @endif
-                                    <div class="form-group">
-                                        <label for="">Catatan</label>
-                                        <textarea wire:model='item_pesanan.catatan' name="" id="" class="form-control"></textarea>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" placeholder="Tambahkan Catatan" id="floatingTextarea2" style="height: 100px"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <input wire:click='simpanItemPesanan({{ $item->id }})' type="submit" class="btn btn_addorder"
-                                            value="Tambah ke Keranjang">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Jumlah Menu <span class="text-danger">*</span></label>
+                                        <input type="number" wire:model.defer='item_pesanan.qty' maxlength="{{ $item->stok }}" minlength="1" value="1" class="form-control">
+                                    </div>
+                                    <div class="mb-3 w-100">
+                                        <input wire:click='simpanItemPesanan({{ $item->id }})' type="submit" class="btn btn-warning text-white w-100" value="Tambah ke Keranjang">
                                     </div>
                                 </div>
                             </div>
@@ -93,6 +83,8 @@
                     </div>
                 </div>
             </div>
+
+            
         @endforeach
     @else
         <span>Tidak ada produk dengan kata kunci <b>{{ $search_term }}</b></span>
