@@ -69,17 +69,24 @@
                     <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="my-5 d-flex">
-                <label for="poinrewardname" class="form-label" style="width:20%;">Atur Produk<span class="text-danger">*</span></label>
-                <div class="d-flex flex-column" style="width:80%;">
-                    <select class="form-control" >
-                        <option value="">--Pilih Produk--</option>
-                        @foreach ($this->produk as $item)
-                           <option value="{{ $item->id }}">{{$item->nama_produk}}</option>
-                        @endforeach
-                    </select>
-                    <div id="emailHelp" class="form-text mt-2">Lebih Baik kalo dijadikan multiple select</div>
+            <div class="form-group">
+                <div class="my-5 d-flex">
+                    <label for="poinrewardname" class="form-label" style="width:20%;">Atur Produk<span
+                            class="text-danger">*</span></label>
+                    <div class="d-flex flex-column" style="width:80%;">
+                        <select wire:model='data.id_produk' multiple class="form-control">
+                            <option value="">--Pilih Produk--</option>
+                            @foreach ($this->produk as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_produk }} - Rp.
+                                    {{ formatRupiah($item->harga_jual) }}</option>
+                            @endforeach
+                        </select>
+                        <div id="emailHelp" class="form-text mt-2">Lebih Baik kalo dijadikan multiple select</div>
+                    </div>
                 </div>
+                @error('data.id_produk')
+                    <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
+                @enderror
             </div>
         </section>
         <section id="durasi" style="margin: 50px 0px;">
@@ -97,8 +104,8 @@
                     @enderror
                     <label for="tanggal mulai" style="width:48%">
                         <span>Tanggal Berakhir</span>
-                        <input wire:model.defer='data.tanggal_berakhir' type="date" class="form-control mt-3 w-100"
-                            id="#">
+                        <input wire:model.defer='data.tanggal_berakhir' type="date"
+                            class="form-control mt-3 w-100" id="#">
                     </label>
                     @error('data.tanggal_berakhir')
                         <p class="invalid-feedback" style="display:block;">{{ $message }}</p>

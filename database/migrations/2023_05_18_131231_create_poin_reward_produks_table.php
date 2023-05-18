@@ -22,6 +22,7 @@ return new class extends Migration
             $table->dateTime('tanggal_mulai');
             $table->dateTime('tanggal_berakhir');
             $table->json('hari')->nullable();
+            $table->json('id_produk')->nullable();
             $table->boolean('semua_hari')->nullable();
             $table->enum('draft', ['Y', 'N'])->default('Y');
             $table->timestamps();
