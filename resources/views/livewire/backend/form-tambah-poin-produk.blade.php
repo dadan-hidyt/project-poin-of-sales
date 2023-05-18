@@ -84,9 +84,7 @@
                         <div id="emailHelp" class="form-text mt-2">Lebih Baik kalo dijadikan multiple select</div>
                     </div>
                 </div>
-                @error('data.id_produk')
-                    <p class="invalid-feedback" style="display:block;">{{ $message }}</p>
-                @enderror
+                
             </div>
         </section>
         <section id="durasi" style="margin: 50px 0px;">
