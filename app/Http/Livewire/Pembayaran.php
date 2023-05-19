@@ -13,7 +13,7 @@ use PDOException;
 class Pembayaran extends Component
 {
     public $pesanan;
-
+    public $semuaPesanan;
     public $jumlah_bayar;
     protected $listeners = ['refresh_jumlah_bayar'];
     public $bayar;
@@ -22,11 +22,10 @@ class Pembayaran extends Component
         $this->jumlah_bayar = $this->jumlah_bayar;
     }
 
-    public function updated(){
+    public function updated()
+    {
         $this->jumlah_bayar = $this->jumlah_bayar;
     }
-
-    
 
     public function bayar()
     {
@@ -52,7 +51,7 @@ class Pembayaran extends Component
             $produk->sisa_stok = ($produk->sisa_stok - $pesanan->qty);
             $produk->save();
         }
-        
+
         try {
             $create_transaksi = DB::table('tb_transaksi')->insert([
                 'kode_transaksi' => $kode_transaksi,
