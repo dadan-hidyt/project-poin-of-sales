@@ -52,7 +52,7 @@
                                         <span><img src="../assets/img/icons/dash2.svg" alt="img"></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters"
+                                        <h5><span class="counters"
                                                 id="{{ $total_transaksi }}">{{ formatRupiah($total_transaksi) }}</span>
                                         </h5>
                                         <h6>Total Transaksi</h6>

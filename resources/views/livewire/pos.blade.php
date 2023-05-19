@@ -40,7 +40,7 @@
                             </h3>
                         </div>
                         <div class="orderid-detail border-1 border-bottom py-2">
-                            <div class="d-flex align-items-center justify-content-between py-1">
+                            <div class="d-flex align-items-center justify-content-between py-2">
                                 <h5 class="fw-bolder opacity-7">Jenis Pesan :</h5>
                                 @if ($pesanan->type === 'MEJA')
                                     <span>{{ $pesanan->type }} - {{ $pesanan->meja->nama ?? '' }}</span>
@@ -48,9 +48,13 @@
                                     <span>{{ $pesanan->type }}</span>
                                 @endif
                             </div>
-                            <div class="d-flex align-items-center justify-content-between py-1">
+                            <div class="d-flex align-items-center justify-content-between py-2">
                                 <h5 class="fw-bolder opacity-7">Pelanggan :</h5>
                                 <span>{{ $pesanan->pelanggan->nama ?? '' }}</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between py-2">
+                                <h5 class="fw-bolder opacity-7">Poin Pelanggan :</h5>
+                                <span>{{ $pesanan->pelanggan->poin ?? '' }}</span>
                             </div>
                         </div>
                     </div>

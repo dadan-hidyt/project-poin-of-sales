@@ -30,26 +30,28 @@
             </li>
         </ul>
     </div>
-
-    <div class="voucher_form d-flex justify-content-between gap-2 mt-4">
-        <input type="text" wire:model='kode_voucher' value="{{ $pesanan->kode_voucher }}" class="form-control" placeholder="Masukan kode voucher"><button wire:click='setKodeVoucher' class="btn">Pakai</button>
-    </div>
-   {{--  <div class="point_form d-flex align-items-center justify-content-between gap-2 mt-3">
+    {{-- <div class="point_form d-flex align-items-center justify-content-between gap-2 mt-3">
         <div class="point d-flex align-items-center gap-1">
             <p class="mb-0">Tukarkan Point</p><i class='bx bx-info-circle'></i><span>Rp.3000</span>
         </div>
         <input id="s1" type="checkbox" class="switch">
     </div> --}}
-    <div class="btn_group d-flex gap-2 mt-3" style="height:42px ;">
+    <div class="btn_group gap-2 mt-5 w-100" style="height:42px ;">
         @if ($pesanan->detail_pesanan->count() != 0)
-            <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran-simpan"
+            {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran-simpan"
                 class="btn btn-warning text-white fs-6 fw-normal">
                 <h5>Simpan</h5>
-            </button>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran"
-                class="btn btn-success text-white fs-6 fw-normal">
-                <h5>Bayar</h5>
-            </button>
+            </button> --}}
+            {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran"
+                class="btn btn-success text-white fs-6 fw-normal w-100">
+                <h6>Lanjutkan Pembayaran</h6>
+            </button> --}}
+
+            <form action="{{ route('kasir.pesanan.bayar',$pesanan->kode_pesanan) }}">
+                <button type="submit" class="btn btn-success w-100">
+                    Lanjut Pembayaran
+                </button>
+            </form>
         @endif
     </div>
 </div>
@@ -65,29 +67,13 @@
             </div>
             <div class="modal-body">
                 <form action="{{ route('kasir.pesanan.bayar',$pesanan->kode_pesanan) }}">
-                    <ul>
-                        <li>
-                            <a disabled class="paymentmethod">
-                                <input name="metode" value="cash" type="checkbox">
-                                <img src="{{ asset('kasir-assets') }}/img/icons/cash.svg" alt="img" class="me-2">
-                                Tunai
-                            </a>
-                        </li>
-                        <li>
-                            <a disabled class="paymentmethod">
-                                <input name="metode" value="transfer" type="checkbox">
-                                <img src="{{ asset('kasir-assets') }}/img/icons/debitcard.svg" alt="img" class="me-2">
-                                Transfer
-                            </a>
-                        </li>
-                        <li>
-                            <a disabled class="paymentmethod">
-                                <input name="metode" value="qris" type="checkbox">
-                                <img src="{{ asset('kasir-assets') }}/img/icons/scan.svg" alt="img" class="me-2">
-                                E-Wallet
-                            </a>
-                        </li>
-                    </ul>
+                    <select class="form-select mb-3" aria-label=".form-select-sm lanjutkan pembayaran" name="metode">
+                        <option selected>Pilih Metode Pembayaran</option>
+                        <option value="cash">Cash</option>
+                        <option value="transfer">Transfer</option>
+                        <option value="qris">E-Wallet</option>
+                    </select>
+                    
                     <button type="submit" class="btn btn-primary w-100 mt-4">
                         Lanjut Pembayaran
                     </button>

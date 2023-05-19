@@ -1,8 +1,8 @@
-<div class="product-table">
+<div class="product-table" style="height:120px">
 
     @if ($pesanan->detail_pesanan)
         @foreach ($pesanan->detail_pesanan as $item)
-            <ul class="product-lists">
+            <ul class="product-lists ">
                 <li>
                     <div class="productimg">
                         <div class="productimgs">
