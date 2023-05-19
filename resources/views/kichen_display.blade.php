@@ -167,13 +167,11 @@
                                 </ul>
 
                                 <div
-                                    class="footer_kitchen  bg-light mt-3 d-flex align-items-center justify-content-between">
+                                    class="footer_kitchen  bg-light mt-3 d-flex align-items-center">
                                     <a class="btn btn-primary"
-                                        href="?pesanan={{ $item->id }}&status=dimasak">MASAK</a>
-                                    <a class="btn btn-primary"
-                                        href="?pesanan={{ $item->id }}&status=noted">NOTED</a>
-                                    <a class="btn btn-success"
-                                        href="?pesanan={{ $item->id }}&status=selesai">SELESAI</a>
+                                        href="?pesanan={{ $item->id }}&status=dimasak">Prosess</a>
+                                    <a class="btn btn-success ms-3"
+                                        href="?pesanan={{ $item->id }}&status=selesai">Selesai</a>
                                 </div>
                             </div>
                         </div>
