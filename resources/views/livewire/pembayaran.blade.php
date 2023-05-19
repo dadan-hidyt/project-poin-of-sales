@@ -124,31 +124,19 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="col-md-3">
-                            <button class="card mx-2 btn w-100" id="jumlahUang">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="card mx-2 btn w-100" id="jumlahUang" data-bs-toggle="modal" data-bs-target="#voucherClaim">
                                 <div class="card-body p-2 text-center w-100">
-                                    <span>Transfer</span>
+                                    <span>Voucher Claim</span>
                                 </div>
                             </button>
                         </div>
-                        <div class="col-md-3">
-                            <button class="card mx-2 btn w-100" id="jumlahUang">
+                        <div class="col-md-6">
+                            <button class="card mx-2 btn w-100" id="jumlahUang" data-bs-toggle="modal" data-bs-target="#poinReward"> 
                                 <div class="card-body p-2 text-center w-100">
-                                    <span>E-Wallet</span>
-                                </div>
-                            </button>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="card mx-2 btn w-100" id="jumlahUang">
-                                <div class="card-body p-2 text-center w-100">
-                                    <span>Voucher</span>
-                                </div>
-                            </button>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="card mx-2 btn w-100" id="jumlahUang">
-                                <div class="card-body p-2 text-center w-100">
-                                    <span>Poin</span>
+                                    <span>Poin Reward</span>
                                 </div>
                             </button>
                         </div>
@@ -200,3 +188,65 @@
         </div>
     </div>
 </div>
+
+
+
+{{-- Modal Voucher Claim --}}
+
+<div class="modal fade" id="voucherClaim" tabindex="-1" aria-labelledby="voucherClaimLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="voucherClaimLabel">Claim Voucher</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x text-danger"></i></button>
+        </div>
+        <form class="modal-body">
+          <div class="mb-3">
+            <div class="input-group"><input type="text" class="form-control" placeholder="Input Voucher">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="input-group"><input type="submit" class="form-control btn-warning text-white" Value="Claim">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{{-- Modal Poin Reward --}}
+
+<div class="modal fade" id="poinReward" tabindex="-1" aria-labelledby="poinRewardLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="poinRewardLabel">Poin Reward</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x text-danger"></i></button>
+        </div>
+        <form class="modal-body">
+          <div class="card">
+            <div class="card-body">
+                <h6 class="fw-bolder">Nama Pelanggan</h6>
+                <span>Jumlah Poin : <b>10</b> </span>
+            </div>
+          </div>
+          <select class="form-select mb-3" aria-label="Default select example">
+            <option selected>Pilih Reward</option>
+            <option value="1">Potongan Harga</option>
+            <option value="2">Gratis Produk</option>
+          </select>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Pilih Produk</option>
+            <option value="1">Produk Reward - 1</option>
+            <option value="1">Produk Reward - 2</option>
+            <option value="1">Produk Reward - 3</option>
+            <option value="1">Produk Reward - 4</option>
+          </select>
+          <div id="textHelp" class="form-text mb-3">Muncul Jika reward yang dipilih adalah gratis produk</div>
+          <button type="submit" class="btn btn-warning w-100 text-white">Reedem</button>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
