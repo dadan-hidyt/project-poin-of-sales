@@ -190,7 +190,6 @@
 </div>
 
 
-
 {{-- Modal Voucher Claim --}}
 
 <div class="modal fade" id="voucherClaim" tabindex="-1" aria-labelledby="voucherClaimLabel" aria-hidden="true">
