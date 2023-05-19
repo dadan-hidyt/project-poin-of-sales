@@ -163,14 +163,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <button class="card mx-2 btn w-100" data-bs-toggle="modal"
-                                data-bs-target="#gabungBayarModal">
+                                data-bs-target="#gabungBayarModal" id="gabungBayarButton">
                                 <div class="card-body p-2 text-center w-100">
                                     <span>Gabung Bayar</span>
                                 </div>
                             </button>
                         </div>
                         <div class="col-md-6">
-                            <button class="card mx-2 btn w-100" id="jumlahUang">
+                            <button class="card mx-2 btn w-100">
                                 <div class="card-body p-2 text-center w-100">
                                     <span>Pisah Bayar</span>
                                 </div>
@@ -212,7 +212,7 @@
 
 <div class="modal fade" id="gabungBayarModal" tabindex="-1">
     <form class="modal-dialog modal-dialog-centered" method="POST"
-        action="{{ route('kasir.gabung_meja', ['kode_pesanan' => request()->route('kode_pesanan')]) }}">
+        action="{{ route('kasir.gabung_meja', ['kode_pesanan' => $pesanan->kode_pesanan]) }}">
         @csrf
         <div class="modal-content border-0 rounded-3">
             <div class="modal-header py-4 px-4">
@@ -290,8 +290,6 @@
                 </select>
                 <div id="textHelp" class="form-text mb-3">Muncul Jika reward yang dipilih adalah gratis produk</div>
                 <button type="submit" class="btn btn-warning w-100 text-white">Reedem</button>
-
-
             </form>
         </div>
     </div>
