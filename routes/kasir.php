@@ -27,14 +27,16 @@ Route::get('daftar-pelanggan', [HomeController::class, 'daftarPelanggan'])->name
 
 Route::get('pos/{kode_pesanan}', [POSController::class, 'pos'])->name('.pos');
 Route::get('pos/{kode_pesanan}/bayar', [POSController::class, 'prosesBayar'])->name('.pesanan.bayar');
-Route::get('pos/trans/{kode_transaksi}/cetakstruk', [POSController::class,'cetakStruk'])->name('.cetak_struk');
+Route::get('pos/trans/{kode_transaksi}/cetakstruk', [POSController::class, 'cetakStruk'])->name('.cetak_struk');
 
-Route::get('pos/{id_transaksi}/refund', [RefundController::class,'refund'])->name('.refund');
+Route::post('pos/{kode_pesanan}/gabung-meja', [POSController::class, 'gabungMeja'])->name('.gabung_meja');
 
-Route::get('fetch/laporan/uang_keluar', [LaporanPenjualan::class,'pengeluaran'])->name('.laporan.pengeluaran');
-Route::get('fetch/laporan/data_kas', [LaporanPenjualan::class,'dana_kas'])->name('.laporan.dana_kas');
+Route::get('pos/{id_transaksi}/refund', [RefundController::class, 'refund'])->name('.refund');
 
-Route::get('logout_kasir',function(){
+Route::get('fetch/laporan/uang_keluar', [LaporanPenjualan::class, 'pengeluaran'])->name('.laporan.pengeluaran');
+Route::get('fetch/laporan/data_kas', [LaporanPenjualan::class, 'dana_kas'])->name('.laporan.dana_kas');
+
+Route::get('logout_kasir', function () {
     Auth::logout();
     return redirect(route('auth.login_kasir'));
 })->name('.logout');
