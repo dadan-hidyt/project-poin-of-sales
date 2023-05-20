@@ -46,6 +46,11 @@
                     <i class="bx bx-calendar fs-4"></i>
                     <span class="ms-2">{{ now() }}</span>
                 </div>
+
+                <div class="timer-display fs-2 fw-bolder">
+                    <span class="timer__part fs-2">00 : 00</span>
+                </div>
+
                 <div class="filter_kitchen-display">
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Status</option>
@@ -63,32 +68,33 @@
             <div class="row">
 
                 @foreach ($pesanan as $item)
+                {{-- @dd($item) --}}
                     <div class="col-md-3">
                         <div class="card">
-                            <div class="card-body">
-                                <div
-                                    class="card-head d-flex align-items-center justify-content-between pb-3 border-bottom-grey">
-                                    <div>
-                                        <h6 class="fw-bolder" style="font-size:12px;">#1223214</h6>
-                                        <span style="opacity: .7;">{{ $item->pelanggan->nama ?? 'Tamu' }}</span>
-                                    </div>
-                                    <span
-                                        class="badge rounded-pill bg-secondary text-white">{{ $item->status_pesanan ?? 'prosess' }}</span>
+                            <div class="card-head__kitchen d-flex align-items-center justify-content-between pb-3 border-bottom-grey p-4">
+                                <div>
+                                    <h6 class="fw-bolder" style="font-size:12px;">{{ $item->kode_pesanan }}</h6>
+                                    <span style="opacity: .7;">{{ $item->pelanggan->nama ?? 'Tamu' }}</span>
                                 </div>
+                                <span class="badge rounded-pill bg-secondary text-white">{{ $item->status_pesanan ?? 'prosess' }}</span>
+                            </div>
+                            <div class="card-body">
+                                
 
                                 <ul class="detail-pesan_kitchen">
                                     @foreach ($item->detail_pesanan as $item2)
-                                        <li
-                                            class="py-3 d-flex align-items-center justify-content-between border-bottom-grey">
+                                        <li class="py-2 d-flex align-items-center justify-content-between border-bottom-grey">
                                             <div>
                                                 <div class="count"><b class="fw-bold">{{ $item2->qty }}</b>x</div>
                                                 <span>{{ $item2->produk->nama_produk ?? '' }}</span>
                                             </div>
-                                            <button type="button"
-                                                class="btn d-flex align-items-center justify-content-center py-2 mt-1"
+                                            <button type="button" class="btn d-flex align-items-center justify-content-center py-2 mt-1"
                                                 data-bs-toggle="modal" data-bs-target="#detail-pesan_list">
                                                 <i class="bx bx-info-circle fs-5"></i>
                                             </button>
+
+
+
                                             <div class="modal fade" id="detail-pesan_list" tabindex="-1"
                                                 aria-labelledby="detail-pesan_listLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-detail-pesan_list">
@@ -166,12 +172,16 @@
 
                                 </ul>
 
-                                <div
-                                    class="footer_kitchen  bg-light mt-3 d-flex align-items-center">
-                                    <a class="btn btn-primary"
+                                <div class="footer_kitchen  bg-light mt-4 d-flex align-items-center justify-content-between">
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary btn-prosess__kitchen"
                                         href="?pesanan={{ $item->id }}&status=dimasak">Prosess</a>
-                                    <a class="btn btn-success ms-3"
+                                        <a class="btn btn-success btn-done__kitchen ms-2"
                                         href="?pesanan={{ $item->id }}&status=selesai">Selesai</a>
+                                    </div>
+                                    <div class="me-3">
+                                        <span class="fs-6 fw-bolder timer__part--perpesanan">00:00</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -183,6 +193,11 @@
     </div>
 
 
+    <script>
+
+                
+
+    </script>
 
 
 
@@ -208,6 +223,7 @@
 
     <script src="{{ asset('assets') }}/js/script.js"></script>
     <script src="{{ asset('assets') }}/js/jquery.mask.min.js"></script>
+    <script src="{{ asset('assets') }}/js/timer-countdown.js"></script>
 
 </body>
 
