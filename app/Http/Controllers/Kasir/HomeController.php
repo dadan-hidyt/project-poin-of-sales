@@ -54,7 +54,12 @@ class HomeController extends Controller
         $pesanan = Pesanan::where(['id_kasir'=>$kasir_id])->get();
         return view('kasir.transaksi.belum-bayar', compact('pesanan'));
     }
-
+    public function penghasilanByMetodePembayaran() {
+        $cash = formatRupiah(Transaksi::where('metode_pembayaran','cash')->sum('jumlah'));
+        $ewalet = formatRupiah(Transaksi::where('metode_pembayaran','ewalet')->sum('jumlah'));
+        $debit = formatRupiah(Transaksi::where('metode_pembayaran','debit')->sum('jumlah'));
+        return compact('cash','ewalet','debit');
+    }
     public function laporanPenjualan()
     {
         //laporan
@@ -82,6 +87,7 @@ class HomeController extends Controller
             'penghasilan_bersih' => $peng_bersih,
             'total_transaksi' => $trx->count(),
             'penghasilan' => $peng,
+            'byMetodePembayaran' => $this->penghasilanByMetodePembayaran(),
             'belum_bayar' => $belumBayar,
             'pelanggan' => Pelanggan::count(),
             'history_penjualan' => HistoryPengeluaranKasir::where('id_kasir', $kasir_id)->get(),

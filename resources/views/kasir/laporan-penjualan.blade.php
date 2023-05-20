@@ -90,7 +90,7 @@
                                         <span><img src="../assets/img/icons/dash2.svg" alt="img"></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters">{{ formatRupiah($penghasilan_bersih) }}</span>
+                                        <h5>Rp.<span class="counters">{{ $byMetodePembayaran['cash'] }}</span>
                                         </h5>
                                         <h6>Pembayaran Cash</h6>
                                     </div>
@@ -102,7 +102,7 @@
                                         <span><i class="bx bxs-credit-card fs-4 text-info"></i></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters">{{ formatRupiah($penghasilan_bersih) }}</span>
+                                        <h5>Rp.<span class="counters">{{ $byMetodePembayaran['debit'] }}</span>
                                         </h5>
                                         <h6>Pembayaran Debit</h6>
                                     </div>
@@ -114,7 +114,7 @@
                                         <span><i class="bx bxs-wallet-alt fs-4 text-warning"></i></span>
                                     </div>
                                     <div class="dash-widgetcontent">
-                                        <h5>Rp.<span class="counters">{{ formatRupiah($penghasilan_bersih) }}</span>
+                                        <h5>Rp.<span class="counters">{{ $byMetodePembayaran['ewalet'] }}</span>
                                         </h5>
                                         <h6>Pembayaran E-Wallet</h6>
                                     </div>

@@ -17,9 +17,17 @@ class Pembayaran extends Component
     public $jumlah_bayar;
     protected $listeners = ['refresh_jumlah_bayar'];
     public $bayar;
+    public $kembalian = null;
+    public $metode = 'cash';
     public function refresh_jumlah_bayar()
     {
         $this->jumlah_bayar = $this->jumlah_bayar;
+        $total = $this->pesanan->hitungPesanan('subtotal')+$this->pesanan->hitungPesanan('pajak');
+        if ( $total != $this->jumlah_bayar ) {
+            $this->kembalian = $this->jumlah_bayar - $total;
+        } else {
+            $this->kembalian = 0;
+        }
     }
 
     public function updated()
@@ -65,6 +73,7 @@ class Pembayaran extends Component
                 'id_kasir' => $id_kasir,
                 'jumlah' => $this->pesanan->hitungPesanan('subtotal'),
                 'jmlh_bayar' => $this->jumlah_bayar,
+                'metode_pembayaran' => $this->metode,
             ]);
             DB::commit();
             $this->pesanan->detail_pesanan()->truncate();

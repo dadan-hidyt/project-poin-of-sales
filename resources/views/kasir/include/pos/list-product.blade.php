@@ -68,7 +68,7 @@
                                         </div>
                                     @endif
                                     <div class="mb-3">
-                                        <textarea class="form-control" placeholder="Tambahkan Catatan" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea wire:model.defer='item_pesanan.catatan' class="form-control" placeholder="Tambahkan Catatan" id="floatingTextarea2" style="height: 100px"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">Jumlah Menu <span class="text-danger">*</span></label>

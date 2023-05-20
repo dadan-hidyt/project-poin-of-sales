@@ -24,7 +24,7 @@ class POSController extends Controller
     public function prosesBayar($kode_pesanan)
     {
         $this->setTitle("Proses Bayar");
-        $metode = request()->metode;
+        $metode = request()->metode ?? 'cash';
         $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan, 'id_kasir' => auth()->user()->getKasir()->id])->first();
         $semuaPesanan = Pesanan::with(['meja'])->where('kode_pesanan', '!=', $kode_pesanan)->get();
 

@@ -102,7 +102,7 @@
                     <div class="card">
                         <div class="card-body text-danger ">
                             <span class="text-secondary">Kembalian</span>
-                            <h4 class="fw-bolder mt-2 opacity-75">Rp.0</h4>
+                            <h4 class="fw-bolder mt-2 opacity-75">Rp.{{ formatRupiah($kembalian) ?? '0' }}</h4>
                         </div>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <input wire:model='jumlah_bayar' type="number" class="form-control" placeholder="Jumlah Lain"
+                    <input wire:keyup='setNominalLain(event.target.value)' type="number" class="form-control" placeholder="Jumlah Lain"
                         name="" id="inputNominal">
                 </div>
                 <button type="submit" class="btn btn-warning w-100 text-white">Simpan</button>
