@@ -1,6 +1,6 @@
 <x-kasir-layout>
 
-    <div class="container-md">
+    <div class="container">
         <div class="row mt-4">
             <div class="col-lg-12">
                 <div class="card">

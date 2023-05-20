@@ -1,6 +1,6 @@
 {{-- @dd($pesanan) --}}
 
-<div class="container-md p-5">
+<div class="container-xl" style="margin-top: 16px;">
 
     @if (session('success'))
         <div class="row">
@@ -178,10 +178,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            <button wire:click='bayar' type="submit" class="btn btn-warning text-white w-100">Lanjut
-                                Pembayaran</button>
+                        <div class="col-md-2">
+                            <button  type="submit" class="btn btn-danger text-white w-100" onclick="return confirm('Yakin Akan Menghapus Pesanan ini?')"><i class="bx bx-trash"></i></button>
                         </div>
+                        <div class="col-md-10">
+                            <button wire:click='bayar' type="submit" class="btn btn-success text-white w-100" onclick="alert('Selamat Pesanan Berhasil!!')">Lanjut Pembayaran</button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
