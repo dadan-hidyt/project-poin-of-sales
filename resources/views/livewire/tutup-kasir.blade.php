@@ -21,7 +21,7 @@
 
                     <form wire:key='form-set-sisa-kas' wire:submit.prevent='setSisaKas'>
                         <div class="mb-3">
-                            <input wire:model.defer='sisa_kas' value="{{ $sisa_kas }}" type="text" class="form-control inputNominal" id="nominalKasSisa" aria-describedby="kasSisaHelp" placeholder="Masukan Nominal Kas">
+                            <input wire:model.defer='sisa_kas' value="{{ $kasir->sisa_kas }}" type="text" class="form-control inputNominal" id="nominalKasSisa" aria-describedby="kasSisaHelp" placeholder="Masukan Nominal Kas">
                             <div id="kasSisaHelp" class="form-text mt-2">Uang Kas Yang dipegang oleh kasir saat tutup</div>
                         </div>
                         <div class="mb-3">
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    @if ($sisa_kas)
+    @if ($pin_benar)
         
     <div class="col-md-5 laporan-penjualan">
         <div class="card">
@@ -74,7 +74,7 @@
                         
                         <div class="py-1 d-flex align-items-center justify-content-between">
                             <h6 class="fs-6 ">Sisa Kas :</h6>
-                            <span>Rp. {{ $sisa_kas }}</span>
+                            <span>Rp. {{ formatRupiah($sisa_kas) }}</span>
                         </div>
 
                     </div>

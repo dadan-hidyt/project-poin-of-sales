@@ -9,7 +9,15 @@ use Illuminate\Http\Request;
 class PoinRewardController extends Controller
 {
     //
-
+    public function deletePoinRewardPembelian($id = null) {
+        if ( is_null($id) ) {
+            abort(404);
+        }
+       $id = PoinRewardPembelian::findOrFail($id);
+       if ( $id->delete() ) {
+            return redirect()->back()->with('sukses', "Data Berhasil di hapus");
+       }
+    }
     public function index()
     {
         $this->setTitle("Poin Reward - Total Pembelian");

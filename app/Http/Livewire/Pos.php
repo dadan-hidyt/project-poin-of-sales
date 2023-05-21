@@ -26,10 +26,10 @@ class Pos extends Component
     public $pesanan;
 
     public $reward = [];
-    
+
     public $rewards;
 
-    protected $listeners = ['refreshComponent','clearDetailPesanan'];
+    protected $listeners = ['refreshComponent', 'clearDetailPesanan'];
 
     public $transaksi = [];
 
@@ -41,23 +41,27 @@ class Pos extends Component
     {
         $this->pesanan = $this->pesanan;
     }
-    public function reward(){
-       $this->pesanan->update(['jenis_reward' => $this->reward['type'] ?? null]);
-       $this->emit('refreshComponent');
-       $this->is_reward = true;
-       $this->dispatchBrowserEvent('reward_berhasil_di_set');
+    public function reward()
+    {
+        if ($this->reward['type'] ?? false) {
+            $this->pesanan->update(['jenis_reward' => $this->reward['type'] ?? null]);
+            $this->emit('refreshComponent');
+            $this->is_reward = true;
+            $this->dispatchBrowserEvent('reward_berhasil_di_set');
+        }
     }
     public function getDetailProduk()
     {
     }
-    public function setKodeVoucher(){
+    public function setKodeVoucher()
+    {
         //get Kupon
-        $kupon = Kupon::where('kode_kupon',$this->kode_voucher)->where('jumlah_sisa','>',0)->first();
-        if ( $kupon ) {
-            Pesanan::find($this->pesanan->id)->update(['kode_voucher'=>$this->kode_voucher,'jumlah_potongan_voucher'=>$kupon->jumlah_potongan]);
+        $kupon = Kupon::where('kode_kupon', $this->kode_voucher)->where('jumlah_sisa', '>', 0)->first();
+        if ($kupon) {
+            Pesanan::find($this->pesanan->id)->update(['kode_voucher' => $this->kode_voucher, 'jumlah_potongan_voucher' => $kupon->jumlah_potongan]);
             $this->emit('refreaahComponent');
-        }  else {
-           $this->dispatchBrowserEvent('voucher_tidak_ditemukan');
+        } else {
+            $this->dispatchBrowserEvent('voucher_tidak_ditemukan');
         }
     }
     public function updated()
@@ -72,7 +76,8 @@ class Pos extends Component
         }
     }
 
-    public function transaksiBayar(){
+    public function transaksiBayar()
+    {
         dd($this->pesanan);
     }
 
@@ -82,7 +87,7 @@ class Pos extends Component
     }
     public function mount()
     {
-       
+
         if ($this->pesanan->kode_voucher) {
             $this->kode_voucher = $this->pesanan->kode_voucher;
         }
@@ -98,7 +103,7 @@ class Pos extends Component
     {
         $this->item_pesanan['id_produk'] = $id_produk;
         $this->item_pesanan['id_pesanan'] = $this->pesanan->id;
-       
+
         if (!isset($this->item_pesanan['qty'])) {
             $this->item_pesanan['qty'] = 1;
         }

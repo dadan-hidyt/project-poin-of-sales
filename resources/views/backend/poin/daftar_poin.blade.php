@@ -1,21 +1,25 @@
 @extends('layouts.backend')
 
 @section('main')
-
-<style>
-    html{
-        scroll-behavior: smooth;
-    }
-</style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
     <div class="row">
         <div class="col-md-12">
+            @if (session()->has('sukses'))
+                <p class="alert alert-success">
+                    {{ session()->get('sukses') }}
+                </p>
+            @endif
             <div class="card">
                 <div class="card-body">
                     <div class="form-informasi-reward">
                         <div class="d-flex align-items-center justify-content-between">
                             <span class="h3 fw-bolder">Daftar Poin</span>
                         </div>
-                       
+
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -28,13 +32,14 @@
                                     <th>Mulai</th>
                                     <th>Akhir</th>
                                     <th>Hari</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($poin as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->status == 'Y' ? 'Aktif' : "Tidak Aktif" }}</td>
+                                        <td>{{ $item->status == 'Y' ? 'Aktif' : 'Tidak Aktif' }}</td>
                                         <td>{{ $item->jumlah_poin }}</td>
                                         <td>{{ $item->nama_point_reward }}</td>
                                         <td>{{ $item->deskripsi }}</td>
@@ -44,12 +49,16 @@
                                         <td>
                                             @if ($item->semua_hari)
                                                 <span class="text-info">Semua Hari</span>
-
                                             @else
-                                                @foreach (json_decode($item->hari) as $item)
-                                                     <span class="badge badge-primary">{{ $item }}</span> &nbsp;
+                                                @foreach (json_decode($item->hari) as $item2)
+                                                    <span class="badge badge-primary">{{ $item2 }}</span> &nbsp;
                                                 @endforeach
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a onclick="return confirm('Apakah Anda Yakin?')"
+                                                href="{{ route('dashboard.poin_reward.pembelian.delete', $item->id) }}"
+                                                class="btn btn-sm btn-warning">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -61,14 +70,12 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 
 @push('script')
     <script>
         $('table').DataTable({
-            responsive : true,
+            responsive: true,
         })
     </script>
 @endpush

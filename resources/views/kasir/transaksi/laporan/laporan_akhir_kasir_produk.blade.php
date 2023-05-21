@@ -71,6 +71,13 @@
 			<li>Kas Awal: Rp. {{formatRupiah( $kas_awal ) }},-</li>
 			<li>Sisa Kas: Rp. {{formatRupiah( $sisa_kas ) }},-</li>
 		</ul>
+		<h1>By Metode Pembayaran</h1>
+		<ul>
+			<li>Cash:Rp.{{ formatRupiah($byMetodePembayaran['cash']) }}</li>
+			<li>Transfer/Debit:Rp.{{ formatRupiah($byMetodePembayaran['debit']) }}</li>
+			<li>E-Wallet:Rp.{{ formatRupiah($byMetodePembayaran['ewalet']) }}</li>
+		
+		</ul>
         <h4>Jumlah Akhir: Rp. {{ formatRupiah($jumlah_pendapatan+$sisa_kas) }},-</h4>
 
 		<h2>Detail Transaksi</h2>
@@ -91,7 +98,7 @@
 								{{ $item2->produk->nama_produk }}[{{ $item2->jumlah }}] ,
 							@endforeach
 						</td>
-						<td>{{ $item->jumlah }}</td>
+						<td>Rp.{{ formatRupiah($item->jumlah) }}</td>
 					</tr>
 				@endforeach
 			</tbody>

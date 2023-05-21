@@ -134,15 +134,27 @@
             </div>
             <div class="clearfix"></div>
             <div class="right">
+                @if ($transaksi->potongan)
                 <div>
-                    Subtotal &nbsp;&nbsp;  Rp. {{ formatRupiah($transaksi->jumlah) }}
+                   <b> Subtotal:</b> &nbsp;&nbsp;  Rp. {{ formatRupiah($transaksi->jumlah) }}
+                </div>
+                
+                <div>
+                   <b> Potongan:</b> &nbsp;&nbsp;  Rp. {{ formatRupiah($transaksi->potongan) }}
+                </div>
 
+                <div>
+                   <b> Subtotal Sblm Potongan:</b> &nbsp;&nbsp;  Rp. {{ formatRupiah($transaksi->jumlah_sebelum_potongan ?? 0) }}
+                </div>
+                @else
+                    <b>Subtotal:</b> &nbsp;&nbsp;  -Rp. {{ formatRupiah($transaksi->jumlah) }}
+                @endif
+               
+                <div>
+                    <b>Pajak:</b> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Rp.{{ formatRupiah($transaksi->total_pajak) }}
                 </div>
                 <div>
-                    Pajak &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{ formatRupiah($transaksi->total_pajak) }}
-                </div>
-                <div>
-                    Poin Yang Di dapatkan {{ $poin ?? 0 }}
+                    <b>Poin Yang Di dapatkan:</b> {{ $poin ?? 0 }}
                 </div>
             </div>
            

@@ -19,19 +19,26 @@ class Pembayaran extends Component
     public $jumlah_bayar;
     protected $listeners = ['refresh_jumlah_bayar'];
     public $bayar;
+    public $potongan = 0;
     public $kembalian = null;
     public $metode = 'cash';
+    public function getPotonganHarga(){
+        return $this->pesanan->jumlah_potongan_voucher;
+    }
     public function refresh_jumlah_bayar()
     {
+        $this->potongan = $this->getPotonganHarga();
         $this->jumlah_bayar = $this->jumlah_bayar;
         $total = $this->pesanan->hitungPesanan('subtotal') + $this->pesanan->hitungPesanan('pajak');
         if ($total != $this->jumlah_bayar) {
-            $this->kembalian = $this->jumlah_bayar - $total;
+            $this->kembalian = $this->jumlah_bayar - ($total - $this->potongan);
         } else {
             $this->kembalian = 0;
         }
     }
-
+    public function mount() {
+        $this->potongan = $this->getPotonganHarga();
+    }
     public function updated()
     {
         $this->jumlah_bayar = $this->jumlah_bayar;
@@ -43,7 +50,7 @@ class Pembayaran extends Component
             switch ($jenis_reward) {
                 case 'pembelian':
                     $reward = PoinRewardPembelian::all()->filter(function ($item) use ($total_pembelian) {
-                        if (Carbon::now()->between($item->tanggal_mulai, $item->tanggal_berakhir) && $total_pembelian >= $item->min_pembelian) {
+                        if (Carbon::now()->between($item->tanggal_mulai, $item->tanggal_berakhir) && $total_pembelian >= $item->min_pembelian && $item->status = 'Y') {
                             return $item;
                         }
                     });
@@ -101,11 +108,13 @@ class Pembayaran extends Component
                     'id_pelanggan' => $this->pesanan->id_pelanggan == null ? NULL : $this->pesanan->id_pelanggan,
                     'id_metode_pembayaran' => 1,
                     'total_pajak' => $this->pesanan->hitungPesanan('pajak'),
-                    'catatan' => 3,
+                    'catatan' => null,
                     'reward_pembelian' => $reward,
                     'status_pembayaran' => "DIBAYAR",
                     'id_kasir' => $id_kasir,
-                    'jumlah' => $this->pesanan->hitungPesanan('subtotal'),
+                    'jumlah_sebelum_potongan' => $this->pesanan->hitungPesanan('subtotal'),
+                    'jumlah' => ($this->pesanan->hitungPesanan('subtotal') - $this->getPotonganHarga()),
+                    'potongan' => $this->getPotonganHarga(),
                     'jmlh_bayar' => $this->jumlah_bayar,
                     'metode_pembayaran' => $this->metode,
                 ]);

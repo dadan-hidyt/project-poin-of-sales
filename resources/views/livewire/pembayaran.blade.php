@@ -77,12 +77,12 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-between py-3 border-1 border-bottom">
                             <h6 style="font-size:16px;" class="fw-bolder">Potongan :</h6>
-                            <h6 style="font-size:16px;" class="text-danger">- Rp.24.000,00</h6>
+                            <h6 style="font-size:16px;" class="text-danger">- Rp.{{ formatRupiah($potongan) }}</h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-between py-3 border-1 border-bottom">
                             <h6 style="font-size:16px;" class="fw-bolder">Total Tagihan :</h6>
                             <h6 style="font-size:16px;" class="fw-bolder text-dark-75">
-                                Rp.{{ $pesanan->hitungPesanan()['grand_total_rupiah'] }}</h6>
+                                Rp.{{ formatRupiah($pesanan->hitungPesanan()['grand_total'] - $this->potongan )}}</h6>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                     <div class="card">
                         <div class="card-body">
                             <span class="text-secondary">Total Tagihan</span>
-                            <h4 class="fw-bolder mt-2">Rp.{{ $pesanan->hitungPesanan()['grand_total_rupiah'] }}</h4>
+                            <h4 class="fw-bolder mt-2">Rp.{{ formatRupiah($pesanan->hitungPesanan()['grand_total'] - $potongan) }}</h4>
                         </div>
                     </div>
                 </div>
