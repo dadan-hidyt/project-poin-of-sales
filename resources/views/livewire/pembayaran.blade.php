@@ -82,7 +82,7 @@
 
         <div class="col-md-7">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <span class="text-secondary">Total Tagihan</span>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body text-success ">
                             <span class="text-secondary">Pembayaran</span>
@@ -98,11 +98,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body text-danger ">
                             <span class="text-secondary">Kembalian</span>
                             <h4 class="fw-bolder mt-2 opacity-75">Rp.{{ formatRupiah($kembalian) ?? '0' }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body text-danger ">
+                            <span class="text-secondary">Sisa Bayar</span>
+                            <h4 class="fw-bolder mt-2 opacity-75">Rp.Fitur pisah bayar</h4>
                         </div>
                     </div>
                 </div>
@@ -141,27 +149,7 @@
                                 </div>
                             </button>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button class="card mx-2 btn w-100" id="jumlahUang" data-bs-toggle="modal"
-                                data-bs-target="#voucherClaim">
-                                <div class="card-body p-2 text-center w-100">
-                                    <span>Voucher Claim</span>
-                                </div>
-                            </button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="card mx-2 btn w-100" id="jumlahUang" data-bs-toggle="modal"
-                                data-bs-target="#poinReward">
-                                <div class="card-body p-2 text-center w-100">
-                                    <span>Poin Reward</span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <button class="card mx-2 btn w-100" data-bs-toggle="modal"
                                 data-bs-target="#gabungBayarModal" id="gabungBayarButton">
                                 <div class="card-body p-2 text-center w-100">
@@ -169,7 +157,7 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <button class="card mx-2 btn w-100">
                                 <div class="card-body p-2 text-center w-100">
                                     <span>Pisah Bayar</span>
@@ -225,7 +213,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <select name="pesanan[]" class="form-control" multiple>
+                    <select name="pesanan[]" class="form-control js-example-basic-multiple" multiple="multiple" aria-placeholder="Pilih Meja">
                         @foreach ($semuaPesanan as $item)
                             <option value="{{ $item->kode_pesanan }}">{{ $item->kode_pesanan }}</option>
                         @endforeach
@@ -235,65 +223,4 @@
             </div>
         </div>
     </form>
-</div>
-
-{{-- Modal Voucher Claim --}}
-
-<div class="modal fade" id="voucherClaim" tabindex="-1" aria-labelledby="voucherClaimLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="voucherClaimLabel">Claim Voucher</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bx bx-x text-danger"></i></button>
-            </div>
-            <form class="modal-body">
-                <div class="mb-3">
-                    <div class="input-group"><input type="text" class="form-control" placeholder="Input Voucher">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="input-group"><input type="submit" class="form-control btn-warning text-white"
-                            Value="Claim">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-{{-- Modal Poin Reward --}}
-
-<div class="modal fade" id="poinReward" tabindex="-1" aria-labelledby="poinRewardLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="poinRewardLabel">Poin Reward</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bx bx-x text-danger"></i></button>
-            </div>
-            <form class="modal-body">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="fw-bolder">Nama Pelanggan</h6>
-                        <span>Jumlah Poin : <b>10</b> </span>
-                    </div>
-                </div>
-                <select class="form-select mb-3" aria-label="Default select example">
-                    <option selected>Pilih Reward</option>
-                    <option value="1">Potongan Harga</option>
-                    <option value="2">Gratis Produk</option>
-                </select>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Pilih Produk</option>
-                    <option value="1">Produk Reward - 1</option>
-                    <option value="1">Produk Reward - 2</option>
-                    <option value="1">Produk Reward - 3</option>
-                    <option value="1">Produk Reward - 4</option>
-                </select>
-                <div id="textHelp" class="form-text mb-3">Muncul Jika reward yang dipilih adalah gratis produk</div>
-                <button type="submit" class="btn btn-warning w-100 text-white">Reedem</button>
-            </form>
-        </div>
-    </div>
 </div>

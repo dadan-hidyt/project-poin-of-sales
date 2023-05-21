@@ -30,13 +30,23 @@
             </li>
         </ul>
     </div>
-    {{-- <div class="point_form d-flex align-items-center justify-content-between gap-2 mt-3">
-        <div class="point d-flex align-items-center gap-1">
-            <p class="mb-0">Tukarkan Point</p><i class='bx bx-info-circle'></i><span>Rp.3000</span>
+    <div class="voucher_form d-flex justify-content-between gap-2 mt-4">
+        <input type="text" class="form-control" placeholder="Masukan kode voucher"><button class="btn">Pakai</button>
+    </div>
+    <div class="py-3">
+        <div class="point_form d-flex align-items-center justify-content-between gap-2 p-0">
+            <select name="" id="variasi" class="form-control py-2" style="font-size: 14px !important;">
+                <option selected>Pilih Reward</option>
+                <option value="Original">Potongan Harga</option>
+                <option value="Pedas">Produk</option>
+            </select>
+            <button class="btn btn-warning text-white">Pakai</button>
         </div>
-        <input id="s1" type="checkbox" class="switch">
-    </div> --}}
-    <div class="btn_group gap-2 mt-4 w-100" style="height:42px ;">
+        <div id="emailHelp" class="form-text py-2 d-flex align-items-center">
+            <i class="bx bx-info-circle me-2"></i><span>Poin Pelanggan : {{ $pesanan->pelanggan->poin ?? '' }}</span>
+        </div>
+    </div>
+    <div class="btn_group gap-2 w-100" style="height:42px ;">
         @if ($pesanan->detail_pesanan->count() != 0)
             {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran-simpan"
                 class="btn btn-warning text-white fs-6 fw-normal">
@@ -48,8 +58,7 @@
             </button> --}}
 
             <form action="{{ route('kasir.pesanan.bayar',$pesanan->kode_pesanan) }}">
-                <label for="">Pilih Metode Pembayaran <span class="text-danger">*</span> </label>
-                <select class="form-select mt-2" aria-label=".form-select-sm lanjutkan pembayaran" name="metode">
+                <select class="form-select" aria-label=".form-select-sm lanjutkan pembayaran" name="metode">
                     <option selected>Pilih Metode Pembayaran</option>
                     <option value="cash">Cash</option>
                     <option value="transfer">Transfer</option>

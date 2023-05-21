@@ -18,6 +18,7 @@
                                         <th>Subtotal</th>
                                         <th>Dana Masuk</th>
                                         <th>Kembalian</th>
+                                        <th>Jenis Pesan</th>
                                         <th>Refund</th>
                                         <th>Action</th>
                                     </tr>
@@ -34,6 +35,7 @@
                                         <td class="text-info">Rp.{{ formatRupiah($item->jumlah + $item->jumlah_pajak ?? 0) }}</td>
                                         <td class="text-success">Rp.{{ formatRupiah($item->jmlh_bayar) }}</td>
                                         <td class="text-info">Rp.{{ formatRupiah($item->jmlh_bayar - ($item->jumlah + $item->jumlah_pajak ?? 0) ?? '') }}</td>
+                                        <td>Take Away</td>
                                         <td>
                                             @if ($item->refund)
                                                 @if ($item->refund->status === 'Y')

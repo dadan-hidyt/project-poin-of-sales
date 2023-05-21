@@ -49,8 +49,8 @@
                                         {{ number_format($item->produk->harga_jual * $item->qty, 2, ',', '.') }}</p>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <p class="mb-1 ">Catatan :</p>
-                                    <p style="font-style: italic;">Cepat</p>
+                                    <p class="mb-1 fw-bolder">Catatan :</p>
+                                    <p>{{ $item->catatan }}</p>
                                 </div>
                             </div>
                         </div>
@@ -75,27 +75,19 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="pick_detail_img">
-                                        <img src="assets/img/product/product31.jpg" alt="">
+                                        <img src="{{ asset('storage/' . $item->produk->gambar_produk) }}" alt="{{ $item->produk->gambar_produk }}">
                                     </div>
                                     <div class="productprice mt-3">
-                                        <h4 class="mb-1 fw-bold">Orange</h4>
-                                        <h5>Rp. 40.000,00</h5>
+                                        <h4 class="mb-1 fw-bold">{{ $item->produk->nama_produk }}</h4>
+                                        <h5>Rp.{{ number_format($item->produk->harga_jual, 2, ',', '.') }}</h5>
                                     </div>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, ab! Explicabo
                                         aperiam similique deserunt eius!</p>
-                                    <div class="increment-decrement">
-                                        <div class="input-groups">
-                                            <input type="button" value="-" class="button-minus dec button">
-                                            <input type="text" name="child" value="0" class="quantity-field">
-                                            <input type="button" value="+" class="button-plus inc button">
-                                        </div>
-                                    </div>
                                 </div>
                                 <form action="" class="col-6 form_selectproduct">
                                     <div class="form-group">
                                         <label for="variasi">Pilih Variasi</label>
-                                        <select name="" id="variasi" class="form-control"
-                                            style="font-size: 14px !important;">
+                                        <select name="variant[]" id="variasi" class="form-control js-example-basic-multiple" style="font-size: 14px !important;" multiple="multiple">
                                             <option value="Original">Original</option>
                                             <option value="Pedas">Pedas</option>
                                             <option value="Pedas2">Pedas Banget</option>
@@ -104,6 +96,10 @@
                                     <div class="form-group">
                                         <label for="">Catatan</label>
                                         <textarea name="" id="" class="form-control"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Jumlah Menu <span class="text-danger">*</span></label>
+                                        <input type="number" wire:model.defer='item_pesanan.qty' maxlength="{{ $item->stok }}" minlength="1" value="1" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" class="btn btn_addorder" value="Ubah Pesanan">
@@ -118,3 +114,4 @@
     @endif
 
 </div>
+
