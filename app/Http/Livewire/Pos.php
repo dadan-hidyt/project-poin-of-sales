@@ -57,7 +57,8 @@ class Pos extends Component
                     $poin += $item->jumlah_poin;
                 }
                 if ( $this->pesanan->pelanggan ) {
-                    $this->pesanan->pelanggan->update(['poin'=>$poin]);
+                    $this->pesanan->pelanggan->poin = $poin;
+                    $this->pesanan->pelanggan->save();
                 }
                 $this->dispatchBrowserEvent('reward_di_claim', [
                     'total' => count($poin_reward),
@@ -76,7 +77,7 @@ class Pos extends Component
         $kupon = Kupon::where('kode_kupon',$this->kode_voucher)->where('jumlah_sisa','>',0)->first();
         if ( $kupon ) {
             Pesanan::find($this->pesanan->id)->update(['kode_voucher'=>$this->kode_voucher,'jumlah_potongan_voucher'=>$kupon->jumlah_potongan]);
-            $this->emit('refreshComponent');
+            $this->emit('refreaahComponent');
         }  else {
            $this->dispatchBrowserEvent('voucher_tidak_ditemukan');
         }
