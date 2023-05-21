@@ -239,7 +239,7 @@
 
 {{-- Modal Voucher Claim --}}
 
-<div class="modal fade" id="voucherClaim" tabindex="-1" aria-labelledby="voucherClaimLabel" aria-hidden="true">
+<div class="modal fade" wire:ignore id="voucherClaim" tabindex="-1" aria-labelledby="voucherClaimLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -247,9 +247,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                         class="bx bx-x text-danger"></i></button>
             </div>
-            <form class="modal-body">
+            <form wire:submit.prevent='claimVoucher' method='post' class="modal-body">
                 <div class="mb-3">
-                    <div class="input-group"><input type="text" class="form-control" placeholder="Input Voucher">
+                    <div class="input-group"><input wire:model='voucher.kode_voucher' type="text" class="form-control" placeholder="Input Voucher">
                     </div>
                 </div>
                 <div class="mb-3">
@@ -263,7 +263,7 @@
 </div>
 
 {{-- Modal Poin Reward --}}
-
+ 
 <div class="modal fade" id="poinReward" tabindex="-1" aria-labelledby="poinRewardLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

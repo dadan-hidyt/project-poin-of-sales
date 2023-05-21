@@ -52,8 +52,9 @@
                 <select class="form-select mt-2" aria-label=".form-select-sm lanjutkan pembayaran" name="metode">
                     <option selected>Pilih Metode Pembayaran</option>
                     <option value="cash">Cash</option>
+                    <option value="debit">Debit</option>
+                    <option value="ewalet">E-Wallet</option>
                     <option value="transfer">Transfer</option>
-                    <option value="qris">E-Wallet</option>
                 </select>
                 
                 <button type="submit" class="btn btn-success w-100 mt-4">

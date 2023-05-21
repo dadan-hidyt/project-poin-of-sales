@@ -94,7 +94,7 @@ class Pembayaran extends Component
         }
         $this->emit('refresh_jumlah_bayar');
     }
-
+  
     public function render()
     {
         return view('livewire.pembayaran');
