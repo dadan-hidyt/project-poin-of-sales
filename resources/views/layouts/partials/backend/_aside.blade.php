@@ -117,13 +117,13 @@
                     </div>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a target="_blank" href="{{ route('dashboard.refund') }}" class="menu-link"><i class="menu-icon flaticon-interface-9"></i><span class="menu-text">Refund</span></a>
+                    <a href="{{ route('dashboard.refund') }}" class="menu-link"><i class="menu-icon flaticon-interface-9"></i><span class="menu-text">Refund</span></a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a target="_blank" href="{{ route('dashboard.promo.kupon.show') }}" class="menu-link"><i class="menu-icon flaticon-interface-9"></i><span class="menu-text">Kupon</span></a>
+                    <a href="{{ route('dashboard.promo.kupon.show') }}" class="menu-link"><i class="menu-icon flaticon-interface-9"></i><span class="menu-text">Kupon</span></a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a target="_blank" href="{{ route('dashboard.pelanggan.show') }}" class="menu-link"><i class="menu-icon flaticon2-user"></i><span class="menu-text">Pelanggan</span></a>
+                    <a href="{{ route('dashboard.pelanggan.show') }}" class="menu-link"><i class="menu-icon flaticon2-user"></i><span class="menu-text">Pelanggan</span></a>
                 </li>
 
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -198,10 +198,10 @@
                     </div>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a target="_blank" href="{{ route('dashboard.akun_saya') }}" class="menu-link"><i class="menu-icon flaticon-profile-1"></i><span class="menu-text">Akun Saya</span></a>
+                    <a href="{{ route('dashboard.akun_saya') }}" class="menu-link"><i class="menu-icon flaticon-profile-1"></i><span class="menu-text">Akun Saya</span></a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a target="_blank" href="{{ route('dashboard.logout') }}" class="menu-link"><i class="menu-icon flaticon-logout"></i><span class="menu-text">Keluar</span></a>
+                    <a href="{{ route('dashboard.logout') }}" class="menu-link"><i class="menu-icon flaticon-logout"></i><span class="menu-text">Keluar</span></a>
                 </li>
             </ul>
 

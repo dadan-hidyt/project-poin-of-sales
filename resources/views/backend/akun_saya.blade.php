@@ -1,5 +1,6 @@
 @extends('layouts.backend')
 
+
 @section('main')
     <div class="container-fluid">
         <div class="card card-custom">
@@ -20,6 +21,10 @@
                     <div class="form-group">
                         <label for="email">Alamat Email</label>
                         <input type="text" value="{{ auth()->user()->email }}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Kode Aksess</label>
+                        <input type="text" value="{{ auth()->user()->login_token }}" class="form-control" disabled>
                     </div>
                     <h4>Password</h4>
                     <hr>
@@ -48,4 +53,8 @@
             </div>
         </div>
     </div>
+    
+
 @endsection
+
+

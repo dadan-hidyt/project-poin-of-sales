@@ -18,6 +18,7 @@ Route::get('transaksi/semua', [HomeController::class, 'allTrans'])->name('.all_t
 Route::get('transaksi/refund', [HomeController::class, 'refundTrans'])->name('.refund_transaktion');
 Route::get('transaksi/void', [HomeController::class, 'voidTrans'])->name('.void_transaktion');
 Route::get('transaksi/belum-bayar', [HomeController::class, 'belumBayar'])->name('.belum_bayar');
+Route::get('transaksi/takeaway', [HomeController::class, 'takeAway'])->name('.take-away');
 
 Route::get('laporan-penjualan', [HomeController::class, 'laporanPenjualan'])->name('.laporan_penjualan');
 

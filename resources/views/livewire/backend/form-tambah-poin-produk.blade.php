@@ -74,14 +74,13 @@
                     <label for="poinrewardname" class="form-label" style="width:20%;">Atur Produk<span
                             class="text-danger">*</span></label>
                     <div class="d-flex flex-column" style="width:80%;">
-                        <select wire:model='data.id_produk' multiple class="form-control">
+                        <select wire:model='data.id_produk' multiple class="form-control select2-product py-3">
                             <option value="">--Pilih Produk--</option>
                             @foreach ($this->produk as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama_produk }} - Rp.
                                     {{ formatRupiah($item->harga_jual) }}</option>
                             @endforeach
                         </select>
-                        <div id="emailHelp" class="form-text mt-2">Lebih Baik kalo dijadikan multiple select</div>
                     </div>
                 </div>
                 

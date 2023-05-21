@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 //class home controller
 class HomeController extends Controller
 {
-    
+
     public function TutupKasir()
     {
         $this->setTitle('Tutup Kasir');
@@ -37,9 +37,9 @@ class HomeController extends Controller
     {
         $this->setTitle('Transaksi Refund');
         $kasir_id = auth()->user()->getKasir()->id ?? null;
-        abort_if(is_null($kasir_id),403);
-        return view('kasir.transaksi.refund',[
-            'refund' => Refund::with('transaksi','user')->where('id_kasir',$kasir_id)->get(),
+        abort_if(is_null($kasir_id), 403);
+        return view('kasir.transaksi.refund', [
+            'refund' => Refund::with('transaksi', 'user')->where('id_kasir', $kasir_id)->get(),
         ]);
     }
     public function voidTrans()
@@ -51,15 +51,16 @@ class HomeController extends Controller
     {
         $this->setTitle('Belum Bayar');
         $kasir_id = auth()->user()->getKasir()->id;
-        $pesanan = Pesanan::where(['id_kasir'=>$kasir_id])->get();
+        $pesanan = Pesanan::where(['id_kasir' => $kasir_id])->get();
         return view('kasir.transaksi.belum-bayar', compact('pesanan'));
     }
-    public function penghasilanByMetodePembayaran() {
+    public function penghasilanByMetodePembayaran()
+    {
         $id_kasir = auth()->user()->getKasir()->id;
-        $cash = formatRupiah(Transaksi::where(['metode_pembayaran'=>'cash','id_kasir'=>$id_kasir])->sum('jumlah'));
-        $ewalet = formatRupiah(Transaksi::where(['metode_pembayaran'=>'ewalet','id_kasir'=>$id_kasir])->sum('jumlah'));
-        $debit = formatRupiah(Transaksi::where(['metode_pembayaran'=>'debit','id_kasir'=>$id_kasir])->sum('jumlah'));
-        return compact('cash','ewalet','debit');
+        $cash = formatRupiah(Transaksi::where(['metode_pembayaran' => 'cash', 'id_kasir' => $id_kasir])->sum('jumlah'));
+        $ewalet = formatRupiah(Transaksi::where(['metode_pembayaran' => 'ewalet', 'id_kasir' => $id_kasir])->sum('jumlah'));
+        $debit = formatRupiah(Transaksi::where(['metode_pembayaran' => 'debit', 'id_kasir' => $id_kasir])->sum('jumlah'));
+        return compact('cash', 'ewalet', 'debit');
     }
     public function laporanPenjualan()
     {
@@ -70,17 +71,17 @@ class HomeController extends Controller
         $peng_bersih = 0;
         foreach ($trx as $tr) {
             $peng += $tr->jumlah;
-            if ( $tr->detailTransaksi) {
-              foreach($tr->detailTransaksi as $trs){
-                $peng_bersih += $trs->produk->harga_modal;
-              }
+            if ($tr->detailTransaksi) {
+                foreach ($tr->detailTransaksi as $trs) {
+                    $peng_bersih += $trs->produk->harga_modal;
+                }
             }
         }
 
         $kas = auth()->user()->getkasir()->kas_awal ?? 0;
         $sisa_kas = auth()->user()->getkasir()->sisa_kas ?? 0;
-    
-        $belumBayar = Pesanan::where(['id_kasir'=>$kasir_id])->count();
+
+        $belumBayar = Pesanan::where(['id_kasir' => $kasir_id])->count();
         $this->setTitle('Laporan Penjualan');
         return view('kasir.laporan-penjualan', [
             'kas' => $kas,
@@ -92,7 +93,7 @@ class HomeController extends Controller
             'belum_bayar' => $belumBayar,
             'pelanggan' => Pelanggan::count(),
             'history_penjualan' => HistoryPengeluaranKasir::where('id_kasir', $kasir_id)->get(),
-            
+
         ]);
     }
 
@@ -103,5 +104,12 @@ class HomeController extends Controller
         return view('kasir.daftar-pelanggan', [
             'pelanggan' => Pelanggan::all(),
         ]);
+    }
+
+
+    public function takeAway()
+    {
+        $this->setTitle('Pesanan TakeAway');
+        return view('kasir.take-away');
     }
 }

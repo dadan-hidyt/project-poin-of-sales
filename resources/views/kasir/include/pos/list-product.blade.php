@@ -57,12 +57,11 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1" class="form-label">Pilih Varian <span class="text-danger">*</span></label>
                                             
-                                            <select wire:model='item_pesanan.varian' name="" id="variasi" class="form-control"
-                                            style="font-size: 14px !important;">
+                                            <select wire:model='item_pesanan.varian' name="" id="variasi" class="form-control js-example-basic-multiple" style="font-size: 14px !important;" multiple="multiple">
                                                 <option selected value="">--Pilih Varian--</option>
                                                 @foreach ($item->varian as $item1)
                                                     <option value="{{ $item1->nama_varian }}">
-                                                        {{ $item1->nama_varian }}</option>
+                                                        {{ $item1->nama_varian }} - Rp.1000</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -89,5 +88,6 @@
     @else
         <span>Tidak ada produk dengan kata kunci <b>{{ $search_term }}</b></span>
     @endempty
+
 
 </div>

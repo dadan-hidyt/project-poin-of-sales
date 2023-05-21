@@ -155,9 +155,10 @@
                                 <span>Riwayat Transaksi</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="{{ route('kasir.all_transaktion') }}">Semua</a></li>
+                                <li><a href="{{ route('kasir.take-away') }}">TakeAway</a></li>
+                                <li><a href="{{ route('kasir.belum_bayar') }}">Belum Bayar</a></li>
                                 <li><a href="{{ route('kasir.refund_transaktion') }}">Refund</a></li>
                                 <li><a href="{{ route('kasir.void_transaktion') }}">Void</a></li>
-                                <li><a href="{{ route('kasir.belum_bayar') }}">Belum Bayar</a></li>
                             </ul>
                         </li>
                         <li>
@@ -281,6 +282,9 @@
                 allowClear: true
             });
         });
+
+
+
         window.addEventListener('nominal_kosong',function(){
             notyf.error("Nominal Tidak Boleh Kosong kakak")
         })

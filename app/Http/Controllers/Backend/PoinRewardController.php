@@ -9,14 +9,15 @@ use Illuminate\Http\Request;
 class PoinRewardController extends Controller
 {
     //
-    public function deletePoinRewardPembelian($id = null) {
-        if ( is_null($id) ) {
+    public function deletePoinRewardPembelian($id = null)
+    {
+        if (is_null($id)) {
             abort(404);
         }
-       $id = PoinRewardPembelian::findOrFail($id);
-       if ( $id->delete() ) {
+        $id = PoinRewardPembelian::findOrFail($id);
+        if ($id->delete()) {
             return redirect()->back()->with('sukses', "Data Berhasil di hapus");
-       }
+        }
     }
     public function index()
     {
@@ -36,5 +37,12 @@ class PoinRewardController extends Controller
         return view('backend.poin.daftar_poin', [
             'poin' => PoinRewardPembelian::all(),
         ]);
+    }
+
+
+    public function setting()
+    {
+        $this->setTitle("Pengaturan Reward");
+        return view('backend.poin.pengaturan');
     }
 }
