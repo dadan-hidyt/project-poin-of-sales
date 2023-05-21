@@ -31,19 +31,20 @@
         </ul>
     </div>
     <div class="voucher_form d-flex justify-content-between gap-2 mt-4">
-        <input type="text" class="form-control" placeholder="Masukan kode voucher"><button class="btn">Pakai</button>
+        <input type="text" class="form-control" wire:model='kode_voucher' placeholder="Masukan kode voucher">
+        <button wire:click='setKodeVoucher' class="btn">Pakai</button>
     </div>
     <div class="py-3">
         <div class="point_form d-flex align-items-center justify-content-between gap-2 p-0">
-            <select name="" id="variasi" class="form-control py-2" style="font-size: 14px !important;">
+            <select wire:model='reward.type' name="" id="variasi" class="form-control py-2" style="font-size: 14px !important;">
                 <option selected>Pilih Reward</option>
-                <option value="Original">Potongan Harga</option>
-                <option value="Pedas">Produk</option>
+                <option value="potongan_harga">Potongan Harga</option>
+                <option value="produk">Produk</option>
             </select>
-            <button class="btn btn-warning text-white">Pakai</button>
+            <button wire:click='reward' class="btn btn-warning text-white">Pakai</button>
         </div>
         <div id="emailHelp" class="form-text py-2 d-flex align-items-center">
-            <i class="bx bx-info-circle me-2"></i><span>Poin Pelanggan : {{ $pesanan->pelanggan->poin ?? '' }}</span>
+            <i class="bx bx-info-circle me-2"></i><span>Poin Pelanggan : {{ $pesanan->pelanggan->poin ?? '0' }}</span>
         </div>
     </div>
     <div class="btn_group gap-2 w-100" style="height:42px ;">

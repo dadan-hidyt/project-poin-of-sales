@@ -8,6 +8,9 @@ use App\Models\Pesanan;
 use App\Models\Product;
 use Livewire\Component;
 use App\Models\Kupon;
+use App\Models\PoinRewardPembelian;
+use Carbon\Carbon;
+
 class Pos extends Component
 {
     public $kategori;
@@ -22,6 +25,10 @@ class Pos extends Component
 
     public $pesanan;
 
+    public $reward = [];
+    
+    public $rewards;
+
     protected $listeners = ['refreshComponent','clearDetailPesanan'];
 
     public $transaksi = [];
@@ -32,15 +39,47 @@ class Pos extends Component
     {
         $this->pesanan = $this->pesanan;
     }
-
+    public function reward(){
+        $type = $this->reward['type'] ?? null;
+        if ( $type ) {
+            if ( $type == 'potongan_harga' ) {
+                $total = $this->pesanan->hitungPesanan('subtotal');
+                $poin_reward = PoinRewardPembelian::all()->filter(function($row) use($total){
+                    if ( Carbon::now()->between($row->tanggal_mulai, $row->tanggal_berakhir) ) {
+                        if ( $total >= $row->min_pembelian  ) {
+                            if ( $row->semua_hari == 1) return $row;
+                         }
+                    }
+                });
+                $this->pesanan->update(['reward_pembelian'=>json_encode($poin_reward)]);
+                $poin = 0;
+                foreach ($poin_reward as $item){
+                    $poin += $item->jumlah_poin;
+                }
+                if ( $this->pesanan->pelanggan ) {
+                    $this->pesanan->pelanggan->update(['poin'=>$poin]);
+                }
+                $this->dispatchBrowserEvent('reward_di_claim', [
+                    'total' => count($poin_reward),
+                ]);
+                $this->emit('refreshComponent');
+            }
+        } else {
+            $this->dispatchBrowserEvent('voucher_tidak_ditemukan');
+        }
+    }
     public function getDetailProduk()
     {
     }
     public function setKodeVoucher(){
         //get Kupon
         $kupon = Kupon::where('kode_kupon',$this->kode_voucher)->where('jumlah_sisa','>',0)->first();
-        Pesanan::find($this->pesanan->id)->update(['kode_voucher'=>$this->kode_voucher,'jumlah_potongan_voucher'=>$kupon->jumlah_potongan]);
-        $this->emit('refreshComponent');
+        if ( $kupon ) {
+            Pesanan::find($this->pesanan->id)->update(['kode_voucher'=>$this->kode_voucher,'jumlah_potongan_voucher'=>$kupon->jumlah_potongan]);
+            $this->emit('refreshComponent');
+        }  else {
+           $this->dispatchBrowserEvent('voucher_tidak_ditemukan');
+        }
     }
     public function updated()
     {
@@ -64,6 +103,7 @@ class Pos extends Component
     }
     public function mount()
     {
+       
         if ($this->pesanan->kode_voucher) {
             $this->kode_voucher = $this->pesanan->kode_voucher;
         }
