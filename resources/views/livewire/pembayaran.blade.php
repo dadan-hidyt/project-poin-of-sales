@@ -11,6 +11,15 @@
             </div>
         </div>
     @endif
+    @if (session('pembayaran_berhasil'))
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success" role="alert">
+                    {{ session('pembayaran_berhasil') }}
+                </div>
+            </div>
+        </div>
+    @endif
 
     <div class="row">
 
@@ -223,7 +232,6 @@
             </div>
         </div>
     </form>
-<<<<<<< HEAD
 </div>
 
 {{-- Modal Voucher Claim --}}
@@ -286,6 +294,4 @@
         </div>
     </div>
 </div>
-=======
 </div>
->>>>>>> 158c32f03e16afc6ff211a6b7d89e25d6b6c60fc

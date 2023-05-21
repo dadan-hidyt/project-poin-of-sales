@@ -3,8 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Models\DetailTransaksi;
+use App\Models\PoinRewardPembelian;
 use App\Models\Product;
 use App\Models\Transaksi;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use PDOException;
@@ -22,8 +24,8 @@ class Pembayaran extends Component
     public function refresh_jumlah_bayar()
     {
         $this->jumlah_bayar = $this->jumlah_bayar;
-        $total = $this->pesanan->hitungPesanan('subtotal')+$this->pesanan->hitungPesanan('pajak');
-        if ( $total != $this->jumlah_bayar ) {
+        $total = $this->pesanan->hitungPesanan('subtotal') + $this->pesanan->hitungPesanan('pajak');
+        if ($total != $this->jumlah_bayar) {
             $this->kembalian = $this->jumlah_bayar - $total;
         } else {
             $this->kembalian = 0;
@@ -34,54 +36,88 @@ class Pembayaran extends Component
     {
         $this->jumlah_bayar = $this->jumlah_bayar;
     }
+    public function claimPoinPembelian()
+    {
+        $total_pembelian = $this->pesanan->hitungPesanan('subtotal');
+        if ($jenis_reward = $this->pesanan->jenis_reward) {
+            switch ($jenis_reward) {
+                case 'pembelian':
+                    $reward = PoinRewardPembelian::all()->filter(function ($item) use ($total_pembelian) {
+                        if (Carbon::now()->between($item->tanggal_mulai, $item->tanggal_berakhir) && $total_pembelian >= $item->min_pembelian) {
+                            return $item;
+                        }
+                    });
+                    $poin = 0;
+                    foreach ($reward as $item) {
+                        $poin += $item->jumlah_poin;
+                    }
+                    if ($pelanggan = $this->pesanan->pelanggan) {
+                        $pelanggan->poin += $poin;
+                        $pelanggan->save();
+                    }
+                    return $reward;
+                    break;
 
+                default:
+                    # code...
+                    break;
+            }
+        }
+    }
     public function bayar()
     {
-        $id_kasir = auth()->user()->getKasir()->id;
-        $kode_transaksi = uniqid("TRX-");
-        DB::beginTransaction();
-        foreach ($this->pesanan->detail_pesanan as $pesanan) {
-            $total_pajak = $pesanan->produk->harga_jual * ($pesanan->produk->pajak / 100);
-            $subtotal = $pesanan->produk->harga_jual * $pesanan->qty;
-            $detail = [
-                'kode_transaksi' => $kode_transaksi,
-                'kode_produk' => $pesanan->id_produk,
-                'jumlah' => $pesanan->qty,
-                'harga' => $pesanan->produk->harga_jual,
-                'total_pajak' => $total_pajak,
-                'subtotal' => $subtotal,
-                'persentase_pajak' => $pesanan->produk->pajak,
-                'total' => $total_pajak + $subtotal,
-            ];
-            DB::table('tb_detail_transaksi')->insert($detail);
+        if (!$this->jumlah_bayar) {
+            $this->dispatchBrowserEvent('nominal_kosong');
+        } else {
+            $id_kasir = auth()->user()->getKasir()->id;
+            $kode_transaksi = uniqid("TRX-");
+            DB::beginTransaction();
+            foreach ($this->pesanan->detail_pesanan as $pesanan) {
+                $total_pajak = $pesanan->produk->harga_jual * ($pesanan->produk->pajak / 100);
+                $subtotal = $pesanan->produk->harga_jual * $pesanan->qty;
+                $detail = [
+                    'kode_transaksi' => $kode_transaksi,
+                    'kode_produk' => $pesanan->id_produk,
+                    'jumlah' => $pesanan->qty,
+                    'harga' => $pesanan->produk->harga_jual,
+                    'total_pajak' => $total_pajak,
+                    'subtotal' => $subtotal,
+                    'persentase_pajak' => $pesanan->produk->pajak,
+                    'total' => $total_pajak + $subtotal,
+                ];
+                DB::table('tb_detail_transaksi')->insert($detail);
 
-            $produk = Product::find($pesanan->id_produk);
-            $produk->sisa_stok = ($produk->sisa_stok - $pesanan->qty);
-            $produk->save();
-        }
+                $produk = Product::find($pesanan->id_produk);
+                $produk->sisa_stok = ($produk->sisa_stok - $pesanan->qty);
+                $produk->save();
+            }
 
-        try {
-            $create_transaksi = DB::table('tb_transaksi')->insert([
-                'kode_transaksi' => $kode_transaksi,
-                'tanggal_order' => now(),
-                'type_order' => "FREE TABLE",
-                'id_pelanggan' => $this->pesanan->id_pelanggan == null ? NULL : $this->pesanan->id_pelanggan,
-                'id_metode_pembayaran' => 1,
-                'total_pajak' => $this->pesanan->hitungPesanan('pajak'),
-                'catatan' => 3,
-                'status_pembayaran' => "DIBAYAR",
-                'id_kasir' => $id_kasir,
-                'jumlah' => $this->pesanan->hitungPesanan('subtotal'),
-                'jmlh_bayar' => $this->jumlah_bayar,
-                'metode_pembayaran' => $this->metode,
-            ]);
-            DB::commit();
-            $this->pesanan->detail_pesanan()->truncate();
-            $this->pesanan->delete();
-            return redirect()->route('kasir.cetak_struk', $kode_transaksi);
-        } catch (PDOException $th) {
-            DB::rollBack();
-            throw $th;
+            try {
+                $reward = $this->claimPoinPembelian();
+                $create_transaksi = DB::table('tb_transaksi')->insert([
+                    'kode_transaksi' => $kode_transaksi,
+                    'tanggal_order' => now(),
+                    'type_order' => "FREE TABLE",
+                    'id_pelanggan' => $this->pesanan->id_pelanggan == null ? NULL : $this->pesanan->id_pelanggan,
+                    'id_metode_pembayaran' => 1,
+                    'total_pajak' => $this->pesanan->hitungPesanan('pajak'),
+                    'catatan' => 3,
+                    'reward_pembelian' => $reward,
+                    'status_pembayaran' => "DIBAYAR",
+                    'id_kasir' => $id_kasir,
+                    'jumlah' => $this->pesanan->hitungPesanan('subtotal'),
+                    'jmlh_bayar' => $this->jumlah_bayar,
+                    'metode_pembayaran' => $this->metode,
+                ]);
+                DB::commit();
+                $this->pesanan->detail_pesanan()->truncate();
+                $this->pesanan->delete();
+                session()->flash('pembayaran_berhasil', "Pembayaran berhasil!! Silahkan tunggu untuk mencetak struk");
+                return redirect()->route('kasir.cetak_struk', $kode_transaksi);
+            } catch (PDOException $th) {
+                DB::rollBack();
+                throw $th;
+            }
         }
     }
 
@@ -94,7 +130,7 @@ class Pembayaran extends Component
         }
         $this->emit('refresh_jumlah_bayar');
     }
-  
+
     public function render()
     {
         return view('livewire.pembayaran');

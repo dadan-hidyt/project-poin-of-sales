@@ -38,13 +38,13 @@
         <div class="point_form d-flex align-items-center justify-content-between gap-2 p-0">
             <select wire:model='reward.type' name="" id="variasi" class="form-control py-2" style="font-size: 14px !important;">
                 <option selected>Pilih Reward</option>
-                <option value="potongan_harga">Potongan Harga</option>
+                <option value="pembelian">Potongan Harga</option>
                 <option value="produk">Produk</option>
             </select>
             <button wire:click='reward' class="btn btn-warning text-white">Pakai</button>
         </div>
         <div id="emailHelp" class="form-text py-2 d-flex align-items-center">
-            <i class="bx bx-info-circle me-2"></i><span>Poin Pelanggan : {{ $pesanan->pelanggan->poin ?? '0' }}</span>
+            <i class="bx bx-info-circle me-2"></i><span>Poin Pelanggan : {{ $pesanan->pelanggan->poin ?? 'Tidak Ada Poin' }}</span>
         </div>
     </div>
     <div class="btn_group gap-2 w-100" style="height:42px ;">

@@ -117,16 +117,35 @@
                 @endforeach
             </table>
             <span>-----------------------------------------------------------------------------------</span>
-
+            <div style="float:left;">
+                @if ($transaksi->reward_pembelian)
+                @php
+                    $poin = 0;
+                @endphp
+                <div><b>Reward:</b></div>
+                    @foreach (json_decode($transaksi->reward_pembelian,true) as $item)
+                        {{ $loop->iteration }}. {{ $item['nama_point_reward']}} &nbsp;+{{$item['jumlah_poin']}} Poin
+                        @php
+                            $poin += $item['jumlah_poin']
+                        @endphp
+                        <br>
+                    @endforeach
+                @endif
+            </div>
+            <div class="clearfix"></div>
             <div class="right">
                 <div>
-                    Subtotal &nbsp;&nbsp; : &nbsp;&nbsp; Rp. {{ formatRupiah($transaksi->jumlah) }}
+                    Subtotal &nbsp;&nbsp;  Rp. {{ formatRupiah($transaksi->jumlah) }}
 
                 </div>
                 <div>
-                    Pajak &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; {{ formatRupiah($transaksi->total_pajak) }}
+                    Pajak &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{ formatRupiah($transaksi->total_pajak) }}
+                </div>
+                <div>
+                    Poin Yang Di dapatkan {{ $poin ?? 0 }}
                 </div>
             </div>
+           
             <div class="clearfix"></div>
             <span>-----------------------------------------------------------------------------------</span>
                 <div class="subtotal">Subtotal: Rp. {{ formatRupiah($transaksi->jumlah + ($transaksi->total_pajak ?? 0)) }}</div>

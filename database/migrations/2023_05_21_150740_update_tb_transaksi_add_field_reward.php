@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tb_pesanan', function (Blueprint $table) {
-            $table->json('reward_pembelian')->nullable();
-            $table->json('reward_produk')->nullable();
+        Schema::table('tb_transaksi', function($table){
+            $table->json('reward_pembelian')->after('metode_pembayaran')->nullable();
+            $table->json('reward_produk')->after('metode_pembayaran')->nullable();
         });
     }
 

@@ -281,6 +281,9 @@
                 allowClear: true
             });
         });
+        window.addEventListener('nominal_kosong',function(){
+            notyf.error("Nominal Tidak Boleh Kosong kakak")
+        })
     </script>
 </body>
 

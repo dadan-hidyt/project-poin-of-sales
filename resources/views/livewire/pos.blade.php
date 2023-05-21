@@ -97,8 +97,8 @@
         window.addEventListener('voucher_tidak_ditemukan', () => {
             notyf.error('Kode Voucher tidak di temukan!');
         });
-        window.addEventListener('reward_di_claim', (e) => {
-            notyf.success(`Reward Berhasil Di Claim (${e.detail.total}) Reward`);
+        window.addEventListener('reward_berhasil_di_set', (e) => {
+            notyf.success(`Reward Berhasil Di Claim`);
         });
         window.addEventListener('detail_pesanan_di_bersihkan', () => {
             notyf.success('Semua item pesanan berhasil di bersihkan!');

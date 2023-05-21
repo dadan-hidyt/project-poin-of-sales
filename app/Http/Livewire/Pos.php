@@ -35,39 +35,17 @@ class Pos extends Component
 
     public $item_pesanan;
 
+    public $is_reward = false;
+
     public function refreshComponent()
     {
         $this->pesanan = $this->pesanan;
     }
     public function reward(){
-        $type = $this->reward['type'] ?? null;
-        if ( $type ) {
-            if ( $type == 'potongan_harga' ) {
-                $total = $this->pesanan->hitungPesanan('subtotal');
-                $poin_reward = PoinRewardPembelian::all()->filter(function($row) use($total){
-                    if ( Carbon::now()->between($row->tanggal_mulai, $row->tanggal_berakhir) ) {
-                        if ( $total >= $row->min_pembelian  ) {
-                            if ( $row->semua_hari == 1) return $row;
-                         }
-                    }
-                });
-                $this->pesanan->update(['reward_pembelian'=>json_encode($poin_reward)]);
-                $poin = 0;
-                foreach ($poin_reward as $item){
-                    $poin += $item->jumlah_poin;
-                }
-                if ( $this->pesanan->pelanggan ) {
-                    $this->pesanan->pelanggan->poin = $poin;
-                    $this->pesanan->pelanggan->save();
-                }
-                $this->dispatchBrowserEvent('reward_di_claim', [
-                    'total' => count($poin_reward),
-                ]);
-                $this->emit('refreshComponent');
-            }
-        } else {
-            $this->dispatchBrowserEvent('voucher_tidak_ditemukan');
-        }
+       $this->pesanan->update(['jenis_reward' => $this->reward['type'] ?? null]);
+       $this->emit('refreshComponent');
+       $this->is_reward = true;
+       $this->dispatchBrowserEvent('reward_berhasil_di_set');
     }
     public function getDetailProduk()
     {
