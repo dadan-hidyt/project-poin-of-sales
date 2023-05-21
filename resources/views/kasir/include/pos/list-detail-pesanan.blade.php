@@ -36,7 +36,7 @@
         </div>
         <input id="s1" type="checkbox" class="switch">
     </div> --}}
-    <div class="btn_group gap-2 mt-5 w-100" style="height:42px ;">
+    <div class="btn_group gap-2 mt-4 w-100" style="height:42px ;">
         @if ($pesanan->detail_pesanan->count() != 0)
             {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#pilihPembayaran-simpan"
                 class="btn btn-warning text-white fs-6 fw-normal">
@@ -48,7 +48,15 @@
             </button> --}}
 
             <form action="{{ route('kasir.pesanan.bayar',$pesanan->kode_pesanan) }}">
-                <button type="submit" class="btn btn-success w-100">
+                <label for="">Pilih Metode Pembayaran <span class="text-danger">*</span> </label>
+                <select class="form-select mt-2" aria-label=".form-select-sm lanjutkan pembayaran" name="metode">
+                    <option selected>Pilih Metode Pembayaran</option>
+                    <option value="cash">Cash</option>
+                    <option value="transfer">Transfer</option>
+                    <option value="qris">E-Wallet</option>
+                </select>
+                
+                <button type="submit" class="btn btn-success w-100 mt-4">
                     Lanjut Pembayaran
                 </button>
             </form>
@@ -58,7 +66,7 @@
 
 
 
-<div wire:ignore.self class="modal fade" id="pilihPembayaran" tabindex="-1">
+{{-- <div wire:ignore.self class="modal fade" id="pilihPembayaran" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 rounded-3">
             <div class="modal-header py-4 px-4">
@@ -66,19 +74,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x fs-4'></i></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('kasir.pesanan.bayar',$pesanan->kode_pesanan) }}">
-                    <select class="form-select mb-3" aria-label=".form-select-sm lanjutkan pembayaran" name="metode">
-                        <option selected>Pilih Metode Pembayaran</option>
-                        <option value="cash">Cash</option>
-                        <option value="transfer">Transfer</option>
-                        <option value="qris">E-Wallet</option>
-                    </select>
-                    
-                    <button type="submit" class="btn btn-primary w-100 mt-4">
-                        Lanjut Pembayaran
-                    </button>
-                </form>
+                
             </div>
         </div>
     </div>
-</div>
+</div> --}}
