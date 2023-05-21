@@ -273,6 +273,15 @@
         })
     </script>
     {{ $footer_script ?? '' }}
+
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2({
+                placeholder: "Silahkan Pilih",
+                allowClear: true
+            });
+        });
+    </script>
 </body>
 
 </html>

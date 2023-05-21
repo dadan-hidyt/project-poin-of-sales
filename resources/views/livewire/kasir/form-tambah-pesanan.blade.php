@@ -2,15 +2,12 @@
     <select wire:model='type' class="form-select outline-none mb-3" aria-label="Default select example">
         <option selected="selected">Pilih Metode Pesan</option>
         <option value="FREE_TABLE">Free Table</option>
+        <option value="TAKEAWAY">Take Away</option>
         <option value="MEJA">Meja</option>
     </select>
 
 
     @if ($type !== 'FREE_TABLE')
-        <select name="pilihjenisorder" id="pilihjenisorder" class="form-select outline-none my-3">
-            <option value="singlemeja">Satu Meja</option>
-            <option value="gabungmeja">Gabung Meja</option>
-        </select>
         <select wire:click='cekMeja($event.target.value)'  wire:model='id_meja' @class(['form-control', session()->has('meja_tidak_ada') ? 'is-invalid' : '']) aria-label="Default select example">
             <option selected="selected">Pilih Meja</option>
             @foreach ($this->meja as $item)
@@ -38,8 +35,13 @@
     </select>
 
     <div class="my-3">
-        <input wire:keyup='cekKapasitasMeja($event.target.value)' wire:model='jumlah_pelanggan' type="number"
-            placeholder="Jumlah Pelanggan" min="0" @class(['form-control', session()->has('error') ? 'is-invalid' : '']) id="exampleInputPassword1">
+        <input 
+            wire:keyup='cekKapasitasMeja($event.target.value)'
+            wire:model='jumlah_pelanggan' type="number"
+            placeholder="Jumlah Pelanggan" 
+            min="0" @class(['form-control', session()->has('error') ? 'is-invalid' : '']) id="exampleInputPassword1"
+                
+        >
         @if (session()->has('error'))
             <span class="form-text text-danger">Jumlah pelanggan melebihi kapasitas meja!</span>
         @endif

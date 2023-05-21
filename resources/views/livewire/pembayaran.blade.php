@@ -82,7 +82,7 @@
 
         <div class="col-md-7">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <span class="text-secondary">Total Tagihan</span>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body text-success ">
                             <span class="text-secondary">Pembayaran</span>
@@ -98,11 +98,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body text-danger ">
                             <span class="text-secondary">Kembalian</span>
                             <h4 class="fw-bolder mt-2 opacity-75">Rp.{{ formatRupiah($kembalian) ?? '0' }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body text-danger ">
+                            <span class="text-secondary">Sisa Bayar</span>
+                            <h4 class="fw-bolder mt-2 opacity-75">Rp.Fitur pisah bayar</h4>
                         </div>
                     </div>
                 </div>
@@ -141,27 +149,7 @@
                                 </div>
                             </button>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button class="card mx-2 btn w-100" id="jumlahUang" data-bs-toggle="modal"
-                                data-bs-target="#voucherClaim">
-                                <div class="card-body p-2 text-center w-100">
-                                    <span>Voucher Claim</span>
-                                </div>
-                            </button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="card mx-2 btn w-100" id="jumlahUang" data-bs-toggle="modal"
-                                data-bs-target="#poinReward">
-                                <div class="card-body p-2 text-center w-100">
-                                    <span>Poin Reward</span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <button class="card mx-2 btn w-100" data-bs-toggle="modal"
                                 data-bs-target="#gabungBayarModal" id="gabungBayarButton">
                                 <div class="card-body p-2 text-center w-100">
@@ -169,7 +157,7 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <button class="card mx-2 btn w-100">
                                 <div class="card-body p-2 text-center w-100">
                                     <span>Pisah Bayar</span>
@@ -225,7 +213,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <select name="pesanan[]" class="form-control" multiple>
+                    <select name="pesanan[]" class="form-control js-example-basic-multiple" multiple="multiple" aria-placeholder="Pilih Meja">
                         @foreach ($semuaPesanan as $item)
                             <option value="{{ $item->kode_pesanan }}">{{ $item->kode_pesanan }}</option>
                         @endforeach
@@ -235,6 +223,7 @@
             </div>
         </div>
     </form>
+<<<<<<< HEAD
 </div>
 
 {{-- Modal Voucher Claim --}}
@@ -297,3 +286,6 @@
         </div>
     </div>
 </div>
+=======
+</div>
+>>>>>>> 158c32f03e16afc6ff211a6b7d89e25d6b6c60fc

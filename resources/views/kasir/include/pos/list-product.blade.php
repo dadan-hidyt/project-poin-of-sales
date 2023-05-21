@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">Jumlah Menu <span class="text-danger">*</span></label>
-                                        <input type="number" wire:model.defer='item_pesanan.qty' maxlength="{{ $item->stok }}" minlength="1" value="1" class="form-control">
+                                        <input type="number" wire:model.defer='item_pesanan.qty' maxlength="{{ $item->stok }}" min="0" max="{{ $item->stok }}" minlength="1" value="1" class="form-control">
                                     </div>
                                     <div class="mb-3 w-100">
                                         <input wire:click='simpanItemPesanan({{ $item->id }})' type="submit" class="btn btn-warning text-white w-100" value="Tambah ke Keranjang">
