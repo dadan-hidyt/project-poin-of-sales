@@ -9,10 +9,10 @@
                             class="card-header d-flex align-items-center justify-content-between border-1 border-bottom pb-4 pt-2">
                             <h3 class="fw-bolder">Laporan Penjualan</h3>
                             <div class="d-flex align-items-center">
-                                <button class="btn btn-primary d-flex align-items-center text-white pe-3 me-3">
+                                <a href="{{ route('kasir.create_laporan_penjualan') }}" class="btn btn-primary d-flex align-items-center text-white pe-3 me-3">
                                     <i class="bx bx-cloud-download me-2"></i>
                                     <span>Download</span>
-                                </button>
+                                </a>
                                 <button type="button" class="btn btn-info text-white" data-bs-toggle="modal"
                                     data-bs-target="#modal-tambah-pengeluaran">
                                     Tambah Pengeluaran

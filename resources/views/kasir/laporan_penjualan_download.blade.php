@@ -58,15 +58,13 @@
         </div>
     </div>
 
-   
-
     <!-- Tambahkan card lainnya sesuai dengan data penjualan per transaksi -->
 
     <div class="card">
         <h2>Laporan Penjualan Lainya</h2>
         <ul class="total-list">
             <li><strong>Jumlah Transaksi:</strong> {{$total_transaksi}}</li>
-            <li><strong>Total Semua Pennghasilan:</strong> 8500</li>
+            <li><strong>Jumlah Semua Transaksi:</strong> Rp.{{ formatRupiah($peng) }}</li>
         </ul>
     </div>
 </body>

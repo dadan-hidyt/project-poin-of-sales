@@ -37,10 +37,22 @@ class HomeController extends Controller
     public function create_laporan_kasir(){
         $kasir_id = auth()->user()->getKasir()->id ?? null;
         $trx = Transaksi::where('id_kasir', $kasir_id)->get();
+        $peng = 0;
+        $peng_bersih = 0;
+        foreach ($trx as $tr) {
+            $peng += $tr->jumlah;
+            if ($tr->detailTransaksi) {
+                foreach ($tr->detailTransaksi as $trs) {
+                    $peng_bersih += $trs->produk->harga_modal;
+                }
+            }
+        }
+        $trx = Transaksi::where('id_kasir', $kasir_id)->get();
         return PDF::loadView('kasir.laporan_penjualan_download',[
             'byMetode' => $this->penghasilanByMetodePembayaran(),
             'total_transaksi' => $trx->count(),
-        ])->stream('app.pdf');
+            'peng' => $peng,
+        ])->download('laporan.pdf');
     }
     public function refundTrans()
     {
