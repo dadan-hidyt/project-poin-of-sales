@@ -2,12 +2,12 @@
     <select wire:model='type' class="form-select outline-none mb-3" aria-label="Default select example">
         <option selected="selected">Pilih Metode Pesan</option>
         <option value="FREE_TABLE">Free Table</option>
-        <option value="TAKEAWAY">Take Away</option>
+        <option value="take_away">Take Away</option>
         <option value="MEJA">Meja</option>
     </select>
 
 
-    @if ($type !== 'FREE_TABLE')
+    @if ($type !== 'FREE_TABLE' && $type != 'take_away')
         <select wire:click='cekMeja($event.target.value)'  wire:model='id_meja' @class(['form-control', session()->has('meja_tidak_ada') ? 'is-invalid' : '']) aria-label="Default select example">
             <option selected="selected">Pilih Meja</option>
             @foreach ($this->meja as $item)

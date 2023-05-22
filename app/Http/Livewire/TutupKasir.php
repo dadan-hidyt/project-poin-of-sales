@@ -72,7 +72,6 @@ class TutupKasir extends Component
        $this->kasir->waktu_keluar = now();
         $this->kasir->sisa_kas = (int) str_replace('.', '', $this->sisa_kas);
         $this->kasir->total_keseluruhan = $this->data['jumlah_pendapatan'] + (int)str_replace('.', '', $this->sisa_kas);
-
         if ($this->kasir->save()) {
             switch ($this->print_type) {
                 case 'laporan_only':
@@ -84,7 +83,7 @@ class TutupKasir extends Component
                         'sisa_kas' => (int)str_replace('.', '', $this->sisa_kas),
                         'byMetodePembayaran' => $this->byMetodePembayaran,
                     ]);
-                    //$this->dispatchBrowserEvent("suksess_tutup");
+                    $this->dispatchBrowserEvent("suksess_tutup");
                     return response()->streamDownload(function () use ($pdf) {
                         return print($pdf->output());
                     }, uniqid("LAP-".Carbon::now()->format('d-m-Y-h-i-s')) . '.pdf');

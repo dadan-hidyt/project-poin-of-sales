@@ -43,7 +43,7 @@ class FormTambahPesanan extends Component
 
     public function cekKapasitasMeja($val)
     {
-        if ($this->type === "MEJA" && $this->id_meja) {
+        if ($this->type === "MEJA" && $this->id_meja && $this->type != 'take_away') {
             $meja = $this->getMeja($this->id_meja);
             if ($val >= $meja->kapasitas) {
                 session()->flash("error", [
