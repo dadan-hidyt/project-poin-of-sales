@@ -65,7 +65,7 @@
     <div class="card">
         <h2>Laporan Penjualan Lainya</h2>
         <ul class="total-list">
-            <li><strong>Jumlah Transaksi:</strong> 2500</li>
+            <li><strong>Jumlah Transaksi:</strong> {{$total_transaksi}}</li>
             <li><strong>Total Semua Pennghasilan:</strong> 8500</li>
         </ul>
     </div>

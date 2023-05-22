@@ -36,8 +36,10 @@ class HomeController extends Controller
     }
     public function create_laporan_kasir(){
         $kasir_id = auth()->user()->getKasir()->id ?? null;
+        $trx = Transaksi::where('id_kasir', $kasir_id)->get();
         return PDF::loadView('kasir.laporan_penjualan_download',[
             'byMetode' => $this->penghasilanByMetodePembayaran(),
+            'total_transaksi' => $trx->count(),
         ])->stream('app.pdf');
     }
     public function refundTrans()
