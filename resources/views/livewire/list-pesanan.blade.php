@@ -17,9 +17,9 @@
                             {{ $item->meja->nama_meja }}
                         @else
                             @if ($item->type)
-                                {{ $item->type ?? 'Tidak Di Ketahui' }}
+                                {{ strtoupper(str_replace('_',' ',$item->type)) ?? 'Tidak Di Ketahui' }}
                             @else
-                                {{ $item->type ?? 'Tidak Di Ketahui' }}
+                                {{ strtoupper(str_replace('_',' ',$item->type)) ?? 'Tidak Di Ketahui' }}
                             @endif
                         @endif
                     </h5>

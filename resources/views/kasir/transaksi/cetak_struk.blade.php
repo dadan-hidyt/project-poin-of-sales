@@ -98,7 +98,8 @@
                @endif
                 <div>
                     <b>Type:</b>
-                    {{ $transaksi->type_order }}
+                    <!-- take away -->
+                    {{ strtoupper(str_replace('_',' ',$transaksi->type_order)) }}
                 </div>
                 <div>
                     <b>Pelanggan:

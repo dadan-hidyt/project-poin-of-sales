@@ -9,6 +9,7 @@ use App\Models\Pesanan;
 use App\Models\Transaksi;
 use App\Models\Refund;
 use App\Models\User;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 //class home controller
@@ -32,6 +33,12 @@ class HomeController extends Controller
         $this->setTitle('Semua Transaksi');
         $kasir_id = auth()->user()->getKasir()->id ?? null;
         return view('kasir.transaksi.all', ['transaksi' => Transaksi::where('id_kasir', $kasir_id)->get()]);
+    }
+    public function create_laporan_kasir(){
+        $kasir_id = auth()->user()->getKasir()->id ?? null;
+        return PDF::loadView('kasir.laporan_penjualan_download',[
+            'byMetode' => $this->penghasilanByMetodePembayaran(),
+        ])->stream('app.pdf');
     }
     public function refundTrans()
     {
@@ -110,6 +117,8 @@ class HomeController extends Controller
     public function takeAway()
     {
         $this->setTitle('Pesanan TakeAway');
-        return view('kasir.take-away');
+        $kasir_id = auth()->user()->getKasir()->id;
+        $pesanan = Transaksi::where(['id_kasir' => $kasir_id,'type_order'=>'take_away'])->get();
+        return view('kasir.take-away',compact('pesanan'));
     }
 }

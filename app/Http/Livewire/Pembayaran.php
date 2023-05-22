@@ -104,7 +104,7 @@ class Pembayaran extends Component
                 $create_transaksi = DB::table('tb_transaksi')->insert([
                     'kode_transaksi' => $kode_transaksi,
                     'tanggal_order' => now(),
-                    'type_order' => "FREE TABLE",
+                    'type_order' => $this->pesanan->type ?? 'Free Table',
                     'id_pelanggan' => $this->pesanan->id_pelanggan == null ? NULL : $this->pesanan->id_pelanggan,
                     'id_metode_pembayaran' => 1,
                     'total_pajak' => $this->pesanan->hitungPesanan('pajak'),

@@ -55,7 +55,6 @@ class FormTambahPesanan extends Component
 
     public function pesan()
     {
-
         $payload = [
             'id_meja' => $this->id_meja,
             'id_pelanggan' => $this->id_pelanggan,
@@ -66,7 +65,7 @@ class FormTambahPesanan extends Component
             'status_pesanan' => "DIPROSESS",
             'kode_pesanan' => Str::upper(uniqid("P-")),
         ];
-
+        
         if (Pesanan::create($payload)) {
             return redirect(route('kasir.pos', $payload['kode_pesanan']));
         }

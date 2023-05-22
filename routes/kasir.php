@@ -37,6 +37,8 @@ Route::get('pos/{id_transaksi}/refund', [RefundController::class, 'refund'])->na
 Route::get('fetch/laporan/uang_keluar', [LaporanPenjualan::class, 'pengeluaran'])->name('.laporan.pengeluaran');
 Route::get('fetch/laporan/data_kas', [LaporanPenjualan::class, 'dana_kas'])->name('.laporan.dana_kas');
 
+Route::get('laporan-penjualan-kasir', [HomeController::class,'create_laporan_kasir'])->name('.create_laporan_penjualan');
+
 Route::get('logout_kasir', function () {
     Auth::logout();
     return redirect(route('auth.login_kasir'));
