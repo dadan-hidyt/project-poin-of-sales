@@ -9,8 +9,10 @@
                 </div>
                 <div class="card-toolbar">
                     <a href="{{ route('dashboard.pengaturan.web') }}" @class(['btn', request()->segment(3) === 'web' ? 'btn-primary' : 'struk_setting'])>Pengaturan Web</a>&nbsp;
+                    <a href="{{ route('dashboard.pengaturan.pajak') }}" @class(['btn', request()->segment(3) === 'pajak' ? 'btn-primary' : 'struk_setting'])>Pajak Transaksi</a>&nbsp;
                     <a href="{{ route('dashboard.pengaturan.satuan_barang') }}" @class(['btn', request()->segment(3) === 'satuan_barang' ? 'btn-primary' : 'struk_setting'])>Pengaturan Satuan Barang</a>&nbsp;
                     <a href="{{ route('dashboard.pengaturan.struk') }}" @class(['btn', request()->segment(3) === 'struk' ? 'btn-primary' : 'struk_setting'])>Pengaturan Struk</a>&nbsp;
+                    
                 </div>
             </div>
 
