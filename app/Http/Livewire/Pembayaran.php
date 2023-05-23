@@ -28,7 +28,7 @@ class Pembayaran extends Component
         //cek apakah pelanggan punya 
         if ($this->pesanan->pelanggan && $this->pesanan->jenis_reward == 'pembelian') {
             $pelanggan = $this->pesanan->pelanggan;
-            $potongan = ($pelanggan->poin / 10) * PengaturanPoinReward::first()->potongan_per_10_poin ?? 1000;
+            $potongan = ($pelanggan->poin / 1) * PengaturanPoinReward::first()->potongan_per_10_poin ?? 1000;
             if ( $potongan <= $this->pesanan->hitungPesanan('subtotal') - 3000 ) {
                 $potongan = $potongan;
             } else {
