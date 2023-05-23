@@ -9,6 +9,11 @@
 
     @if ($type !== 'FREE_TABLE' && $type != 'take_away')
         <select wire:click='cekMeja($event.target.value)'  wire:model='id_meja' @class(['form-control', session()->has('meja_tidak_ada') ? 'is-invalid' : '']) aria-label="Default select example">
+        <select wire:click='cekMeja($event.target.value)' wire:model='id_meja' @class([
+            'form-control',
+            session()->has('meja_tidak_ada') ? 'is-invalid' : '',
+        ])
+            aria-label="Default select example">
             <option selected="selected">Pilih Meja</option>
             @foreach ($this->meja as $item)
                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -22,26 +27,24 @@
     <!-- note -->
     <!-- <span class="note my-3" style="font-size:11px ;">Pilih meja muncul ketika select pesan Meja*</span> -->
     <!-- tutup note -->
+    @if ($type !== 'FREE_TABLE' && $type != 'take_away')
+        <select wire:model.defer='id_pelanggan' class="form-select outline-none my-3"
+            aria-label="Default select example">
+            <option selected="selected">Pilih Pelanggan</option>
+            <option value="">Tamu</option>
+            @foreach ($pelanggan as $item)
+                <option value="{{ $item->id }}">{{ $item->nama }}
+                    -
+                    {{ $item->no_hp }}</option>
+            @endforeach
 
-    <select wire:model.defer='id_pelanggan' class="form-select outline-none my-3" aria-label="Default select example">
-        <option selected="selected">Pilih Pelanggan</option>
-        <option value="">Tamu</option>
-        @foreach ($pelanggan as $item)
-            <option value="{{ $item->id }}">{{ $item->nama }}
-                -
-                {{ $item->no_hp }}</option>
-        @endforeach
+        </select>
+    @endif
 
-    </select>
 
     <div class="my-3">
-        <input 
-            wire:keyup='cekKapasitasMeja($event.target.value)'
-            wire:model='jumlah_pelanggan' type="number"
-            placeholder="Jumlah Pelanggan" 
-            min="0" @class(['form-control', session()->has('error') ? 'is-invalid' : '']) id="exampleInputPassword1"
-                
-        >
+        <input wire:keyup='cekKapasitasMeja($event.target.value)' wire:model='jumlah_pelanggan' type="number"
+            placeholder="Jumlah Pelanggan" min="0" @class(['form-control', session()->has('error') ? 'is-invalid' : '']) id="exampleInputPassword1">
         @if (session()->has('error'))
             <span class="form-text text-danger">Jumlah pelanggan melebihi kapasitas meja!</span>
         @endif
