@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\DetailTransaksi;
+use App\Models\PengaturanPoinReward;
 use App\Models\PoinRewardPembelian;
 use App\Models\Product;
 use App\Models\Transaksi;
@@ -22,8 +23,22 @@ class Pembayaran extends Component
     public $potongan = 0;
     public $kembalian = null;
     public $metode = 'cash';
-    public function getPotonganHarga(){
-        return $this->pesanan->jumlah_potongan_voucher;
+    public function getPotonganHarga()
+    {
+        //cek apakah pelanggan punya 
+        if ($this->pesanan->pelanggan && $this->pesanan->jenis_reward == 'pembelian') {
+            $pelanggan = $this->pesanan->pelanggan;
+            $potongan = ($pelanggan->poin / 10) * PengaturanPoinReward::first()->potongan_per_10_poin ?? 1000;
+            if ( $potongan <= $this->pesanan->hitungPesanan('subtotal') - 3000 ) {
+                $potongan = $potongan;
+            } else {
+                $potongan = 0;
+            }
+        } else {
+            $potongan = 0;
+        }
+        
+        return $potongan + $this->pesanan->jumlah_potongan_voucher ?? 0;
     }
     public function refresh_jumlah_bayar()
     {
@@ -36,7 +51,8 @@ class Pembayaran extends Component
             $this->kembalian = 0;
         }
     }
-    public function mount() {
+    public function mount()
+    {
         $this->potongan = $this->getPotonganHarga();
     }
     public function updated()
@@ -73,6 +89,7 @@ class Pembayaran extends Component
     }
     public function bayar()
     {
+        $potongan_harga = $this->getPotonganHarga();
         if (!$this->jumlah_bayar) {
             $this->dispatchBrowserEvent('nominal_kosong');
         } else {
@@ -81,7 +98,7 @@ class Pembayaran extends Component
             DB::beginTransaction();
             foreach ($this->pesanan->detail_pesanan as $pesanan) {
                 $total_pajak = $pesanan->produk->harga_jual * ($pesanan->produk->pajak / 100);
-                $subtotal = $pesanan->produk->harga_jual * $pesanan->qty;
+                $subtotal = ($pesanan->produk->harga_jual * $pesanan->qty);
                 $detail = [
                     'kode_transaksi' => $kode_transaksi,
                     'kode_produk' => $pesanan->id_produk,
@@ -100,6 +117,7 @@ class Pembayaran extends Component
             }
 
             try {
+
                 $reward = $this->claimPoinPembelian();
                 $create_transaksi = DB::table('tb_transaksi')->insert([
                     'kode_transaksi' => $kode_transaksi,
@@ -113,8 +131,8 @@ class Pembayaran extends Component
                     'status_pembayaran' => "DIBAYAR",
                     'id_kasir' => $id_kasir,
                     'jumlah_sebelum_potongan' => $this->pesanan->hitungPesanan('subtotal'),
-                    'jumlah' => ($this->pesanan->hitungPesanan('subtotal') - $this->getPotonganHarga()),
-                    'potongan' => $this->getPotonganHarga(),
+                    'jumlah' => ($this->pesanan->hitungPesanan('subtotal') - $potongan_harga),
+                    'potongan' => $potongan_harga,
                     'jmlh_bayar' => $this->jumlah_bayar,
                     'metode_pembayaran' => $this->metode,
                 ]);
