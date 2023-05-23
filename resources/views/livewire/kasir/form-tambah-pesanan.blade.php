@@ -8,7 +8,6 @@
 
 
     @if ($type !== 'FREE_TABLE' && $type != 'take_away')
-        <select wire:click='cekMeja($event.target.value)'  wire:model='id_meja' @class(['form-control', session()->has('meja_tidak_ada') ? 'is-invalid' : '']) aria-label="Default select example">
         <select wire:click='cekMeja($event.target.value)' wire:model='id_meja' @class([
             'form-control',
             session()->has('meja_tidak_ada') ? 'is-invalid' : '',
