@@ -16,3 +16,6 @@ Route::get('web', [PengaturanController::class, 'web'])->name('.web');
 Route::prefix('jenis-order')->group(function () {
     Route::get('/daftar', [JenisOrderController::class, 'show'])->name('.show');
 })->name('jenisorder');
+
+
+Route::get('pajak', [PengaturanController::class, 'pajak'])->name('.pajak');

@@ -20,10 +20,16 @@ class PengaturanController extends Controller
             'satuan' => SatuanBarang::all(),
         ]);
     }
-    
+
     public function web()
     {
         $this->setTitle('Pengaturan Website');
         return view('backend.pengaturan.infowebsite');
+    }
+
+    public function pajak()
+    {
+        $this->setTitle('Pengaturan Pajak Pertransaksi');
+        return view('backend.pengaturan.pajak_transaksi');
     }
 }
