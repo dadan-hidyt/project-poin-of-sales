@@ -62,7 +62,6 @@
     <body>
         <div class="struk clearfix">
             <div class="logo">SAUNG TEKO SUMEDANG</div>
-            
             <div class="kontak">
                 @if ($pengaturan->alamat == 1)
                 <div>Jl. Medan merdeka no2</div>

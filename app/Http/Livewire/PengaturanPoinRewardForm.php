@@ -11,7 +11,8 @@ class PengaturanPoinRewardForm extends Component
     public $potongan_per_10_poin = 1000;
     protected $listeners = ['update_new'];
 
-    public function update_new(){
+    public function update_new()
+    {
         $this->default = PengaturanPoinReward::first()->potongan_per_10_poin;
     }
     public function mount()
