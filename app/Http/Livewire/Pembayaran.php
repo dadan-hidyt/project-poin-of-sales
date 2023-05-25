@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\DetailTransaksi;
+use App\Models\Pelanggan;
 use App\Models\PengaturanPoinReward;
 use App\Models\PoinRewardPembelian;
 use App\Models\Product;
@@ -29,7 +30,7 @@ class Pembayaran extends Component
         if ($this->pesanan->pelanggan && $this->pesanan->jenis_reward == 'pembelian') {
             $pelanggan = $this->pesanan->pelanggan;
             $potongan = ($pelanggan->poin / 1) * PengaturanPoinReward::first()->potongan_per_10_poin ?? 1000;
-            if ( $potongan <= $this->pesanan->hitungPesanan('subtotal') - 3000 ) {
+            if ( $potongan <= $this->pesanan->hitungPesanan('subtotal') ) {
                 $potongan = $potongan;
             } else {
                 $potongan = 0;
@@ -117,7 +118,9 @@ class Pembayaran extends Component
             }
 
             try {
-
+                $pelanggan = $this->pesanan->pelanggan;
+                $pelanggan->poin = 0;
+                $pelanggan->save();
                 $reward = $this->claimPoinPembelian();
                 $create_transaksi = DB::table('tb_transaksi')->insert([
                     'kode_transaksi' => $kode_transaksi,
