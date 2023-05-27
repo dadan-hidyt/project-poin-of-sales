@@ -104,7 +104,7 @@
                 <div>
                     <b>Pelanggan:
                     </b>
-                    {{ $transaksi->pelanggan->nama ?? 'No Name' }}
+                    {{ $transaksi->pelanggan->nama ?? 'Tidak Ada Nama' }}
                 </div>
             </div>
             <span>-----------------------------------------------------------------------------------</span>
@@ -119,7 +119,7 @@
             </table>
             <span>-----------------------------------------------------------------------------------</span>
             <div style="float:left;">
-                @if ($transaksi->reward_pembelian)
+                @empty($transaksi->reward_pembelian != [])
                 @php
                     $poin = 0;
                 @endphp

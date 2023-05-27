@@ -13,7 +13,7 @@ class POSController extends Controller
     //kode pesanan
     public function pos($kode_pesanan = null)
     {
-        $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk'])->where(['kode_pesanan' => $kode_pesanan, 'id_kasir' => auth()->user()->getKasir()->id])->first();
+        $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk',])->where(['kode_pesanan' => $kode_pesanan, 'id_kasir' => auth()->user()->getKasir()->id])->first();
         if (is_null($pesanan)) {
             return redirect()->route('kasir.index');
         }

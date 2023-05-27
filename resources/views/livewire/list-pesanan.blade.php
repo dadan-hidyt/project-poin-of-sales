@@ -14,7 +14,7 @@
                     </span>
                     <h5 class="nama-meja fw-bolder">
                         @if ($item->id_meja)
-                            {{ $item->meja->nama_meja }}
+                            {{ $item->meja->nama }}
                         @else
                             @if ($item->type)
                                 {{ strtoupper(str_replace('_',' ',$item->type)) ?? 'Tidak Di Ketahui' }}

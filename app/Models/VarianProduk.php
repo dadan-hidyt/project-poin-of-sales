@@ -11,7 +11,12 @@ class VarianProduk extends Model
     protected $table = 'tb_varian_produk';
     protected $guarded = [];
     public function item(){
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class,'id_produk','id');
     }
+    
+    public function detailProduk(){
+        return $this->belongsTo(DetailPesananVarian::class);
+    }
+
     
 }

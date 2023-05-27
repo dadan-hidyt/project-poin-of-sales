@@ -7,9 +7,9 @@
                     Kategori
                 </button>
                 <ul class="dropdown-menu py-1">
-                    <li><a class="dropdown-item" href="#">Semua</a></li>
-                    <li><a class="dropdown-item" href="#">Makanan</a></li>
-                    <li><a class="dropdown-item" href="#">Minuman</a></li>
+                    @foreach (App\Models\KategoriProduk::all() as $item)
+                    <li><a wire:click='filterKategori("{{$item->id}}")' class="dropdown-item" href="#">{{$item->nama_kategori}}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <form action="" class="search-box d-flex align-items-center">

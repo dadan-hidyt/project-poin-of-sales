@@ -151,12 +151,7 @@
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <button class="card mx-2 btn w-100" data-bs-toggle="modal" data-bs-target="#JumlahLain"
-                                id="jumlahUang">
-                                <div class="card-body p-2 text-center w-100">
-                                    <span>Lainnya</span>
-                                </div>
-                            </button>
+                            <input type="text" class="form-control" wire:keyup='setJumlahLainya($event.target.value)'>
                         </div>
                         <div class="col-md-4">
                             <button class="card mx-2 btn w-100" data-bs-toggle="modal"
@@ -201,7 +196,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <input wire:keyup='setNominalLain(event.target.value)' type="number" class="form-control" placeholder="Jumlah Lain"
+                    <input wire:keyup='setUang(event.target.value)' type="number" class="form-control" placeholder="Jumlah Lain"
                         name="" id="inputNominal">
                 </div>
                 <button type="submit" class="btn btn-warning w-100 text-white">Simpan</button>

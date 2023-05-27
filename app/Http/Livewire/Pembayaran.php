@@ -41,6 +41,9 @@ class Pembayaran extends Component
         
         return $potongan + $this->pesanan->jumlah_potongan_voucher ?? 0;
     }
+    public function setJumlahLainya($e = null){
+        $this->setUang($e);
+    }
     public function refresh_jumlah_bayar()
     {
         $this->potongan = $this->getPotonganHarga();

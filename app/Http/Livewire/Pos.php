@@ -50,8 +50,10 @@ class Pos extends Component
             $this->dispatchBrowserEvent('reward_berhasil_di_set');
         }
     }
-    public function getDetailProduk()
+    public function filterKategori($kategori)
     {
+        $this->product = Product::where(['id_kategori_produk'=>$kategori])->get();
+        $this->emit('refreshComponent');
     }
     public function setKodeVoucher()
     {
@@ -107,11 +109,18 @@ class Pos extends Component
         if (!isset($this->item_pesanan['qty'])) {
             $this->item_pesanan['qty'] = 1;
         }
+        //varian 
+        $varian = $this->item_pesanan['varian'] ?? null;
+        //unset varian agar tidak masuk db
+        unset($this->item_pesanan['varian']);
         $psanan = DetailPesanan::where(['id_produk' => $id_produk, 'id_pesanan' => $this->pesanan->id]);
         if ($psanan->first()) {
             $this->dispatchBrowserEvent('produk_sudah_ada');
         } else {
-            if (DetailPesanan::create($this->item_pesanan)) {
+            if ($detail_pesanan = DetailPesanan::create($this->item_pesanan)) {
+                if($varian){
+                    $detail_pesanan->varian()->syncWithoutDetaching($varian);
+                }
                 $this->dispatchBrowserEvent("produk_berhasil_di_tambahkan", $id_produk);
             }
         }
@@ -119,6 +128,7 @@ class Pos extends Component
     public function hapusDetailPesanan($id = null)
     {
         $a = DetailPesanan::where(['id' => $id, 'id_pesanan' => $this->pesanan->id])->first();
+        $a->varian()->detach($id);
         if ($a->delete()) {
             $this->dispatchBrowserEvent("delete_detail_pesanan_berhasil", $id);
         } else {

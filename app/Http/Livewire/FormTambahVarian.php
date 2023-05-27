@@ -15,7 +15,6 @@ class FormTambahVarian extends Component
         'varian.nama_varian' => 'required',
         'varian.stok' => 'required|integer',
         'varian.harga' => 'required|integer',
-        'varian.id_produk' => 'required|unique:tb_varian_produk,id'
     ];
     public function mount(){
         $this->produk = Product::all();

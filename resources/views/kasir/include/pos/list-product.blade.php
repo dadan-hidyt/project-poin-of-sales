@@ -60,7 +60,7 @@
                                             <select wire:model='item_pesanan.varian' name="" id="variasi" class="form-control js-example-basic-multiple" style="font-size: 14px !important;" multiple="multiple">
                                                 <option selected value="">--Pilih Varian--</option>
                                                 @foreach ($item->varian as $item1)
-                                                    <option value="{{ $item1->nama_varian }}">
+                                                    <option value="{{ $item1->id }}">
                                                         {{ $item1->nama_varian }} - Rp.1000</option>
                                                 @endforeach
                                             </select>

@@ -14,6 +14,9 @@ class DetailPesanan extends Model
     public function pesanan(){
         return $this->belongsTo(Pesanan::class,'id_pesanan');
     }
+     public function varian(){
+        return $this->belongsToMany(VarianProduk::class,'detail_pesanan_varian_produk');
+    }
     public function produk(){
         return $this->belongsTo(Product::class,'id_produk');
     }
