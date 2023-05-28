@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_pelanggan')->nullable();
             $table->string('type_order')->default('lainya');
             $table->unsignedBigInteger('id_metode_pembayaran');
-            $table->text('catatan');
+            $table->text('catatan')->nullable();
             $table->unsignedBigInteger('id_kasir');
             $table->integer('jumlah');
             $table->string('id_meja')->nullable();
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('kode_promo')->nullable();
             $table->string('total_pajak')->nullable();
             $table->integer('total_promo')->nullable();
-            $table->enum('refund',['1','0'])->default(0);
+            $table->enum('refund', ['1', '0'])->default(0);
             $table->timestamps();
         });
     }

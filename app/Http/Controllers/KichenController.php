@@ -10,16 +10,16 @@ class KichenController extends Controller
     public function __invoke()
     {
         $pesanan = request()->get('pesanan');
-        if( $pesanan ) {
+        if ($pesanan) {
             $status = "PROSESS";
-            if ( $statuses = request()->status ) {
-                if ( in_array($statuses, ['noted','dimasak','selesai']) ) {
+            if ($statuses = request()->status) {
+                if (in_array($statuses, ['noted', 'dimasak', 'selesai'])) {
                     $status = strtoupper($statuses);
                 }
             }
             $pesanan = Pesanan::findOrFail($pesanan);
             $pesanan->status_pesanan = $status;
-            if ( $pesanan->save() ) {
+            if ($pesanan->save()) {
                 return redirect()->route('kasir.kichen');
             }
         }
