@@ -10,9 +10,21 @@
                         </div>
                         <div class="productcontet">
                             <div class="qty d-flex gap-2 align-items-center">
-                                <h4>{{ $item->produk->nama_produk }}</h4><span class="text-secondary">x
-                                    {{ $item->qty }}</span>
+                                <h4>{{ $item->produk->nama_produk }}</h4>
+                                <div class="text-secondary">x
+                                    {{ $item->qty }}</div>
+                                   
                             </div>
+                            @if ($varian = $item->varian()->get())
+                            <div>
+                                <b>Varian:</b>
+                                @foreach ($varian as $item_varian)
+                                <div>
+                                    -{{$item_varian->nama_varian}} - Rp.{{formatRupiah($item_varian->harga)}}
+                                </div>
+                                @endforeach
+                            </div>
+                            @endif
                             <button type="button" data-bs-toggle="modal" data-bs-target="#detail-{{ $item->id }}"
                                 class="btn btn-warning d-flex align-items-center mt-2 border-0 outline-0 btn-sm text-white">
                                 <i class='bx bx-info-circle text-white me-1'></i>
@@ -67,7 +79,14 @@
                                     </p>
                                     <p class="mb-1">Jumlah : {{ $item->qty }}</p>
                                     <p class="mb-1">Total : Rp.
+                                        @if ($varians = $item->varian()->get())
+
+                                        {{ number_format($item->varian()->sum('harga') * $item->qty, 2, ',', '.') }}</p>
+
+                                        @else
                                         {{ number_format($item->produk->harga_jual * $item->qty, 2, ',', '.') }}</p>
+                                            
+                                        @endif
                                 </div>
                                 <div class="col-12 mt-3">
                                     <p class="mb-1 fw-bolder">Catatan :</p>
@@ -76,9 +95,9 @@
                             </div>
                         </div>
                         <div class="modal-footer px-4 border-top d-flex justify-content-end">
-                            <button type="button" data-bs-toggle="modal"
+                            {{-- <button type="button" data-bs-toggle="modal"
                                 data-bs-target="#ubahProduk-{{ $item->id }}"
-                                class="btn btn-primary btn_closedetail">Ubah</button>
+                                class="btn btn-primary btn_closedetail">Ubah</button> --}}
                             <button wire:click='hapusDetailPesanan("{{ $item->id }}")'
                                 class="btn btn-danger btn_closedetail">Hapus <span wire:loading
                                     wire:target='hapusDetailPesanan'>Menghapus...</span></button>

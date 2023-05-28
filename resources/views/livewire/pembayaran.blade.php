@@ -63,7 +63,9 @@
                     <div class="mt-4 border-1 border-top">
                         <div class="d-flex align-items-center justify-content-between py-3 border-1 border-bottom">
                             <h6 style="font-size:16px;" class="fw-bolder">Jenis Order :</h6>
-                            <h6 style="font-size:16px;" class="text-dark-75">Free Table</h6>
+                            <h6 style="font-size:16px;" class="text-dark-75">{{ $pesanan->type }} - @if ($pesanan->meja)
+                                {{$pesanan->meja->nama}}
+                            @endif</h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-between py-3 border-1 border-bottom">
                             <h6 style="font-size:16px;" class="fw-bolder">Subtotal :</h6>

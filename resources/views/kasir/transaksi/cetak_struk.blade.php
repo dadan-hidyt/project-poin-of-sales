@@ -61,7 +61,7 @@
     </head>
     <body>
         <div class="struk clearfix">
-            <div class="logo">SAUNG TEKO SUMEDANG</div>
+            <div class="logo"><img src="kasir-assets/img/logo.png" alt=""> </div>
             <div class="kontak">
                 @if ($pengaturan->alamat == 1)
                 <div>Jl. Medan merdeka no2</div>
@@ -111,7 +111,18 @@
             <table width="100%">
                 @foreach ($transaksi->detailTransaksi as $item)
                 <tr>
-                    <td>{{ $item->produk->nama_produk }}</td>
+                    <td>{{ $item->produk->nama_produk }} 
+                      @if ($varian = $item->varian()->get())
+                      <table>
+                        <tr>
+                            <th>Varian:</th>
+                            @foreach ($varian as $itemVarian)
+                                <th>{{$itemVarian->nama_varian}} - 10.000</th>
+                            @endforeach
+                        </tr>
+                       </table>
+                      @endif
+                    </td>
                     <th>Rp. {{ formatRupiah($item->harga) }} x {{ $item->jumlah }}</th>
                 </tr>
                 
@@ -137,7 +148,7 @@
             <div class="right">
                 @if ($transaksi->potongan)
                 <div>
-                   <b> Subtotal:</b> &nbsp;&nbsp;  Rp. {{ formatRupiah($transaksi->jumlah) }}
+                   <b> Subtotal:</b> &nbsp;&nbsp;  Rp. {{ formatRupiah((int)$transaksi->jumlah) }}
                 </div>
                 
                 <div>
@@ -148,7 +159,7 @@
                    <b> Subtotal Sblm Potongan:</b> &nbsp;&nbsp;  Rp. {{ formatRupiah($transaksi->jumlah_sebelum_potongan ?? 0) }}
                 </div>
                 @else
-                    <b>Subtotal:</b> &nbsp;&nbsp;  -Rp. {{ formatRupiah($transaksi->jumlah) }}
+                    <b>Subtotal:</b> &nbsp;&nbsp;  Rp. {{ formatRupiah((int)$transaksi->jumlah) }}
                 @endif
                
                 <div>

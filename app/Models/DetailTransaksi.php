@@ -15,6 +15,11 @@ class DetailTransaksi extends Model
     /**
      * ini ngerelasi ke model produk
      */
+    public function varian()
+    {
+        return $this->belongsToMany(VarianProduk::class, parentKey:'id_detail_transaksi',relatedKey:'id');
+        # code...
+    }
     public function produk(){
         return $this->belongsTo(Product::class,'kode_produk','id');
     }

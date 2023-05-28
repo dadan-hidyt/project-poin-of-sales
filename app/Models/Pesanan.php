@@ -18,7 +18,7 @@ class Pesanan extends Model
     {
         return $this->belongsTo(Meja::class, 'id_meja');
     }
-   
+
     public function detail_pesanan()
     {
         return $this->hasMany(DetailPesanan::class, 'id_pesanan');
@@ -30,16 +30,25 @@ class Pesanan extends Model
         $subtotal = 0;
         $pajak = 0;
         foreach ($data as $item) {
-            $subtotal += ($item->produk->harga_jual * $item->qty);
-            if ($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
-                $pajak += ($item->produk->harga_jual * ($item->produk->pajak / 100));
+            if ($varian = $item->varian()->get()) {
+                foreach ($varian as  $value) {
+                    $subtotal += ($value->harga * $item->qty);
+                }
+                if ($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
+                    $pajak += ($item->produk->harga_jual * ($item->produk->pajak / 100));
+                }
+            } else {
+                $subtotal += ($item->produk->harga_jual * $item->qty);
+                if ($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
+                    $pajak += ($item->produk->harga_jual * ($item->produk->pajak / 100));
+                }
             }
         }
         $data = [
             'subtotal' => $subtotal,
             'pajak' => $pajak,
             'grand_total' => $subtotal + $pajak,
-            'grand_total_rupiah' => formatRupiah($subtotal+$pajak),
+            'grand_total_rupiah' => formatRupiah($subtotal + $pajak),
         ];
         if ($q) {
             return $data[$q] ?? '';

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\DetailTransaksi;
+use App\Models\DetailTransaksiVarian;
 use App\Models\Pelanggan;
 use App\Models\PengaturanPoinReward;
 use App\Models\PoinRewardPembelian;
@@ -61,7 +62,7 @@ class Pembayaran extends Component
     }
     public function updated()
     {
-        $this->jumlah_bayar = $this->jumlah_bayar;
+        $this->jumlah_bayar = (int)$this->jumlah_bayar;
     }
     public function claimPoinPembelian()
     {
@@ -113,8 +114,17 @@ class Pembayaran extends Component
                     'persentase_pajak' => $pesanan->produk->pajak,
                     'total' => $total_pajak + $subtotal,
                 ];
-                DB::table('tb_detail_transaksi')->insert($detail);
+                $transaksiDetail = DetailTransaksi::create($detail);
+                if ($varian = $pesanan->varian()->get(['varian_produk_id'])) {
+                    foreach($varian as $v){
+                        DetailTransaksiVarian::insert([
+                            'detail_transaksi_id' => $transaksiDetail->id,
+                            'varian_produk_id' => $v->varian_produk_id,
+                        ]);
+                    }
 
+
+                }
                 $produk = Product::find($pesanan->id_produk);
                 $produk->sisa_stok = ($produk->sisa_stok - $pesanan->qty);
                 $produk->save();
@@ -122,8 +132,10 @@ class Pembayaran extends Component
 
             try {
                 $pelanggan = $this->pesanan->pelanggan;
-                $pelanggan->poin = 0;
-                $pelanggan->save();
+                if ($pelanggan && $pelanggan->poin) {
+                    $pelanggan->poin = 0;
+                    $pelanggan->save();
+                }
                 $reward = $this->claimPoinPembelian();
                 $create_transaksi = DB::table('tb_transaksi')->insert([
                     'kode_transaksi' => $kode_transaksi,
@@ -137,7 +149,7 @@ class Pembayaran extends Component
                     'status_pembayaran' => "DIBAYAR",
                     'id_kasir' => $id_kasir,
                     'jumlah_sebelum_potongan' => $this->pesanan->hitungPesanan('subtotal'),
-                    'jumlah' => ($this->pesanan->hitungPesanan('subtotal') - $potongan_harga),
+                    'jumlah' => ($this->pesanan->hitungPesanan('subtotal') - (int)$potongan_harga),
                     'potongan' => $potongan_harga,
                     'jmlh_bayar' => $this->jumlah_bayar,
                     'metode_pembayaran' => $this->metode,
