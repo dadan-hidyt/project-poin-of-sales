@@ -77,7 +77,7 @@
                 </div>
                 @endif
             </div>
-            <span>-----------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------</span>
             <div class="nota">
                 <div>
                     <b>Kode Transaksi :</b>#{{ $transaksi->kode_transaksi }}</div>
@@ -107,28 +107,29 @@
                     {{ $transaksi->pelanggan->nama ?? 'Tidak Ada Nama' }}
                 </div>
             </div>
-            <span>-----------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------</span>
             <table width="100%">
                 @foreach ($transaksi->detailTransaksi as $item)
                 <tr>
                     <td>{{ $item->produk->nama_produk }} 
-                      @if ($varian = $item->varian()->get())
+                      @if ($item->varian()->exists())
                       <table>
                         <tr>
                             <th>Varian:</th>
-                            @foreach ($varian as $itemVarian)
-                                <th>{{$itemVarian->nama_varian}} - 10.000</th>
+                            @foreach ($item->varian()->get() as $itemVarian)
+                                <th>{{$itemVarian->nama_varian}} - Rp.{{ formatRupiah($itemVarian->harga) }}</th>
                             @endforeach
                         </tr>
                        </table>
                       @endif
                     </td>
                     <th>Rp. {{ formatRupiah($item->harga) }} x {{ $item->jumlah }}</th>
+                    <th>Rp. {{ formatRupiah($item->varian()->sum('harga') + $item->harga) }}</th>
                 </tr>
                 
                 @endforeach
             </table>
-            <span>-----------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------</span>
             <div style="float:left;">
                 @empty($transaksi->reward_pembelian != [])
                 @php
@@ -171,9 +172,9 @@
             </div>
            
             <div class="clearfix"></div>
-            <span>-----------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------</span>
                 <div class="subtotal">Subtotal: Rp. {{ formatRupiah($transaksi->jumlah + ($transaksi->total_pajak ?? 0)) }}</div>
-            <span>-----------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------</span>
 
            @if (!empty($pengaturan->catatan))
            <p class="center">

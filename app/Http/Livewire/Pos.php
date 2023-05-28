@@ -119,8 +119,9 @@ class Pos extends Component
         } else {
             if ($detail_pesanan = DetailPesanan::create($this->item_pesanan)) {
                 if($varian){
-                    $detail_pesanan->varian()->syncWithoutDetaching($varian);
+                    $detail_pesanan->varian()->sync($varian);
                 }
+                $this->item_pesanan = [];
                 $this->dispatchBrowserEvent("produk_berhasil_di_tambahkan", $id_produk);
             }
         }
@@ -137,6 +138,9 @@ class Pos extends Component
     }
     public function clearDetailPesanan()
     {
+        foreach ($this->pesanan->detail_pesanan()->varian()->get() as  $value) {
+            dd($value);
+        }
         if ($this->pesanan->detail_pesanan()->truncate()) {
             $this->emit('refreshComponent');
             $this->dispatchBrowserEvent("detail_pesanan_di_bersihkan");

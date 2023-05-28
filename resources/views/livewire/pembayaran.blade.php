@@ -1,7 +1,6 @@
 {{-- @dd($pesanan) --}}
 
 <div class="container-xl" style="margin-top: 16px;">
-
     @if (session('success'))
         <div class="row">
             <div class="col-12">
@@ -44,9 +43,7 @@
                                                     @if ($item->catatan != null)
                                                         <span>{{ $item->catatan }}</span>
                                                     @endif
-                                                    <span class="text-secondary fs-7"
-                                                        style="width: 160px;word-wrap: break-word;">Jangan Terlalu
-                                                        banyak sayur</span>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -54,6 +51,24 @@
                                     <li class="fw-bolder fs-14">Rp.
                                         {{ number_format($item->produk->harga_jual * $item->qty, 2, ',', '.') }} </li>
                                 </ul>
+                                @if ($item->varian()->exists())
+                                    <table class="table mb-3 shadow-sm table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Varian</th>
+                                                <th>Harga</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($item->varian()->get() as $varian_item)
+                                                <tr>
+                                                    <td>{{ $varian_item->nama_varian }}</td>
+                                                    <td>Rp. {{ formatRupiah($varian_item->harga) }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @endif
                             @endforeach
                         @endif
 
@@ -64,8 +79,9 @@
                         <div class="d-flex align-items-center justify-content-between py-3 border-1 border-bottom">
                             <h6 style="font-size:16px;" class="fw-bolder">Jenis Order :</h6>
                             <h6 style="font-size:16px;" class="text-dark-75">{{ $pesanan->type }} - @if ($pesanan->meja)
-                                {{$pesanan->meja->nama}}
-                            @endif</h6>
+                                    {{ $pesanan->meja->nama }}
+                                @endif
+                            </h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-between py-3 border-1 border-bottom">
                             <h6 style="font-size:16px;" class="fw-bolder">Subtotal :</h6>
@@ -84,7 +100,7 @@
                         <div class="d-flex align-items-center justify-content-between py-3 border-1 border-bottom">
                             <h6 style="font-size:16px;" class="fw-bolder">Total Tagihan :</h6>
                             <h6 style="font-size:16px;" class="fw-bolder text-dark-75">
-                                Rp.{{ formatRupiah($pesanan->hitungPesanan()['grand_total'] - $this->potongan )}}</h6>
+                                Rp.{{ formatRupiah($pesanan->hitungPesanan()['grand_total'] - $this->potongan) }}</h6>
                         </div>
                     </div>
                 </div>
@@ -97,7 +113,8 @@
                     <div class="card">
                         <div class="card-body">
                             <span class="text-secondary">Total Tagihan</span>
-                            <h4 class="fw-bolder mt-2">Rp.{{ formatRupiah($pesanan->hitungPesanan()['grand_total'] - $potongan) }}</h4>
+                            <h4 class="fw-bolder mt-2">
+                                Rp.{{ formatRupiah($pesanan->hitungPesanan()['grand_total'] - $potongan) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -153,7 +170,8 @@
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" wire:keyup='setJumlahLainya($event.target.value)'>
+                            <input type="text" class="form-control"
+                                wire:keyup='setJumlahLainya($event.target.value)'>
                         </div>
                         <div class="col-md-4">
                             <button class="card mx-2 btn w-100" data-bs-toggle="modal"
@@ -173,12 +191,15 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button  type="submit" class="btn btn-danger text-white w-100" onclick="return confirm('Yakin Akan Menghapus Pesanan ini?')"><i class="bx bx-trash"></i></button>
+                            <button type="submit" class="btn btn-danger text-white w-100"
+                                onclick="return confirm('Yakin Akan Menghapus Pesanan ini?')"><i
+                                    class="bx bx-trash"></i></button>
                         </div>
                         <div class="col-md-10">
-                            <button wire:click='bayar' type="submit" class="btn btn-success text-white w-100" onclick="alert('Selamat Pesanan Berhasil!!')">Lanjut Pembayaran</button>
+                            <button wire:click='bayar' type="submit" class="btn btn-success text-white w-100"
+                                onclick="alert('Selamat Pesanan Berhasil!!')">Lanjut Pembayaran</button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -198,8 +219,8 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <input wire:keyup='setUang(event.target.value)' type="number" class="form-control" placeholder="Jumlah Lain"
-                        name="" id="inputNominal">
+                    <input wire:keyup='setUang(event.target.value)' type="number" class="form-control"
+                        placeholder="Jumlah Lain" name="" id="inputNominal">
                 </div>
                 <button type="submit" class="btn btn-warning w-100 text-white">Simpan</button>
             </div>
@@ -219,7 +240,8 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <select name="pesanan[]" class="form-control js-example-basic-multiple" multiple="multiple" aria-placeholder="Pilih Meja">
+                    <select name="pesanan[]" class="form-control js-example-basic-multiple" multiple="multiple"
+                        aria-placeholder="Pilih Meja">
                         @foreach ($semuaPesanan as $item)
                             <option value="{{ $item->kode_pesanan }}">{{ $item->kode_pesanan }}</option>
                         @endforeach
@@ -233,7 +255,8 @@
 
 {{-- Modal Voucher Claim --}}
 
-<div class="modal fade" wire:ignore id="voucherClaim" tabindex="-1" aria-labelledby="voucherClaimLabel" aria-hidden="true">
+<div class="modal fade" wire:ignore id="voucherClaim" tabindex="-1" aria-labelledby="voucherClaimLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -243,7 +266,8 @@
             </div>
             <form wire:submit.prevent='claimVoucher' method='post' class="modal-body">
                 <div class="mb-3">
-                    <div class="input-group"><input wire:model='voucher.kode_voucher' type="text" class="form-control" placeholder="Input Voucher">
+                    <div class="input-group"><input wire:model='voucher.kode_voucher' type="text"
+                            class="form-control" placeholder="Input Voucher">
                     </div>
                 </div>
                 <div class="mb-3">
@@ -257,7 +281,7 @@
 </div>
 
 {{-- Modal Poin Reward --}}
- 
+
 <div class="modal fade" id="poinReward" tabindex="-1" aria-labelledby="poinRewardLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

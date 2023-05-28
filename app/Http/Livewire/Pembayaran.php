@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\DetailPesananVarian;
 use App\Models\DetailTransaksi;
 use App\Models\DetailTransaksiVarian;
 use App\Models\Pelanggan;
@@ -31,7 +32,7 @@ class Pembayaran extends Component
         if ($this->pesanan->pelanggan && $this->pesanan->jenis_reward == 'pembelian') {
             $pelanggan = $this->pesanan->pelanggan;
             $potongan = ($pelanggan->poin / 1) * PengaturanPoinReward::first()->potongan_per_10_poin ?? 1000;
-            if ( $potongan <= $this->pesanan->hitungPesanan('subtotal') ) {
+            if ($potongan <= $this->pesanan->hitungPesanan('subtotal')) {
                 $potongan = $potongan;
             } else {
                 $potongan = 0;
@@ -39,10 +40,11 @@ class Pembayaran extends Component
         } else {
             $potongan = 0;
         }
-        
+
         return $potongan + $this->pesanan->jumlah_potongan_voucher ?? 0;
     }
-    public function setJumlahLainya($e = null){
+    public function setJumlahLainya($e = null)
+    {
         $this->setUang($e);
     }
     public function refresh_jumlah_bayar()
@@ -100,8 +102,10 @@ class Pembayaran extends Component
         } else {
             $id_kasir = auth()->user()->getKasir()->id;
             $kode_transaksi = uniqid("TRX-");
+            $pesanan_id = [];
             DB::beginTransaction();
             foreach ($this->pesanan->detail_pesanan as $pesanan) {
+                $pesanan_id[] = $pesanan->id;
                 $total_pajak = $pesanan->produk->harga_jual * ($pesanan->produk->pajak / 100);
                 $subtotal = ($pesanan->produk->harga_jual * $pesanan->qty);
                 $detail = [
@@ -116,14 +120,12 @@ class Pembayaran extends Component
                 ];
                 $transaksiDetail = DetailTransaksi::create($detail);
                 if ($varian = $pesanan->varian()->get(['varian_produk_id'])) {
-                    foreach($varian as $v){
+                    foreach ($varian as $v) {
                         DetailTransaksiVarian::insert([
                             'detail_transaksi_id' => $transaksiDetail->id,
                             'varian_produk_id' => $v->varian_produk_id,
                         ]);
                     }
-
-
                 }
                 $produk = Product::find($pesanan->id_produk);
                 $produk->sisa_stok = ($produk->sisa_stok - $pesanan->qty);
@@ -156,6 +158,9 @@ class Pembayaran extends Component
                 ]);
                 DB::commit();
                 $this->pesanan->detail_pesanan()->truncate();
+                foreach( $pesanan_id as $id) {
+                    DetailPesananVarian::where('detail_pesanan_id',$id)->delete();
+                }
                 $this->pesanan->delete();
                 session()->flash('pembayaran_berhasil', "Pembayaran berhasil!! Silahkan tunggu untuk mencetak struk");
                 return redirect()->route('kasir.cetak_struk', $kode_transaksi);

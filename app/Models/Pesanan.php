@@ -30,9 +30,9 @@ class Pesanan extends Model
         $subtotal = 0;
         $pajak = 0;
         foreach ($data as $item) {
-            if ($varian = $item->varian()->get()) {
-                foreach ($varian as  $value) {
-                    $subtotal += ($value->harga * $item->qty);
+            if ($item->varian()->exists()) {
+                foreach ($item->varian()->get() as  $value) {
+                    $subtotal += ($item->produk->harga_jual + $value->harga) * $item->qty;
                 }
                 if ($item->produk->pajak && $item->produk->pajak != 0 && !empty($item->produk->pajak)) {
                     $pajak += ($item->produk->harga_jual * ($item->produk->pajak / 100));
