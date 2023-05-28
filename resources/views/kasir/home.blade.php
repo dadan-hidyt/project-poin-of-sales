@@ -1,6 +1,9 @@
 <x-kasir-layout>
   
     <div class="container">
+    @if (session()->has('hapus_berhasil'))
+        <p class="alert mt-4 alert-info">{{ session('hapus_berhasil'); }}</p>
+    @endif
         <header class="header-home d-flex align-items-center justify-content-between">
             <div class="title">
                 <h4 class="fw-bolder">Buat Pesanan</h4>

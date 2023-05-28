@@ -191,8 +191,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button type="submit" class="btn btn-danger text-white w-100"
-                                onclick="return confirm('Yakin Akan Menghapus Pesanan ini?')"><i
+                            <button  type="submit" class="btn btn-danger text-white w-100"
+                               id="button_hapus_pesanan"><i
                                     class="bx bx-trash"></i></button>
                         </div>
                         <div class="col-md-10">
@@ -316,3 +316,17 @@
     </div>
 </div>
 </div>
+<script>
+    window.onload = () => {
+        function hapusPesanan(){
+            if ( confirm("Apakah anda yakin?") )
+             {
+                @this.hapusPesananIni();
+             } else {
+                notyf.error("Penghapusan dibatalkan");
+             }
+        }
+
+        document.getElementById('button_hapus_pesanan').onclick = hapusPesanan;
+    }
+</script>

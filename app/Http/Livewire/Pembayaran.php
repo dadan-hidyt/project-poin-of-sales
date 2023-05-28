@@ -180,7 +180,19 @@ class Pembayaran extends Component
         }
         $this->emit('refresh_jumlah_bayar');
     }
-
+    public function hapusPesananIni(){
+        $pesanan_id = [];
+        foreach ($this->pesanan->detail_pesanan as $pesanan) {
+            $pesanan_id[] = $pesanan->id;
+        }
+        $this->pesanan->detail_pesanan()->truncate();
+        foreach( $pesanan_id as $id) {
+            DetailPesananVarian::where('detail_pesanan_id',$id)->delete();
+        }
+        $this->pesanan->delete();
+        session()->flash('hapus_berhasil','Penghapusan data berhasil');
+        return redirect()->route('kasir.index');
+    }
     public function render()
     {
         return view('livewire.pembayaran');
