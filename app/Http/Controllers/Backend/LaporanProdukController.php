@@ -24,7 +24,7 @@ class LaporanProdukController extends Controller
         ->addColumn('varian',function($row){
             $varian = '';
             foreach ($row->varian as $item) {
-                $varian .= $item->nama_varian." ({$item->stok})  Rp. {$item->harga} ";
+                $varian .= $item->nama_varian." ({$item->stok})  Rp. {" .formatRupiah($item->harga)."} ";
             }
             return $varian;
         })

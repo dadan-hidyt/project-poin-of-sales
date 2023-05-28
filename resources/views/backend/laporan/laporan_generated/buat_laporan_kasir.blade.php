@@ -64,8 +64,8 @@
         <div><b>Nama: </b>{{ $kasir->user->nama_user }}</div>
         <div><b>Tanggal Masuk:</b> {{ $kasir->waktu_masuk }}</div>
         <div><b>Waktu Keluar: </b>{!! $kasir->waktu_keluar ?? '<i>Belum Keluar</i>' !!}</div>
-        <div><b>Kas Awal:</b> Rp. {{ $kasir->kas_awal }} - Sisa Kas: Rp. {{ $kasir->sisa_kas ?? 0 }}</div>
-        <div><b>Uang Keseluruhan:</b> {{ $kasir->total_keseluruhan }}</div>
+        <div><b>Kas Awal:</b> Rp. {{ formatRupiah($kasir->kas_awal) }} - Sisa Kas: Rp. {{ formatRupiah($kasir->sisa_kas) ?? 0 }}</div>
+        <div><b>Uang Keseluruhan:</b>Rp. {{ formatRupiah($kasir->total_keseluruhan )}}</div>
         <div><b>Total Transaksi:</b> {{ $kasir->transaksi->count(); }}</div>
     </div>
     <hr style="border:1px dashed #dedede;margin:10px 0px">
