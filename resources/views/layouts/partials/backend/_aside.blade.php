@@ -181,7 +181,7 @@
                                 <a href="" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pajak Pertransaksi</span></a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="custom/apps/inbox.html" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pembayaran Non Tunai</span></a>
+                                <a href="{{ route('dashboard.pengaturan.daftarTampil') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pembayaran Non Tunai</span></a>
                             </li>
                         </ul>
                     </div>

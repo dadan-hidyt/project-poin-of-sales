@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\Pengaturan\SatuanBarang;
 use App\Http\Controllers\Backend\PengaturanController;
 use App\Http\Controllers\JenisOrderController;
+use App\Models\PengaturanWeb;
 use Illuminate\Support\Facades\Route;
 
 //
@@ -19,3 +20,12 @@ Route::prefix('jenis-order')->group(function () {
 
 
 Route::get('pajak', [PengaturanController::class, 'pajak'])->name('.pajak');
+
+
+// Pembayaran Non Tunai 
+Route::prefix('pembayaran-non-tunai')->group(function () {
+    Route::get('/daftar', [PengaturanController::class, 'daftarPembayaran'])->name('.daftarTampil');
+    Route::get('/tambah', [PengaturanController::class, 'tambahPembayaran'])->name('.tambahTampil');
+    Route::post('/tambah', [PengaturanController::class, 'tambahProsess'])->name('.tambahTampil');
+    Route::get('/hapus/{id}', [PengaturanController::class, 'hapusPembayaran'])->name('.hapusPembayaran');
+})->name('nonTunai');

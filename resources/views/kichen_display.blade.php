@@ -220,11 +220,6 @@
     <script src="{{ asset('assets') }}/js/jquery.mask.min.js"></script>
     <script src="{{ asset('assets') }}/js/timer-countdown.js"></script>
 
-    <script>
-        function startTimer(time){
-            alert(time)
-        }
-    </script>
 
 </body>
 
