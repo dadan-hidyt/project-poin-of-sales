@@ -62,4 +62,16 @@ class POSController extends Controller
 
         return back()->with('success', 'Pesanan berhasil digabungkan.');
     }
+
+    public function VoidPesanan($id)
+    {
+        $pesanan = Pesanan::find($id)
+            ->delete();
+
+        if ($pesanan) {
+            return redirect(route('kasir.index'))->with('success', 'Pesanan Berhasil Di Hapus');
+        } else {
+            return redirect(route('kasir.index'))->with('deleteFail', 'Pesanan Gagal Di hapus');
+        }
+    }
 }

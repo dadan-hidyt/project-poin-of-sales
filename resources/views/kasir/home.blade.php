@@ -1,9 +1,19 @@
 <x-kasir-layout>
   
     <div class="container">
-    @if (session()->has('hapus_berhasil'))
-        <p class="alert mt-4 alert-info">{{ session('hapus_berhasil'); }}</p>
-    @endif
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if (session()->has('deleteFail'))
+            <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
+                {{ session('deleteFail') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <header class="header-home d-flex align-items-center justify-content-between">
             <div class="title">
                 <h4 class="fw-bolder">Buat Pesanan</h4>

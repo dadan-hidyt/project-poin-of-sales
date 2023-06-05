@@ -54,11 +54,13 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top py-4">
-                    <div class="container">
+                    <div class="container d-flex align-items-center justify-content-between">
                         <a href="{{ route('kasir.pesanan.bayar', $item->kode_pesanan) }}"
-                            class="btn btn-primary p-1 px-2">Bayar Sekarang</a>
+                            class="btn btn-primary p-1 py-2 px-2">Bayar</a>
                         <a href="{{ route('kasir.pos', $item->kode_pesanan) }}"
-                            class="btn btn-primary p-1 px-2">Lihat</a>
+                            class="btn btn-primary p-1 py-2 px-2">Lihat</a>
+                        <a href="{{  route('kasir.pesanan.delete', $item->id )  }}"
+                            class="btn btn-danger p-1 py-2 px-2" onclick="return alert('Apakah Anda yakin akan menghapus data {{ $item->kode_pesanan }}')">Hapus</a>
                     </div>
                 </div>
             </div>
