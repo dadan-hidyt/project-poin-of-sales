@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('struk_setting', function (Blueprint $table) {
             $table->id();
             $table->string('group_name')->unique();
-            $table->enum('alamat',[1,0]);
-            $table->enum('no_telp', [1,0]);
-            $table->enum('email', [1,0]);
+            $table->string('alamat');
+            $table->string('no_telp');
+            $table->string('email');
             $table->text('catatan');
-            $table->enum('active',['Y','N']);
+            // $table->string('logo');
+            $table->enum('active', ['Y', 'N']);
             $table->timestamps();
         });
     }

@@ -6,8 +6,14 @@ use App\Http\Controllers\JenisOrderController;
 use App\Models\PengaturanWeb;
 use Illuminate\Support\Facades\Route;
 
-//
-Route::get('struk', [PengaturanController::class, 'struk'])->name('.struk');
+
+Route::prefix('struk')->group(function () {
+    Route::get('/view', [PengaturanController::class, 'view'])->name('.struk');
+    Route::post('/update', [PengaturanController::class, 'updateStruk'])->name('.updateStruk');
+});
+
+
+
 Route::get('satuan_barang', [PengaturanController::class, 'satuanBarang'])->name('.satuan_barang');
 Route::get('satuan_barang/{id}/delete', [SatuanBarang::class, 'delete'])->name('.satuan_barang.delete');
 Route::post('satuan_barang/tambah', [SatuanBarang::class, 'store'])->name('.satuan_barang.store');

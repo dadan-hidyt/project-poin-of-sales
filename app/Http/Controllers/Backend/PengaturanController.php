@@ -4,18 +4,53 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Livewire\Pembayaran;
+use Illuminate\Validation\Rule;
 use App\Models\SatuanBarang;
+use App\Models\PengaturanStruk;
 use App\Models\PembayaranNonTunaiModel;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class PengaturanController extends Controller
 {
-    public function struk()
+    public function view()
     {
         $this->setTitle("Pengaturan Struk");
         return view('backend.pengaturan.struk');
     }
+
+    public function updateStruk(Request $request)
+    {
+
+        $request->validate([
+            'no_telp' => [
+                'sometimes',
+                Rule::unique('struk_setting')->ignore(1),
+            ],
+            'alamat' => 'max:150,',
+            'email' => 'email',
+            'catatan' => 'max:225,'
+        ]);
+
+        $request->merge([
+            'active' => 'Y'
+        ]);
+
+        $attr = $request->all();
+
+        // dd($attr);
+
+        // Melakukan Update Data
+
+        $update = PengaturanStruk::find(1)
+            ->update($attr);
+        if ($update) {
+            return redirect()->back()->with('success', 'Data Berhasil Di update');
+        } else {
+            return redirect()->back()->withErrors('fail', 'Data Gagal Di Update');
+        }
+    }
+
     public function satuanBarang()
     {
         $this->setTitle('Satuan Barang');
