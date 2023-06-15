@@ -50,7 +50,7 @@
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
-        <div class="form-group">
+        <div class="form-group" hidden>
             <label>Poduk Favorit: ?</label>
             <div class="col-3">
                 <span class="switch">
@@ -103,14 +103,14 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group" wire:ignore>
+        {{-- <div class="form-group" wire:ignore>
             <label for="pilih_varian">Pilih Varian</label>
             <select name="" style="width:100%" class="form-control @error('produk.id_varian') is-invalid @enderror"
                 id="select-varian-produk"></select>
             @error('produk.id_varian')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
-        </div>
+        </div> --}}
         <div class="form-group">
             <label for="pilih_gambar">Pilih Gambar</label>
             <div class="gambar">

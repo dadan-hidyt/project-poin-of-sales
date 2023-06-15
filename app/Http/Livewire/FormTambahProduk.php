@@ -58,11 +58,12 @@ class FormTambahProduk extends Component
 
         $this->produk['harga_jual'] = $this->clearNominal($this->produk['harga_jual']);
         $this->produk['sisa_stok'] = $this->produk['stok'];
-        if ($this->produk['produk_favorit'] === "Y") {
-            $favorit = "Y";
-        } else {
-            $favorit = "N";
-        }
+        $favorit = $this->produk['produk_favorit'] = "Y";
+        // if ($this->produk['produk_favorit'] === "Y") {
+        //     $favorit = "Y";
+        // } else {
+        //     $favorit = "N";
+        // }
 
         $this->produk['produk_favorit'] = $favorit;
         //create

@@ -59,12 +59,22 @@
             </button> --}}
 
             <form action="{{ route('kasir.pesanan.bayar',$pesanan->kode_pesanan) }}">
-                <select class="form-select" aria-label=".form-select-sm lanjutkan pembayaran" name="metode">
+                <select class="form-select" aria-label=".form-select-sm lanjutkan pembayaran" name="metode" onchange="toggleDebitType(this)">
                     <option selected>Pilih Metode Pembayaran</option>
                     <option value="cash">Cash</option>
                     <option value="debit">Debit</option>
                     <option value="ewalet">E-Wallet</option>
                     <option value="transfer">Transfer</option>
+                </select>
+            
+                <select class="form-select mt-3" aria-label=".form-select-sm lanjutkan pembayaran" name="debitType" id="debitTypeSelect" style="display: none;">
+                    <option value="null">Pilih Debit Pembayaran</option>
+                    <?php $debit = App\Models\PembayaranNonTunaiModel::all() ?>
+                    @if (count($debit) > 0)
+                        @foreach ($debit as $item)
+                            <option value="{{ $item->debit_name }}">{{ $item->debit_name }}</option>
+                        @endforeach
+                    @endif
                 </select>
                 
                 <button type="submit" class="btn btn-success w-100 mt-4">
@@ -75,7 +85,16 @@
     </div>
 </div>
 
-
+<script>
+    function toggleDebitType(selectElement) {
+        var debitTypeSelect = document.getElementById('debitTypeSelect');
+        if (selectElement.value === 'debit') {
+            debitTypeSelect.style.display = 'block';
+        } else {
+            debitTypeSelect.style.display = 'none';
+        }
+    }
+</script>
 
 {{-- <div wire:ignore.self class="modal fade" id="pilihPembayaran" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">

@@ -50,7 +50,7 @@
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label>Poduk Favorit: ?</label>
             <div class="col-3">
                 <span class="switch">
@@ -61,7 +61,7 @@
                     </label>
                 </span>
             </div>
-        </div>
+        </div> --}}
 
         <div class="form-group row">
             <div class="col-lg-3">

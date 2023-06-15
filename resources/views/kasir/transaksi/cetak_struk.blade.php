@@ -6,14 +6,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Example</title>
+        <title>{{ $title ?? 'Struk' }}</title>
         <style>
             
             .center{
                 text-align: center;
             }
             .struk {
-                width: 500px;
+                width: 90%;
                 margin: auto;
             }
             @media(max-width:720px){
@@ -29,6 +29,9 @@
                 text-align: center;
                 font-size: large;
                 margin: 10px 0;
+            }
+            .logo img{
+                width: 50%;
             }
             .nota {
                 width: 98%;
@@ -62,22 +65,16 @@
     <body>
         <div class="struk clearfix">
             <div class="logo"><img src="kasir-assets/img/logo.png" alt=""> </div>
-            <div class="kontak">
-                @if ($pengaturan->alamat == 1)
-                <div>Jl. Medan merdeka no2</div>
-                @endif
-                @if ($pengaturan->no_telp == 1)
-                <div>
-                    Telp:088223837165
+            <div class="kontak mt-3">
+                <div class="mb-2">{{ $pengaturan->alamat }}</div>
+                <div class="mb-2">
+                    Telp: {{ $pengaturan->no_telp }}
                 </div>
-                @endif
-                @if ($pengaturan->email == 1)
                 <div>
-                    Telp:dadanhidyt@gmail.com
+                    Email : {{ $pengaturan->email }}
                 </div>
-                @endif
             </div>
-            <span>--------------------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------------------------------------</span>
             <div class="nota">
                 <div>
                     <b>Kode Transaksi :</b>#{{ $transaksi->kode_transaksi }}</div>
@@ -107,7 +104,7 @@
                     {{ $transaksi->pelanggan->nama ?? 'Tidak Ada Nama' }}
                 </div>
             </div>
-            <span>--------------------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------------------------------------</span>
             <table width="100%">
                 @foreach ($transaksi->detailTransaksi as $item)
                 <tr>
@@ -129,7 +126,7 @@
                 
                 @endforeach
             </table>
-            <span>--------------------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------------------------------------</span>
             <div style="float:left;">
                 @empty($transaksi->reward_pembelian != [])
                 @php
@@ -172,9 +169,9 @@
             </div>
            
             <div class="clearfix"></div>
-            <span>--------------------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------------------------------------</span>
                 <div class="subtotal">Subtotal: Rp. {{ formatRupiah($transaksi->jumlah + ($transaksi->total_pajak ?? 0)) }}</div>
-            <span>--------------------------------------------------------------------------------------------</span>
+            <span>--------------------------------------------------------------------------------------------------------------------------</span>
 
            @if (!empty($pengaturan->catatan))
            <p class="center">

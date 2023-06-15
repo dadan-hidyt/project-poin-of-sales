@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{ $count = 1 }}
+                        <?php $count = 1; ?>
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{  $count++  }}.</td>

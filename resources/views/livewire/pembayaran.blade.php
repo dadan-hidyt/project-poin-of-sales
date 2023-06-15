@@ -195,11 +195,18 @@
                                id="button_hapus_pesanan"><i
                                     class="bx bx-trash"></i></button>
                         </div>
+                       @if ($pesanan->detail_pesanan->count() != 0)
                         <div class="col-md-10">
-                            <button wire:click='bayar' type="submit" class="btn btn-success text-white w-100"
-                                onclick="alert('Selamat Pesanan Berhasil!!')">Lanjut Pembayaran</button>
+                                <button wire:click='bayar' type="submit" class="btn btn-success text-white w-100"
+                                    onclick="alert('Selamat Pesanan Berhasil!!')">Lanjut Pembayaran</button>
                         </div>
-
+                       @endif
+                       @if ($pesanan->detail_pesanan->count() == 0)
+                        <div class="col-md-10">
+                            <button wire:click='bayar' type="submit" class="btn btn-secondary w-100" disabled>Belum ada produk</button>
+                            </div>
+                       @endif
+                       
                     </div>
                 </div>
             </div>

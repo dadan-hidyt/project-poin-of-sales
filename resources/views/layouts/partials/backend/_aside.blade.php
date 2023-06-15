@@ -177,9 +177,9 @@
                                         )
                                     }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Satuan Barang</span></a>
                             </li>
-                            <li class="menu-item" aria-haspopup="true">
+                            {{-- <li class="menu-item" aria-haspopup="true">
                                 <a href="" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pajak Pertransaksi</span></a>
-                            </li>
+                            </li> --}}
                             <li class="menu-item" aria-haspopup="true">
                                 <a href="{{ route('dashboard.pengaturan.daftarTampil') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pembayaran Non Tunai</span></a>
                             </li>
@@ -191,9 +191,9 @@
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
-                            <li class="menu-item" aria-haspopup="true">
+                            {{-- <li class="menu-item" aria-haspopup="true">
                                 <a href="{{ route('dashboard.pengaturan.show') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Jenis Order</span></a>
-                            </li>
+                            </li> --}}
                             <li class="menu-item" aria-haspopup="true">
                                 <a href="{{ route('dashboard.meja.index') }}" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daftar Meja</span></a>
                             </li>

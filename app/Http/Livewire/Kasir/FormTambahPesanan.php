@@ -45,7 +45,7 @@ class FormTambahPesanan extends Component
     {
         if ($this->type === "MEJA" && $this->id_meja && $this->type != 'take_away') {
             $meja = $this->getMeja($this->id_meja);
-            if ($val >= $meja->kapasitas) {
+            if ($val >= $meja->kapasitas + 1) {
                 session()->flash("error", [
                     "Jumlah pelanggan melebihi kapasitas meja!"
                 ]);
@@ -66,7 +66,7 @@ class FormTambahPesanan extends Component
             'status_pesanan' => "DIPROSESS",
             'kode_pesanan' => Str::upper(uniqid("P-")),
         ];
-        
+
         if (Pesanan::create($payload)) {
             return redirect(route('kasir.pos', $payload['kode_pesanan']));
         }

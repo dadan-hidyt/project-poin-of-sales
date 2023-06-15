@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Kasir;
 
 use PDF;
 use App\Http\Controllers\Controller;
+use App\Models\Meja;
 use App\Models\Pesanan;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class POSController extends Controller
     public function pos($kode_pesanan = null)
     {
         $pesanan = Pesanan::with(['meja', 'pelanggan', 'detail_pesanan.produk',])->where(['kode_pesanan' => $kode_pesanan, 'id_kasir' => auth()->user()->getKasir()->id])->first();
+
         if (is_null($pesanan)) {
             return redirect()->route('kasir.index');
         }
@@ -72,6 +74,22 @@ class POSController extends Controller
             return redirect(route('kasir.index'))->with('success', 'Pesanan Berhasil Di Hapus');
         } else {
             return redirect(route('kasir.index'))->with('deleteFail', 'Pesanan Gagal Di hapus');
+        }
+    }
+
+    public function editPesanan(Request $request, $id_pesanan)
+    {
+
+        $updatePesanan = Pesanan::find($id_pesanan)
+            ->update([
+                'id_meja' => $request->meja,
+                'id_pelanggan' => $request->pelanggan
+            ]);
+
+        if ($updatePesanan) {
+            return redirect()->back()->with('success', 'Data Berhasil Di edit!');
+        } else {
+            return redirect()->back()->with('failUpdate', 'Data Gagal Di Edit!');
         }
     }
 }

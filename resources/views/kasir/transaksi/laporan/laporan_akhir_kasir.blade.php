@@ -1,84 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan PDF</title>
-	<style type="text/css">
-		body {
-			font-family: Arial, sans-serif;
-			font-size: 12pt;
-			margin: 0;
-			padding: 0;
-		}
-		h1, h2, h3 {
-			font-weight: bold;
-			margin: 0;
-			padding: 0;
-		}
-		h1 {
-			font-size: 24pt;
-			margin-top: 20px;
-			margin-bottom: 10px;
-		}
-		h2 {
-			font-size: 18pt;
-			margin-top: 15px;
-			margin-bottom: 10px;
-		}
-		h3 {
-			font-size: 14pt;
-			margin-top: 10px;
-			margin-bottom: 5px;
-		}
-		p, ul {
-			margin: 0;
-			padding: 0;
-			line-height: 1.5;
-		}
-		ul li {
-			list-style-type: none;
-			padding-left: 0;
-			margin-left: 0;
-		}
-		table {
-			border-collapse: collapse;
-			width: 100%;
-			margin-bottom: 20px;
-		}
-		th, td {
-			border: 1px solid #000;
-			padding: 5px;
-			text-align: left;
-		}
-		th {
-			background-color: #ccc;
-		}
-		.page {
-			page-break-after: always;
-		}
-	</style>
+	<title>Tutup Kasir - Nama Kasir</title>
 </head>
+
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .container{
+        width: 86%;
+        margin: 30px auto;
+    }
+    .header_1{
+        display: flex;
+        align-items: top;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 1.4px solid #44444440;
+    }
+    p{
+        font-size: 14px;
+    }
+    .mb-2{
+        margin-bottom: 14px;
+    }
+    table {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .total {
+      font-weight: bold;
+    }
+    .headingText{
+        color: #444;
+    }
+    .text-danger{
+        color: red;
+    }
+    .catatan-report{
+        margin-top: 40px;
+    }
+    .text-right{
+        text-align: right;
+    }
+    .text-center{
+        text-align: center;
+    }
+	.mb-4{
+		margin-bottom: 24px;
+	}
+</style>
+
 <body>
-	<div class="page">
-		<h1>Laporan Tutup Kasir</h1>
-        <br>
-		<div>Nama: {{ $kasir->user->nama_user }}</div>
-		<div>Waktu Buka: {{ $kasir->waktu_masuk }}</div>
-		<div>Waktu Tutup: {{ $kasir->waktu_keluar }}</div>
-        <h1>Ringkasan</h1>
-		<ul>
-			<li>Total Transaksi: {{ $total_transaksi }}</li>
-			<li>Total Pendapatan: Rp. {{ formatRupiah($jumlah_pendapatan) }},-</li>
-			<li>Kas Awal: Rp. {{formatRupiah( $kas_awal ) }},-</li>
-			<li>Sisa Kas: Rp. {{formatRupiah( $sisa_kas ) }},-</li>
-		</ul>
-		<h1>By Metode Pembayaran</h1>
-		<ul>
-			<li>Cash:Rp.{{ formatRupiah($byMetodePembayaran['cash']) }}</li>
-			<li>Transfer/Debit:Rp.{{ formatRupiah($byMetodePembayaran['debit']) }}</li>
-			<li>E-Wallet:Rp.{{ formatRupiah($byMetodePembayaran['ewalet']) }}</li>
-		
-		</ul>
-        <h4>Jumlah Akhir: Rp. {{ formatRupiah($jumlah_pendapatan+$sisa_kas) }},-</h4>
-	</div>
+	
+    <div class="page">
+        <header class="page-header">
+            <div class="container">
+                <nav class="header_1">
+					<h2 class="mb-4">Laporan Kasir</h2>
+                    {{-- <div class="logo"><img src="kasir-assets/img/logo.png" alt="logo" width="30%"></div> --}}
+                    <div class="header_detail">
+                        <p class="cashier_name mb-2">Kasir : {{ $kasir->user->nama_user }}</p>
+                        <p class="open_kas mb-2">Buka Kasir : {{ $kasir->waktu_masuk }}</p>
+                        <p class="close_kas mb-2">Tutup Kasir : {{ $kasir->waktu_keluar }}</p>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main class="page-content">
+            <div class="container">
+                <h4 class="headingText">Ringkasan <span class="text-danger">*</span></h4>
+
+                <table>
+                    <thead>
+                      <tr>
+                        <th class="text-center">No.</th>
+                        <th>Kas Awal</th>
+                        <th>Kas Akhir</th>
+                        <th>Total Penjualan</th>
+                        <th>Pemasukan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1.</td>
+                        <td class="text-right">Rp. {{formatRupiah( $kas_awal ) }}</td>
+                        <td class="text-right">Rp. {{formatRupiah( $sisa_kas ) }}</td>
+                        <td class="text-center">{{ $total_transaksi }}</td>
+                        <td class="text-right">Rp. {{ formatRupiah($jumlah_pendapatan) }}</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="4" class="total">Total Akhir :</td>
+                        <td class="total text-right">Rp. {{ formatRupiah($jumlah_pendapatan+$sisa_kas) }}</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+
+                  <div class="catatan-report">
+                    <h4 class="headingText">Catatan <span class="text-danger">*</span></h4>
+                    <table>
+                        <thead>
+                          <tr>
+                            <th class="text-center">Pembayaran Cash</th>
+                            <th class="text-center">Pembayaran Debit</th>
+                            <th class="text-center">Pembayaran E-Wallet</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="text-right">Rp.{{ formatRupiah($byMetodePembayaran['cash']) }}</td>
+                            <td class="text-right">Rp.{{ formatRupiah($byMetodePembayaran['debit']) }}</td>
+                            <td class="text-right">Rp.{{ formatRupiah($byMetodePembayaran['ewalet']) }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+            </div>
+        </main>
+    </div>
+
 </body>
 </html>

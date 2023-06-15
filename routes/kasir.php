@@ -25,6 +25,7 @@ Route::get('laporan-penjualan', [HomeController::class, 'laporanPenjualan'])->na
 Route::get('daftar-pelanggan', [HomeController::class, 'daftarPelanggan'])->name('.daftar_pelanggan');
 
 Route::get('pos/delete/{id}', [POSController::class, 'VoidPesanan'])->name('.pesanan.delete');
+Route::post('pos/edit-pesanan/{id_pesanan}', [POSController::class, 'editPesanan'])->name('.pesanan.edit');
 
 Route::get('pos/{kode_pesanan}', [POSController::class, 'pos'])->name('.pos');
 Route::get('pos/{kode_pesanan}/bayar', [POSController::class, 'prosesBayar'])->name('.pesanan.bayar');

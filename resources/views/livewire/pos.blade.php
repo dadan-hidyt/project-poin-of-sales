@@ -40,51 +40,44 @@
                                     Pesanan Saat Ini
                                 </h3>
                             </div>
-                            <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#editPesanan">
-                                <i class="bx bx-edit fs-6"></i>
-                            </button>
+                            @if ($pesanan->type === 'MEJA')
+                                <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#editPesanan">
+                                    <i class="bx bx-edit fs-6"></i>
+                                </button>
 
-                            <div class="modal fade" id="editPesanan" tabindex="-1" aria-labelledby="editPesananLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h1 class="modal-title fs-5" id="editPesananLabel">Edit Pesanan</h1>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                <div class="modal fade" id="editPesanan" tabindex="-1" aria-labelledby="editPesananLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="editPesananLabel">Edit Pesanan</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bx bx-x"></i></button>
+                                        </div>
+                                        <form class="modal-body" action="{{ route('kasir.pesanan.edit', $pesanan->id) }}" method="POST">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="meja">Pindah Meja</label>
+                                                <select class="form-select mt-2" aria-label="Default select example" name="meja">
+                                                    <option value="{{ $pesanan->meja->id }}">{{ $pesanan->meja->nama }}</option>
+                                                    @foreach (App\Models\Meja::all() as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="pelanggan">Ganti Pelanggan</label>
+                                                <select class="form-select mt-2" aria-label="Default select example" name="pelanggan">
+                                                    <option value="{{ $pesanan->pelanggan->id }}">{{ $pesanan->pelanggan->nama }}</option>
+                                                    @foreach (App\Models\Pelanggan::all() as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mt-4"><button class="btn btn-primary w-100" type="submit">Simpan</button></div>
+                                        </form>
                                     </div>
-                                    <form class="modal-body" action="" method="POST">
-                                        @csrf
-                                        <div class="mb-3">
-                                            <label for="jenis_pesan">Jenis Pesan</label>
-                                            <select class="form-select mt-2" aria-label="Default select example" name="jenis_pesan">
-                                                <option selected>Jenis Pesan Saat ini</option>
-                                                <option value="1">Free Table</option>
-                                                <option value="2">Take Away</option>
-                                                <option value="3">Meja</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="meja">Pindah Meja</label>
-                                            <select class="form-select mt-2" aria-label="Default select example" name="meja">
-                                                <option selected>Meja Saat ini</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="pelanggan">Ganti Pelanggan</label>
-                                            <select class="form-select mt-2" aria-label="Default select example" name="pelanggan">
-                                                <option selected>Pelanggan Saat ini</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="mt-4"><button class="btn btn-primary w-100" type="submit">Simpan</button></div>
-                                    </form>
-                                  </div>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                         <div class="orderid-detail border-1 border-bottom py-2">
                             <div class="d-flex align-items-center justify-content-between py-2">
@@ -126,6 +119,16 @@
     </div>
 </div>
 
+@if (session()->has('success'))
+
+    <script>alert(`{{ session('success') }}`)</script>    
+
+@endif
+@if (session()->has('failUpdate'))
+
+    <script>alert(`{{ session('failUpdate') }}`)</script>    
+
+@endif
 
 
 
